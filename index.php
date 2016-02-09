@@ -16,6 +16,25 @@
 	/****************************************************************************
 	*				Gets
 	****************************************************************************/
+	$app->get('/index/category/:id', function($id){
+		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
+		if($mysqli->connect_errno){
+			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
+		}
+
+		$id = (int)$mysqli->real_escape_string($id);
+		$result = $mysqli->query('SELECT name, id FROM Reuse_Categories WHERE Reuse_Categories.id = '.$id.'');
+	    
+	    $returnArray = array();
+	    while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+
+	    echo json_encode($returnArray);
+
+	    $result->close();
+	    $mysqli->close();
+	});
 
 	$app->get('/index/states', function() {
 		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
@@ -132,4 +151,18 @@ $app->get('/index/business', function() {
 
 	$app->run();
 
+/******************************************************************************************
+*				PUTS
+******************************************************************************************/
+	// $app->put('/index/category/:id', function($id){
+	// 	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
+	// 	if($mysqli->connect_errno){
+	// 		echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
+	// 	}
+
+	// 	$inID = $mysqli->real_escape_string($id);
+	// 	$mysqli->query("INSERT INTO Reuse_Categories WHERE Reuse_Locations.id ='$inID'");
+	// 	$mysqli->close();
+	// });
+	
 ?>

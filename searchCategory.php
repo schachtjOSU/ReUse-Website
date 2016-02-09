@@ -50,7 +50,7 @@ function searchCategory(){
         var row = '<tr><th>' + 'Name' + '</th><th>' + 'Modify' + '</th><th>' + 'Delete' + '</th></tr>';
         for(var i = 0; i < data.length; i++){ 
          if(data[i].name == match){
-            row += '<tr><td>' + data[i].name + '</td><td>' + '<a href="editCategory.php"><button id=edit>Edit</button></a>' + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delCategory()>' + '</td></tr>';
+            row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= edit value=' + data[i].id + '><input type= submit value=Edit id=edit onclick=editCategory()>' + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delCategory()>' + '</td></tr>';
          }
         }
         $('#table').append(row);
@@ -68,6 +68,36 @@ function delCategory(){
   });
 searchCategory();
 }
+
+function editCategory(){
+    var match = $('#edit').val();
+    $.ajax({type:"GET",
+    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + match,
+    dataType: 'json',
+    success: function(data){
+      $('#table').empty();
+      var formdata = '<div class="form-group">';
+      formdata += '<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label>';
+      formdata += '<div class="col-sm-10">';
+      formdata += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + data[0].name + '>';
+      formdata += '</div></div><p align="center"><button Id ="submit" type ="submit" class="btn btn-primary" onclick="changeCategory(data); return false" align="center">Update Category</button></p>';
+      formdata += '</form>';
+      $('#EditData').html(formdata);
+    }
+  });
+}
+
+function changeCategory(){
+
+  var data = $('#searchName').val();
+      $.ajax({type:"PUT",
+      url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + data,
+      dataType: 'json',
+      success: function(data){
+      },
+    });
+  searchCategory();
+  }
 
 function checkSession(){
 
@@ -100,7 +130,6 @@ function checkSession(){
       <div class="col-xs-12 col-md-12">
         <br></br>
         <h3>Search for a Category to Edit or Delete</h3>
-        <h2> - The category will not be available for deletion if currently in use -
         <hr></hr>
         <form class="form-horizontal" role="form">
         <div class="form-group">
@@ -119,7 +148,9 @@ function checkSession(){
         <div id="tableHere">
           <table class="table table-striped" id="table"></table>
         </div>
-    
+      
+        <!-- edit info -->
+        <div id= "EditData"></div>
     </div>
     <hr></hr>
     <!-- Hidden row for displaying login errors -->
