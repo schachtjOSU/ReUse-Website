@@ -63,35 +63,16 @@ function addNewCategory(){
     return;
   }
   else{
-    req = new XMLHttpRequest();
-    req.onreadystatechange = function(){
-     if(req.readyState == 4 && req.status == 200){
+    var tableData = "type="+type+"&name="+name;
 
-      /* response was true, allow the user to continue */
-     if(req.responseText == 1){
-        /* redirect with updates */
+    $.ajax({type:"POST",
+      url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category",
+      data: tableData,
+      success: function(data){
         window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/main.php";
-     }
-
-     /* response was false, can't add to DB */
-    if(req.responseText == 0){
-      document.getElementById("output2").innerHTML = "Error adding Category.";
-      document.getElementById("addCategory").reset(); 
-    }
-
-    /* horrible weirdness happened. Print it */
-     else if(req.responseText != 1 && req.responseText != 0){
-          document.getElementById("output2").innerHTML = req.responseText;
-       }
-    }
+      },
+    });
   }
-
-      /* send data to create table */
-      req.open("POST","index2.php", true);
-      req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-      var tableData = "type="+type+"&name="+name;
-      req.send(tableData);
-    }
 }
 </script>
   </head>

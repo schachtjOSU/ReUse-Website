@@ -98,35 +98,17 @@ function addNewBusiness(){
     return;
   }
   else{
-    req = new XMLHttpRequest();
-    req.onreadystatechange = function(){
-     if(req.readyState == 4 && req.status == 200){
 
-      /* response was true, allow the user to continue */
-     if(req.responseText == 1){
-        /* redirect with updates */
+    var tableData = "type="+type+"&name="+name+"&address="+address+"&address2="+address2+"&city="+city+"&state="+state+"&phone="+phone+"&zipcode="+zipcode+"&website="+website;
+
+    $.ajax({type:"POST",
+      url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/business",
+      data: tableData,
+      success: function(data){
         window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/main.php";
-     }
-
-     /* response was false, can't add to DB */
-    if(req.responseText == 0){
-      document.getElementById("output2").innerHTML = "Error adding business.";
-      document.getElementById("addBusiness").reset(); 
-    }
-
-    /* horrible weirdness happened. Print it */
-     else if(req.responseText != 1 && req.responseText != 0){
-          document.getElementById("output2").innerHTML = req.responseText;
-       }
-    }
+      },
+    });
   }
-
-      /* send data to create table */
-      req.open("POST","index2.php", true);
-      req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-      var tableData = "type="+type+"&name="+name+"&address="+address+"&address2="+address2+"&city="+city+"&state="+state+"&phone="+phone+"&zipcode="+zipcode+"&website="+website;
-      req.send(tableData);
-    }
 }
 </script>
   </head>

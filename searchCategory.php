@@ -11,17 +11,7 @@
   ini_set('session.save_path', '/nfs/stak/students/m/masseyta/session');
   session_start();
 
-
-  /***********************************************************************
-  *           Database setup to 
-  ***********************************************************************/
-  $mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-  if($mysqli->connect_errno){
-    echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-  }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,28 +66,35 @@ function editCategory(){
     dataType: 'json',
     success: function(data){
       $('#table').empty();
-      var formdata = '<div class="form-group">';
+      var formdata = '<div class="form-group" id="form1">';
       formdata += '<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label>';
       formdata += '<div class="col-sm-10">';
       formdata += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + data[0].name + '>';
-      formdata += '</div></div><p align="center"><button Id ="submit" type ="submit" class="btn btn-primary" onclick="changeCategory(data); return false" align="center">Update Category</button></p>';
+      formdata += '</div></div><p align="center"><button Id ="submit" type ="submit" class="btn btn-primary" onclick="changeCategory('+ match +'); return false" align="center">Update Category</button></p>';
       formdata += '</form>';
       $('#EditData').html(formdata);
     }
   });
 }
 
-function changeCategory(){
+function changeCategory(match){
 
-  var data = $('#searchName').val();
-      $.ajax({type:"PUT",
-      url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + data,
-      dataType: 'json',
-      success: function(data){
-      },
-    });
-  searchCategory();
-  }
+  var tempname = $('#searchName').val();
+  $.ajax({type:"GET",
+    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + match,
+    dataType: 'json',
+    success: function(data){
+       var tableData = "name="+tempname;
+       var ident = data[0].id;
+        $.ajax({type:"PUT",
+            url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + ident,
+            data: tableData,
+            success: function(){},
+        });
+      searchCategory();
+    }
+  });
+}
 
 function checkSession(){
 
