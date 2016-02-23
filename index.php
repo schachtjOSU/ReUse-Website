@@ -1,5 +1,9 @@
 <?php
-
+	ini_set('display_errors', 'On');	
+		
+	//functions to facilitate connection to reuse database
+	include ('database/reuseConnect.php');
+		
 	/**************************************************************************
 	*				Requirements
 	**************************************************************************/
@@ -17,14 +21,14 @@
 	*				Gets
 	****************************************************************************/
 	$app->get('/index/category/:id', function($id){
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 		$id = (int)$mysqli->real_escape_string($id);
 		$result = $mysqli->query('SELECT name, id FROM Reuse_Categories WHERE Reuse_Categories.id = '.$id.'');
 	    
+		
+		
+		
 	    $returnArray = array();
 	    while($row = $result->fetch_object()){
 	      $returnArray[] = $row;
@@ -37,10 +41,7 @@
 	});
 
 	$app->get('/index/states', function() {
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query('SELECT name, id FROM States');
 		$returnArray = array();
@@ -55,10 +56,7 @@
 	});	
 
 $app->get('/index/business', function() {
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query('SELECT name, id, address_line_1, address_line_2, city, state_id, zip_code, phone, website FROM Reuse_Locations');
 
@@ -75,10 +73,7 @@ $app->get('/index/business', function() {
 
 
 	$app->get('/index/category', function() {
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query('SELECT name, id FROM Reuse_Categories');
 	    
@@ -94,10 +89,7 @@ $app->get('/index/business', function() {
 	});
 
 	$app->get('/index/items', function() {
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query('SELECT name, id, category_id FROM Reuse_Items');
 
@@ -117,10 +109,7 @@ $app->get('/index/business', function() {
 *					DELETES
 *************************************************************************************/
 	$app->delete('/index/business/:id', function($id){
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 		$delID = $mysqli->real_escape_string($id);
 		$mysqli->query("DELETE FROM Reuse_Locations WHERE Reuse_Locations.id ='$delID'");
@@ -128,10 +117,7 @@ $app->get('/index/business', function() {
 	});
 
 	$app->delete('/index/item/:id', function($id){
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 		$delID = $mysqli->real_escape_string($id);
 		$mysqli->query("DELETE FROM Reuse_Items WHERE Reuse_Items.id ='$delID'");
@@ -139,10 +125,7 @@ $app->get('/index/business', function() {
 	});
 
 	$app->delete('/index/category/:id', function($id){
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 		$delID = $mysqli->real_escape_string($id);
 		$mysqli->query("DELETE FROM Reuse_Categories WHERE Reuse_Categories.id ='$delID'");
@@ -155,10 +138,7 @@ $app->get('/index/business', function() {
 *				PUTS
 ******************************************************************************************/
 	$app->put('/index/category/:id', function($id){
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 		//$inID = $mysqli->real_escape_string($id);
 		$inID = $id;
@@ -215,10 +195,7 @@ $app->post('/index/business', function(){
 			$website = null;
 		}
 
-	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-	if($mysqli->connect_errno){
-		echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-	}
+	$mysqli = connectReuseDB();
 
 
 		/* prepare the statement*/
@@ -245,10 +222,7 @@ $app->post('/index/business', function(){
 $app->post('/index/category', function(){
 		$name = $_POST['name'];
 
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 
 		/* Check to  make sure it's not a duplicate */
@@ -285,11 +259,7 @@ $app->post('/index/items', function(){
 		$name = $_POST['name'];
 		$category = $_POST['category'];
 
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
-
+		$mysqli = connectReuseDB();
 
 		/* Check to  make sure it's not a duplicate */
 		$result = $mysqli->query('SELECT name, id FROM Reuse_Items');
