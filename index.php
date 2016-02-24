@@ -36,15 +36,12 @@
 
 
 // API group
-$app->group('/index', function () use ($app) {
+ $app->group('/index', function () use ($app) {
 
 	/****************************************************************************
 	*				Gets
 	****************************************************************************/
-	$app->get('', function() {
-		echo '{1:"Hello World"}';
-	});
-	
+
 	//The entire database, in XML form
 	$app->get('/reuseDB', function() {
 		global $app;
@@ -77,7 +74,10 @@ $app->group('/index', function () use ($app) {
 	});
 
 	$app->get('/states', function() {
-		$mysqli = connectReuseDB();
+		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
+		if($mysqli->connect_errno){
+			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
+		}
 
 		$result = $mysqli->query('SELECT name, id FROM States');
 		$returnArray = array();
@@ -89,7 +89,7 @@ $app->group('/index', function () use ($app) {
 	    echo json_encode($returnArray);
 	    $result->close();
 	    $mysqli->close();
-	});	
+	});		
 
 $app->get('/business', function() {
 		$mysqli = connectReuseDB();
@@ -277,7 +277,7 @@ $app->post('/business', function(){
 		}
 		
 		
-	$mysqli = connectReuseDB();
+		$mysqli = connectReuseDB();
 		
 
 		/* prepare the statement*/
@@ -377,6 +377,6 @@ $app->post('/items', function(){
 		$stmt->close();
 		$mysqli->close();
 });
-});
+ });
 	$app->run();	
 ?>
