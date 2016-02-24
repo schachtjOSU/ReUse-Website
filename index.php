@@ -206,50 +206,66 @@ $app->get('/business', function() {
 $app->post('/business', function(){
 		
 		$name = $_POST['name'];
-		if (isset($_POST['address'])){
+		if (isset($_POST['address']) && !empty($_POST['address'])){
 			$address = $_POST['address'];
 		}
 		else {
 			$address = null;
 		}
-		if (isset($_POST['address2'])){
+		if (isset($_POST['address2']) && !empty($_POST['address2'])){
 			$address2 = $_POST['address2'];
 		}
 		else {
 			$address2 = null;
 		}
-		if (isset($_POST['city'])){
+		if (isset($_POST['city']) && !empty($_POST['city'])){
 			$city = $_POST['city'];
 		}
 		else{
 			$city = null;
 		}
-		if (isset($_POST['state'])){
-			$state = $_POST['state'];
+		if (isset($_POST['state']) && !empty($_POST['state'])){
+			$stateId = $_POST['state'];
 		}
 		else{
-			$state = null;
+			$stateId = null;
 		}
-		if (isset($_POST['zipcode'])){
+		if (isset($_POST['zipcode']) && !empty($_POST['zipcode'])){
 			$zipcode = $_POST['zipcode'];
 		}
 		else{
 			$zipcode = null;
 		}
-		if (isset($_POST['phone'])){
+		if (isset($_POST['phone']) && !empty($_POST['phone'])){
 			$phone = $_POST['phone'];
 		}
 		else {
 			$phone = null;
 		}
-		if (isset($_POST['website'])){
+		if (isset($_POST['website']) && !empty($_POST['website'])){
 			$website = $_POST['website'];
 		}
 		else {
 			$website = null;
 		}
 
-		//Geocode address for storage
+		
+		/* Convert state_id to the string it references */
+		$mysqli = connectReuseDB();
+		if (!($stmt = $mysqli->prepare("SELECT abbreviation FROM  `States` WHERE id = ?"))){
+			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
+		}
+		
+		$stmt->bind_param('i', $stateId);
+		$stmt->bind_result($state);
+		$stmt->execute();
+		$stmt->fetch();
+		
+		$stmt->close();
+		$mysqli->close();
+		
+		
+		/* Geocode address for storage */
 		$latlong = bingGeocode($address, $city, $state, $zipcode);
 
 		if ($latlong == false) {
@@ -262,8 +278,7 @@ $app->post('/business', function(){
 		
 		
 	$mysqli = connectReuseDB();
-		//temp fix  -- A query should go here to find the state id number (or a state string should be found above for lat/long...).
-		$state = 37;
+		
 
 		/* prepare the statement*/
 		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Locations (name, address_line_1, address_line_2, city, state_id, zip_code, phone, website, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"))){
@@ -271,7 +286,7 @@ $app->post('/business', function(){
 		}
 
 		/* bind the variables */
-		if(!$stmt->bind_param('ssssiissdd', $name, $address, $address2, $city, $state, $zipcode, $phone, $website, $latitude, $longitude)){
+		if(!$stmt->bind_param('ssssiissdd', $name, $address, $address2, $city, $stateId, $zipcode, $phone, $website, $latitude, $longitude)){
 	 		echo "Binding failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
 	 	}
 
