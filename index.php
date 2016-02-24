@@ -1,26 +1,62 @@
 <?php
+	
+	//For DEBUGGING	
 	ini_set('display_errors', 'On');	
 		
-	//functions to facilitate connection to reuse database
-	include ('database/reuseConnect.php');
+
 		
 	/**************************************************************************
 	*				Requirements
 	**************************************************************************/
+	
+	//Framework
 	require 'Slim/Slim.php';
 	\Slim\Slim::registerAutoloader();
+
+	//functions to facilitate connection to reuse database
+		// - connectReuseDB()		<-- Create mysqli object using reuse db creds
+	require 'database/reuseConnect.php';
+
+	//functions facilitating XML file generation for mobile
+		// - reuse_generateXML()	<-- Produces XML file
+		// - echoXMLFile()		<-- Echos file after generation
+	require 'xmlGenerator/xmlGenerator.php';
+	
+	//functions facilitating Bing Geocoder
+	require 'BingGeocoder/geocoder.php';
 
 	/**************************************************************************
 	*				Routing set up
 	***************************************************************************/
-	$app = new \Slim\Slim();
+	$app = new \Slim\Slim(
+		//More debugging
+		array( 'debug' => true )
+	);
 	$app->response->headers->set('Content-Type', 'application/json');
 
+
+// API group
+$app->group('/index', function () use ($app) {
 
 	/****************************************************************************
 	*				Gets
 	****************************************************************************/
-	$app->get('/index/category/:id', function($id){
+	$app->get('', function() {
+		echo '{1:"Hello World"}';
+	});
+	
+	//The entire database, in XML form
+	$app->get('/reuseDB', function() {
+		global $app;
+		
+		//Printing an XML file, set headers accordingly
+		$app->response->headers->set('Content-Type', 'application/xml');
+	
+		//Echo out the XML file
+		echoXMLFile();		
+	});	
+	
+	$app->get('/category/:id', function($id){
 		$mysqli = connectReuseDB();
 
 		$id = (int)$mysqli->real_escape_string($id);
@@ -40,7 +76,7 @@
 	    $mysqli->close();
 	});
 
-	$app->get('/index/states', function() {
+	$app->get('/states', function() {
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query('SELECT name, id FROM States');
@@ -55,7 +91,7 @@
 	    $mysqli->close();
 	});	
 
-$app->get('/index/business', function() {
+$app->get('/business', function() {
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query('SELECT name, id, address_line_1, address_line_2, city, state_id, zip_code, phone, website FROM Reuse_Locations');
@@ -72,7 +108,7 @@ $app->get('/index/business', function() {
 	});
 
 
-	$app->get('/index/category', function() {
+	$app->get('/category', function() {
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query('SELECT name, id FROM Reuse_Categories');
@@ -88,7 +124,7 @@ $app->get('/index/business', function() {
 	    $mysqli->close();
 	});
 
-	$app->get('/index/items', function() {
+	$app->get('/items', function() {
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query('SELECT name, id, category_id FROM Reuse_Items');
@@ -108,28 +144,40 @@ $app->get('/index/business', function() {
 /************************************************************************************
 *					DELETES
 *************************************************************************************/
-	$app->delete('/index/business/:id', function($id){
+	//Remove Specific Business	
+	$app->delete('/business/:id', function($id){
 		$mysqli = connectReuseDB();
 
 		$delID = $mysqli->real_escape_string($id);
 		$mysqli->query("DELETE FROM Reuse_Locations WHERE Reuse_Locations.id ='$delID'");
 		$mysqli->close();
-	});
 
-	$app->delete('/index/item/:id', function($id){
+		/* Update Mobile Database */
+		reuse_generateXML();
+	});
+	
+	//Remove Specific Item
+	$app->delete('/item/:id', function($id){
 		$mysqli = connectReuseDB();
 
 		$delID = $mysqli->real_escape_string($id);
 		$mysqli->query("DELETE FROM Reuse_Items WHERE Reuse_Items.id ='$delID'");
 		$mysqli->close();
-	});
 
-	$app->delete('/index/category/:id', function($id){
+		/* Update Mobile Database */
+		reuse_generateXML();
+	});
+	
+	//Remove Specific Business
+	$app->delete('/category/:id', function($id){
 		$mysqli = connectReuseDB();
 
 		$delID = $mysqli->real_escape_string($id);
 		$mysqli->query("DELETE FROM Reuse_Categories WHERE Reuse_Categories.id ='$delID'");
 		$mysqli->close();
+
+		/* Update Mobile Database */
+		reuse_generateXML();
 	});
 
 
@@ -137,74 +185,93 @@ $app->get('/index/business', function() {
 /******************************************************************************************
 *				PUTS
 ******************************************************************************************/
-	$app->put('/index/category/:id', function($id){
+	
+	/* Update a specific category name */	
+	$app->put('/category/:id', function($id){
 		$mysqli = connectReuseDB();
 
 		//$inID = $mysqli->real_escape_string($id);
 		$inID = $id;
 		$mysqli->query("INSERT INTO Reuse_Categories WHERE Reuse_Locations.id ='$inID'");
 		$mysqli->close();
+
+		/* Update Mobile Database */
+		reuse_generateXML();
 	});
 
 /*****************************************************************************************
 *			POSTS
 ******************************************************************************************/
-$app->post('/index/business', function(){
+/* Adding a New Business to the Directory */
+$app->post('/business', function(){
 		
 		$name = $_POST['name'];
-		if ($_POST['address']){
+		if (isset($_POST['address'])){
 			$address = $_POST['address'];
 		}
 		else {
 			$address = null;
 		}
-		if ($_POST['address2']){
+		if (isset($_POST['address2'])){
 			$address2 = $_POST['address2'];
 		}
 		else {
 			$address2 = null;
 		}
-		if ($_POST['city']){
+		if (isset($_POST['city'])){
 			$city = $_POST['city'];
 		}
 		else{
 			$city = null;
 		}
-		if ($_POST['state']){
+		if (isset($_POST['state'])){
 			$state = $_POST['state'];
 		}
 		else{
 			$state = null;
 		}
-		if ($_POST['zipcode']){
+		if (isset($_POST['zipcode'])){
 			$zipcode = $_POST['zipcode'];
 		}
 		else{
 			$zipcode = null;
 		}
-		if ($_POST['phone']){
+		if (isset($_POST['phone'])){
 			$phone = $_POST['phone'];
 		}
 		else {
 			$phone = null;
 		}
-		if ($_POST['website']){
+		if (isset($_POST['website'])){
 			$website = $_POST['website'];
 		}
 		else {
 			$website = null;
 		}
 
-	$mysqli = connectReuseDB();
+		//Geocode address for storage
+		$latlong = bingGeocode($address, $city, $state, $zipcode);
 
+		if ($latlong == false) {
+			$latitude = null;
+			$longitude = null;
+		} else {
+			$latitude = $latlong['lat'];
+			$longitude = $latlong['long'];
+		}
+		
+		
+	$mysqli = connectReuseDB();
+		//temp fix  -- A query should go here to find the state id number (or a state string should be found above for lat/long...).
+		$state = 37;
 
 		/* prepare the statement*/
-		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Locations (name, address_line_1, address_line_2, city, state_id, zip_code, phone, website) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"))){
+		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Locations (name, address_line_1, address_line_2, city, state_id, zip_code, phone, website, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"))){
 			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}
 
 		/* bind the variables */
-		if(!$stmt->bind_param('ssssiiss', $name, $address, $address2, $city, $state, $zipcode, $phone, $website)){
+		if(!$stmt->bind_param('ssssiissdd', $name, $address, $address2, $city, $state, $zipcode, $phone, $website, $latitude, $longitude)){
 	 		echo "Binding failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
 	 	}
 
@@ -217,9 +284,13 @@ $app->post('/index/business', function(){
 		echo 1;
 		$stmt->close();
 		$mysqli->close();
+
+		/* Update Mobile Database */
+		reuse_generateXML();
 });
 
-$app->post('/index/category', function(){
+/* Adding a New Category */
+$app->post('/category', function(){
 		$name = $_POST['name'];
 
 		$mysqli = connectReuseDB();
@@ -254,7 +325,8 @@ $app->post('/index/category', function(){
 		$mysqli->close();
 });
 
-$app->post('/index/items', function(){
+/* Adding a New Item */
+$app->post('/items', function(){
 
 		$name = $_POST['name'];
 		$category = $_POST['category'];
@@ -290,6 +362,6 @@ $app->post('/index/items', function(){
 		$stmt->close();
 		$mysqli->close();
 });
-
+});
 	$app->run();	
 ?>
