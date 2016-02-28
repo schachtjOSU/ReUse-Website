@@ -26,7 +26,9 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/jquery.multi-select.js" type="text/javascript"></script>
   <script>
+  var x;
 
   //ONLOAD -- GET requests and checking of session with jQuery
   $(document).ready(function(){
@@ -46,6 +48,7 @@
       },
     });
   }
+
   displayStates();
   checkSession();
 });
@@ -85,6 +88,10 @@ function addNewBusiness(){
   var phone = document.getElementById("phone").value;
   var website = document.getElementById("website").value;
   var type = "add";
+  x = name;
+  console.log(x);
+  console.log(name);
+
 
   /* check for blanks in the form */
   if(isNaN(zipcode)){
@@ -105,11 +112,48 @@ function addNewBusiness(){
       url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/business",
       data: tableData,
       success: function(data){
-        window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/main.php";
+        displayTable();
       },
     });
   }
 }
+
+
+function displayTable(){
+  $('#table').empty();
+    $.ajax({type:"GET",
+    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/items",
+    dataType: 'json',
+    success: function(data){
+        var entry = '<label>Accepts Following Items: </label>';
+        $('#tableHere').append(entry);
+        var row = '<tr><th>' + 'Name' + '</th><th>'  + 'Business Accepts Following Items' + '</th></tr>';
+        for(var i = 0; i < data.length; i++){ 
+            row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= update1 value=' + data[i].id + '><input type= submit value=update id=update onclick=updateItem()>' + '</td></tr>';
+        }
+        $('#table').append(row);
+    },
+  });
+}
+
+
+function updateItem(){
+
+  var name = x;
+  console.log(name);
+  var item = document.getElementById("update1").value;
+  console.log(item);
+  var tableData = "name="+name+"&items="+item;
+
+    $.ajax({type:"POST",
+      url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/updateBusiness",
+      data: tableData,
+      success: function(data){
+        displayTable();
+      },
+    });
+  }  
+
 </script>
   </head>
   <body>
@@ -165,6 +209,13 @@ function addNewBusiness(){
         </p>
         </form>
         <hr></hr>
+        <div class="form-group">
+        <div>
+          <p id="tableHere">
+            <table class="table table-striped" id="table"></table>
+          </p>
+        </div>
+        </div><!-- end formgroup -->
         <!-- Hidden row for displaying login errors -->
         <div class="row">
           <div class="col-xs-12 cold-md-8" Id= "output2"></div>

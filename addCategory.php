@@ -25,11 +25,17 @@
   <link href="css/media.css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/jquery.multi-select.js" type="text/javascript"></script>
 <script>
 
   /************************************************************************
   *         Check Session and display dropdowns on body load
   ************************************************************************/
+  //ONLOAD -- GET requests and checking of session with jQuery
+  $(document).ready(function(){
+  checkSession();
+});
 
 function checkSession(){
 
@@ -49,6 +55,8 @@ function checkSession(){
     req.open("POST","checkSession.php", true);
     req.send();
 }
+
+
 
 function addNewCategory(){
 
@@ -76,7 +84,7 @@ function addNewCategory(){
 }
 </script>
   </head>
-  <body onload="checkSession()">
+  <body>
 
   <!-- Import Nav bar -->
   <?php include("nav.php"); ?>
@@ -94,10 +102,14 @@ function addNewCategory(){
            <label>Category Name: </label>
            <input type ="text" class="form-control" Id="name" placeholder="Enter Category Name">
         </div><!-- end formgroup -->
+
+        <div class="form-group">
+          <div id="items"></div>
+        </div><!-- end formgroup -->
         <p align="center">
         </br>
           <!-- Send information to loginCheck function for error handling and ajax call if wrong -->
-          <button Id ="submit" type ="submit" class="btn btn-primary" onclick="addNewCategory(); return false" align="center">Add Category</button>
+          <button Id ="submit" class="btn btn-primary" onclick="addNewCategory(); return false" align="center">Add Category</button>
         </p>
         </form>
         <hr></hr>

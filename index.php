@@ -319,6 +319,7 @@ $app->post('/category', function(){
 				}
 			}
 
+
 		/* prepare the statement*/
 		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Categories (name) VALUES (?)"))){
 			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
@@ -340,11 +341,36 @@ $app->post('/category', function(){
 		$mysqli->close();
 });
 
+$app->post('/updateItems', function(){
+		$category = $_POST['category'];
+		$name = $_POST['name'];
+
+		$mysqli = connectReuseDB();
+
+
+		$mysqli->query("UPDATE Reuse_Items SET category_id=$category WHERE Reuse_Items.name ='$name'");
+		$mysqli->close();
+});
+
+/* TYPO IN MEEEE!!!!!! */
+$app->post('/updateBusiness', function(){
+		$item = $_POST['items'];
+		$name = $_POST['name'];
+
+		$mysqli = connectReuseDB();
+
+		/* get location id based off name */
+		$result = $mysqli->query("SELECT id FROM Reuse_Locations WHERE Reuse_Locations.name ='$name'");
+
+		/*then update the joining table with the id of the location and the id of the items it accepts */
+		$mysqli->query("UPDATE Reuse_Locations_Items SET Reuse_Locations_Items.item_id ='$item' WHERE Reuse_Locations_Items.location_id ='$result'");
+		$mysqli->close();
+});
+
 /* Adding a New Item */
 $app->post('/items', function(){
 
 		$name = $_POST['name'];
-		$category = $_POST['category'];
 
 		$mysqli = connectReuseDB();
 
@@ -358,12 +384,12 @@ $app->post('/items', function(){
 			
 
 		/* prepare the statement*/
-		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Items (name, category_id) VALUES (?, ?)"))){
+		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Items (name) VALUES (?)"))){
 			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}
 
 		/* bind the variables */
-		if(!$stmt->bind_param('si', $name, $category)){
+		if(!$stmt->bind_param('s', $name)){
 	 		echo "Binding failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
 	 	}
 

@@ -32,6 +32,8 @@
   /************************************************************************
   *         Check Session on body load
   ************************************************************************/
+var x;
+
   $(document).ready(function(){
     function displayStates(){
       $.ajax({type:"GET",
@@ -75,10 +77,12 @@ function checkSession(){
 
 function addNewItem(){
 
+  console.log("In function");
+
   /* get values from form */
   var name = document.getElementById("name").value;
-  var category = document.getElementById("categories").value;
   var type = "addItem";
+  x = name;
 
   /* check for blanks in the form */
   if(name == null){
@@ -87,17 +91,52 @@ function addNewItem(){
     return;
   }
   else{
-    var tableData = "type="+type+"&name="+name+"&category="+category;
-
+    var tableData = "type="+type+"&name="+name;
+    console.log("in else");
     $.ajax({type:"POST",
       url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/items",
       data: tableData,
       success: function(data){
-        window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/main.php";
+        console.log("in success");
+        displayTable();
       },
     });
   }
 }
+
+function displayTable(){
+  $('#table').empty();
+    $.ajax({type:"GET",
+    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category",
+    dataType: 'json',
+    success: function(data){
+        var row = '<tr><th>' + 'Name' + '</th><th>'  + 'Add to Category' + '</th></tr>';
+        for(var i = 0; i < data.length; i++){ 
+            row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= update1 value=' + data[i].id + '><input type= submit value=update id=update onclick=updateItem()>' + '</td></tr>';
+        }
+        $('#table').append(row);
+    },
+  });
+}
+
+
+function updateItem(){
+
+  var name = x;
+  console.log(name);
+  var category = document.getElementById("update1").value;
+  console.log(category);
+  var tableData = "name="+name+"&category="+category;
+
+    $.ajax({type:"POST",
+      url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/updateItems",
+      data: tableData,
+      success: function(data){
+        displayTable();
+      },
+    });
+  }  
+
 </script>
   </head>
   <body onload="checkSession()">
@@ -118,17 +157,17 @@ function addNewItem(){
            <label>Item Name: </label>
            <input type ="text" class="form-control" Id="name" placeholder="Enter Item Name">
         </div> <!-- end formground-->
-        <div class="form-group">
-          <label>Category: </label>
-          <div id="cat"></div>
-        </div><!-- end formgroup -->
+
         <p align="center">
         </br>
           <!-- Send information to loginCheck function for error handling and ajax call if wrong -->
-          <button Id ="submit" type ="submit" class="btn btn-primary" onclick="addNewItem(); return false" align="center">Add Item</button>
+          <button Id ="submit" type="submit" class="btn btn-primary" onclick="addNewItem(); return false" align="center">Add Item</button>
         </p>
         </form>
         <hr></hr>
+        <div id="tableHere">
+          <table class="table table-striped" id="table"></table>
+        </div>
         <!-- Hidden row for displaying login errors -->
         <div class="row">
           <div class="col-xs-12 cold-md-8" Id= "output2"></div>

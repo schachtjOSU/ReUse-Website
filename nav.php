@@ -47,6 +47,8 @@
 
             <!-- main -->
              <li><a href="main.php">Home</a></li>
+            <!-- create new user -->
+            <li><a href="Register.php">Create New Account</a></li>
             <!-- done -->
             <li><a href="logout.php">Logout</a></li>
           </ul>

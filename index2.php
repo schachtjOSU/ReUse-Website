@@ -46,7 +46,8 @@
 		/* variables */
 		$username = $_POST['username'];
 		$username = strtoupper($username);
-		$password = $_POST['password'];
+		//$password = $_POST['password'];
+		$password = crypt($_POST['password'], 'rl');
 
 		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
 		if($mysqli->connect_errno){
@@ -94,7 +95,7 @@
 	function register(){
 		$usernameDB = $_POST['username'];
 		$usernameDB = strtoupper($usernameDB);
-		$passwordDB = $_POST['password'];
+		$passwordDB = crypt($_POST['password'], 'rl');
 		$userArray = [];
 		$newUser = true;
 
