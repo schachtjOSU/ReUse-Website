@@ -109,7 +109,7 @@ function addNewCategory(){
         <p align="center">
         </br>
           <!-- Send information to loginCheck function for error handling and ajax call if wrong -->
-          <button Id ="submit" class="btn btn-primary" onclick="addNewCategory(); return false" align="center">Add Category</button>
+          <button Id ="submit" type="submit" class="btn btn-primary" onclick="addNewCategory(); return false" align="center">Add Category</button>
         </p>
         </form>
         <hr></hr>

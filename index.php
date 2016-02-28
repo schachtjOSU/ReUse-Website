@@ -124,6 +124,24 @@ $app->get('/business', function() {
 	    $mysqli->close();
 	});
 
+	$app->get('/items/:id', function($id){
+		$mysqli = connectReuseDB();
+
+		$id = (int)$mysqli->real_escape_string($id);
+		$result = $mysqli->query('SELECT name, id, category_id FROM Reuse_Items WHERE Reuse_Items.id = '.$id.'');
+
+
+		$returnArray = array();
+	    while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+
+	    echo json_encode($returnArray);
+
+	    $result->close();
+	    $mysqli->close();
+	});
+
 	$app->get('/items', function() {
 		$mysqli = connectReuseDB();
 
@@ -139,7 +157,6 @@ $app->get('/business', function() {
 	    $result->close();
 	    $mysqli->close();
 	});
-
 
 /************************************************************************************
 *					DELETES
@@ -183,21 +200,41 @@ $app->get('/business', function() {
 
 
 /******************************************************************************************
-*				PUTS
+*				PUTS -- doing it as POSTS with UPDATES to avoid form issues
 ******************************************************************************************/
 	
 	/* Update a specific category name */	
-	$app->put('/category/:id', function($id){
+	$app->post('/changeCategory', function(){
+
+		$oldName = $_POST['oldName'];
+		$name = $_POST['name'];
+
 		$mysqli = connectReuseDB();
 
-		//$inID = $mysqli->real_escape_string($id);
-		$inID = $id;
-		$mysqli->query("INSERT INTO Reuse_Categories WHERE Reuse_Locations.id ='$inID'");
+		$mysqli->query("UPDATE Reuse_Categories SET name = '$name' WHERE name = '$oldName'");
 		$mysqli->close();
 
 		/* Update Mobile Database */
 		reuse_generateXML();
 	});
+
+	/* update item */
+	$app->post('/changeItem', function(){
+
+		$oldName = $_POST['oldName'];
+		$name = $_POST['name'];
+		$cat = $_POST['cat'];
+
+		$mysqli = connectReuseDB();
+
+		$mysqli->query("UPDATE Reuse_Categories SET category_id = '$cat' HERE name = '$oldName'");
+		$mysqli->query("UPDATE Reuse_Categories SET name = '$name' WHERE name = '$oldName'");
+		$mysqli->close();
+
+		/* Update Mobile Database */
+		reuse_generateXML();
+	});
+
 
 /*****************************************************************************************
 *			POSTS
@@ -348,7 +385,7 @@ $app->post('/updateItems', function(){
 		$mysqli = connectReuseDB();
 
 
-		$mysqli->query("UPDATE Reuse_Items SET category_id=$category WHERE Reuse_Items.name ='$name'");
+		$mysqli->query("UPDATE Reuse_Items SET category_id = '$category' WHERE Reuse_Items.name = '$name'");
 		$mysqli->close();
 });
 
@@ -360,10 +397,10 @@ $app->post('/updateBusiness', function(){
 		$mysqli = connectReuseDB();
 
 		/* get location id based off name */
-		$result = $mysqli->query("SELECT id FROM Reuse_Locations WHERE Reuse_Locations.name ='$name'");
+		$result = $mysqli->query("SELECT id FROM Reuse_Locations WHERE Reuse_Locations.name = '$name'");
 
 		/*then update the joining table with the id of the location and the id of the items it accepts */
-		$mysqli->query("UPDATE Reuse_Locations_Items SET Reuse_Locations_Items.item_id ='$item' WHERE Reuse_Locations_Items.location_id ='$result'");
+		$mysqli->query("UPDATE Reuse_Locations_Items SET item_id = '$item' WHERE Reuse_Locations_Items.location_id = '$result'");
 		$mysqli->close();
 });
 

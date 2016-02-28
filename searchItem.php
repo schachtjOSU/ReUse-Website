@@ -40,6 +40,10 @@
 /************************************************************************
 *         Check Session on body load
 ************************************************************************/
+var x;
+var y;
+var z;
+
 function searchItem(){
     $('#table').empty();
     $.ajax({type:"GET",
@@ -47,10 +51,11 @@ function searchItem(){
     dataType: 'json',
     success: function(data){
         var match = $('#searchName').val();
+        x = match;
         var row = '<tr><th>' + 'Name' + '</th><th>' + 'Modify' + '</th><th>' + 'Delete' + '</th></tr>';
         for(var i = 0; i < data.length; i++){ 
          if(data[i].name == match){
-            row += '<tr><td>' + data[i].name + '</td><td>' + '<a href="editItems.php"><button id=edit>Edit</button></a>' + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td></tr>';
+            row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= edit value=' + data[i].id + '><input type= submit value=Edit id=edit onclick=editItem()>'  + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td></tr>';
          }
         }
         $('#table').append(row);
@@ -67,6 +72,69 @@ function delItem(){
     }
   });
 searchItem();
+}
+
+function editItem(){
+    var c = $('#edit').val();
+
+      $.ajax({type:"GET",
+        url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category",
+        dataType: 'json',
+        success: function(data){
+            var cat = "<select class='form-control' name='selectState' id='states' onChange='changeCat(this.value)'><option>Select Category</option>";
+            for(var i = 0; i < data.length; i++){ 
+              cat += "<option value = " + data[i].id + ">";
+              cat += data[i].name;
+              cat += "</option>";
+            }
+            cat += "</select>";
+            $("#EditData1").append(cat);
+            formdata = '</div></div><p align="center"><button Id ="submit" type ="submit" class="btn btn-primary" onclick="changeItem(); return false" align="center">Update Item</button></p>';
+            formdata += '</form>';
+            $('#EditData2').append(formdata);
+        }
+    });
+
+    $.ajax({type:"GET",
+        url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/items/" + c,
+        dataType: 'json',
+        success: function(data){
+          console.log("In success");
+          $('#table').empty();
+          var d= '<form class="form-horizontal" role="form" action="#" id="form1">';
+          d += '<div class="form-group">';
+          d += '<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label>';
+          d += '<div class="col-sm-10">';
+          d += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + data[0].name + ' onChange="changeName(this.value)">';
+          $('#EditData').append(d);
+
+        }
+      });
+
+}
+
+function changeName(value) {
+      y = value;
+}
+
+function changeCat(value) {
+      z = value;
+}
+
+function changeItem(){
+
+       var tableData = "name="+y+"&oldName="+x+"&cat="+z;
+        $.ajax({type:"POST",
+            url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/changeItem",
+            data: tableData,
+            success: function(){
+              $('#form1').empty();
+              $('#table').empty();
+            },
+        });
+      $('#EditData').empty();
+      $('#EditData1').empty();
+      $('#EditData2').empty();
 }
 
 function checkSession(){
@@ -121,6 +189,11 @@ function checkSession(){
     
     </div>
     <hr></hr>
+    <div class="row">
+      <div class="col-xs-12 cold-md-8" Id= "EditData"></div>
+      <div class="col-xs-12 cold-md-8" Id= "EditData1"></div>
+      <div class="col-xs-12 cold-md-8" Id= "EditData2"></div>
+    </div class="row"><!-- end inner row -->
     <!-- Hidden row for displaying login errors -->
     <div class="row">
       <div class="col-xs-12 cold-md-8" Id= "output"></div>

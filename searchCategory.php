@@ -30,6 +30,9 @@
 /************************************************************************
 *         Check Session on body load
 ************************************************************************/
+var x;
+var y;
+
 function searchCategory(){
     $('#table').empty();
     $.ajax({type:"GET",
@@ -37,6 +40,7 @@ function searchCategory(){
     dataType: 'json',
     success: function(data){
         var match = $('#searchName').val();
+        x = match;
         var row = '<tr><th>' + 'Name' + '</th><th>' + 'Modify' + '</th><th>' + 'Delete' + '</th></tr>';
         for(var i = 0; i < data.length; i++){ 
          if(data[i].name == match){
@@ -50,48 +54,58 @@ function searchCategory(){
 
 function delCategory(){
     var match = $('#delete').val();
+    x = match;
     $.ajax({type:"DELETE",
-    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + match,
-    dataType: 'json',
-    success: function(data){
+      url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + match,
+      dataType: 'json',
+      success: function(data){
     }
   });
 searchCategory();
 }
 
 function editCategory(){
-    var match = $('#edit').val();
+    var x = $('#edit').val();
     $.ajax({type:"GET",
-    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + match,
+    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + x,
     dataType: 'json',
     success: function(data){
       $('#table').empty();
-      var formdata = '<div class="form-group" id="form1">';
+      var formdata= '<form class="form-horizontal" role="form" action="#" id="form1">';
+      formdata += '<div class="form-group">';
       formdata += '<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label>';
       formdata += '<div class="col-sm-10">';
-      formdata += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + data[0].name + '>';
-      formdata += '</div></div><p align="center"><button Id ="submit" type ="submit" class="btn btn-primary" onclick="changeCategory('+ match +'); return false" align="center">Update Category</button></p>';
+      formdata += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + data[0].name + ' onChange="changeName(this.value)">';
+      formdata += '</div></div><p align="center"><button Id ="submit" type ="submit" class="btn btn-primary" onclick="changeCategory(); return false" align="center">Update Category</button></p>';
       formdata += '</form>';
       $('#EditData').html(formdata);
     }
   });
 }
 
-function changeCategory(match){
+function changeName(value) {
 
-  var tempname = $('#searchName').val();
+      y = value;
+}
+
+function changeCategory(){
+
+  console.log(x);
+  console.log(y);
   $.ajax({type:"GET",
-    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + match,
+    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + x,
     dataType: 'json',
     success: function(data){
-       var tableData = "name="+tempname;
-       var ident = data[0].id;
-        $.ajax({type:"PUT",
-            url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category/" + ident,
+       var tableData = "name="+y+"&oldName="+x;
+        $.ajax({type:"POST",
+            url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/changeCategory",
             data: tableData,
-            success: function(){},
+            success: function(){
+              $('#form1').empty();
+              $('#table').empty();
+            },
         });
-      searchCategory();
+      $('#EditData').empty();
     }
   });
 }
