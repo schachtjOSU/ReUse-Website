@@ -112,7 +112,7 @@ function displayTable(){
     success: function(data){
         var row = '<tr><th>' + 'Name' + '</th><th>'  + 'Add to Category' + '</th></tr>';
         for(var i = 0; i < data.length; i++){ 
-            row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= update1 value=' + data[i].id + '><input type= submit value=update id=update onclick=updateItem()>' + '</td></tr>';
+            row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= update1 value=' + data[i].id + '><input type= submit value=update id=update onclick=updateItem('+ data[i].id +')>' + '</td></tr>';
         }
         $('#table').append(row);
     },
@@ -120,11 +120,11 @@ function displayTable(){
 }
 
 
-function updateItem(){
+function updateItem(value){
 
   var name = x;
   console.log(name);
-  var category = document.getElementById("update1").value;
+  var category = value;
   console.log(category);
   var tableData = "name="+name+"&category="+category;
 
@@ -132,9 +132,10 @@ function updateItem(){
       url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/updateItems",
       data: tableData,
       success: function(data){
-        displayTable();
+        $('#table').empty();
       },
     });
+    $('#table').empty();
   }  
 
 </script>

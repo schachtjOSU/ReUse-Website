@@ -227,8 +227,8 @@ $app->get('/business', function() {
 
 		$mysqli = connectReuseDB();
 
-		$mysqli->query("UPDATE Reuse_Categories SET category_id = '$cat' HERE name = '$oldName'");
-		$mysqli->query("UPDATE Reuse_Categories SET name = '$name' WHERE name = '$oldName'");
+		$mysqli->query("UPDATE Reuse_Items SET category_id = '$cat' WHERE name = '$oldName'");
+		$mysqli->query("UPDATE Reuse_Items SET name = '$name' WHERE name = '$oldName'");
 		$mysqli->close();
 
 		/* Update Mobile Database */
@@ -389,7 +389,7 @@ $app->post('/updateItems', function(){
 		$mysqli->close();
 });
 
-/* TYPO IN MEEEE!!!!!! */
+/* many to many connection for business and items */
 $app->post('/updateBusiness', function(){
 		$item = $_POST['items'];
 		$name = $_POST['name'];
@@ -397,10 +397,33 @@ $app->post('/updateBusiness', function(){
 		$mysqli = connectReuseDB();
 
 		/* get location id based off name */
-		$result = $mysqli->query("SELECT id FROM Reuse_Locations WHERE Reuse_Locations.name = '$name'");
+		$result = $mysqli->query("SELECT name, id FROM Reuse_Locations");
+        while($row = $result->fetch_object()){
+            if($row->name == $name){
+				$match = $row->id;
+			}
+		}		
+		$mysqli->close();
+
+		// add to joining table
+		$mysqli = connectReuseDB();
+		/* prepare the statement*/
+		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Locations_Items (item_id, location_id) VALUES (?, ?)"))){
+			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
+		}
+
+		/* bind the variables */
+		if(!$stmt->bind_param('ii', $item, $match)){
+	 		echo "Binding failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
+	 	}
+
+		/* execute */
+		if(!$stmt->execute()){
+			echo "Execute failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
+		}
 
 		/*then update the joining table with the id of the location and the id of the items it accepts */
-		$mysqli->query("UPDATE Reuse_Locations_Items SET item_id = '$item' WHERE Reuse_Locations_Items.location_id = '$result'");
+		//$mysqli->query("UPDATE Reuse_Locations_Items SET item_id = '$item' WHERE Reuse_Locations_Items.location_id = '$match'");
 		$mysqli->close();
 });
 

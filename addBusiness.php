@@ -29,7 +29,7 @@
   <script src="js/jquery.multi-select.js" type="text/javascript"></script>
   <script>
   var x;
-
+  var count = 0;
   //ONLOAD -- GET requests and checking of session with jQuery
   $(document).ready(function(){
     function displayStates(){
@@ -125,11 +125,12 @@ function displayTable(){
     url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/items",
     dataType: 'json',
     success: function(data){
+      window.alert("Select as many items as you'd like to be added to the Business.");
         var entry = '<label>Accepts Following Items: </label>';
         $('#tableHere').append(entry);
         var row = '<tr><th>' + 'Name' + '</th><th>'  + 'Business Accepts Following Items' + '</th></tr>';
         for(var i = 0; i < data.length; i++){ 
-            row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= update1 value=' + data[i].id + '><input type= submit value=update id=update onclick=updateItem()>' + '</td></tr>';
+            row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= update1 value=' + data[i].id + '><input type= submit value=update id=update onclick=updateItem('+data[i].id+')>' + '</td></tr>';
         }
         $('#table').append(row);
     },
@@ -137,11 +138,12 @@ function displayTable(){
 }
 
 
-function updateItem(){
+function updateItem(value){
 
   var name = x;
   console.log(name);
-  var item = document.getElementById("update1").value;
+  //var item = document.getElementById("update1").value;
+  var item = value;
   console.log(item);
   var tableData = "name="+name+"&items="+item;
 
@@ -149,7 +151,7 @@ function updateItem(){
       url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/updateBusiness",
       data: tableData,
       success: function(data){
-        displayTable();
+        console.log(data);
       },
     });
   }  
