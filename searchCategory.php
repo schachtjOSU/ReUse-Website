@@ -48,6 +48,7 @@ function searchCategory(){
          }
         }
         $('#table').append(row);
+        document.getElementById("edCat").reset();
     },
   });
 }
@@ -61,7 +62,9 @@ function delCategory(){
       success: function(data){
     }
   });
-searchCategory();
+  $('#EditData').empty();
+  document.getElementById("edCat").reset();
+  searchCategory();
 }
 
 function editCategory(){
@@ -142,7 +145,7 @@ function checkSession(){
         <br></br>
         <h3>Search for a Category to Edit or Delete</h3>
         <hr></hr>
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" id="edCat">
         <div class="form-group">
            <label class="control-label col-sm-2" for="text">Category name: </label>
            <div class="col-sm-10">
@@ -154,7 +157,8 @@ function checkSession(){
           <button Id ="submit" type ="submit" class="btn btn-primary" onclick="searchCategory(); return false" align="center">Search for Category</button>
         </p>
         </form>
-
+        <!-- bootstrap not creating margins here very well.. -->
+        <br><br>
         <!-- Table is created when button is hit -->
         <div id="tableHere">
           <table class="table table-striped" id="table"></table>

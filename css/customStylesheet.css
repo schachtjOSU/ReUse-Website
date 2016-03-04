@@ -289,10 +289,20 @@ label {
     width: 100%;
 }
 
+.form-horizontal{
+    margin-bottom: 5%;
+}
+#table{
+    margin-top: 10%;
+}
 .table-responsive {
     margin-top: 5%;
 }
 
+#tableHere {
+    margin-top: 20% !important;
+    padding-top: 10%;
+}
 #search {
     margin-top: 5%;
 }
@@ -311,6 +321,9 @@ label {
     margin-bottom: 5px;
 }
 
+#EditData{
+    margin-top: 10%;
+}
 
 #output {
     font-weight: bold;

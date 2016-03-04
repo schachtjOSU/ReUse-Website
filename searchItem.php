@@ -71,17 +71,25 @@ function delItem(){
     success: function(data){
     }
   });
-searchItem();
+    $('#EditData').empty();
+    $('#EditData1').empty();
+    $('#EditData2').empty();
+    document.getElementById("edItem").reset();  
+    searchItem();
 }
 
 function editItem(){
+    $('#EditData').empty();
+    $('#EditData1').empty();
+    $('#EditData2').empty();
+    document.getElementById("edItem").reset();   
     var c = $('#edit').val();
 
       $.ajax({type:"GET",
         url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category",
         dataType: 'json',
         success: function(data){
-            var cat = "<select class='form-control' name='selectState' id='states' onChange='changeCat(this.value)'><option>Select Category</option>";
+            var cat = "<div class='col-sm-10'><select class='form-control' name='selectState' id='states' onChange='changeCat(this.value)'><option>Select Category</option>";
             for(var i = 0; i < data.length; i++){ 
               cat += "<option value = " + data[i].id + ">";
               cat += data[i].name;
@@ -89,7 +97,7 @@ function editItem(){
             }
             cat += "</select>";
             $("#EditData1").append(cat);
-            formdata = '</div></div><p align="center"><button Id ="submit" type ="submit" class="btn btn-primary" onclick="changeItem(); return false" align="center">Update Item</button></p>';
+            formdata = '</div></div></div></br><p align="center"><button Id ="submit" type ="submit" class="btn btn-primary" onclick="changeItem(); return false" align="center">Update Item</button></div></p>';
             formdata += '</form>';
             $('#EditData2').append(formdata);
         }
@@ -103,6 +111,7 @@ function editItem(){
           $('#table').empty();
           var d= '<form class="form-horizontal" role="form" action="#" id="form1">';
           d += '<div class="form-group">';
+          d += '<div class="col-sm-10">';
           d += '<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label>';
           d += '<div class="col-sm-10">';
           d += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + data[0].name + ' onChange="changeName(this.value)">';
@@ -169,7 +178,7 @@ function checkSession(){
         <br></br>
         <h3>Search for an Item to Edit or Delete</h3>
         <hr></hr>
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" id="edItem">
         <div class="form-group">
            <label class="control-label col-sm-2" for="text">Item name: </label>
            <div class="col-sm-10">
@@ -181,7 +190,7 @@ function checkSession(){
           <button Id ="submit" type ="submit" class="btn btn-primary" onclick="searchItem(); return false" align="center">Search for Item</button>
         </p>
         </form>
-
+        <br><br>
         <!-- Table is created when button is hit -->
         <div id="tableHere">
           <table class="table table-striped" id="table"></table>
