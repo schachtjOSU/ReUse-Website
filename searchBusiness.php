@@ -8,7 +8,6 @@
   ini_set('display_errors', 1);
 
   /* start session */
-  ini_set('session.save_path', '/nfs/stak/students/m/masseyta/session');
   session_start();
 
 

@@ -56,8 +56,7 @@
 	    /* check for someone elses session prior to starting page */
 	    if(isset($_SESSION['username']) && $_SESSION['username'] != $username){
 	    	if($_SESSION['loggedIn'] != false){
-	   			echo "Another user is already logged in. Please click ";
-	   			echo "<a href='logout.php'>here</a> to log out.";
+	   			echo 3;
 	   		}
 	   	}
 
@@ -82,6 +81,26 @@
 				$_SESSION['password'] = $password;
 				$_SESSION['loggedIn'] = true;
 				echo 1;				// true back to javascript
+
+				// start slims sessions
+				require 'Slim/Slim.php';
+				\Slim\Slim::registerAutoloader();
+				\Slim\Slim::registerAutoloader();
+				$app = new \Slim\Slim(
+					//More debugging
+					array( 'debug' => true )
+				);
+				$app->add(new \Slim\Middleware\SessionCookie(array(
+				    'expires' => '20 minutes',
+				    'path' => '/',
+				    'domain' => null,
+				    'secure' => false,
+				    'httponly' => false,
+				    'name' => 'slim_session',
+				    'secret' => 'personalized',
+				    'cipher' => MCRYPT_RIJNDAEL_256,
+				    'cipher_mode' => MCRYPT_MODE_CBC
+				)));
 			}
 
 			/* close it up */

@@ -6,7 +6,6 @@
   /* error check */
   error_reporting(E_ALL);
   ini_set('display_errors', 1);
-
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +71,14 @@ function newUser(){
       /* response was true, allow the user to continue */
      if(req.responseText == 1){
         /* redirect with updates */
-        window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/main.php";
+        if(<?php echo !(isset($_SESSION['name']))?>){
+          window.alert("New Account Created");
+          window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/main.php";
+        }
+
+        else{
+          window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/loginPage.php";
+        }
      }
 
      /* response was false, can't add to DB */

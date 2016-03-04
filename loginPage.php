@@ -14,7 +14,6 @@
   /************************************************************************
   * 				Error handling login
   ************************************************************************/
- 
 
 function login(){
 
@@ -56,6 +55,11 @@ function login(){
             document.getElementById("LForm").reset(); 
          }
 
+         /* logged in already under another name */
+         if(req.responseText == 3){
+            killSession();
+         }
+
          /* errors I couldn't think of will print, destroying my grade */
         else if(req.responseText != 1 && req.responseText != 0){
           document.getElementById("output").innerHTML = req.responseText;
@@ -71,9 +75,22 @@ function login(){
 
   }
 }
+
+function killSession(){
+    var tableData = "killSession";
+    $.ajax({type:"POST",
+      url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index2",
+      data: tableData,
+      success: function(data){
+        console.log("Success");
+      },
+    });
+  window.alert('Session already in progress. Logging out old user.')
+  window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/loginPage.php";
+}
 </script>
 </head>
-<body>
+<body">
   
   <!-- Main container -->
   <div class="container-fluid" id="smallCont">

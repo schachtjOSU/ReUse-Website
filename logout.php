@@ -8,7 +8,6 @@
   ini_set('display_errors', 1);
 
   /* start session */
-  ini_set('session.save_path', '/nfs/stak/students/m/masseyta/session');
   session_start();
 ?>
 
@@ -85,7 +84,7 @@ function logOut(){
         <?php
           /* Make sure! */
           echo "<p>";
-            echo "<h3>Do you want to Logout, ".$_SESSION['username']."?</h3>";
+            echo "<h3>Do you want to Logout?</h3>";
             echo "<hr></hr>";
             echo "</br>";
           echo "</p>";
