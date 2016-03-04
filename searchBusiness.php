@@ -40,18 +40,28 @@
 /************************************************************************
 *         Check Session on body load
 ************************************************************************/
+var y;
+var x;
+var z;
+var a;
+var b;
+var d;
+var e;
+var f;
+var g;
+
 function searchBusiness(){
     $('#table').empty();
+    var match = $('#searchName').val();
     $.ajax({type:"GET",
-    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/business",
+    url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/business/" + match,
     dataType: 'json',
     success: function(data){
-        var match = $('#searchName').val();
+        // var match = $('#searchName').val();
+        console.log(match);
         var row = '<tr><th>' + 'Name' + '</th><th>' + 'Address' + '</th><th>' + 'Modify' + '</th><th>' + 'Delete' + '</th></tr>';
         for(var i = 0; i < data.length; i++){ 
-         if(data[i].name == match){
             row += '<tr><td>' + data[i].name + '</td><td>' + data[i].address_line_1 + '</td><td>' + '<a href="editBusiness.php"><button id=edit>Edit</button></a>' + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td></tr>';
-         }
         }
         $('#table').append(row);
     },
@@ -67,6 +77,125 @@ function delItem(){
     }
   });
 searchBusiness();
+}
+
+function editBusiness(){
+    var c = $('#edit').val();
+    x = c;
+      $.ajax({type:"GET",
+        url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/business",
+        dataType: 'json',
+        success: function(data){
+            var cat = "<select class='form-control' name='selectState' id='states' onChange='changeCat(this.value)'><option>Select Business</option>";
+            for(var i = 0; i < data.length; i++){ 
+              cat += "<option value = " + data[i].id + ">";
+              cat += data[i].name;
+              cat += "</option>";
+            }
+            cat += "</select>";
+            $("#EditData1").append(cat);
+            formdata = '</div></div><p align="center"><button Id ="submit" type ="submit" class="btn btn-primary" onclick="changeItem(); return false" align="center">Update Item</button></p>';
+            formdata += '</form>';
+            $('#EditData2').append(formdata);
+        }
+    });
+
+    $.ajax({type:"GET",
+        url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/business/" + c,
+        dataType: 'json',
+        success: function(data){
+          console.log("In success");
+          $('#table').empty();
+          var d= '<form class="form-horizontal" role="form" action="#" id="form1">';
+          d += '<div class="form-group">';
+          d += '<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label>';
+          d += '<div class="col-sm-10">';
+          d += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + data[0].name + ' onChange="changeName(this.value)">';
+          d += '<input type ="text" class="form-control" Id="searchAdd" placeholder=' + 'Current:' + data[0].address_line_1 + ' onChange="changeAdd(this.value)">';
+          d += '<input type ="text" class="form-control" Id="searchAdd2" placeholder=' + 'Current:' + data[0].address_line_2 + ' onChange="changeName(this.value)">';
+          d += '<input type ="text" class="form-control" Id="searchCity" placeholder=' + 'Current:' + data[0].city + ' onChange="changeName(this.value)">';       
+          $('#EditData').append(d);
+        }
+      });
+
+   $.ajax({type:"GET",
+        url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/states",
+        dataType: 'json',
+        success: function(data){
+            var states = "<select class='form-control' name='selectState' id='states'><option>Select State</option>";
+            for(var i = 0; i < data.length; i++){ 
+              states += "<option value = " + data[i].id + ">";
+              states += data[i].name;
+              states += "</option>";
+            }
+            states += "</select>";
+            $("#EditData").append(states);
+        },
+      });
+
+
+    $.ajax({type:"GET",
+        url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/business/" + c,
+        dataType: 'json',
+        success: function(data){
+          console.log("In success");
+          $('#table').empty();
+          var d= '<form class="form-horizontal" role="form" action="#" id="form1">';
+          d += '<div class="form-group">';
+          d += '<div class="col-sm-10">';
+          d += '<input type ="text" class="form-control" Id="searchPhone" placeholder=' + 'Current:' + data[0].phone + ' onChange="changeName(this.value)">';
+          d += '<input type ="text" class="form-control" Id="searchWebsite" placeholder=' + 'Current:' + data[0].website + ' onChange="changeAdd(this.value)">';
+          $('#EditData').append(d);
+        }
+      });
+
+}
+
+function changeName(value) {
+      y = value;
+}
+
+function changeAdd(value) {
+      z = value;
+}
+
+function changeAdd1(value) {
+      a = value;
+}
+
+function changeCity(vaue) {
+      b = value;
+}
+
+function changeState(value) {
+      d = value;
+}
+
+function changeZip(value) {
+      e = value;
+}
+
+function changePhone(value) {
+      f = value;
+}
+
+function changeWebsite(value) {
+      g = value;
+}
+function changeItem(){
+
+       var tableData = "name="+y+"&oldName="+x+"&add1="+z+"&add2="+a+"&city="+b+"&state="+d+"&zip="+e+"&phone="+f+"&website="+g;
+        $.ajax({type:"POST",
+            url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/changeBusiness",
+            data: tableData,
+            success: function(){
+              $('#form1').empty();
+              $('#table').empty();
+            },
+        });
+      $('#EditData').empty();
+      $('#EditData1').empty();
+      $('#EditData2').empty();
 }
 
 function checkSession(){

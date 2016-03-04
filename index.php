@@ -91,10 +91,10 @@
 	    $mysqli->close();
 	});		
 
-$app->get('/business', function() {
+	$app->get('/business', function() {
 		$mysqli = connectReuseDB();
 
-		$result = $mysqli->query('SELECT name, id, address_line_1, address_line_2, city, state_id, zip_code, phone, website FROM Reuse_Locations');
+		$result = $mysqli->query('SELECT name, id FROM Reuse_Locations');
 
 		$returnArray = array();
 	    while($row = $result->fetch_object()){
@@ -130,6 +130,24 @@ $app->get('/business', function() {
 		$id = (int)$mysqli->real_escape_string($id);
 		$result = $mysqli->query('SELECT name, id, category_id FROM Reuse_Items WHERE Reuse_Items.id = '.$id.'');
 
+
+		$returnArray = array();
+	    while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+
+	    echo json_encode($returnArray);
+
+	    $result->close();
+	    $mysqli->close();
+	});
+
+
+	$app->get('/business/:one', function($one){
+		$mysqli = connectReuseDB();
+
+		//$id = (int)$mysqli->real_escape_string($id);
+		$result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.name = '$one'");
 
 		$returnArray = array();
 	    while($row = $result->fetch_object()){
