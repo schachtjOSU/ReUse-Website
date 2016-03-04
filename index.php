@@ -229,7 +229,9 @@
 
 		$mysqli = connectReuseDB();
 
-		$mysqli->query("UPDATE Reuse_Categories SET name = '$name' WHERE name = '$oldName'");
+		if($oldName != 'undefined' && $name != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Categories SET name = '$name' WHERE name = '$oldName'");
+		}
 		$mysqli->close();
 
 		/* Update Mobile Database */
@@ -239,14 +241,18 @@
 	/* update item */
 	$app->post('/changeItem', function(){
 
-		$oldName = $_POST['oldName'];
-		$name = $_POST['name'];
-		$cat = $_POST['cat'];
+			$oldName = $_POST['oldName'];
+			$name = $_POST['name'];
+			$cat = $_POST['cat'];
 
 		$mysqli = connectReuseDB();
 
-		$mysqli->query("UPDATE Reuse_Items SET category_id = '$cat' WHERE name = '$oldName'");
-		$mysqli->query("UPDATE Reuse_Items SET name = '$name' WHERE name = '$oldName'");
+		if($name != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Items SET name = '$name' WHERE name = '$oldName'");			
+		}
+		if($cat != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Items SET category_id = '$cat' WHERE name = '$oldName'");
+		}
 		$mysqli->close();
 
 		/* Update Mobile Database */
@@ -402,8 +408,9 @@ $app->post('/updateItems', function(){
 
 		$mysqli = connectReuseDB();
 
-
-		$mysqli->query("UPDATE Reuse_Items SET category_id = '$category' WHERE Reuse_Items.name = '$name'");
+		if($category != 'undefined' && $name != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Items SET category_id = '$category' WHERE Reuse_Items.name = '$name'");
+		}
 		$mysqli->close();
 });
 
