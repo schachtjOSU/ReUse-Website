@@ -83,16 +83,17 @@ function addNewItem(){
   var name = document.getElementById("name").value;
   var type = "addItem";
   x = name;
+  var flag = 0;
+  var cat = 15;
 
   /* check for blanks in the form */
   if(name == null){
-    document.getElementById("output2").innerHTML ="Must, at minimum, contain an item name";
+    document.getElementById("output2").innerHTML ="Please enter a valid business name.\n";
     document.getElementById("addItem").reset();
     return;
   }
   else{
-    var tableData = "type="+type+"&name="+name;
-    console.log("in else");
+    var tableData = "type="+type+"&name="+name+"&cat="+cat;
     $.ajax({type:"POST",
       url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/items",
       data: tableData,
@@ -136,6 +137,8 @@ function updateItem(value){
       },
     });
     $('#table').empty();
+    document.getElementById("addItem").reset();
+    document.getElementById("output2").innerHTML ="Successfully added to the database.\n";
   }  
 
 </script>

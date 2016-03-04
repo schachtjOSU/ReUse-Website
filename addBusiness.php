@@ -26,7 +26,6 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/jquery.multi-select.js" type="text/javascript"></script>
   <script>
   var x;
   var count = 0;
@@ -89,19 +88,70 @@ function addNewBusiness(){
   var website = document.getElementById("website").value;
   var type = "add";
   x = name;
+  var flag = 0;
   console.log(x);
   console.log(name);
 
 
   /* check for blanks in the form */
-  if(isNaN(zipcode)){
-    document.getElementById("output2").innerHTML ="Zipcode input should be numeric.";
+  if(address == null){
+    document.getElementById("output2").innerHTML ="Please enter a valid business address.\n";
     document.getElementById("addBusiness").reset();
-    return;
+    flag = 1;
   }
-  if(name == null){
-    document.getElementById("output2").innerHTML ="Must, at minimum, contain a name";
+  if(city == null){
+    document.getElementById("output2").innerHTML ="Please enter a valid city.\n";
     document.getElementById("addBusiness").reset();
+    flag = 1;
+  }
+  if(state == null){
+    document.getElementById("output2").innerHTML ="Please enter a state from the drop down.\n";
+    document.getElementById("addBusiness").reset();
+    flag =1;
+  }
+  if(phone == null){
+    document.getElementById("output2").innerHTML ="Please enter a valid phone number.\n";
+    document.getElementById("addBusiness").reset();
+    flag = 1;
+  }
+  if(zipcode == null){
+      document.getElementById("output2").innerHTML ="Please enter a valid phone zip code.\n";
+      document.getElementById("addBusiness").reset();
+    flag = 1;
+  }
+
+  /* now check for errors */
+  if(isNaN(zipcode)){
+      document.getElementById("output2").innerHTML ="Zipcode input should be numeric.\n";
+      document.getElementById("addBusiness").reset();
+      flag = 1;
+  }
+  if(zipcode.length != 5){
+      document.getElementById("output2").innerHTML ="Please enter a valid zip code of 5 digits.\n";
+      document.getElementById("addBusiness").reset();
+      flag = 1;
+  }
+  if(isNaN(phone)){
+      document.getElementById("output2").innerHTML ="Phone input should be numeric, with no special characters. Ex: 5031234566.\n";
+      document.getElementById("addBusiness").reset();
+      flag = 1;
+  }
+  if(phone.length != 10){
+      document.getElementById("output2").innerHTML ="Please enter a valid phone number of 10 digits.\n";
+      document.getElementById("addBusiness").reset();
+      flag = 1;
+  }
+  if(address.length > 150){
+      document.getElementById("output2").innerHTML ="Please enter a valid address, less than 150 characters.\n";
+      document.getElementById("addBusiness").reset();
+      flag = 1;
+  }
+  if(address.length > 50){
+      document.getElementById("output2").innerHTML ="Please enter a valid city, less than 50 characters.\n";
+      document.getElementById("addBusiness").reset();
+      flag = 1;
+  }
+  if(flag != 0){
     return;
   }
   else{
@@ -126,7 +176,8 @@ function displayTable(){
     dataType: 'json',
     success: function(data){
       window.alert("Select as many items as you'd like to be added to the Business.");
-        var entry = '<label>Accepts Following Items: </label>';
+        var entry = '<input type = button value = DONE id = done onclick=clearAll() style="margin-right: 30px;">'
+        entry += '<label>Accepts Following Items: </label>';
         $('#tableHere').append(entry);
         var row = '<tr><th>' + 'Name' + '</th><th>'  + 'Business Accepts Following Items' + '</th></tr>';
         for(var i = 0; i < data.length; i++){ 
@@ -137,6 +188,12 @@ function displayTable(){
   });
 }
 
+function clearAll(){
+    $('#table').empty();
+    $('#tableHere').empty();
+    document.getElementById("addBusiness").reset();
+    document.getElementById("output2").innerHTML ="Successfully added to the database.\n";
+}
 
 function updateItem(value){
 
@@ -210,6 +267,7 @@ function updateItem(value){
           <button Id ="submit" type ="submit" class="btn btn-primary" onclick="addNewBusiness(); return false" align="center">Add Business</button>
         </p>
         </form>
+        <div id="doneHere"></div>
         <hr></hr>
         <div class="form-group">
         <div>

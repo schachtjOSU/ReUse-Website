@@ -77,9 +77,11 @@ function addNewCategory(){
       url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category",
       data: tableData,
       success: function(data){
-        window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/main.php";
+        cosole.log("success");
       },
     });
+    document.getElementById("addCategory").reset();
+    document.getElementById("output2").innerHTML ="Successfully added to the database.\n";
   }
 }
 </script>

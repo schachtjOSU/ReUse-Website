@@ -449,6 +449,7 @@ $app->post('/updateBusiness', function(){
 $app->post('/items', function(){
 
 		$name = $_POST['name'];
+		$cat = $_POST['cat'];
 
 		$mysqli = connectReuseDB();
 
@@ -462,12 +463,12 @@ $app->post('/items', function(){
 			
 
 		/* prepare the statement*/
-		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Items (name) VALUES (?)"))){
+		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Items (name, category_id) VALUES (?, ?)"))){
 			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}
 
 		/* bind the variables */
-		if(!$stmt->bind_param('s', $name)){
+		if(!$stmt->bind_param('si', $name, $cat)){
 	 		echo "Binding failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
 	 	}
 
