@@ -156,8 +156,7 @@ function checkSession(){
           <button Id ="submit" type ="submit" class="btn btn-primary" onclick="searchCategory(); return false" align="center">Search for Category</button>
         </p>
         </form>
-        <!-- bootstrap not creating margins here very well.. -->
-        <br><br>
+
         <!-- Table is created when button is hit -->
         <div id="tableHere">
           <table class="table table-striped" id="table"></table>

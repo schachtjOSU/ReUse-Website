@@ -105,7 +105,9 @@ function newUser(){
   </head>
   <!--<body onload="checkSession()"> -->
   <body>
-
+  <!-- Import Nav bar -->
+  <?php include("nav.php"); ?>
+  
   <!-- Main container -->
   <div class="container-fluid">
     <div class="row">

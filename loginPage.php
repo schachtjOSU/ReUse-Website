@@ -52,7 +52,7 @@ function login(){
         /* false, errors. Notify  user, no addition to DB */
         if(req.responseText == 0){
             document.getElementById("output").innerHTML = "Error: Username or Password Incorrect.";
-            document.getElementById("LForm").reset(); 
+            document.getElementById("loginForm").reset(); 
          }
 
          /* logged in already under another name */
@@ -90,7 +90,7 @@ function killSession(){
 }
 </script>
 </head>
-<body">
+<body>
   
   <!-- Main container -->
   <div class="container-fluid" id="smallCont">

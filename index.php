@@ -214,7 +214,22 @@
 		reuse_generateXML();
 	});
 
+	$app->delete('/updateBusiness/:one/:id', function($one, $id){
+		
+		$mysqli = connectReuseDB();
 
+		/* get location id based off name */
+		$result = $mysqli->query("SELECT name, id FROM Reuse_Locations");
+        while($row = $result->fetch_object()){
+            if($row->name == $one){
+				$match = $row->id;
+			}
+		}		
+		$match2 = $mysqli->real_escape_string($id);		
+
+		$mysqli->query("DELETE FROM Reuse_Locations_Items WHERE location_id = '$match' AND item_id = '$match2'");
+		$mysqli->close();
+	});
 
 /******************************************************************************************
 *				PUTS -- doing it as POSTS with UPDATES to avoid form issues
@@ -251,6 +266,51 @@
 		}
 		if($cat != 'undefined' && $oldName != 'undefined'){
 			$mysqli->query("UPDATE Reuse_Items SET category_id = '$cat' WHERE name = '$oldName'");
+		}
+		$mysqli->close();
+
+		/* Update Mobile Database */
+		reuse_generateXML();
+	});
+
+		/* update item */
+	$app->post('/changeBusiness', function(){
+
+		$oldName = $_POST['oldName'];
+		$name = $_POST['name'];
+		$state = $_POST['state'];
+		$address = $_POST['add1'];
+		$address2 = $_POST['add2'];
+		$zipcode = $_POST['zip'];
+		$city = $_POST['city'];
+		$state = $_POST['state'];
+		$phone = $_POST['phone'];
+		$website = $_POST['website'];
+
+		$mysqli = connectReuseDB();
+		if($state != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Locations SET state_id = '$state' WHERE name = '$oldName'");
+		}
+		if($address != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Locations SET address_line_1 = '$address' WHERE name = '$oldName'");
+		}
+		if($address2 != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Locations SET address_line_2 = '$address2' WHERE name = '$oldName'");
+		}
+		if($phone != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Locations SET phone = '$phone' WHERE name = '$oldName'");
+		}
+		if($zipcode != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Locations SET zip_code = '$zipcode' WHERE name = '$oldName'");
+		}
+		if($city != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Locations SET city = '$city' WHERE name = '$oldName'");
+		}
+		if($website != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Locations SET website = '$website' WHERE name = '$oldName'");
+		}
+		if($name != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Locations SET name = '$name' WHERE name = '$oldName'");			
 		}
 		$mysqli->close();
 

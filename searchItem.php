@@ -11,14 +11,6 @@
   session_start();
 
 
-  /***********************************************************************
-  *           Database setup to 
-  ***********************************************************************/
-  $mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-  if($mysqli->connect_errno){
-    echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-  }
-
 ?>
 
 <!DOCTYPE html>
@@ -189,7 +181,7 @@ function checkSession(){
           <button Id ="submit" type ="submit" class="btn btn-primary" onclick="searchItem(); return false" align="center">Search for Item</button>
         </p>
         </form>
-        <br><br>
+        
         <!-- Table is created when button is hit -->
         <div id="tableHere">
           <table class="table table-striped" id="table"></table>
