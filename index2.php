@@ -8,16 +8,20 @@
 	ini_set('display_errors', 1);
 
 	/* start session */
-	//ini_set('session.save_path', '/nfs/stak/students/m/masseyta/session');
     session_start();
 
 
+    /*******************************************************************
+    				YOUR DB CREDENTIALS HERE
+    ********************************************************************/
+    function connectDB(){
+    	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
+    	return $mysqli;
+    }
+
 	/**********************************************************************
-					DETERMINE ROUTING
+					DETERMINE LOGIN ROUTING
 	***********************************************************************/
-/************************************************************************
- +	*			POSTS, Non-Framework, function routing
- +	************************************************************************/
  	if( isset($_POST['type']) ){
  		$type = $_POST['type'];
  
@@ -49,7 +53,7 @@
 		//$password = $_POST['password'];
 		$password = crypt($_POST['password'], 'rl');
 
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
+		$mysqli = connectDB();
 		if($mysqli->connect_errno){
 			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}
@@ -120,7 +124,7 @@
 		$_SESSION['password'] = $passwordDB;
 		$_SESSION['loggedIn'] = true;
 
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
+		$mysqli = connectDB();
 		if($mysqli->connect_errno){
 			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}

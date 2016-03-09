@@ -181,8 +181,10 @@
 	//Remove Specific Business	
 	$app->delete('/business/:id', function($id){
 		$mysqli = connectReuseDB();
+		echo json_encode("IN RIGHT FUNCTION");
+		$delID = $mysqli->real_escape_string($id);	
 
-		$delID = $mysqli->real_escape_string($id);
+		$mysqli->query("DELETE FROM Reuse_Locations_Items WHERE location_id = '$delID'");
 		$mysqli->query("DELETE FROM Reuse_Locations WHERE Reuse_Locations.id ='$delID'");
 		$mysqli->close();
 

@@ -25,6 +25,12 @@
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
   <script>
 
+  /***********************************************************************
+            YOUR URL HERE
+  ***********************************************************************/
+  var webURL = "http://web.engr.oregonstate.edu/~masseyta/testApi";
+
+  
   /************************************************************************
   * 				Check Session on body load
   ************************************************************************/
@@ -37,7 +43,7 @@
           if(req.responseText == 1){
             /* everything has passed! Yay! Go into your session */
             window.alert("You are not logged in! You will be redirected.");
-            window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/loginPage.php";
+            window.location.href = webURL + "/loginPage.php";
           }
         }
       }
@@ -57,7 +63,7 @@ function logOut(){
 
 	    	 if(req.responseText == 1){
     	    	/* everything has passed! Yay! Go back to login page*/
-        		window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/loginPage.php";
+        		window.location.href = webURL + "/loginPage.php";
      		}
 
         /* no specific instance for causing false, but if it's not true... tell me */
