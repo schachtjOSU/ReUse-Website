@@ -24,57 +24,16 @@
   <link href="css/media.css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
-<script>
-
-  /************************************************************************
-  *         Check Session on body load
-  ************************************************************************/
-
-function checkSession(){
-
-    req = new XMLHttpRequest();
-    req.onreadystatechange = function(){
-     if(req.readyState == 4 && req.status == 200){
-
-        if(req.responseText == 1){
-          /* everything has passed! Yay! Go into your session */
-          window.alert("You are not logged in! You will be redirected.");
-          window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/loginPage.php";
-        }
-      }
-    }
-
-    /* send data to create table */
-    req.open("POST","checkSession.php", true);
-    req.send();
-}
-
-function addRoute(){
-
-  /* send to appropriate site */
-  var name = document.getElementById("choose").value;
-  if(name == "Business")
-    window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/addBusiness.php";
-  if(name == "Category")
-        window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/addCategory.php";
-  if(name == "Item")
-        window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/addItem.php";
-}
-function EditRoute(){
-
-  /* send to appropriate site */
-  var name = document.getElementById("choose").value;
-  if(name == "Business")
-    window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/searchBusiness.php";
-  if(name == "Category")
-        window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/searchCategory.php";
-  if(name == "Item")
-        window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/searchItem.php";
-}
-
-</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="js/mainFunct.js"></script>
+  <script>
+  //ONLOAD -- GET requests and checking of session with jQuery
+  $(document).ready(function(){
+    checkSession();
+  });
+  </script>
   </head>
-  <body onload="checkSession()">
+  <body>
 
   <!-- Import Nav bar -->
   <?php include("nav.php"); ?>

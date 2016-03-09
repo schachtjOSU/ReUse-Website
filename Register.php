@@ -6,6 +6,9 @@
   /* error check */
   error_reporting(E_ALL);
   ini_set('display_errors', 1);
+
+  /* start session */
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +23,12 @@
   <link href="css/media.css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
-
-  /************************************************************************
-  *         Check Session on body load
-  ************************************************************************/
-
+  $(document).ready(function(){
+    checkSession();
+  });
+/* check session */
 function checkSession(){
 
     req = new XMLHttpRequest();
@@ -45,6 +48,8 @@ function checkSession(){
     req.send();
 }
 
+
+/* register new User */
 function newUser(){
 
   /* get values from form */

@@ -26,6 +26,7 @@
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="js/jquery.multi-select.js" type="text/javascript"></script>
+  <script src="js/CatFunct.js"></script>
 <script>
 
   /************************************************************************
@@ -33,56 +34,8 @@
   ************************************************************************/
   //ONLOAD -- GET requests and checking of session with jQuery
   $(document).ready(function(){
-  checkSession();
-});
-
-function checkSession(){
-
-    req = new XMLHttpRequest();
-    req.onreadystatechange = function(){
-     if(req.readyState == 4 && req.status == 200){
-
-        if(req.responseText == 1){
-          /* everything has passed! Yay! Go into your session */
-          window.alert("You are not logged in! You will be redirected.");
-          window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/loginPage.php";
-        }
-      }
-    }
-
-    /* send data to create table */
-    req.open("POST","checkSession.php", true);
-    req.send();
-}
-
-
-
-function addNewCategory(){
-
-  /* get values from form */
-  var name = document.getElementById("name").value;
-  var type = "addCat";
-
-  /* check for blanks in the form */
-  if(name == null){
-    document.getElementById("output2").innerHTML ="Must, at minimum, contain a name";
-    document.getElementById("addCategory").reset();
-    return;
-  }
-  else{
-    var tableData = "type="+type+"&name="+name;
-
-    $.ajax({type:"POST",
-      url: "http://web.engr.oregonstate.edu/~masseyta/testApi" + "/index/category",
-      data: tableData,
-      success: function(data){
-        cosole.log("success");
-      },
-    });
-    document.getElementById("addCategory").reset();
-    document.getElementById("output2").innerHTML ="Successfully added to the database.\n";
-  }
-}
+    checkSession();
+  });
 </script>
   </head>
   <body>

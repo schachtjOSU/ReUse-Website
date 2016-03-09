@@ -8,7 +8,7 @@
 	ini_set('display_errors', 1);
 
 	/* start session */
-	ini_set('session.save_path', '/nfs/stak/students/m/masseyta/session');
+	//ini_set('session.save_path', '/nfs/stak/students/m/masseyta/session');
     session_start();
 
 
@@ -85,13 +85,11 @@
 				// start slims sessions
 				require 'Slim/Slim.php';
 				\Slim\Slim::registerAutoloader();
-				\Slim\Slim::registerAutoloader();
 				$app = new \Slim\Slim(
 					//More debugging
 					array( 'debug' => true )
 				);
 				$app->add(new \Slim\Middleware\SessionCookie(array(
-				    'expires' => '20 minutes',
 				    'path' => '/',
 				    'domain' => null,
 				    'secure' => false,
