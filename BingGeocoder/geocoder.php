@@ -52,7 +52,7 @@
 		
 	
 		/* construct a results list */
-		$results = [];
+		$response = Array();
 		
 		/* check match confidence */
 		$matchCodes = $sxml->xpath('//x:MatchCode');
