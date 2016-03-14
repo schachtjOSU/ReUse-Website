@@ -299,6 +299,13 @@ label {
     margin-top: 5%;
 }
 
+#EditData, #EditData1, #EditData2 {
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+}
+
+
+
 #search {
     margin-top: 5%;
 }

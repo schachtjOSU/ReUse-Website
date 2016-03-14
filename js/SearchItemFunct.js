@@ -109,14 +109,17 @@ function editItem(){
         url: webURL + "/index/items/" + c,
         dataType: 'json',
         success: function(data){
-          console.log("In success");
+          var tempname = encodeURI(data[0].name);
+          var bad = "%20";
+          tempname = tempname.replace(/%20/g, "_");
+
           $('#table').empty();
           var d= '<form class="form-horizontal" role="form" action="#" id="form1">';
           d += '<div class="form-group">';
           d += '<div class="col-sm-10">';
-          d += '<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label>';
+          d += '<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label></br></br>';
           d += '<div class="col-sm-10">';
-          d += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + data[0].name + ' onChange="changeName(this.value)">';
+          d += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + tempname + ' onChange="changeName(this.value)">';
           $('#EditData').append(d);
 
         }

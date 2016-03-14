@@ -64,11 +64,15 @@ function editCategory(){
     dataType: 'json',
     success: function(data){
       $('#table').empty();
+      var tempname = encodeURI(data[0].name);
+      var bad = "%20";
+      tempname = tempname.replace(/%20/g, "_");
+
       var formdata= '<form class="form-horizontal" role="form" action="#" id="form1">';
       formdata += '<div class="form-group">';
-      formdata += '<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label>';
+      formdata += '<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label></br>';
       formdata += '<div class="col-sm-10">';
-      formdata += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + data[0].name + ' onChange="changeName(this.value)">';
+      formdata += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + tempname + ' onChange="changeName(this.value)">';
       formdata += '</div></div><p align="center"><button Id ="submit" type ="submit" class="btn btn-primary" onclick="changeCategory(); return false" align="center">Update Category</button></p>';
       formdata += '</form>';
       $('#EditData').html(formdata);
