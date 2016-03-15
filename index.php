@@ -34,8 +34,8 @@
 	$app->response->headers->set('Content-Type', 'application/json');
 
 
-// API group
- $app->group('/index', function () use ($app) {
+	// API group
+ 	$app->group('/index', function () use ($app) {
 
 	/****************************************************************************
 	*				Gets
@@ -73,10 +73,7 @@
 	});
 
 	$app->get('/states', function() {
-		$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
-		if($mysqli->connect_errno){
-			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query('SELECT name, id FROM States');
 		$returnArray = array();
@@ -145,7 +142,6 @@
 	$app->get('/business/:one', function($one){
 		$mysqli = connectReuseDB();
 
-		//$id = (int)$mysqli->real_escape_string($id);
 		$result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.name = '$one'");
 
 		$returnArray = array();
@@ -508,8 +504,7 @@ $app->post('/updateBusiness', function(){
 			echo "Execute failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}
 
-		/*then update the joining table with the id of the location and the id of the items it accepts */
-		//$mysqli->query("UPDATE Reuse_Locations_Items SET item_id = '$item' WHERE Reuse_Locations_Items.location_id = '$match'");
+
 		$mysqli->close();
 });
 
