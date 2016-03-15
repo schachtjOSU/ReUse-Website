@@ -29,7 +29,6 @@ function searchBusiness(){
     url: webURL + "/index/business/" + match,
     dataType: 'json',
     success: function(data){
-        // var match = $('#searchName').val();
       $('#EditData').empty();
       $('#EditData1').empty();
       $('#EditData2').empty();
@@ -68,7 +67,7 @@ purpose: edit any field of any business searched for previously by name
 function editBusiness(){
     var c = $('#searchName').val();
     x = c;
-      var d ='<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label>';
+      var d ='<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label></br>';
       $('#EditData').html(d);
       $.ajax({type:"GET",
         url: webURL + "/index/business",
@@ -97,10 +96,19 @@ function editBusiness(){
           var d= '<form class="form-horizontal" role="form" action="#" id="form1">';
           d += '<div class="form-group">';
           d += '<div class="col-sm-10">';
-          d += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + data[0].name + ' onChange="changeName(this.value)">';
-          d += '<input type ="text" class="form-control" Id="searchAdd" placeholder=' + 'Current:' + data[0].address_line_1 + ' onChange="changeAdd(this.value)">';
-          d += '<input type ="text" class="form-control" Id="searchAdd2" placeholder=' + 'Current:' + data[0].address_line_2 + ' onChange="changeAdd2(this.value)">';
-          d += '<input type ="text" class="form-control" Id="searchCity" placeholder=' + 'Current:' + data[0].city + ' onChange="changeCity(this.value)">';
+          var tempname = encodeURI(data[0].name);
+          var tempadd = encodeURI(data[0].address_line_1);
+          var tempadd2 = encodeURI(data[0].address_line_2);
+          var tempcity = encodeURI(data[0].city);
+          var bad = "%20";
+          tempname = tempname.replace(/%20/g, "_");
+          tempadd = tempadd.replace(/%20/g, "_");
+          tempadd2 = tempadd2.replace(/%20/g, "_");
+          tempcity = tempcity.replace(/%20/g, "_");
+          d += '<input type ="text" class="form-control" Id="searchName" placeholder=' + 'Current:' + tempname + ' onChange="changeName(this.value)">';
+          d += '<input type ="text" class="form-control" Id="searchAdd" placeholder=' + 'Current:' + tempadd + ' onChange="changeAdd(this.value)">';
+          d += '<input type ="text" class="form-control" Id="searchAdd2" placeholder=' + 'Current:' + tempadd2 + ' onChange="changeAdd2(this.value)">';
+          d += '<input type ="text" class="form-control" Id="searchCity" placeholder=' + 'Current:' + tempcity + ' onChange="changeCity(this.value)">';
           d += '</div></div>'       
           $('#EditData').append(d);
             $.ajax({type:"GET",
@@ -232,7 +240,7 @@ purpose: deletes item, many to many, from items business accepts
 */
 function delBusItem(value){
   var name;
-  if(y.length != 0){
+  if(y != null){
     name = y;
   }
   else{
@@ -258,7 +266,7 @@ purpose: adds new item to list of items business accepts, many to many
 */
 function updateItem(value){
   var name;
-  if(y.length != 0){
+  if(y != null){
     name = y;
   }
   else{
