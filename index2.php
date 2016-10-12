@@ -2,7 +2,7 @@
 	/**********************************************************************
 	*					 error check
 	**********************************************************************/
-
+    include 'database/database_cred.php';
 	/* error check */
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
@@ -15,7 +15,7 @@
     				YOUR DB CREDENTIALS HERE
     ********************************************************************/
     function connectDB(){
-    	$mysqli = new mysqli("oniddb.cws.oregonstate.edu", "masseyta-db", "ov00iqgNNd5KBsCZ", "masseyta-db");
+    	$mysqli = new mysqli($DBUrl, $DBUser, $DBPw, $DBName);
     	return $mysqli;
     }
 

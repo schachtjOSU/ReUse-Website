@@ -4,7 +4,7 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "http://web.engr.oregonstate.edu/~masseyta/testApi";
+var webURL = "";
 /*
 Function: displayStates();
 Purpose: Displays 50 states in a dropdown
@@ -64,9 +64,8 @@ function addNewItem(){
   x = name;
   var flag = 0;
   var cat = 15;
-
   /* check for blanks in the form */
-  if(name == null){
+  if(name == ""){
     document.getElementById("output2").innerHTML ="Please enter a valid business name.\n";
     document.getElementById("addItem").reset();
     return;

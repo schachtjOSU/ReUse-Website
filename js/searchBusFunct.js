@@ -5,7 +5,7 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "http://web.engr.oregonstate.edu/~masseyta/testApi";
+var webURL = window.location.href;
 
 // globals
 var y;
@@ -96,6 +96,7 @@ function editBusiness(){
           var d= '<form class="form-horizontal" role="form" action="#" id="form1">';
           d += '<div class="form-group">';
           d += '<div class="col-sm-10">';
+          x = data[0].name;
           var tempname = encodeURI(data[0].name);
           var tempadd = encodeURI(data[0].address_line_1);
           var tempadd2 = encodeURI(data[0].address_line_2);

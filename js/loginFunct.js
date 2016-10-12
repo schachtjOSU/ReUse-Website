@@ -2,7 +2,7 @@
         Login Screen
 ********************************************/
 // PUT YOUR WEBSITE HERE
-var webURL = "http://web.engr.oregonstate.edu/~masseyta/testApi";
+var webURL = window.location.href;
 
 /*
 function: login()

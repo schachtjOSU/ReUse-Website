@@ -1,2 +1,21 @@
-myxml.xml
+# vim
+.*.sap
 
+# composer
+/vendor/*
+
+# logs
+/logs/
+
+# apache
+.htaccess 
+
+# DB
+database
+DBSetup
+
+# geocoder
+BingGeo*
+
+# Android
+AndroidSourceCode

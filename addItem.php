@@ -70,7 +70,7 @@
         </div>
         <!-- Hidden row for displaying login errors -->
         <div class="row">
-          <div class="col-xs-12 cold-md-8" Id= "output2"></div>
+          <div class="col-xs-12 cold-md-8" id= "output2"></div>
         </div class="row"><!-- end inner row -->
   </div> <!-- end container-->
 
