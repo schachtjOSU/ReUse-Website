@@ -2,8 +2,10 @@ using Android.Content;
 using Android.Views;
 using Android.Widget;
 using System.Collections.Generic;
+using CRRD.Resources.Models;
+using CRRD.Resources.Data;
 
-namespace CRRD.Resources.Models
+namespace CRRD.Resources.Adapters
 {
     class BusinessListAdapter : BaseAdapter<string>
     {
@@ -11,7 +13,7 @@ namespace CRRD.Resources.Models
         private Context _context;
 
 		// Start class to Get and parse the local XML file to the associated classes (Business & Category)
-		private XMLHandeler _handler = new XMLHandeler();
+		private DataHandler _handler = new DataHandler();
 
         public BusinessListAdapter(Context context, List<string> items)
         {

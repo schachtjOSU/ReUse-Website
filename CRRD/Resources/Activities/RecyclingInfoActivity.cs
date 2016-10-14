@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
+using CRRD.Resources.Adapters;
 
 namespace CRRD.Resources.Activities
 {
@@ -10,7 +11,7 @@ namespace CRRD.Resources.Activities
     /// Android Activity: Used for displaying the local recycling facility information. Provides navigation for facility information links.
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
-    [Activity(Label = "Recycling Info", Icon = "@drawable/RepublicServices")]
+    [Activity(Label = "@string/RecyclingInfoActivityLabel", Icon = "@drawable/RepublicServices")]
     public class RecyclingInfoActivity : Activity
     {
         /// <summary>

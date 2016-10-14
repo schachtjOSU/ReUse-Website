@@ -66,7 +66,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Resources\Activities\AppErrorActivity.cs" />
+    <Compile Include="Resources\Activities\ErrorCheckActivity.cs" />
+    <Compile Include="Resources\Activities\ErrorActivity.cs" />
     <Compile Include="Resources\Activities\BusinessDetailsActivity.cs" />
     <Compile Include="Resources\Activities\BusinessListActivity.cs" />
     <Compile Include="Resources\Activities\CategoryListActivity.cs" />
@@ -75,20 +76,20 @@
     <Compile Include="Resources\Activities\RecyclingInfoActivity.cs" />
     <Compile Include="Resources\Activities\SubcategoryListActivity.cs" />
     <Compile Include="Resources\Activities\WebViwerActivity.cs" />
+    <Compile Include="Resources\Adapters\BusinessListAdapter.cs" />
+    <Compile Include="Resources\Adapters\CategoryListAdapter.cs" />
+    <Compile Include="Resources\Adapters\SubcategoryListAdapter.cs" />
+    <Compile Include="Resources\Adapters\DataHandler.cs" />
+    <Compile Include="Resources\Data\MyDeviceIO.cs" />
+    <Compile Include="Resources\Data\XMLHandler.cs" />
     <Compile Include="Resources\Models\Business.cs" />
-    <Compile Include="Resources\Models\BusinessListAdapter.cs" />
     <Compile Include="Resources\Models\Category.cs" />
-    <Compile Include="Resources\Models\CategoryListAdapter.cs" />
-    <Compile Include="Resources\Models\MyDeviceIO.cs" />
-    <Compile Include="Resources\Models\SubcategoryListAdapter.cs" />
-    <Compile Include="Resources\Models\XMLHandeler.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
-    <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\RecyclingInfo.axml">
       <SubType>AndroidResource</SubType>
@@ -142,6 +143,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\RepublicServices.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

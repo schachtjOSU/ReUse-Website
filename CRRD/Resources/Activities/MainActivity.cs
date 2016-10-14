@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 using CRRD.Resources.Activities;
+using CRRD.Resources.Adapters;
 
 namespace CRRD
 {
@@ -10,7 +11,7 @@ namespace CRRD
     /// Android Activity: The Main page activity for the application.
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
-    [Activity(Label = "Reuse & Repair", MainLauncher = true, Icon = "@drawable/CSCLogo")]
+    [Activity(Label = "@string/MainActivityLabel", MainLauncher = true, Icon = "@drawable/CSCLogo")]
     public class MainActivity : Activity
     {
         /// <summary>

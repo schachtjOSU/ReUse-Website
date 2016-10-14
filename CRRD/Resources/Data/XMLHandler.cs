@@ -4,12 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Xml.Linq;
+using CRRD.Resources.Models;
 
-namespace CRRD.Resources.Models
+namespace CRRD.Resources.Data
 {
-    class XMLHandeler
+    class XMLHandler
     {
-        public Boolean isInitialized = true;
+        public Boolean isInitialized { get; private set; }
 
         private XDocument xDoc { get; set; }
         public List<Category> CategoryList { get; private set; }
@@ -27,7 +28,7 @@ namespace CRRD.Resources.Models
         /// Costructor for the XMLHandler class. Instanciates and sets collection properties. Runs all parsing methods 
         /// for setting the Business and Category classes. 
         /// </summary>
-        public XMLHandeler()
+        public XMLHandler()
         {
             // instanciate the lists
             CategoryList = new List<Category>();
@@ -234,17 +235,6 @@ namespace CRRD.Resources.Models
         {
             deviceIO.SaveToDevice(xmlString);
         }
-
-        /// <summary>
-        /// Gets a Business object from the BusinessList by the passed Name parameter.
-        /// </summary>
-        /// <param name="businessName">Name of the business.</param>
-        /// <returns>
-        /// The Business object of the given Name perameter is returned.
-        /// </returns>
-        public Business GetBusinessByName(string businessName)
-        {
-            return BusinessList.FirstOrDefault(x => x.Name == businessName);
-        }
+        
     }
 }

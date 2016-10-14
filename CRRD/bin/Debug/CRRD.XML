@@ -4,13 +4,26 @@
         <name>CRRD</name>
     </assembly>
     <members>
-        <member name="T:CRRD.Resources.Activities.AppErrorActivity">
+        <member name="T:CRRD.Resources.Activities.ErrorCheckActivity">
+            <summary>
+            Android Activity: Used to move to ErrorActivity should the directory data not be available.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.ErrorCheckActivity.checkDataHandlerInitialization(Android.Content.Context,System.Boolean)">
+            <summary>
+            Moves to AppErrorActivity if DataHandler is invalid
+            </summary>
+            <param name="thisContext">The calling context.</param>
+            <param name="handlerIsInitialized">The value of DataHandler.isInitialed, which indicates if the Category and Business lists have been set.</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.ErrorActivity">
             <summary>
             Android Activity: Used for displaying an error message.
             </summary>
             <seealso cref="T:Android.App.Activity" />
         </member>
-        <member name="M:CRRD.Resources.Activities.AppErrorActivity.OnCreate(Android.OS.Bundle)">
+        <member name="M:CRRD.Resources.Activities.ErrorActivity.OnCreate(Android.OS.Bundle)">
             <summary>
             Called when [create].
             </summary>
@@ -18,15 +31,15 @@
         </member>
         <member name="T:CRRD.Resources.Activities.BusinessDetailsActivity">
             <summary>
-            Android Activity: Used for displaying the Business detail information.
+            Android Activity: Used for displaying the the details of a specific business
             </summary>
             <seealso cref="T:Android.App.Activity" />
         </member>
         <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.OnCreate(Android.OS.Bundle)">
             <summary>
-            Called when [create].
+            Called on creation of Business Details Activity.
             </summary>
-            <param name="bundle">The bundle.</param>
+            <param name="bundle">The bundle, used for passing data between Activities.</param>
         </member>
         <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.CheckBusinessHasLatLng">
             <summary>
@@ -111,11 +124,11 @@
             </summary>
             <param name="bundle">The bundle.</param>
         </member>
-        <member name="M:CRRD.Resources.Activities.CategoryListActivity._checkXMLHandler(System.Boolean)">
+        <member name="M:CRRD.Resources.Activities.CategoryListActivity.checkDataHandlerInitialization(System.Boolean)">
             <summary>
-            Moves to AppErrorActivity if XMLHandler is invalid
+            Moves to AppErrorActivity if DataHandler is invalid
             </summary>
-            <param name="handlerIsValid">The XMLHandler.isValid value</param>
+            <param name="handlerIsInitialized">The DataHandler.isValid value</param>
         </member>
         <member name="T:CRRD.Resources.Activities.MapViewerActivity">
             <summary>
@@ -207,81 +220,19 @@
             <param name="url">The URL.</param>
             <returns>Return true with the requested URL loaded into the object.</returns>
         </member>
-        <member name="M:CRRD.Resources.Models.CategoryListAdapter.GetAllPosibleSubcategoryCount(System.String)">
+        <member name="M:CRRD.Resources.Adapters.CategoryListAdapter.GetAllPosibleSubcategoryCount(System.String)">
             <summary>
             Gets the count of all posible unique subcategories for a given category name
             </summary>
             <param name="categoryName">The name of Category requesting the subcategory count</param>
             <returns>The count of all possible unique subcategories for a given category name</returns>
         </member>
-        <member name="M:CRRD.Resources.Models.MyDeviceIO.#ctor(System.String)">
+        <member name="M:CRRD.Resources.Adapters.DataHandler.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:CRRD.Resources.Models.MyDeviceIO"/> class.
-            </summary>
-            <param name="filename">The filename.</param>
-        </member>
-        <member name="M:CRRD.Resources.Models.MyDeviceIO.SaveToDevice(System.String)">
-            <summary>
-            Saves to device.
-            </summary>
-            <param name="item">The item.</param>
-        </member>
-        <member name="M:CRRD.Resources.Models.MyDeviceIO.ReadFromDevice">
-            <summary>
-            Reads from device.
+            Costructor for the DataHandler class., which runs miscellaneous parsing methods for Activities.
             </summary>
         </member>
-        <member name="M:CRRD.Resources.Models.MyDeviceIO.HasNetwork">
-            <summary>
-            Determines whether the device is connected to a network.
-            </summary>
-            <returns>
-            Returns true if the device is connected to a network.
-            </returns>
-        </member>
-        <member name="M:CRRD.Resources.Models.MyDeviceIO.BusinessFileExists">
-            <summary>
-            Used to find a bool value of if a BusinessList File exists on the local device. 
-            </summary>
-            <returns>
-            Returns true if a BusinessList File exists on the local device
-            </returns>
-        </member>
-        <member name="M:CRRD.Resources.Models.XMLHandeler.#ctor">
-            <summary>
-            Costructor for the XMLHandler class. Instanciates and sets collection properties. Runs all parsing methods 
-            for setting the Business and Category classes. 
-            </summary>
-        </member>
-        <member name="M:CRRD.Resources.Models.XMLHandeler.SetBusinessList">
-            <summary>
-            Parses the data in the CRRD Database XML file into the Business and Category classes
-            </summary>
-        </member>
-        <member name="M:CRRD.Resources.Models.XMLHandeler.SetCategoryList">
-            <summary>
-            Sets the category list of Category objects.
-            </summary>
-        </member>
-        <member name="M:CRRD.Resources.Models.XMLHandeler.GetXmlFromDevice">
-            <summary>
-            Gets the XML from device.
-            </summary>
-            <returns>The XML string</returns>
-        </member>
-        <member name="M:CRRD.Resources.Models.XMLHandeler.GetXMLFromURL">
-            <summary>
-            Gets the XML from URL.
-            </summary>
-            <returns>A string result of the requested XML file</returns>
-        </member>
-        <member name="M:CRRD.Resources.Models.XMLHandeler.SaveXmlToDevice(System.String)">
-            <summary>
-            Saves the XML to device.
-            </summary>
-            <param name="xmlString">The XML string.</param>
-        </member>
-        <member name="M:CRRD.Resources.Models.XMLHandeler.GetBusinessByName(System.String)">
+        <member name="M:CRRD.Resources.Adapters.DataHandler.GetBusinessByName(System.String)">
             <summary>
             Gets a Business object from the BusinessList by the passed Name parameter.
             </summary>
@@ -289,6 +240,73 @@
             <returns>
             The Business object of the given Name perameter is returned.
             </returns>
+        </member>
+        <member name="M:CRRD.Resources.Data.MyDeviceIO.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CRRD.Resources.Data.MyDeviceIO"/> class.
+            </summary>
+            <param name="filename">The filename.</param>
+        </member>
+        <member name="M:CRRD.Resources.Data.MyDeviceIO.SaveToDevice(System.String)">
+            <summary>
+            Saves to device.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:CRRD.Resources.Data.MyDeviceIO.ReadFromDevice">
+            <summary>
+            Reads from device.
+            </summary>
+        </member>
+        <member name="M:CRRD.Resources.Data.MyDeviceIO.HasNetwork">
+            <summary>
+            Determines whether the device is connected to a network.
+            </summary>
+            <returns>
+            Returns true if the device is connected to a network.
+            </returns>
+        </member>
+        <member name="M:CRRD.Resources.Data.MyDeviceIO.BusinessFileExists">
+            <summary>
+            Used to find a bool value of if a BusinessList File exists on the local device. 
+            </summary>
+            <returns>
+            Returns true if a BusinessList File exists on the local device
+            </returns>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.#ctor">
+            <summary>
+            Costructor for the XMLHandler class. Instanciates and sets collection properties. Runs all parsing methods 
+            for setting the Business and Category classes. 
+            </summary>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.SetBusinessList">
+            <summary>
+            Parses the data in the CRRD Database XML file into the Business and Category classes
+            </summary>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.SetCategoryList">
+            <summary>
+            Sets the category list of Category objects.
+            </summary>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.GetXmlFromDevice">
+            <summary>
+            Gets the XML from device.
+            </summary>
+            <returns>The XML string</returns>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.GetXMLFromURL">
+            <summary>
+            Gets the XML from URL.
+            </summary>
+            <returns>A string result of the requested XML file</returns>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.SaveXmlToDevice(System.String)">
+            <summary>
+            Saves the XML to device.
+            </summary>
+            <param name="xmlString">The XML string.</param>
         </member>
         <member name="T:CRRD.MainActivity">
             <summary>

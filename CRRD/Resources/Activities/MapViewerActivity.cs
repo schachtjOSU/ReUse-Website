@@ -7,6 +7,7 @@ using CRRD.Resources.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CRRD.Resources.Adapters;
 
 namespace CRRD.Resources.Activities
 {
@@ -15,7 +16,7 @@ namespace CRRD.Resources.Activities
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
     /// <seealso cref="Android.Gms.Maps.IOnMapReadyCallback" />
-    [Activity(Label = "Map", Icon = "@drawable/CSCLogo")]
+    [Activity(Label = "@string/MapViewerActivityLabel", Icon = "@drawable/CSCLogo")]
     public class MapViewerActivity : Activity, IOnMapReadyCallback
     {
         private GoogleMap _Map;
@@ -23,7 +24,7 @@ namespace CRRD.Resources.Activities
         private string _businessName, _categoryName, _subcategoryName;
 
         // Start class to Get and parse the local XML file to the associated classes (Business & Category)
-        private XMLHandeler _handler = new XMLHandeler();
+        private DataHandler _handler = new DataHandler();
 
         private LatLng _Corvallis = new LatLng(44.569949, -123.278285);
 
@@ -33,7 +34,7 @@ namespace CRRD.Resources.Activities
         /// <param name="bundle">The bundle.</param>
         protected override void OnCreate(Bundle bundle)
         {
-            checkXMLHandlerInitialization(_handler.isInitialized);
+            ErrorCheckActivity.checkDataHandlerInitialization(this.ApplicationContext, _handler.isInitialized);
 
             base.OnCreate(bundle);
 
@@ -47,20 +48,6 @@ namespace CRRD.Resources.Activities
             GetBusinessList(_businessName, _categoryName, _subcategoryName);
 
             SetUpMap();
-        }
-
-        /// <summary>
-        /// Moves to AppErrorActivity if XMLHandler is invalid
-        /// </summary>
-        /// <param name="handlerIsInitialized">The XMLHandler.isValid value</param>
-        private void checkXMLHandlerInitialization(Boolean handlerIsInitialized)
-        {
-            if (!handlerIsInitialized)
-            {
-                var intent = new Intent(this, typeof(AppErrorActivity));
-                intent.PutExtra("errorMessage", "The directory data cannot be retrieved.");
-                StartActivity(intent);
-            }
         }
 
         /// <summary>

@@ -3,8 +3,9 @@ using Android.Content;
 using Android.Net;
 using System;
 using System.IO;
+using CRRD.Resources.Models;
 
-namespace CRRD.Resources.Models
+namespace CRRD.Resources.Data
 {
     class MyDeviceIO
     {

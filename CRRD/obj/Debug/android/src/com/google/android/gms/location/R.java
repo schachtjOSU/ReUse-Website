@@ -240,29 +240,32 @@ containing a value of this type.
         public static int republicservices=0x7f02001e;
     }
     public static final class id {
-        public static int BtnCategories=0x7f070011;
-        public static int BtnRecycleInfo=0x7f070012;
-        public static int BtnViewMap=0x7f07000b;
+        public static int BtnCategories=0x7f070014;
+        public static int BtnRecycleInfo=0x7f070015;
+        public static int BtnViewMap=0x7f07000e;
         public static int adjust_height=0x7f070005;
         public static int adjust_width=0x7f070006;
-        public static int btnToMapView=0x7f07000c;
+        public static int btnToMapView=0x7f07000f;
+        public static int errorDefault=0x7f070009;
+        public static int errorMessage=0x7f070008;
+        public static int errorTitle=0x7f070007;
         public static int hybrid=0x7f070000;
-        public static int lnkRecyclingCurbside=0x7f070015;
-        public static int lnkRecyclingFacility=0x7f070014;
-        public static int lvListArea=0x7f070010;
-        public static int map=0x7f070013;
+        public static int lnkRecyclingCurbside=0x7f070018;
+        public static int lnkRecyclingFacility=0x7f070017;
+        public static int lvListArea=0x7f070013;
+        public static int map=0x7f070016;
         public static int none=0x7f070001;
         public static int normal=0x7f070002;
-        public static int objWebView=0x7f070016;
+        public static int objWebView=0x7f070019;
         public static int satellite=0x7f070003;
         public static int terrain=0x7f070004;
-        public static int txtBusinessAddress=0x7f070008;
-        public static int txtBusinessName=0x7f070007;
-        public static int txtBusinessPhone=0x7f070009;
-        public static int txtBusinessWebsite=0x7f07000a;
-        public static int txtCategoryName=0x7f07000e;
-        public static int txtIndex=0x7f07000d;
-        public static int txtSubcatCount=0x7f07000f;
+        public static int txtBusinessAddress=0x7f07000b;
+        public static int txtBusinessName=0x7f07000a;
+        public static int txtBusinessPhone=0x7f07000c;
+        public static int txtBusinessWebsite=0x7f07000d;
+        public static int txtCategoryName=0x7f070011;
+        public static int txtIndex=0x7f070010;
+        public static int txtSubcatCount=0x7f070012;
     }
     public static final class integer {
         public static int google_play_services_version=0x7f060000;
@@ -281,6 +284,15 @@ containing a value of this type.
     }
     public static final class string {
         public static int ApplicationName=0x7f040022;
+        public static int BusinessDetailsActivityLabel=0x7f040023;
+        public static int BusinessListActivityLabel=0x7f040024;
+        public static int CateogryListActivityLabel=0x7f040025;
+        public static int ErrorActivityLabel=0x7f040026;
+        public static int MainActivityLabel=0x7f040027;
+        public static int MapViewerActivityLabel=0x7f040028;
+        public static int RecyclingInfoActivityLabel=0x7f040029;
+        public static int SubcategoryListActivityLabel=0x7f04002a;
+        public static int WebViewerActivityLabel=0x7f04002b;
         /**  Brand name for Facebook [DO NOT TRANSLATE] 
          */
         public static int auth_google_play_services_client_facebook_display_name=0x7f040001;
@@ -399,7 +411,8 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static int common_signin_button_text_long=0x7f040021;
-        public static int google_maps_key=0x7f040023;
+        public static int errorDefault=0x7f04002d;
+        public static int google_maps_key=0x7f04002c;
     }
     public static final class styleable {
         /**  Attributes for LoadingImageView 

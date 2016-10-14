@@ -6,13 +6,15 @@ using Android.Widget;
 using CRRD.Resources.Models;
 using System;
 
+using CRRD.Resources.Adapters;
+
 namespace CRRD.Resources.Activities
 {
     /// <summary>
-    /// Android Activity: Used for displaying the Business detail information.
+    /// Android Activity: Used for displaying the the details of a specific business
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
-    [Activity(Label = "Business Details", Icon = "@drawable/CSCLogo")]
+    [Activity(Label = "@string/BusinessDetailsActivityLabel", Icon = "@drawable/CSCLogo")]
     public class BusinessDetailsActivity : Activity
     {
         private TextView _txtBusName, _txtBusAddress, _txtBusPhone, _txtBusWebsite;
@@ -22,15 +24,15 @@ namespace CRRD.Resources.Activities
         private Business _businessObj = new Business();
 
         // Start class to Get and parse the local XML file to the associated classes (Business & Category)
-        private XMLHandeler _handler = new XMLHandeler();
+        private DataHandler _handler = new DataHandler();
 
         /// <summary>
-        /// Called when [create].
+        /// Called on creation of Business Details Activity.
         /// </summary>
-        /// <param name="bundle">The bundle.</param>
+        /// <param name="bundle">The bundle, used for passing data between Activities.</param>
         protected override void OnCreate(Bundle bundle)
         {
-            checkXMLHandlerInitialization(_handler.isInitialized);
+            ErrorCheckActivity.checkDataHandlerInitialization(this.ApplicationContext, _handler.isInitialized);
 
             base.OnCreate(bundle);
 
@@ -65,19 +67,6 @@ namespace CRRD.Resources.Activities
             _txtBusWebsite.Click += _txtBusWebsite_Click;
         }
 
-        /// <summary>
-        /// Moves to AppErrorActivity if XMLHandler is invalid
-        /// </summary>
-        /// <param name="handlerIsInitialized">The XMLHandler.isValid value</param>
-        private void checkXMLHandlerInitialization(Boolean handlerIsInitialized)
-        {
-            if (!handlerIsInitialized)
-            {
-                var intent = new Intent(this, typeof(AppErrorActivity));
-                intent.PutExtra("errorMessage", "The directory data cannot be retrieved.");
-                StartActivity(intent);
-            }
-        }
 
         /// <summary>
         /// Check is the business object contains a Latitude or Logitude value ther than 0. If no values are found, 

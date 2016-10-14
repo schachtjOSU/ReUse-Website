@@ -2,10 +2,11 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using CRRD.Resources.Models;
+//using CRRD.Resources.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CRRD.Resources.Adapters;
 
 namespace CRRD.Resources.Activities
 {
@@ -13,14 +14,14 @@ namespace CRRD.Resources.Activities
     /// Android Activity: Used for displaying the List of Categories a user may select.
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
-    [Activity(Label = "List of Categories", Icon = "@drawable/CSCLogo")]
+    [Activity(Label = "@string/CategoryListActivityLabel", Icon = "@drawable/CSCLogo")]
     public class CategoryListActivity : Activity
     {
         private ListView _ListView;
         private List<string> _categoryListStrings;
 
         // Start class to Get and parse the local XML file to the associated classes (Business & Category)
-        private XMLHandeler _handler = new XMLHandeler();
+        private DataHandler _handler = new DataHandler();
 
         /// <summary>
         /// Called when [create].
@@ -29,7 +30,7 @@ namespace CRRD.Resources.Activities
         protected override void OnCreate(Bundle bundle)
         {
 
-            checkXMLHandlerInitialization(_handler.isInitialized);
+            ErrorCheckActivity.checkDataHandlerInitialization(this.ApplicationContext, _handler.isInitialized);
 
             base.OnCreate(bundle);
 
@@ -58,14 +59,14 @@ namespace CRRD.Resources.Activities
         }
 
         /// <summary>
-        /// Moves to AppErrorActivity if XMLHandler is invalid
+        /// Moves to AppErrorActivity if DataHandler is invalid
         /// </summary>
-        /// <param name="handlerIsInitialized">The XMLHandler.isValid value</param>
-        private void checkXMLHandlerInitialization(Boolean handlerIsInitialized)
+        /// <param name="handlerIsInitialized">The DataHandler.isValid value</param>
+        private void checkDataHandlerInitialization(Boolean handlerIsInitialized)
         {
             if (!handlerIsInitialized)
             {
-                var intent = new Intent(this, typeof(AppErrorActivity));
+                var intent = new Intent(this, typeof(ErrorActivity));
                 intent.PutExtra("errorMessage", "The directory data cannot be retrieved.");
                 StartActivity(intent);
             }

@@ -2,9 +2,11 @@ using Android.Content;
 using Android.Views;
 using Android.Widget;
 using System.Collections.Generic;
+using CRRD.Resources.Models;
+using CRRD.Resources.Data;
 
-namespace CRRD.Resources.Models
-{
+namespace CRRD.Resources.Adapters
+{ 
     class SubcategoryListAdapter : BaseAdapter<string>
     {
         private List<string> _Items;
@@ -41,7 +43,7 @@ namespace CRRD.Resources.Models
             }
 
 
-            // WHAT EACH PART WILL DISPLAY
+            // Set what each row will display
 
             TextView listIndex = row.FindViewById<TextView>(Resource.Id.txtIndex);
             listIndex.Text = (position + 1).ToString();

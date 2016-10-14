@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Webkit;
+using CRRD.Resources.Adapters;
 
 namespace CRRD.Resources.Activities
 {
@@ -10,7 +11,7 @@ namespace CRRD.Resources.Activities
     /// Android Activity: Used for displaying a local application view of a requested web page.
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
-    [Activity(Label = "Web View", Icon = "@drawable/RepublicServices")]
+    [Activity(Label = "@string/WebViewerActivityLabel", Icon = "@drawable/CSCLogo")]
     public class WebViwerActivity : Activity
     {
         private string GDOCS_VIEWER = "https://docs.google.com/gview?embedded=true&url=";

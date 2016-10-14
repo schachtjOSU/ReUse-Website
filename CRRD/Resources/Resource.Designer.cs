@@ -412,6 +412,33 @@ namespace CRRD
 			// aapt resource value: 0x7f040022
 			public const int ApplicationName = 2130968610;
 			
+			// aapt resource value: 0x7f040023
+			public const int BusinessDetailsActivityLabel = 2130968611;
+			
+			// aapt resource value: 0x7f040024
+			public const int BusinessListActivityLabel = 2130968612;
+			
+			// aapt resource value: 0x7f040025
+			public const int CateogryListActivityLabel = 2130968613;
+			
+			// aapt resource value: 0x7f040026
+			public const int ErrorActivityLabel = 2130968614;
+			
+			// aapt resource value: 0x7f040027
+			public const int MainActivityLabel = 2130968615;
+			
+			// aapt resource value: 0x7f040028
+			public const int MapViewerActivityLabel = 2130968616;
+			
+			// aapt resource value: 0x7f040029
+			public const int RecyclingInfoActivityLabel = 2130968617;
+			
+			// aapt resource value: 0x7f04002a
+			public const int SubcategoryListActivityLabel = 2130968618;
+			
+			// aapt resource value: 0x7f04002b
+			public const int WebViewerActivityLabel = 2130968619;
+			
 			// aapt resource value: 0x7f040001
 			public const int auth_google_play_services_client_facebook_display_name = 2130968577;
 			
@@ -514,11 +541,11 @@ namespace CRRD
 			// aapt resource value: 0x7f040021
 			public const int common_signin_button_text_long = 2130968609;
 			
-			// aapt resource value: 0x7f040024
-			public const int errorDefault = 2130968612;
+			// aapt resource value: 0x7f04002d
+			public const int errorDefault = 2130968621;
 			
-			// aapt resource value: 0x7f040023
-			public const int google_maps_key = 2130968611;
+			// aapt resource value: 0x7f04002c
+			public const int google_maps_key = 2130968620;
 			
 			static String()
 			{

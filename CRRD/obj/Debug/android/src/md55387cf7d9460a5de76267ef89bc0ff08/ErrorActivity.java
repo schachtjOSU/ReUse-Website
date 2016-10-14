@@ -1,7 +1,7 @@
 package md55387cf7d9460a5de76267ef89bc0ff08;
 
 
-public class AppErrorActivity
+public class ErrorActivity
 	extends android.app.Activity
 	implements
 		mono.android.IGCUserPeer
@@ -12,15 +12,15 @@ public class AppErrorActivity
 		__md_methods = 
 			"n_onCreate:(Landroid/os/Bundle;)V:GetOnCreate_Landroid_os_Bundle_Handler\n" +
 			"";
-		mono.android.Runtime.register ("CRRD.Resources.Activities.AppErrorActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", AppErrorActivity.class, __md_methods);
+		mono.android.Runtime.register ("CRRD.Resources.Activities.ErrorActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", ErrorActivity.class, __md_methods);
 	}
 
 
-	public AppErrorActivity () throws java.lang.Throwable
+	public ErrorActivity () throws java.lang.Throwable
 	{
 		super ();
-		if (getClass () == AppErrorActivity.class)
-			mono.android.TypeManager.Activate ("CRRD.Resources.Activities.AppErrorActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+		if (getClass () == ErrorActivity.class)
+			mono.android.TypeManager.Activate ("CRRD.Resources.Activities.ErrorActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 

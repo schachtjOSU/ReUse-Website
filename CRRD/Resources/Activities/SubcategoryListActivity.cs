@@ -2,9 +2,11 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using CRRD.Resources.Models;
+//using CRRD.Resources.Models;
 using System.Collections.Generic;
 using System.Linq;
+using CRRD.Resources.Adapters;
+using System;
 
 namespace CRRD.Resources.Activities
 {
@@ -12,7 +14,7 @@ namespace CRRD.Resources.Activities
     /// Android Activity: Used for displaying the List of Subcategories the user may select.
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
-    [Activity(Label = "List of Subcategories", Icon = "@drawable/CSCLogo")]
+    [Activity(Label = "@string/SubcategoryListActivityLabel", Icon = "@drawable/CSCLogo")]
     public class SubcategoryListActivity : Activity
     {
         private ListView _ListView;
@@ -20,7 +22,7 @@ namespace CRRD.Resources.Activities
         private string _categoryName;
 
         // Start class to Get and parse the local XML file to the associated classes (Business & Category)
-        private XMLHandeler _handler = new XMLHandeler();
+        private DataHandler _handler = new DataHandler();
 
         /// <summary>
         /// Called when [create].
@@ -28,7 +30,7 @@ namespace CRRD.Resources.Activities
         /// <param name="bundle">The bundle.</param>
         protected override void OnCreate(Bundle bundle)
         {
-            checkXMLHandlerInitialization(_handler.isInitialized);
+            ErrorCheckActivity.checkDataHandlerInitialization(this.ApplicationContext, _handler.isInitialized);
 
             base.OnCreate(bundle);
 
@@ -51,20 +53,6 @@ namespace CRRD.Resources.Activities
         }
 
         /// <summary>
-        /// Moves to AppErrorActivity if XMLHandler is invalid
-        /// </summary>
-        /// <param name="handlerIsInitialized">The XMLHandler.isValid value</param>
-        private void checkXMLHandlerInitialization(Boolean handlerIsInitialized)
-        {
-            if (!handlerIsInitialized)
-            {
-                var intent = new Intent(this, typeof(AppErrorActivity));
-                intent.PutExtra("errorMessage", "The directory data cannot be retrieved.");
-                StartActivity(intent);
-            }
-        }
-
-        /// <summary>
         /// Gets a unique List of all possible subcategories for the given categoryName.
         /// </summary>
         /// <param name="categoryName">Name of the category.</param>
@@ -82,6 +70,7 @@ namespace CRRD.Resources.Activities
                     {
                         subcategoryList.Add(sc);
                     }
+                    break;
                 }
             }
             subcategoryList = subcategoryList.Distinct().ToList();

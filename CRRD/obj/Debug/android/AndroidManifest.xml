@@ -13,13 +13,13 @@
     <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_maps_key" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
-    <activity android:icon="@drawable/csclogo" android:label="Reuse &amp; Repair" android:name="md5db428ccc7ad5d5163073a22d26533b53.MainActivity">
+    <activity android:icon="@drawable/csclogo" android:label="@string/MainActivityLabel" android:name="md5db428ccc7ad5d5163073a22d26533b53.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
-    <activity android:icon="@drawable/csclogo" android:label="Error" android:name="md55387cf7d9460a5de76267ef89bc0ff08.AppErrorActivity" />
+    <activity android:icon="@drawable/csclogo" android:label="Error" android:name="md55387cf7d9460a5de76267ef89bc0ff08.ErrorActivity" />
     <activity android:icon="@drawable/csclogo" android:label="Business Details" android:name="md55387cf7d9460a5de76267ef89bc0ff08.BusinessDetailsActivity" />
     <activity android:icon="@drawable/csclogo" android:label="List of Businesses" android:name="md55387cf7d9460a5de76267ef89bc0ff08.BusinessListActivity" />
     <activity android:icon="@drawable/csclogo" android:label="List of Categories" android:name="md55387cf7d9460a5de76267ef89bc0ff08.CategoryListActivity" />

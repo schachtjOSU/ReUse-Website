@@ -1,7 +1,7 @@
-package md5648fb5a879766cb8887c3c7ecec264e7;
+package md58f478d3c3d659667f8871a25f39ead64;
 
 
-public class BusinessListAdapter
+public class SubcategoryListAdapter
 	extends android.widget.BaseAdapter
 	implements
 		mono.android.IGCUserPeer
@@ -15,15 +15,15 @@ public class BusinessListAdapter
 			"n_getItem:(I)Ljava/lang/Object;:GetGetItem_IHandler\n" +
 			"n_getView:(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;:GetGetView_ILandroid_view_View_Landroid_view_ViewGroup_Handler\n" +
 			"";
-		mono.android.Runtime.register ("CRRD.Resources.Models.BusinessListAdapter, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", BusinessListAdapter.class, __md_methods);
+		mono.android.Runtime.register ("CRRD.Resources.Adapters.SubcategoryListAdapter, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", SubcategoryListAdapter.class, __md_methods);
 	}
 
 
-	public BusinessListAdapter () throws java.lang.Throwable
+	public SubcategoryListAdapter () throws java.lang.Throwable
 	{
 		super ();
-		if (getClass () == BusinessListAdapter.class)
-			mono.android.TypeManager.Activate ("CRRD.Resources.Models.BusinessListAdapter, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+		if (getClass () == SubcategoryListAdapter.class)
+			mono.android.TypeManager.Activate ("CRRD.Resources.Adapters.SubcategoryListAdapter, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 

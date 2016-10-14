@@ -3,14 +3,16 @@ using Android.Views;
 using Android.Widget;
 using System.Collections.Generic;
 using System.Linq;
+using CRRD.Resources.Models;
+using CRRD.Resources.Data;
 
-namespace CRRD.Resources.Models
+namespace CRRD.Resources.Adapters
 {
     class CategoryListAdapter : BaseAdapter<string>
     {
         private List<string> _Items;
         private Context _context;
-        private XMLHandeler _handler = new XMLHandeler();
+        private DataHandler _handler = new DataHandler();
 
         public CategoryListAdapter(Context context, List<string> items)
         {
