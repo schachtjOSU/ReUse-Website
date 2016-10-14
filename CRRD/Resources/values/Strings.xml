@@ -2,4 +2,5 @@
 <resources>
     <string name="ApplicationName">CRRD</string>
     <string name="google_maps_key">AIzaSyA-kB_AQFKiyxycHlkUXtbgdZS_DlylQ2w</string>
+    <string name="errorDefault">Please try the app later or access the Corvallis Reuse directory online. Thank you for your patience. </string>
 </resources>

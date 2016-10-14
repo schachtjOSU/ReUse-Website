@@ -43,7 +43,7 @@ namespace CRRD.Resources.Models
                 row = LayoutInflater.From(_context).Inflate(Resource.Layout.ListCategory_Row, null, false);
             }
 
-            // WHAT EACH PART WILL DISPLAY
+            // Set what each part will display
 
             TextView listIndex = row.FindViewById<TextView>(Resource.Id.txtIndex);
             listIndex.Text = (position + 1).ToString();
@@ -51,10 +51,10 @@ namespace CRRD.Resources.Models
             TextView txtBusinessName = row.FindViewById<TextView>(Resource.Id.txtCategoryName);
             txtBusinessName.Text = _Items[position];
 
-            // MAY NOT BE USED
+            // Note this may not be used
             TextView txtSubcatCount = row.FindViewById<TextView>(Resource.Id.txtSubcatCount);
 
-			// Check if the busienss has LatLng values
+			// Check if the business has LatLng values
 			Business B = _handler.GetBusinessByName(_Items[position]);
 			int hasLatLngFlag = (B.Latitude == 0 || B.Longitude == 0) ? 0 : 1;
 

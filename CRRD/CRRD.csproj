@@ -66,6 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resources\Activities\AppErrorActivity.cs" />
     <Compile Include="Resources\Activities\BusinessDetailsActivity.cs" />
     <Compile Include="Resources\Activities\BusinessListActivity.cs" />
     <Compile Include="Resources\Activities\CategoryListActivity.cs" />
@@ -112,6 +113,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\MapViewer.axml">
       <SubType>AndroidResource</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\AppError.axml">
+      <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>

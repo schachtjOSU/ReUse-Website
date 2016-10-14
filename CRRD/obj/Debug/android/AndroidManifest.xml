@@ -19,6 +19,7 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:icon="@drawable/csclogo" android:label="Error" android:name="md55387cf7d9460a5de76267ef89bc0ff08.AppErrorActivity" />
     <activity android:icon="@drawable/csclogo" android:label="Business Details" android:name="md55387cf7d9460a5de76267ef89bc0ff08.BusinessDetailsActivity" />
     <activity android:icon="@drawable/csclogo" android:label="List of Businesses" android:name="md55387cf7d9460a5de76267ef89bc0ff08.BusinessListActivity" />
     <activity android:icon="@drawable/csclogo" android:label="List of Categories" android:name="md55387cf7d9460a5de76267ef89bc0ff08.CategoryListActivity" />

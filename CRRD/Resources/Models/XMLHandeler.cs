@@ -9,6 +9,8 @@ namespace CRRD.Resources.Models
 {
     class XMLHandeler
     {
+        public Boolean isInitialized = true;
+
         private XDocument xDoc { get; set; }
         public List<Category> CategoryList { get; private set; }
         public List<Business> BusinessList { get; private set; }
@@ -51,10 +53,15 @@ namespace CRRD.Resources.Models
                     {
                         // Get the locally saved XML document
                         xDoc = XDocument.Parse(GetXmlFromDevice());
+
+                        // Set class collections
+                        SetBusinessList();
+                        SetCategoryList();
                     }
                     else
                     {
-                        // needs bad uri notice code    < ===============================================================
+                        // Set isInitialized in case of bad URI
+                        isInitialized = false;
                     }
                     break;
                 case _ERR_NO_NETWORK:
@@ -62,22 +69,30 @@ namespace CRRD.Resources.Models
                     {
                         // Get the locally saved XML document
                         xDoc = XDocument.Parse(GetXmlFromDevice());
+
+                        // Set class collections
+                        SetBusinessList();
+                        SetCategoryList();
                     }
                     else
                     {
-                        // needs no network code    < =====================================================================
+                        // Set isInitialized in case of bad URI
+                        isInitialized = false;
                     }
                     break;
                 default:
                     SaveXmlToDevice(xmlResult);
                     // Get the locally saved XML document
                     xDoc = XDocument.Parse(GetXmlFromDevice());
+
+                    // Set class collections
+                    SetBusinessList();
+                    SetCategoryList();
+
                     break;
             }
 
-            // Set class collections
-            SetBusinessList();
-            SetCategoryList();
+            
         }
 
         /// <summary>

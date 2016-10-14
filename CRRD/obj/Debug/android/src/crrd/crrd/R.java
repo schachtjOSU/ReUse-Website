@@ -240,43 +240,47 @@ containing a value of this type.
         public static final int republicservices=0x7f02001e;
     }
     public static final class id {
-        public static final int BtnCategories=0x7f070011;
-        public static final int BtnRecycleInfo=0x7f070012;
-        public static final int BtnViewMap=0x7f07000b;
+        public static final int BtnCategories=0x7f070014;
+        public static final int BtnRecycleInfo=0x7f070015;
+        public static final int BtnViewMap=0x7f07000e;
         public static final int adjust_height=0x7f070005;
         public static final int adjust_width=0x7f070006;
-        public static final int btnToMapView=0x7f07000c;
+        public static final int btnToMapView=0x7f07000f;
+        public static final int errorDefault=0x7f070009;
+        public static final int errorMessage=0x7f070008;
+        public static final int errorTitle=0x7f070007;
         public static final int hybrid=0x7f070000;
-        public static final int lnkRecyclingCurbside=0x7f070015;
-        public static final int lnkRecyclingFacility=0x7f070014;
-        public static final int lvListArea=0x7f070010;
-        public static final int map=0x7f070013;
+        public static final int lnkRecyclingCurbside=0x7f070018;
+        public static final int lnkRecyclingFacility=0x7f070017;
+        public static final int lvListArea=0x7f070013;
+        public static final int map=0x7f070016;
         public static final int none=0x7f070001;
         public static final int normal=0x7f070002;
-        public static final int objWebView=0x7f070016;
+        public static final int objWebView=0x7f070019;
         public static final int satellite=0x7f070003;
         public static final int terrain=0x7f070004;
-        public static final int txtBusinessAddress=0x7f070008;
-        public static final int txtBusinessName=0x7f070007;
-        public static final int txtBusinessPhone=0x7f070009;
-        public static final int txtBusinessWebsite=0x7f07000a;
-        public static final int txtCategoryName=0x7f07000e;
-        public static final int txtIndex=0x7f07000d;
-        public static final int txtSubcatCount=0x7f07000f;
+        public static final int txtBusinessAddress=0x7f07000b;
+        public static final int txtBusinessName=0x7f07000a;
+        public static final int txtBusinessPhone=0x7f07000c;
+        public static final int txtBusinessWebsite=0x7f07000d;
+        public static final int txtCategoryName=0x7f070011;
+        public static final int txtIndex=0x7f070010;
+        public static final int txtSubcatCount=0x7f070012;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f060000;
     }
     public static final class layout {
-        public static final int businessdetails=0x7f030000;
-        public static final int listbusiness=0x7f030001;
-        public static final int listcategory=0x7f030002;
-        public static final int listcategory_row=0x7f030003;
-        public static final int listsubcategory=0x7f030004;
-        public static final int main=0x7f030005;
-        public static final int mapviewer=0x7f030006;
-        public static final int recyclinginfo=0x7f030007;
-        public static final int webviewer=0x7f030008;
+        public static final int apperror=0x7f030000;
+        public static final int businessdetails=0x7f030001;
+        public static final int listbusiness=0x7f030002;
+        public static final int listcategory=0x7f030003;
+        public static final int listcategory_row=0x7f030004;
+        public static final int listsubcategory=0x7f030005;
+        public static final int main=0x7f030006;
+        public static final int mapviewer=0x7f030007;
+        public static final int recyclinginfo=0x7f030008;
+        public static final int webviewer=0x7f030009;
     }
     public static final class string {
         public static final int ApplicationName=0x7f040022;
@@ -398,6 +402,7 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f040021;
+        public static final int errorDefault=0x7f040024;
         public static final int google_maps_key=0x7f040023;
     }
     public static final class styleable {

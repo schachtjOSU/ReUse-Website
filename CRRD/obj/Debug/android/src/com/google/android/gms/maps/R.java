@@ -268,15 +268,16 @@ containing a value of this type.
         public static int google_play_services_version=0x7f060000;
     }
     public static final class layout {
-        public static int businessdetails=0x7f030000;
-        public static int listbusiness=0x7f030001;
-        public static int listcategory=0x7f030002;
-        public static int listcategory_row=0x7f030003;
-        public static int listsubcategory=0x7f030004;
-        public static int main=0x7f030005;
-        public static int mapviewer=0x7f030006;
-        public static int recyclinginfo=0x7f030007;
-        public static int webviewer=0x7f030008;
+        public static int apperror=0x7f030000;
+        public static int businessdetails=0x7f030001;
+        public static int listbusiness=0x7f030002;
+        public static int listcategory=0x7f030003;
+        public static int listcategory_row=0x7f030004;
+        public static int listsubcategory=0x7f030005;
+        public static int main=0x7f030006;
+        public static int mapviewer=0x7f030007;
+        public static int recyclinginfo=0x7f030008;
+        public static int webviewer=0x7f030009;
     }
     public static final class string {
         public static int ApplicationName=0x7f040022;

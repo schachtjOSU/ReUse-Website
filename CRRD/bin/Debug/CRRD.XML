@@ -4,6 +4,18 @@
         <name>CRRD</name>
     </assembly>
     <members>
+        <member name="T:CRRD.Resources.Activities.AppErrorActivity">
+            <summary>
+            Android Activity: Used for displaying an error message.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.AppErrorActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called when [create].
+            </summary>
+            <param name="bundle">The bundle, used to pass data between Activities.</param>
+        </member>
         <member name="T:CRRD.Resources.Activities.BusinessDetailsActivity">
             <summary>
             Android Activity: Used for displaying the Business detail information.
@@ -98,6 +110,12 @@
             Called when [create].
             </summary>
             <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.CategoryListActivity._checkXMLHandler(System.Boolean)">
+            <summary>
+            Moves to AppErrorActivity if XMLHandler is invalid
+            </summary>
+            <param name="handlerIsValid">The XMLHandler.isValid value</param>
         </member>
         <member name="T:CRRD.Resources.Activities.MapViewerActivity">
             <summary>

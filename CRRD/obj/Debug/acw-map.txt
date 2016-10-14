@@ -14,6 +14,10 @@ CRRD.Resources.Models.SubcategoryListAdapter, CRRD;md5648fb5a879766cb8887c3c7ece
 CRRD.Resources.Models.SubcategoryListAdapter, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5648fb5a879766cb8887c3c7ecec264e7.SubcategoryListAdapter
 CRRD.Resources.Models.SubcategoryListAdapter;md5648fb5a879766cb8887c3c7ecec264e7.SubcategoryListAdapter
 crrd.resources.models.SubcategoryListAdapter;md5648fb5a879766cb8887c3c7ecec264e7.SubcategoryListAdapter
+CRRD.Resources.Activities.AppErrorActivity, CRRD;md55387cf7d9460a5de76267ef89bc0ff08.AppErrorActivity
+CRRD.Resources.Activities.AppErrorActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55387cf7d9460a5de76267ef89bc0ff08.AppErrorActivity
+CRRD.Resources.Activities.AppErrorActivity;md55387cf7d9460a5de76267ef89bc0ff08.AppErrorActivity
+crrd.resources.activities.AppErrorActivity;md55387cf7d9460a5de76267ef89bc0ff08.AppErrorActivity
 CRRD.Resources.Activities.BusinessDetailsActivity, CRRD;md55387cf7d9460a5de76267ef89bc0ff08.BusinessDetailsActivity
 CRRD.Resources.Activities.BusinessDetailsActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55387cf7d9460a5de76267ef89bc0ff08.BusinessDetailsActivity
 CRRD.Resources.Activities.BusinessDetailsActivity;md55387cf7d9460a5de76267ef89bc0ff08.BusinessDetailsActivity

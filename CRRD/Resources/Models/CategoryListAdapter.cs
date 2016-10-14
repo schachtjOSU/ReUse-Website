@@ -43,7 +43,7 @@ namespace CRRD.Resources.Models
             }
 
 
-            // WHAT EACH PART WILL DISPLAY
+            // Set what each part will display
 
             TextView listIndex = row.FindViewById<TextView>(Resource.Id.txtIndex);
             listIndex.Text = (position + 1).ToString();
@@ -67,20 +67,29 @@ namespace CRRD.Resources.Models
         {
             List<string> subcategories = new List<string>();
 
-            foreach (var c in _handler.CategoryList)
+            // Ensure that _handler values are set
+            if(_handler.CategoryList != null)
             {
-                if (c.Name == categoryName)
+                foreach (var c in _handler.CategoryList)
                 {
-                    // A category may have n number of subcategories
-                    foreach (var sub in c.SubcategoryList)
+                    if (c.Name == categoryName)
                     {
-                        subcategories.Add(sub);
+                        // A category may have n number of subcategories
+                        foreach (var sub in c.SubcategoryList)
+                        {
+                            subcategories.Add(sub);
+                        }
                     }
                 }
-            }
 
-            // Return the unique list of all possible subcategories for a given category name
-            return subcategories.Distinct().ToList().Count();
+                // Return the unique list of all possible subcategories for a given category name
+                return subcategories.Distinct().ToList().Count();
+            }
+            else
+            {
+                return 0;
+            }
+            
         }
     }
 }

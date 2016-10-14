@@ -28,6 +28,8 @@ namespace CRRD.Resources.Activities
         /// <param name="bundle">The bundle.</param>
         protected override void OnCreate(Bundle bundle)
         {
+            checkXMLHandlerInitialization(_handler.isInitialized);
+
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.ListSubcategory);
@@ -46,6 +48,20 @@ namespace CRRD.Resources.Activities
 
             // Events ...
             _ListView.ItemClick += _ListView_ItemClick;
+        }
+
+        /// <summary>
+        /// Moves to AppErrorActivity if XMLHandler is invalid
+        /// </summary>
+        /// <param name="handlerIsInitialized">The XMLHandler.isValid value</param>
+        private void checkXMLHandlerInitialization(Boolean handlerIsInitialized)
+        {
+            if (!handlerIsInitialized)
+            {
+                var intent = new Intent(this, typeof(AppErrorActivity));
+                intent.PutExtra("errorMessage", "The directory data cannot be retrieved.");
+                StartActivity(intent);
+            }
         }
 
         /// <summary>
