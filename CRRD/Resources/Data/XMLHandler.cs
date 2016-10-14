@@ -17,12 +17,12 @@ namespace CRRD.Resources.Data
         public List<Business> BusinessList { get; private set; }
         private MyDeviceIO deviceIO { get; set; }
 
-        private const string fileName = "CRRD_XML.xml";
+        private const string fileName = "@string/SavedXMLfilename";
         private const string _ERR_NO_NETWORK = "No Active Network Found";
         private const string _ERR_BAD_URI = "Bad URI Request";
 
         // Current Link provided from Josh
-        private string BUSINESS_LIST_URI = "http://web.engr.oregonstate.edu/~johnsjo3/capstone/xmlGenerator/runEchoFunction.php";
+        private string BUSINESS_LIST_URI = "@string/APIBusinessURI";
 
         /// <summary>
         /// Costructor for the XMLHandler class. Instanciates and sets collection properties. Runs all parsing methods 

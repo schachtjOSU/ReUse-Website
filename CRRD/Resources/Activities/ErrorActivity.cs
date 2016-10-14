@@ -34,7 +34,7 @@ namespace CRRD.Resources.Activities
             SetContentView(Resource.Layout.AppError);
 
             // Get the passed error message
-             _errorMessage = Intent.GetStringExtra("errorMessage") ?? "There was an unrecognized error.";
+             _errorMessage = Intent.GetStringExtra("errorMessage") ?? "@string/errorUnrecognized";
 
             //set the TextView to the error message passed in
             _errorMessageShown = FindViewById<TextView>(Resource.Id.errorMessage);

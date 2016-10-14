@@ -29,7 +29,6 @@ C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debu
 C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\uploadflags.txt
 C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\CRRD.dll.mdb
 C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\CRRD.dll.mdb
-C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.csprojResolveAssemblyReference.cache
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.XML
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.pdb

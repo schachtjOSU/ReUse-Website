@@ -31,7 +31,7 @@ namespace CRRD.Resources.Activities
                     
                     var intent = new Intent(thisContext, typeof(ErrorActivity));
                     intent.SetFlags(ActivityFlags.NewTask);
-                    intent.PutExtra("errorMessage", "The directory data cannot be retrieved.");
+                    intent.PutExtra("errorMessage", "@string/errorMissingData");
                     thisContext.StartActivity(intent);
                 }
             }

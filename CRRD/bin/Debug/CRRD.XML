@@ -124,12 +124,6 @@
             </summary>
             <param name="bundle">The bundle.</param>
         </member>
-        <member name="M:CRRD.Resources.Activities.CategoryListActivity.checkDataHandlerInitialization(System.Boolean)">
-            <summary>
-            Moves to AppErrorActivity if DataHandler is invalid
-            </summary>
-            <param name="handlerIsInitialized">The DataHandler.isValid value</param>
-        </member>
         <member name="T:CRRD.Resources.Activities.MapViewerActivity">
             <summary>
             Android Activity: Used for displaying the The Google Map Fragment populated by the user's current location and any business location map markers.

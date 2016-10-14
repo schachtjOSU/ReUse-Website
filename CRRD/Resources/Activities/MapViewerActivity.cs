@@ -26,7 +26,7 @@ namespace CRRD.Resources.Activities
         // Start class to Get and parse the local XML file to the associated classes (Business & Category)
         private DataHandler _handler = new DataHandler();
 
-        private LatLng _Corvallis = new LatLng(44.569949, -123.278285);
+        private LatLng _Corvallis = new LatLng(Int32.Parse("@string/CorvallisLat"), Int32.Parse("@string/CorvallisLong"));
 
         /// <summary>
         /// Called when [create].
@@ -107,7 +107,7 @@ namespace CRRD.Resources.Activities
                 15: Streets
                 20: Buildings
             */
-            CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(_Corvallis, 10);
+            CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(_Corvallis, Int32.Parse("@string/CorvallisZoomLevel"));
             _Map.MoveCamera(camera);
 
             // Set markers from the bussinessList

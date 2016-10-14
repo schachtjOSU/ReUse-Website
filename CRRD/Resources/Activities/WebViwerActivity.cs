@@ -14,7 +14,7 @@ namespace CRRD.Resources.Activities
     [Activity(Label = "@string/WebViewerActivityLabel", Icon = "@drawable/CSCLogo")]
     public class WebViwerActivity : Activity
     {
-        private string GDOCS_VIEWER = "https://docs.google.com/gview?embedded=true&url=";
+        private string GDOCS_VIEWER = "@string/GDocViewer";
         private string PDF_URI;
         private WebView myWebView;
 

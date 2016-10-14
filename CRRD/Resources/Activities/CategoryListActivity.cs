@@ -58,20 +58,6 @@ namespace CRRD.Resources.Activities
             
         }
 
-        /// <summary>
-        /// Moves to AppErrorActivity if DataHandler is invalid
-        /// </summary>
-        /// <param name="handlerIsInitialized">The DataHandler.isValid value</param>
-        private void checkDataHandlerInitialization(Boolean handlerIsInitialized)
-        {
-            if (!handlerIsInitialized)
-            {
-                var intent = new Intent(this, typeof(ErrorActivity));
-                intent.PutExtra("errorMessage", "The directory data cannot be retrieved.");
-                StartActivity(intent);
-            }
-        }
-
         private void _ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
             var intent = new Intent(this, typeof(SubcategoryListActivity));
