@@ -50,21 +50,6 @@ namespace CRRD.Resources.Data
             switch (xmlResult)
             {
                 case _ERR_BAD_URI:
-                    if (deviceIO.BusinessFileExists())
-                    {
-                        // Get the locally saved XML document
-                        xDoc = XDocument.Parse(GetXmlFromDevice());
-
-                        // Set class collections
-                        SetBusinessList();
-                        SetCategoryList();
-                    }
-                    else
-                    {
-                        // Set isInitialized in case of bad URI
-                        isInitialized = false;
-                    }
-                    break;
                 case _ERR_NO_NETWORK:
                     if (deviceIO.BusinessFileExists())
                     {
@@ -89,6 +74,9 @@ namespace CRRD.Resources.Data
                     // Set class collections
                     SetBusinessList();
                     SetCategoryList();
+
+                    // Set isInitialized in case of successful setting of Business and Category lists
+                    isInitialized = true;
 
                     break;
             }

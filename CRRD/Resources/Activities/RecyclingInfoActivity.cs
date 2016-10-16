@@ -37,7 +37,7 @@ namespace CRRD.Resources.Activities
         private void LnkRecFacility_Click(object sender, System.EventArgs e)
         {
             var intent = new Intent(this, typeof(WebViwerActivity));
-            intent.PutExtra("PDF_URI", "@string/RSRecycleDepotPDF");
+            intent.PutExtra("PDF_URI", "http://site.republicservices.com/site/corvallis-or/en/documents/corvallisrecycledepot.pdf");
             StartActivity(intent);
         }
 

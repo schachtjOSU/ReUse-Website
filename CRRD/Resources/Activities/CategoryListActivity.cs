@@ -30,12 +30,12 @@ namespace CRRD.Resources.Activities
         protected override void OnCreate(Bundle bundle)
         {
 
-            ErrorCheckActivity.checkDataHandlerInitialization(this.ApplicationContext, _handler.isInitialized);
-
+            //ErrorCheckActivity.checkDataHandlerInitialization(this.ApplicationContext, _handler.isInitialized);
+            
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.ListCategory);
-
+            /*
             _ListView = FindViewById<ListView>(Resource.Id.lvListArea);
             
             // Get a sorted Unique List<sring> of Categories
@@ -55,7 +55,7 @@ namespace CRRD.Resources.Activities
 
             // Events ...
             _ListView.ItemClick += _ListView_ItemClick;
-            
+            */
         }
 
         private void _ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

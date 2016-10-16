@@ -10,7 +10,6 @@
     <string name="RecyclingInfoActivityLabel">Corvallis Recycling Services</string>
     <string name="SubcategoryListActivityLabel">Categories</string>
     <string name="WebViewerActivityLabel">View PDF</string>
-    <string name="google_maps_key">AIzaSyA-kB_AQFKiyxycHlkUXtbgdZS_DlylQ2w</string>
     <string name="errorMissingData">"The directory data cannot be retrieved."</string>
     <string name="errorUnrecognized">"There was an unrecognized error."</string>
     <string name="errorGeneral">Please try the app later or access the Corvallis Reuse directory online. Thank you for your patience. </string>
