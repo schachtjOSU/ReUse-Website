@@ -59,6 +59,8 @@ namespace CRRD.Resources.Data
                         // Set class collections
                         SetBusinessList();
                         SetCategoryList();
+						
+						isInitialized = true;
                     }
                     else
                     {
@@ -75,7 +77,6 @@ namespace CRRD.Resources.Data
                     SetBusinessList();
                     SetCategoryList();
 
-                    // Set isInitialized in case of successful setting of Business and Category lists
                     isInitialized = true;
 
                     break;
