@@ -21,4 +21,5 @@
     <string name="GDocViewer">https://docs.google.com/gview?embedded=true%26url=</string>
     <string name="SavedXMLfilename">CRRD_XML.xml</string>
     <string name="APIBusinessURI">"http://web.engr.oregonstate.edu/~johnsjo3/capstone/xmlGenerator/runEchoFunction.php</string>
+	<string name="google_maps_key">AIzaSyA-kB_AQFKiyxycHlkUXtbgdZS_DlylQ2w</string>
 </resources>
