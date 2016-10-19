@@ -14,15 +14,16 @@
 
 	//functions to facilitate connection to reuse database
 		// - connectReuseDB()		<-- Create mysqli object using reuse db creds
-	require 'database/reuseConnect.php';
+
+    require '../App/Database/reuseConnect.php';
 
 	//functions facilitating XML file generation for mobile
 		// - reuse_generateXML()	<-- Produces XML file
 		// - echoXMLFile()		<-- Echos file after generation
-	require 'xmlGenerator/xmlGenerator.php';
+	require '../App/Lib/xmlGenerator/xmlGenerator.php';
 	
 	//functions facilitating Bing Geocoder
-	require 'BingGeocoder/geocoder.php';
+	require '../App/Lib/BingGeocoder/geocoder.php';
 
 	/**************************************************************************
 	*				Routing set up
@@ -44,7 +45,16 @@
 	
 		//Echo out the XML file
 		echoXMLFile();		
-	});	
+    });
+
+
+     /**
+      * This method will not change until a major release.
+      *
+      * @api
+      *
+      * @return void
+      */
 	// API group
  	$app->group('/RUapi', function () use ($app) {
 
@@ -52,6 +62,11 @@
 	*				Gets
 	****************************************************************************/
 
+     /**
+      * GET request prints out an XML tree of the contents of DB.
+      * @api
+      * @return void
+      */
 	//The entire database, in XML form
 	$app->get('/reuseDB', function() {
 		global $app;
@@ -62,16 +77,21 @@
 		//Echo out the XML file
 		echoXMLFile();		
 	});	
-	
+
+
+
+     /**
+      * GET request will display the category 
+      * corresponding to the ID presented.
+      * @api
+      *
+      * @return string JSON
+      */
 	$app->get('/category/:id', function($id){
 		$mysqli = connectReuseDB();
 
 		$id = (int)$mysqli->real_escape_string($id);
 		$result = $mysqli->query('SELECT name, id FROM Reuse_Categories WHERE Reuse_Categories.id = '.$id.'');
-	    
-		
-		
-		
 	    $returnArray = array();
 	    while($row = $result->fetch_object()){
 	      $returnArray[] = $row;
@@ -83,6 +103,13 @@
 	    $mysqli->close();
 	});
 
+     /**
+      * GET request will display all 
+      * states and their unique ID's from the database.
+      * @api
+      *
+      * @return string JSON
+      */
 	$app->get('/states', function() {
 		$mysqli = connectReuseDB();
 
@@ -98,6 +125,13 @@
 	    $mysqli->close();
 	});		
 
+     /**
+      * GET response that provides a listing of all 
+      * categories available in the 
+      * database and the corresponding ID.
+      * @api
+      * @return void
+      */
 	$app->get('/business', function() {
 		$mysqli = connectReuseDB();
 
@@ -115,6 +149,13 @@
 	});
 
 
+     /**
+      * GET response that provides a listing of all 
+      * categories available in the 
+      * database and the corresponding ID.
+      * @api
+      * @return string JSON
+      */
 	$app->get('/category', function() {
 		$mysqli = connectReuseDB();
 
@@ -131,6 +172,12 @@
 	    $mysqli->close();
 	});
 
+     /**
+      * GET request that provides the
+      * name of an item given the ID
+      * @api
+      * @return string JSON
+      */
 	$app->get('/items/:id', function($id){
 		$mysqli = connectReuseDB();
 
@@ -150,6 +197,13 @@
 	});
 
 
+     /**
+      * This method will not change until a major release.
+      * GET request that given the name of the business will 
+      * provide info on said business 
+      *
+      * @return string JSON
+      */
 	$app->get('/business/:one', function($one){
 		$mysqli = connectReuseDB();
 
@@ -166,6 +220,14 @@
 	    $mysqli->close();
 	});
 
+     /**
+      * This method will not change until a major release.
+      * GET request that provides a list of all items currently in the database
+      * and their corresponding category 
+      * @api
+      *
+      * @return string JSON
+      */
 	$app->get('/items', function() {
 		$mysqli = connectReuseDB();
 
