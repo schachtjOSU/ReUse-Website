@@ -2,7 +2,7 @@
         Login Screen
 ********************************************/
 // PUT YOUR WEBSITE HERE
-var webURL = window.location.href;
+var webURL = "";
 
 /*
 function: login()

@@ -15,7 +15,7 @@
     				YOUR DB CREDENTIALS HERE
     ********************************************************************/
     function connectDB(){
-    	$mysqli = new mysqli($DBUrl, $DBUser, $DBPw, $DBName);
+    	$mysqli = new mysqli("localhost", "root", "tucu11YB", "ReuseApp");
     	return $mysqli;
     }
 

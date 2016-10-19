@@ -4,7 +4,7 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = window.location.href;
+var webURL = "";
 /*
 Function: checkSession();
 Purpose: check to make sure a session is active, if not, redirect

@@ -33,9 +33,20 @@
 	);
 	$app->response->headers->set('Content-Type', 'application/json');
 
-
+    $app->get('/hello/:name', function ($name) {
+            echo "Hello, $name";
+    });
+	$app->get('/reuseDB', function() {
+		global $app;
+		
+		//Printing an XML file, set headers accordingly
+		$app->response->headers->set('Content-Type', 'application/xml');
+	
+		//Echo out the XML file
+		echoXMLFile();		
+	});	
 	// API group
- 	$app->group('/index', function () use ($app) {
+ 	$app->group('/RUapi', function () use ($app) {
 
 	/****************************************************************************
 	*				Gets
@@ -545,6 +556,6 @@ $app->post('/items', function(){
 		$stmt->close();
 		$mysqli->close();
 });
- });
+});
 	$app->run();	
 ?>

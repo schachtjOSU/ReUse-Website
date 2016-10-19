@@ -5,7 +5,7 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = window.location.href;
+var webURL = "";
 
 // Global
   var x;

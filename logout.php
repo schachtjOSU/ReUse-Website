@@ -30,7 +30,7 @@
   ***********************************************************************/
  // var webURL = "http://web.engr.oregonstate.edu/~masseyta/testApi";
   //Changed...testing.. if it doesnt work comment this uncomment above.
-  var webURL = window.location.href;
+  var webURL = "";
   
   /************************************************************************
   * 				Check Session on body load
