@@ -409,8 +409,8 @@ namespace CRRD
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040037
-			public const int APIBusinessURI = 2130968631;
+			// aapt resource value: 0x7f040036
+			public const int APIBusinessURI = 2130968630;
 			
 			// aapt resource value: 0x7f040022
 			public const int ApplicationName = 2130968610;
@@ -424,20 +424,20 @@ namespace CRRD
 			// aapt resource value: 0x7f040025
 			public const int CategoryListActivityLabel = 2130968613;
 			
+			// aapt resource value: 0x7f04002f
+			public const int CorvallisLat = 2130968623;
+			
 			// aapt resource value: 0x7f040030
-			public const int CorvallisLat = 2130968624;
+			public const int CorvallisLong = 2130968624;
 			
 			// aapt resource value: 0x7f040031
-			public const int CorvallisLong = 2130968625;
-			
-			// aapt resource value: 0x7f040032
-			public const int CorvallisZoomLevel = 2130968626;
+			public const int CorvallisZoomLevel = 2130968625;
 			
 			// aapt resource value: 0x7f040026
 			public const int ErrorActivityLabel = 2130968614;
 			
-			// aapt resource value: 0x7f040035
-			public const int GDocViewer = 2130968629;
+			// aapt resource value: 0x7f040034
+			public const int GDocViewer = 2130968628;
 			
 			// aapt resource value: 0x7f040027
 			public const int MainActivityLabel = 2130968615;
@@ -445,17 +445,17 @@ namespace CRRD
 			// aapt resource value: 0x7f040028
 			public const int MapViewerActivityLabel = 2130968616;
 			
-			// aapt resource value: 0x7f040034
-			public const int RSCurbsidePDF = 2130968628;
-			
 			// aapt resource value: 0x7f040033
-			public const int RSRecycleDepotPDF = 2130968627;
+			public const int RSCurbsidePDF = 2130968627;
+			
+			// aapt resource value: 0x7f040032
+			public const int RSRecycleDepotPDF = 2130968626;
 			
 			// aapt resource value: 0x7f040029
 			public const int RecyclingInfoActivityLabel = 2130968617;
 			
-			// aapt resource value: 0x7f040036
-			public const int SavedXMLfilename = 2130968630;
+			// aapt resource value: 0x7f040035
+			public const int SavedXMLfilename = 2130968629;
 			
 			// aapt resource value: 0x7f04002a
 			public const int SubcategoryListActivityLabel = 2130968618;
@@ -565,17 +565,17 @@ namespace CRRD
 			// aapt resource value: 0x7f040021
 			public const int common_signin_button_text_long = 2130968609;
 			
-			// aapt resource value: 0x7f04002f
-			public const int errorGeneral = 2130968623;
-			
-			// aapt resource value: 0x7f04002d
-			public const int errorMissingData = 2130968621;
-			
 			// aapt resource value: 0x7f04002e
-			public const int errorUnrecognized = 2130968622;
+			public const int errorGeneral = 2130968622;
 			
 			// aapt resource value: 0x7f04002c
-			public const int google_maps_key = 2130968620;
+			public const int errorMissingData = 2130968620;
+			
+			// aapt resource value: 0x7f04002d
+			public const int errorUnrecognized = 2130968621;
+			
+			// aapt resource value: 0x7f040037
+			public const int google_maps_key = 2130968631;
 			
 			static String()
 			{

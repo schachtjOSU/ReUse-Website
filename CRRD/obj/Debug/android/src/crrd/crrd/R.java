@@ -283,22 +283,22 @@ containing a value of this type.
         public static final int webviewer=0x7f030009;
     }
     public static final class string {
-        public static final int APIBusinessURI=0x7f040037;
+        public static final int APIBusinessURI=0x7f040036;
         public static final int ApplicationName=0x7f040022;
         public static final int BusinessDetailsActivityLabel=0x7f040023;
         public static final int BusinessListActivityLabel=0x7f040024;
         public static final int CategoryListActivityLabel=0x7f040025;
-        public static final int CorvallisLat=0x7f040030;
-        public static final int CorvallisLong=0x7f040031;
-        public static final int CorvallisZoomLevel=0x7f040032;
+        public static final int CorvallisLat=0x7f04002f;
+        public static final int CorvallisLong=0x7f040030;
+        public static final int CorvallisZoomLevel=0x7f040031;
         public static final int ErrorActivityLabel=0x7f040026;
-        public static final int GDocViewer=0x7f040035;
+        public static final int GDocViewer=0x7f040034;
         public static final int MainActivityLabel=0x7f040027;
         public static final int MapViewerActivityLabel=0x7f040028;
-        public static final int RSCurbsidePDF=0x7f040034;
-        public static final int RSRecycleDepotPDF=0x7f040033;
+        public static final int RSCurbsidePDF=0x7f040033;
+        public static final int RSRecycleDepotPDF=0x7f040032;
         public static final int RecyclingInfoActivityLabel=0x7f040029;
-        public static final int SavedXMLfilename=0x7f040036;
+        public static final int SavedXMLfilename=0x7f040035;
         public static final int SubcategoryListActivityLabel=0x7f04002a;
         public static final int WebViewerActivityLabel=0x7f04002b;
         /**  Brand name for Facebook [DO NOT TRANSLATE] 
@@ -419,10 +419,10 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f040021;
-        public static final int errorGeneral=0x7f04002f;
-        public static final int errorMissingData=0x7f04002d;
-        public static final int errorUnrecognized=0x7f04002e;
-        public static final int google_maps_key=0x7f04002c;
+        public static final int errorGeneral=0x7f04002e;
+        public static final int errorMissingData=0x7f04002c;
+        public static final int errorUnrecognized=0x7f04002d;
+        public static final int google_maps_key=0x7f040037;
     }
     public static final class styleable {
         /**  Attributes for LoadingImageView 

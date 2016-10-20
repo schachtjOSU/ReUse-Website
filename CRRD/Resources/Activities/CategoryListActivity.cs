@@ -35,7 +35,7 @@ namespace CRRD.Resources.Activities
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.ListCategory);
-            /*
+  /*          
             _ListView = FindViewById<ListView>(Resource.Id.lvListArea);
             
             // Get a sorted Unique List<sring> of Categories
@@ -55,14 +55,16 @@ namespace CRRD.Resources.Activities
 
             // Events ...
             _ListView.ItemClick += _ListView_ItemClick;
-            */
+   */         
         }
 
         private void _ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
+            /*
             var intent = new Intent(this, typeof(SubcategoryListActivity));
             intent.PutExtra("categoryName", _categoryListStrings[e.Position]);
             StartActivity(intent);
+            */
         }
     }
 }

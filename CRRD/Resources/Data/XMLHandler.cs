@@ -53,6 +53,7 @@ namespace CRRD.Resources.Data
                 case _ERR_NO_NETWORK:
                     if (deviceIO.BusinessFileExists())
                     {
+                        /*
                         // Get the locally saved XML document
                         xDoc = XDocument.Parse(GetXmlFromDevice());
 
@@ -61,6 +62,7 @@ namespace CRRD.Resources.Data
                         SetCategoryList();
 						
 						isInitialized = true;
+                        */
                     }
                     else
                     {
@@ -69,6 +71,7 @@ namespace CRRD.Resources.Data
                     }
                     break;
                 default:
+                    /*
                     SaveXmlToDevice(xmlResult);
                     // Get the locally saved XML document
                     xDoc = XDocument.Parse(GetXmlFromDevice());
@@ -77,8 +80,9 @@ namespace CRRD.Resources.Data
                     SetBusinessList();
                     SetCategoryList();
 
-                    isInitialized = true;
-
+                    isInitialized = true; 
+                    */
+                    isInitialized = false;
                     break;
             }
 
