@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # vim
 .*.sap
 
@@ -19,3 +20,6 @@ DBSetup
 
 # Android
 AndroidSourceCode
+=======
+
+>>>>>>> 851122b7b2b0ef4c2398beb72413a117b2b31344

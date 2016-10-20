@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Corvallis-Sustainability-ReUse
 
 ## Main Site:
@@ -17,3 +18,7 @@ Develop both an iOS and android applications used primarily for viewing existing
 Bring the managing API to a production-ready state
 
 *Documentation, documentation, documentation*
+=======
+# CS419_ReUse_Android
+The Xamarin Android project for the Corvallis Reuse and Repair Directory
+>>>>>>> 851122b7b2b0ef4c2398beb72413a117b2b31344
