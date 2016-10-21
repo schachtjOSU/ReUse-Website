@@ -14,12 +14,14 @@ namespace CRRD
     [Activity(Label = "@string/MainActivityLabel", MainLauncher = true, Icon = "@drawable/CSCLogo")]
     public class MainActivity : Activity
     {
+        
         /// <summary>
         /// Called when [create].
         /// </summary>
         /// <param name="bundle">The bundle.</param>
         protected override void OnCreate(Bundle bundle)
         {
+
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
 

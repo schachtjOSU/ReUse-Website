@@ -37,14 +37,14 @@ namespace CRRD.Resources.Activities
         private void LnkRecFacility_Click(object sender, System.EventArgs e)
         {
             var intent = new Intent(this, typeof(WebViwerActivity));
-            intent.PutExtra("PDF_URI", "http://site.republicservices.com/site/corvallis-or/en/documents/corvallisrecycledepot.pdf");
+            intent.PutExtra("PDF_URI", this.ApplicationContext.GetString(Resource.String.RSRecycleDepotPDF));
             StartActivity(intent);
         }
 
         private void LnkRecCurbside_Click(object sender, System.EventArgs e)
         {
             var intent = new Intent(this, typeof(WebViwerActivity));
-            intent.PutExtra("PDF_URI", "@string/RSCurbsidePDF");
+            intent.PutExtra("PDF_URI", this.ApplicationContext.GetString(Resource.String.RSCurbsidePDF));
             StartActivity(intent);
         }
     }

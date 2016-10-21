@@ -22,17 +22,17 @@ namespace CRRD.Resources.Activities
         /// <summary>
         /// Moves to AppErrorActivity if DataHandler is invalid
         /// </summary>
-        /// <param name="thisContext">The calling context.</param>
+        /// <param name="context">The calling context.</param>
         /// <param name="handlerIsInitialized">The value of DataHandler.isInitialed, which indicates if the Category and Business lists have been set.</param>
-        public static void checkDataHandlerInitialization(Context thisContext, Boolean handlerIsInitialized)
+        public static void checkDataHandlerInitialization(Context context, Boolean handlerIsInitialized)
             {
                 if (!handlerIsInitialized)
                 {
                     
-                    var intent = new Intent(thisContext, typeof(ErrorActivity));
+                    var intent = new Intent(context, typeof(ErrorActivity));
                     intent.SetFlags(ActivityFlags.NewTask);
-                    intent.PutExtra("errorMessage", "@string/errorMissingData");
-                    thisContext.StartActivity(intent);
+                    intent.PutExtra("errorMessage", context.GetString(Resource.String.errorMissingData));
+                    context.StartActivity(intent);
                 }
             }
         

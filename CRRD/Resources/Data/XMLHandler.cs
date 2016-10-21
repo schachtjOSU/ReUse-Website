@@ -5,12 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Xml.Linq;
 using CRRD.Resources.Models;
+using Android.Content;
 
 namespace CRRD.Resources.Data
 {
     class XMLHandler
     {
-        public Boolean isInitialized { get; private set; }
+        public Boolean isInitialized = false;
 
         private XDocument xDoc { get; set; }
         public List<Category> CategoryList { get; private set; }
@@ -22,7 +23,7 @@ namespace CRRD.Resources.Data
         private const string _ERR_BAD_URI = "Bad URI Request";
 
         // Current Link provided from Josh
-        private string BUSINESS_LIST_URI = "@string/APIBusinessURI";
+        private string BUSINESS_LIST_URI = "http://web.engr.oregonstate.edu/~johnsjo3/capstone/xmlGenerator/runEchoFunction.php"; // Copied from Resource.String.APIBusinessURI
 
         /// <summary>
         /// Costructor for the XMLHandler class. Instanciates and sets collection properties. Runs all parsing methods 
@@ -33,7 +34,7 @@ namespace CRRD.Resources.Data
             // instanciate the lists
             CategoryList = new List<Category>();
             BusinessList = new List<Business>();
-
+            
             // Set the MyDeviceIO class
             deviceIO = new MyDeviceIO(fileName);
 
@@ -53,7 +54,7 @@ namespace CRRD.Resources.Data
                 case _ERR_NO_NETWORK:
                     if (deviceIO.BusinessFileExists())
                     {
-                        /*
+                        
                         // Get the locally saved XML document
                         xDoc = XDocument.Parse(GetXmlFromDevice());
 
@@ -62,7 +63,7 @@ namespace CRRD.Resources.Data
                         SetCategoryList();
 						
 						isInitialized = true;
-                        */
+                        
                     }
                     else
                     {
@@ -71,7 +72,7 @@ namespace CRRD.Resources.Data
                     }
                     break;
                 default:
-                    /*
+                    
                     SaveXmlToDevice(xmlResult);
                     // Get the locally saved XML document
                     xDoc = XDocument.Parse(GetXmlFromDevice());
@@ -81,12 +82,11 @@ namespace CRRD.Resources.Data
                     SetCategoryList();
 
                     isInitialized = true; 
-                    */
-                    isInitialized = false;
+                   
                     break;
             }
+           
 
-            
         }
 
         /// <summary>

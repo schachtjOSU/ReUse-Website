@@ -2,7 +2,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-//using CRRD.Resources.Models;
+using CRRD.Resources.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,12 +30,13 @@ namespace CRRD.Resources.Activities
         protected override void OnCreate(Bundle bundle)
         {
 
-            //ErrorCheckActivity.checkDataHandlerInitialization(this.ApplicationContext, _handler.isInitialized);
+            ErrorCheckActivity.checkDataHandlerInitialization(this.ApplicationContext, _handler.isInitialized);
             
             base.OnCreate(bundle);
 
-            SetContentView(Resource.Layout.ListCategory);
-  /*          
+            // Set our view from the layout resource
+             SetContentView(Resource.Layout.ListCategory);
+           
             _ListView = FindViewById<ListView>(Resource.Id.lvListArea);
             
             // Get a sorted Unique List<sring> of Categories
@@ -55,16 +56,16 @@ namespace CRRD.Resources.Activities
 
             // Events ...
             _ListView.ItemClick += _ListView_ItemClick;
-   */         
+        
         }
 
         private void _ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            /*
+            
             var intent = new Intent(this, typeof(SubcategoryListActivity));
             intent.PutExtra("categoryName", _categoryListStrings[e.Position]);
             StartActivity(intent);
-            */
+            
         }
     }
 }
