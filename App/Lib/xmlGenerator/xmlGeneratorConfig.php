@@ -1,4 +1,4 @@
 <?php
-	$XML_FILENAME = "reuse_database.xml";
+	$XML_FILENAME =  __DIR__ ."/reuse_database.xml";
 	$DATABASE_CONNECT = "../../Database/reuseConnect.php";
 ?>
