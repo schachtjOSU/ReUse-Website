@@ -14,7 +14,7 @@
             <summary>
             Moves to AppErrorActivity if DataHandler is invalid
             </summary>
-            <param name="thisContext">The calling context.</param>
+            <param name="context">The calling context.</param>
             <param name="handlerIsInitialized">The value of DataHandler.isInitialed, which indicates if the Category and Business lists have been set.</param>
         </member>
         <member name="T:CRRD.Resources.Activities.ErrorActivity">
