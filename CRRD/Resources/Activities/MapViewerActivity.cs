@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using CRRD.Resources.Adapters;
+using Android.Support.V4.App;
+
 
 namespace CRRD.Resources.Activities
 {
@@ -22,11 +24,10 @@ namespace CRRD.Resources.Activities
         private GoogleMap _Map;
         private IEnumerable<Business> _businessList = new List<Business>();
         private string _businessName, _categoryName, _subcategoryName;
+        private LatLng _Corvallis;
 
         // Start class to Get and parse the local XML file to the associated classes (Business & Category)
         private DataHandler _handler = new DataHandler();
-
-        private LatLng _Corvallis = new LatLng(Int32.Parse("@string/CorvallisLat"), Int32.Parse("@string/CorvallisLong"));
 
         /// <summary>
         /// Called when [create].
@@ -39,6 +40,9 @@ namespace CRRD.Resources.Activities
             base.OnCreate(bundle);
 
             SetContentView(Resource.Layout.MapViewer);
+
+            //get the coordinates for Corvallis
+            _Corvallis = new LatLng(Double.Parse(this.ApplicationContext.GetString(Resource.String.CorvallisLat)), Double.Parse(this.ApplicationContext.GetString(Resource.String.CorvallisLong)));
 
             // Get the passed categoryName
             _businessName = Intent.GetStringExtra("businessName") ?? "No Data Found";
@@ -83,6 +87,16 @@ namespace CRRD.Resources.Activities
             if (_Map == null)
             {
                 FragmentManager.FindFragmentById<MapFragment>(Resource.Id.map).GetMapAsync(this);
+                /*
+                MapFragment _mapFragment = MapFragment.NewInstance();
+                _mapFragment.GetMapAsync(this);
+                Android.App.FragmentTransaction _transaction = FragmentManager.BeginTransaction();
+                _transaction.Add(Resource.Id.map_parent, _mapFragment);
+                _transaction.Commit();
+                */
+                
+                
+
             }
         }
 
@@ -107,7 +121,7 @@ namespace CRRD.Resources.Activities
                 15: Streets
                 20: Buildings
             */
-            CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(_Corvallis, Int32.Parse("@string/CorvallisZoomLevel"));
+            CameraUpdate camera = CameraUpdateFactory.NewLatLngZoom(_Corvallis, Int32.Parse(this.ApplicationContext.GetString(Resource.String.CorvallisZoomLevel)));
             _Map.MoveCamera(camera);
 
             // Set markers from the bussinessList

@@ -328,5 +328,12 @@
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:CRRD.MainActivity.BtnRepair_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event for Recycling Navigation (to RecyclingInfoActivity)
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
     </members>
 </doc>

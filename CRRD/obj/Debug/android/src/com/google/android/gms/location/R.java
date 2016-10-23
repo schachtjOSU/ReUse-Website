@@ -191,6 +191,7 @@ containing a value of this type.
         public static int zOrderOnTop=0x7f01000e;
     }
     public static final class color {
+        public static int black=0x7f05000d;
         public static int common_action_bar_splitter=0x7f050009;
         /**  Sign-in Button Colors 
          */
@@ -203,8 +204,11 @@ containing a value of this type.
         public static int common_signin_btn_light_text_disabled=0x7f050006;
         public static int common_signin_btn_light_text_focused=0x7f050007;
         public static int common_signin_btn_light_text_pressed=0x7f050005;
-        public static int common_signin_btn_text_dark=0x7f05000a;
-        public static int common_signin_btn_text_light=0x7f05000b;
+        public static int common_signin_btn_text_dark=0x7f05000e;
+        public static int common_signin_btn_text_light=0x7f05000f;
+        public static int cscGreen=0x7f05000a;
+        public static int cscOrange=0x7f05000b;
+        public static int white=0x7f05000c;
     }
     public static final class drawable {
         public static int common_full_open_on_phone=0x7f020000;
@@ -238,25 +242,28 @@ containing a value of this type.
         public static int powered_by_google_dark=0x7f02001c;
         public static int powered_by_google_light=0x7f02001d;
         public static int republicservices=0x7f02001e;
+        public static int roundedbutton=0x7f02001f;
     }
     public static final class id {
-        public static int BtnCategories=0x7f070014;
-        public static int BtnRecycleInfo=0x7f070015;
         public static int BtnViewMap=0x7f07000e;
         public static int adjust_height=0x7f070005;
         public static int adjust_width=0x7f070006;
         public static int btnToMapView=0x7f07000f;
+        public static int buttonRecycle=0x7f070016;
+        public static int buttonRepair=0x7f070014;
+        public static int buttonReuse=0x7f070015;
         public static int errorGeneral=0x7f070009;
         public static int errorMessage=0x7f070008;
         public static int errorTitle=0x7f070007;
         public static int hybrid=0x7f070000;
-        public static int lnkRecyclingCurbside=0x7f070018;
-        public static int lnkRecyclingFacility=0x7f070017;
+        public static int lnkRecyclingCurbside=0x7f07001a;
+        public static int lnkRecyclingFacility=0x7f070019;
         public static int lvListArea=0x7f070013;
-        public static int map=0x7f070016;
+        public static int map=0x7f070018;
+        public static int map_parent=0x7f070017;
         public static int none=0x7f070001;
         public static int normal=0x7f070002;
-        public static int objWebView=0x7f070019;
+        public static int objWebView=0x7f07001b;
         public static int satellite=0x7f070003;
         public static int terrain=0x7f070004;
         public static int txtBusinessAddress=0x7f07000b;
@@ -283,24 +290,26 @@ containing a value of this type.
         public static int webviewer=0x7f030009;
     }
     public static final class string {
-        public static int APIBusinessURI=0x7f040036;
+        public static int APIBusinessURI=0x7f040038;
+        public static int ApplicationDescription=0x7f040024;
         public static int ApplicationName=0x7f040022;
-        public static int BusinessDetailsActivityLabel=0x7f040023;
-        public static int BusinessListActivityLabel=0x7f040024;
-        public static int CategoryListActivityLabel=0x7f040025;
-        public static int CorvallisLat=0x7f04002f;
-        public static int CorvallisLong=0x7f040030;
-        public static int CorvallisZoomLevel=0x7f040031;
-        public static int ErrorActivityLabel=0x7f040026;
-        public static int GDocViewer=0x7f040034;
-        public static int MainActivityLabel=0x7f040027;
-        public static int MapViewerActivityLabel=0x7f040028;
-        public static int RSCurbsidePDF=0x7f040033;
-        public static int RSRecycleDepotPDF=0x7f040032;
-        public static int RecyclingInfoActivityLabel=0x7f040029;
-        public static int SavedXMLfilename=0x7f040035;
-        public static int SubcategoryListActivityLabel=0x7f04002a;
-        public static int WebViewerActivityLabel=0x7f04002b;
+        public static int ApplicationNameLong=0x7f040023;
+        public static int BusinessDetailsActivityLabel=0x7f040025;
+        public static int BusinessListActivityLabel=0x7f040026;
+        public static int CategoryListActivityLabel=0x7f040027;
+        public static int CorvallisLat=0x7f040031;
+        public static int CorvallisLong=0x7f040032;
+        public static int CorvallisZoomLevel=0x7f040033;
+        public static int ErrorActivityLabel=0x7f040028;
+        public static int GDocViewer=0x7f040036;
+        public static int MainActivityLabel=0x7f040029;
+        public static int MapViewerActivityLabel=0x7f04002a;
+        public static int RSCurbsidePDF=0x7f040035;
+        public static int RSRecycleDepotPDF=0x7f040034;
+        public static int RecyclingInfoActivityLabel=0x7f04002b;
+        public static int SavedXMLfilename=0x7f040037;
+        public static int SubcategoryListActivityLabel=0x7f04002c;
+        public static int WebViewerActivityLabel=0x7f04002d;
         /**  Brand name for Facebook [DO NOT TRANSLATE] 
          */
         public static int auth_google_play_services_client_facebook_display_name=0x7f040001;
@@ -419,10 +428,10 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static int common_signin_button_text_long=0x7f040021;
-        public static int errorGeneral=0x7f04002e;
-        public static int errorMissingData=0x7f04002c;
-        public static int errorUnrecognized=0x7f04002d;
-        public static int google_maps_key=0x7f040037;
+        public static int errorGeneral=0x7f040030;
+        public static int errorMissingData=0x7f04002e;
+        public static int errorUnrecognized=0x7f04002f;
+        public static int google_maps_key=0x7f040039;
     }
     public static final class styleable {
         /**  Attributes for LoadingImageView 

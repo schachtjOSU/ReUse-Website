@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ApplicationName">CRRD</string>
+    <string name="ApplicationName">Corvallis Reuse</string>
+    <string name="ApplicationNameLong">The Corvallis Reuse and Repair Directory</string>
+    <string name="ApplicationDescription">Provided by the Corvallis Sustainability Coalition</string>
     <string name="BusinessDetailsActivityLabel">Business Details</string>
     <string name="BusinessListActivityLabel">Businesses</string>
     <string name="CategoryListActivityLabel">Categories</string>
@@ -21,5 +23,6 @@
     <string name="GDocViewer">https://docs.google.com/gview?embedded=true%26url=</string>
     <string name="SavedXMLfilename">CRRD_XML.xml</string>
     <string name="APIBusinessURI">http://localhost/Corvallis-Sustainability-ReUse/reuse_database.xml</string>
-	<string name="google_maps_key">AIzaSyA-kB_AQFKiyxycHlkUXtbgdZS_DlylQ2w</string>
+	  <string name="google_maps_key">AIzaSyBgKZsWDgl_yUOSiXRxlRuK1KBPq8X5kng</string>
+    <string name="RepairCategoryName">Repair Items</string>
 </resources>

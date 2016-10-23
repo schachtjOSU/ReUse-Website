@@ -49,7 +49,10 @@ namespace CRRD.Resources.Activities
             
             _categoryListStrings = _categoryListStrings.Distinct().ToList();
             _categoryListStrings.Sort();
-            
+
+            //remove the Repair subcategory from _categoryListStrings
+            _categoryListStrings.Remove(this.ApplicationContext.GetString(Resource.String.RepairCategoryName));
+
             // Set the custom adapter
             CategoryListAdapter adapter = new CategoryListAdapter(this, _categoryListStrings);
             _ListView.Adapter = adapter;

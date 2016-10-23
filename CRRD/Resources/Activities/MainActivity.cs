@@ -26,12 +26,14 @@ namespace CRRD
             SetContentView(Resource.Layout.Main);
 
             // Get the elements from the view
-            Button btnCategories = FindViewById<Button>(Resource.Id.BtnCategories);
-            Button btnRecycleInfo = FindViewById<Button>(Resource.Id.BtnRecycleInfo);
+            Button btnCategories = FindViewById<Button>(Resource.Id.buttonReuse);
+            Button btnRecycleInfo = FindViewById<Button>(Resource.Id.buttonRecycle);
+            Button btnRepair = FindViewById<Button>(Resource.Id.buttonRepair);
 
             // Assign events
             btnCategories.Click += BtnCategories_Click;
             btnRecycleInfo.Click += BtnRecycleInfo_Click;
+            btnRepair.Click += BtnRepair_Click;
         }
 
         /// <summary>
@@ -53,6 +55,18 @@ namespace CRRD
         private void BtnRecycleInfo_Click(object sender, System.EventArgs e)
         {
             var intent = new Intent(this, typeof(RecyclingInfoActivity));
+            StartActivity(intent);
+        }
+
+        /// <summary>
+        /// Handles the Click event for Recycling Navigation (to RecyclingInfoActivity)
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void BtnRepair_Click(object sender, System.EventArgs e)
+        {
+            var intent = new Intent(this, typeof(SubcategoryListActivity));
+            intent.PutExtra("categoryName", this.ApplicationContext.GetString(Resource.String.RepairCategoryName));
             StartActivity(intent);
         }
     }

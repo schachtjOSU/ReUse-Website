@@ -13,7 +13,7 @@ namespace CRRD.Resources.Data
     {
         public Boolean isInitialized { get; private set; }
 
-    private XDocument xDoc { get; set; }
+        private XDocument xDoc { get; set; }
         public List<Category> CategoryList { get; private set; }
         public List<Business> BusinessList { get; private set; }
         private MyDeviceIO deviceIO { get; set; }
@@ -23,7 +23,7 @@ namespace CRRD.Resources.Data
         private const string _ERR_BAD_URI = "Bad URI Request";
 
         // Current Link to the API
-        private string BUSINESS_LIST_URI = "http://localhost/Corvallis-Sustainability-ReUse/reuse_database.xml"; // Copied from Resource.String.APIBusinessURI
+        private string BUSINESS_LIST_URI = "http://app.sustainablecorvallis.org/reuse_database.xml"; // Copied from Resource.String.APIBusinessURI
 
         /// <summary>
         /// Costructor for the XMLHandler class. Instanciates and sets collection properties. Runs all parsing methods 
