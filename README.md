@@ -1,6 +1,5 @@
+#Corvallis-Sustainability-Coalition
 
-# All development has now been transfered to https://github.com/Corvallis-Sustainability-Coalition/ReUse-Website.
-# This repository will be taken down in the next week
 ## Main Site:
 http://sustainablecorvallis.org/action-teams/waste-prevention/corvallis-area-reuse-directory
 
