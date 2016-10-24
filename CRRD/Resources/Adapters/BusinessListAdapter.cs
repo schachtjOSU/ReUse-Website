@@ -47,12 +47,10 @@ namespace CRRD.Resources.Adapters
 
             // Set what each part will display
 
-            TextView listIndex = row.FindViewById<TextView>(Resource.Id.txtIndex);
-            listIndex.Text = (position + 1).ToString();
-
             TextView txtBusinessName = row.FindViewById<TextView>(Resource.Id.txtCategoryName);
             txtBusinessName.Text = _Items[position];
 
+            /*
             // Note this may not be used
             TextView txtSubcatCount = row.FindViewById<TextView>(Resource.Id.txtSubcatCount);
 
@@ -62,7 +60,7 @@ namespace CRRD.Resources.Adapters
 
             //txtSubcatCount.Text = "";
 			txtSubcatCount.Text = (hasLatLngFlag == 0) ? "" : "X";
-
+            */
             return row;
         }
     }

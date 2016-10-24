@@ -295,17 +295,17 @@ namespace CRRD
 			// aapt resource value: 0x7f070006
 			public const int adjust_width = 2131165190;
 			
-			// aapt resource value: 0x7f07000f
-			public const int btnToMapView = 2131165199;
-			
-			// aapt resource value: 0x7f070016
-			public const int buttonRecycle = 2131165206;
+			// aapt resource value: 0x7f070010
+			public const int btnToMapView = 2131165200;
 			
 			// aapt resource value: 0x7f070014
-			public const int buttonRepair = 2131165204;
+			public const int buttonRecycle = 2131165204;
 			
-			// aapt resource value: 0x7f070015
-			public const int buttonReuse = 2131165205;
+			// aapt resource value: 0x7f070012
+			public const int buttonRepair = 2131165202;
+			
+			// aapt resource value: 0x7f070013
+			public const int buttonReuse = 2131165203;
 			
 			// aapt resource value: 0x7f070009
 			public const int errorGeneral = 2131165193;
@@ -319,20 +319,20 @@ namespace CRRD
 			// aapt resource value: 0x7f070000
 			public const int hybrid = 2131165184;
 			
-			// aapt resource value: 0x7f07001a
-			public const int lnkRecyclingCurbside = 2131165210;
-			
-			// aapt resource value: 0x7f070019
-			public const int lnkRecyclingFacility = 2131165209;
-			
-			// aapt resource value: 0x7f070013
-			public const int lvListArea = 2131165203;
-			
 			// aapt resource value: 0x7f070018
-			public const int map = 2131165208;
+			public const int lnkRecyclingCurbside = 2131165208;
 			
 			// aapt resource value: 0x7f070017
-			public const int map_parent = 2131165207;
+			public const int lnkRecyclingFacility = 2131165207;
+			
+			// aapt resource value: 0x7f07000f
+			public const int lvListArea = 2131165199;
+			
+			// aapt resource value: 0x7f070016
+			public const int map = 2131165206;
+			
+			// aapt resource value: 0x7f070015
+			public const int map_parent = 2131165205;
 			
 			// aapt resource value: 0x7f070001
 			public const int none = 2131165185;
@@ -340,8 +340,8 @@ namespace CRRD
 			// aapt resource value: 0x7f070002
 			public const int normal = 2131165186;
 			
-			// aapt resource value: 0x7f07001b
-			public const int objWebView = 2131165211;
+			// aapt resource value: 0x7f070019
+			public const int objWebView = 2131165209;
 			
 			// aapt resource value: 0x7f070003
 			public const int satellite = 2131165187;
@@ -363,12 +363,6 @@ namespace CRRD
 			
 			// aapt resource value: 0x7f070011
 			public const int txtCategoryName = 2131165201;
-			
-			// aapt resource value: 0x7f070010
-			public const int txtIndex = 2131165200;
-			
-			// aapt resource value: 0x7f070012
-			public const int txtSubcatCount = 2131165202;
 			
 			static Id()
 			{

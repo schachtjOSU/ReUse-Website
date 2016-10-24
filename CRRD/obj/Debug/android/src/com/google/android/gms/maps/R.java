@@ -191,7 +191,7 @@ containing a value of this type.
         public static int zOrderOnTop=0x7f01000e;
     }
     public static final class color {
-        public static int black=0x7f05000d;
+        public static int black=0x7f05000f;
         public static int common_action_bar_splitter=0x7f050009;
         /**  Sign-in Button Colors 
          */
@@ -204,45 +204,49 @@ containing a value of this type.
         public static int common_signin_btn_light_text_disabled=0x7f050006;
         public static int common_signin_btn_light_text_focused=0x7f050007;
         public static int common_signin_btn_light_text_pressed=0x7f050005;
-        public static int common_signin_btn_text_dark=0x7f05000e;
-        public static int common_signin_btn_text_light=0x7f05000f;
+        public static int common_signin_btn_text_dark=0x7f050010;
+        public static int common_signin_btn_text_light=0x7f050011;
+        public static int cscBlue=0x7f05000d;
         public static int cscGreen=0x7f05000a;
-        public static int cscOrange=0x7f05000b;
-        public static int white=0x7f05000c;
+        public static int cscGreenDark=0x7f05000b;
+        public static int cscOrange=0x7f05000c;
+        public static int white=0x7f05000e;
     }
     public static final class drawable {
-        public static int common_full_open_on_phone=0x7f020000;
-        public static int common_ic_googleplayservices=0x7f020001;
-        public static int common_signin_btn_icon_dark=0x7f020002;
-        public static int common_signin_btn_icon_disabled_dark=0x7f020003;
-        public static int common_signin_btn_icon_disabled_focus_dark=0x7f020004;
-        public static int common_signin_btn_icon_disabled_focus_light=0x7f020005;
-        public static int common_signin_btn_icon_disabled_light=0x7f020006;
-        public static int common_signin_btn_icon_focus_dark=0x7f020007;
-        public static int common_signin_btn_icon_focus_light=0x7f020008;
-        public static int common_signin_btn_icon_light=0x7f020009;
-        public static int common_signin_btn_icon_normal_dark=0x7f02000a;
-        public static int common_signin_btn_icon_normal_light=0x7f02000b;
-        public static int common_signin_btn_icon_pressed_dark=0x7f02000c;
-        public static int common_signin_btn_icon_pressed_light=0x7f02000d;
-        public static int common_signin_btn_text_dark=0x7f02000e;
-        public static int common_signin_btn_text_disabled_dark=0x7f02000f;
-        public static int common_signin_btn_text_disabled_focus_dark=0x7f020010;
-        public static int common_signin_btn_text_disabled_focus_light=0x7f020011;
-        public static int common_signin_btn_text_disabled_light=0x7f020012;
-        public static int common_signin_btn_text_focus_dark=0x7f020013;
-        public static int common_signin_btn_text_focus_light=0x7f020014;
-        public static int common_signin_btn_text_light=0x7f020015;
-        public static int common_signin_btn_text_normal_dark=0x7f020016;
-        public static int common_signin_btn_text_normal_light=0x7f020017;
-        public static int common_signin_btn_text_pressed_dark=0x7f020018;
-        public static int common_signin_btn_text_pressed_light=0x7f020019;
-        public static int csclogo=0x7f02001a;
-        public static int icon=0x7f02001b;
-        public static int powered_by_google_dark=0x7f02001c;
-        public static int powered_by_google_light=0x7f02001d;
-        public static int republicservices=0x7f02001e;
-        public static int roundedbutton=0x7f02001f;
+        public static int bigstockphoto_footprint=0x7f020000;
+        public static int common_full_open_on_phone=0x7f020001;
+        public static int common_ic_googleplayservices=0x7f020002;
+        public static int common_signin_btn_icon_dark=0x7f020003;
+        public static int common_signin_btn_icon_disabled_dark=0x7f020004;
+        public static int common_signin_btn_icon_disabled_focus_dark=0x7f020005;
+        public static int common_signin_btn_icon_disabled_focus_light=0x7f020006;
+        public static int common_signin_btn_icon_disabled_light=0x7f020007;
+        public static int common_signin_btn_icon_focus_dark=0x7f020008;
+        public static int common_signin_btn_icon_focus_light=0x7f020009;
+        public static int common_signin_btn_icon_light=0x7f02000a;
+        public static int common_signin_btn_icon_normal_dark=0x7f02000b;
+        public static int common_signin_btn_icon_normal_light=0x7f02000c;
+        public static int common_signin_btn_icon_pressed_dark=0x7f02000d;
+        public static int common_signin_btn_icon_pressed_light=0x7f02000e;
+        public static int common_signin_btn_text_dark=0x7f02000f;
+        public static int common_signin_btn_text_disabled_dark=0x7f020010;
+        public static int common_signin_btn_text_disabled_focus_dark=0x7f020011;
+        public static int common_signin_btn_text_disabled_focus_light=0x7f020012;
+        public static int common_signin_btn_text_disabled_light=0x7f020013;
+        public static int common_signin_btn_text_focus_dark=0x7f020014;
+        public static int common_signin_btn_text_focus_light=0x7f020015;
+        public static int common_signin_btn_text_light=0x7f020016;
+        public static int common_signin_btn_text_normal_dark=0x7f020017;
+        public static int common_signin_btn_text_normal_light=0x7f020018;
+        public static int common_signin_btn_text_pressed_dark=0x7f020019;
+        public static int common_signin_btn_text_pressed_light=0x7f02001a;
+        public static int csclogo=0x7f02001b;
+        public static int cscrectangular=0x7f02001c;
+        public static int icon=0x7f02001d;
+        public static int powered_by_google_dark=0x7f02001e;
+        public static int powered_by_google_light=0x7f02001f;
+        public static int republicservices=0x7f020020;
+        public static int roundedbutton=0x7f020021;
     }
     public static final class id {
         public static int BtnViewMap=0x7f07000e;
@@ -307,6 +311,7 @@ containing a value of this type.
         public static int RSCurbsidePDF=0x7f040035;
         public static int RSRecycleDepotPDF=0x7f040034;
         public static int RecyclingInfoActivityLabel=0x7f04002b;
+        public static int RepairCategoryName=0x7f04003a;
         public static int SavedXMLfilename=0x7f040037;
         public static int SubcategoryListActivityLabel=0x7f04002c;
         public static int WebViewerActivityLabel=0x7f04002d;

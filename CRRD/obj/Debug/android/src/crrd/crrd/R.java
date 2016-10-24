@@ -252,22 +252,22 @@ containing a value of this type.
         public static final int BtnViewMap=0x7f07000e;
         public static final int adjust_height=0x7f070005;
         public static final int adjust_width=0x7f070006;
-        public static final int btnToMapView=0x7f07000f;
-        public static final int buttonRecycle=0x7f070016;
-        public static final int buttonRepair=0x7f070014;
-        public static final int buttonReuse=0x7f070015;
+        public static final int btnToMapView=0x7f070010;
+        public static final int buttonRecycle=0x7f070014;
+        public static final int buttonRepair=0x7f070012;
+        public static final int buttonReuse=0x7f070013;
         public static final int errorGeneral=0x7f070009;
         public static final int errorMessage=0x7f070008;
         public static final int errorTitle=0x7f070007;
         public static final int hybrid=0x7f070000;
-        public static final int lnkRecyclingCurbside=0x7f07001a;
-        public static final int lnkRecyclingFacility=0x7f070019;
-        public static final int lvListArea=0x7f070013;
-        public static final int map=0x7f070018;
-        public static final int map_parent=0x7f070017;
+        public static final int lnkRecyclingCurbside=0x7f070018;
+        public static final int lnkRecyclingFacility=0x7f070017;
+        public static final int lvListArea=0x7f07000f;
+        public static final int map=0x7f070016;
+        public static final int map_parent=0x7f070015;
         public static final int none=0x7f070001;
         public static final int normal=0x7f070002;
-        public static final int objWebView=0x7f07001b;
+        public static final int objWebView=0x7f070019;
         public static final int satellite=0x7f070003;
         public static final int terrain=0x7f070004;
         public static final int txtBusinessAddress=0x7f07000b;
@@ -275,8 +275,6 @@ containing a value of this type.
         public static final int txtBusinessPhone=0x7f07000c;
         public static final int txtBusinessWebsite=0x7f07000d;
         public static final int txtCategoryName=0x7f070011;
-        public static final int txtIndex=0x7f070010;
-        public static final int txtSubcatCount=0x7f070012;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f060000;

@@ -44,15 +44,8 @@ namespace CRRD.Resources.Adapters
 
 
             // Set what each row will display
-
-            TextView listIndex = row.FindViewById<TextView>(Resource.Id.txtIndex);
-            listIndex.Text = (position + 1).ToString();
-
             TextView txtCategoryName = row.FindViewById<TextView>(Resource.Id.txtCategoryName);
             txtCategoryName.Text = _Items[position];
-
-            TextView txtSubcatCount = row.FindViewById<TextView>(Resource.Id.txtSubcatCount);
-            txtSubcatCount.Text = "";
 
             return row;
         }

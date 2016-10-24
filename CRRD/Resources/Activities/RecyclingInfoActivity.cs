@@ -11,7 +11,7 @@ namespace CRRD.Resources.Activities
     /// Android Activity: Used for displaying the local recycling facility information. Provides navigation for facility information links.
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
-    [Activity(Label = "@string/RecyclingInfoActivityLabel", Icon = "@drawable/RepublicServices")]
+    [Activity(Label = "@string/RecyclingInfoActivityLabel", Icon = "@drawable/CSCLogo")]
     public class RecyclingInfoActivity : Activity
     {
         /// <summary>

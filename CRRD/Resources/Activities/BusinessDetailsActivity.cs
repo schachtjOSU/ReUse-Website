@@ -7,6 +7,7 @@ using CRRD.Resources.Models;
 using System;
 
 using CRRD.Resources.Adapters;
+using Android.Views;
 
 namespace CRRD.Resources.Activities
 {
@@ -57,7 +58,9 @@ namespace CRRD.Resources.Activities
             _txtBusAddress.Text = GetFormattedAddress();
             _txtBusPhone.Text = GetFormattedPhoneNumber();
             _txtBusWebsite.Text = _businessObj.Website;
-            _btnMapViewer.Text = CheckBusinessHasLatLng();
+
+            //removing the display map button if the lat and long are not available
+            CheckBusinessHasLatLng();
 
             // Event Listeners
             _btnMapViewer.Click += _btnMapViewer_Click;
@@ -76,14 +79,20 @@ namespace CRRD.Resources.Activities
         /// Return the button text string as default if a map marker is available or "Not Available On Map"
         /// if no map marker is available (eg. No LatLng values)
         /// </returns>
-        private string CheckBusinessHasLatLng()
+        private void CheckBusinessHasLatLng()
         {
             // if no LatLng values then set flag to 0
             int hasMarkerFlag = (_businessObj.Latitude == 0 || _businessObj.Longitude == 0) ? 0 : 1;
             _btnMapViewer.Enabled = (hasMarkerFlag == 0) ? false : true;
 
-            // if flag = 0, return "Not Available On Map", else use default button text
-            return (hasMarkerFlag == 0) ? "Not Available On Map" : _btnMapViewer.Text;
+            // if flag = 0, return "Map Unavailable", else use default button text
+            _btnMapViewer.Text = (hasMarkerFlag == 0) ? "Map Unavailable" : _btnMapViewer.Text;
+
+            // if hasMarkerFlag is not set, the map viewer button is removed
+            if(hasMarkerFlag == 0)
+            {
+                _btnMapViewer.Visibility = ViewStates.Gone;//setVisibility not available
+            }
         }
 
         /// <summary>
