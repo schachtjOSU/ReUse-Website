@@ -59,8 +59,12 @@ namespace CRRD.Resources.Activities
             _txtBusPhone.Text = GetFormattedPhoneNumber();
             _txtBusWebsite.Text = _businessObj.Website;
 
-            //removing the display map button if the lat and long are not available
+            //removing the views if content is not available
             CheckBusinessHasLatLng();
+            CheckTextView(_txtBusAddress);
+            CheckTextView(_txtBusPhone);
+            CheckTextView(_txtBusWebsite);
+
 
             // Event Listeners
             _btnMapViewer.Click += _btnMapViewer_Click;
@@ -91,7 +95,32 @@ namespace CRRD.Resources.Activities
             // if hasMarkerFlag is not set, the map viewer button is removed
             if(hasMarkerFlag == 0)
             {
-                _btnMapViewer.Visibility = ViewStates.Gone;//setVisibility not available
+                _btnMapViewer.Visibility = ViewStates.Gone;
+            }
+        }
+
+        /// <summary>
+        /// Sets a TextView's visibility to Gone if its text is "".
+        /// </summary>
+        /// <param name="view">A TextView with text set to "" or longer.</param>
+        private void CheckTextView(TextView view)
+        {
+            if (string.Compare(view.Text.Trim(), "") == 0)
+            {
+                view.Visibility = ViewStates.Gone;
+                
+            }  
+        }
+
+        /// <summary>
+        /// Sets a Button's visibility to Gone if its text is "".
+        /// </summary>
+        /// <param name="view">A Button with text set to "" or longer.</param>
+        private void CheckButton(Button view)
+        {
+            if (string.Compare(view.Text.Trim(), "") == 0)
+            {
+                view.Visibility = ViewStates.Gone;
             }
         }
 

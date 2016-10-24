@@ -51,6 +51,18 @@
             if no map marker is available (eg. No LatLng values)
             </returns>
         </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.CheckTextView(Android.Widget.TextView)">
+            <summary>
+            Sets a TextView's visibility to Gone if its text is "".
+            </summary>
+            <param name="view">A TextView with text set to "" or longer.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.CheckButton(Android.Widget.Button)">
+            <summary>
+            Sets a Button's visibility to Gone if its text is "".
+            </summary>
+            <param name="view">A Button with text set to "" or longer.</param>
+        </member>
         <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity._txtBusWebsite_Click(System.Object,System.EventArgs)">
             <summary>
             Handles the Click event of the _txtBusWebsite control.
