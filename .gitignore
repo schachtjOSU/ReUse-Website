@@ -11,7 +11,7 @@
 .htaccess 
 
 # DB
-database
+database_cred.php
 DBSetup
 
 
