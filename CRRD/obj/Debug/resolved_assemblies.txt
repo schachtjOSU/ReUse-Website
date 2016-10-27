@@ -6,7 +6,15 @@ C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.Linq.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.Android.Support.Compat.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.Android.Support.Core.UI.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.Android.Support.Core.Utils.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.Android.Support.Fragment.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.Android.Support.Media.Compat.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.Android.Support.v4.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.GooglePlayServices.Base.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.GooglePlayServices.Basement.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Xamarin.GooglePlayServices.Location.dll

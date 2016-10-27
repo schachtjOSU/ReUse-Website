@@ -35,7 +35,6 @@ C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.pdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.CRRD.apk
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.CRRD-Signed.apk
-C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.v4.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Base.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Basement.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Location.dll
@@ -130,5 +129,14 @@ C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Compat.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Core.UI.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Core.Utils.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Fragment.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Media.Compat.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.v4.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.dll.mdb
