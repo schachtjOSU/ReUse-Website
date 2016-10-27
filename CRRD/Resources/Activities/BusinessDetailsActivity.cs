@@ -5,7 +5,7 @@ using Android.OS;
 using Android.Widget;
 using CRRD.Resources.Models;
 using System;
-
+using System.Collections.Generic;
 using CRRD.Resources.Adapters;
 using Android.Views;
 
@@ -18,8 +18,9 @@ namespace CRRD.Resources.Activities
     [Activity(Label = "@string/BusinessDetailsActivityLabel", Icon = "@drawable/CSCLogo")]
     public class BusinessDetailsActivity : Activity
     {
-        private TextView _txtBusName, _txtBusAddress, _txtBusPhone, _txtBusWebsite;
+        private TextView _txtBusName, _txtBusAddress, _txtBusPhone, _txtBusWebsite, _txtBusAccepts, _txtBusAcceptsLabel;
         private Button _btnMapViewer;
+        private LinearLayout _layoutBusAddress, _layoutBusPhone, _layoutBusWebsite, _layoutBusAccepts, _layoutBusAcceptsLabel;
 
         private string _categoryName, _subcategoryName, _businessName;
         private Business _businessObj = new Business();
@@ -51,27 +52,35 @@ namespace CRRD.Resources.Activities
             _txtBusAddress = FindViewById<TextView>(Resource.Id.txtBusinessAddress);
             _txtBusPhone = FindViewById<TextView>(Resource.Id.txtBusinessPhone);
             _txtBusWebsite = FindViewById<TextView>(Resource.Id.txtBusinessWebsite);
+            _txtBusAccepts = FindViewById<TextView>(Resource.Id.txtBusinessAccepts);
+            _txtBusAcceptsLabel = FindViewById<TextView>(Resource.Id.txtBusinessAcceptsLabel);
             _btnMapViewer = FindViewById<Button>(Resource.Id.BtnViewMap);
+            _layoutBusAddress = FindViewById<LinearLayout> (Resource.Id.layoutBusinessAddress);
+            _layoutBusPhone = FindViewById<LinearLayout>(Resource.Id.layoutBusinessPhone);
+            _layoutBusWebsite = FindViewById<LinearLayout>(Resource.Id.layoutBusinessWebsite);
+            _layoutBusAccepts = FindViewById<LinearLayout>(Resource.Id.layoutBusinessAccepts);
+            _layoutBusAcceptsLabel = FindViewById<LinearLayout>(Resource.Id.layoutBusinessAcceptsLabel);
 
             // Set the layout objects
             _txtBusName.Text = _businessObj.Name;
             _txtBusAddress.Text = GetFormattedAddress();
             _txtBusPhone.Text = GetFormattedPhoneNumber();
             _txtBusWebsite.Text = _businessObj.Website;
+            _txtBusAccepts.Text = GetSubcategoriesAccepted();
+            _txtBusAcceptsLabel.Text = GetSubcategoriesAcceptedLabel();
 
-            //removing the views if content is not available
+            //removing the layouts if content is not available
             CheckBusinessHasLatLng();
-            CheckTextView(_txtBusAddress);
-            CheckTextView(_txtBusPhone);
-            CheckTextView(_txtBusWebsite);
-
+            RemoveOnEmptyTextView(_txtBusAddress, _layoutBusAddress);
+            RemoveOnEmptyTextView(_txtBusPhone, _layoutBusPhone);
+            RemoveOnEmptyTextView(_txtBusWebsite, _layoutBusWebsite);
 
             // Event Listeners
             _btnMapViewer.Click += _btnMapViewer_Click;
-            _txtBusPhone.Clickable = true;
-            _txtBusPhone.Click += _txtBusPhone_Click;
-            _txtBusWebsite.Clickable = true;
-            _txtBusWebsite.Click += _txtBusWebsite_Click;
+            _layoutBusPhone.Clickable = true;
+            _layoutBusPhone.Click += _txtBusPhone_Click;
+            _layoutBusWebsite.Clickable = true;
+            _layoutBusWebsite.Click += _txtBusWebsite_Click;
         }
 
 
@@ -100,28 +109,17 @@ namespace CRRD.Resources.Activities
         }
 
         /// <summary>
-        /// Sets a TextView's visibility to Gone if its text is "".
+        /// Sets a LinearLayout's visibility to Gone if the TextView's text is "".
         /// </summary>
-        /// <param name="view">A TextView with text set to "" or longer.</param>
-        private void CheckTextView(TextView view)
+        /// <param name="view1">A TextView with text set to "" or longer.</param>
+        /// <param name="view2">The view to be made hidden if view1's text is empty</param>
+        private void RemoveOnEmptyTextView(TextView view1, View view2)
         {
-            if (string.Compare(view.Text.Trim(), "") == 0)
+            if (string.Compare(view1.Text.Trim(), "") == 0)
             {
-                view.Visibility = ViewStates.Gone;
+                view2.Visibility = ViewStates.Gone;
                 
             }  
-        }
-
-        /// <summary>
-        /// Sets a Button's visibility to Gone if its text is "".
-        /// </summary>
-        /// <param name="view">A Button with text set to "" or longer.</param>
-        private void CheckButton(Button view)
-        {
-            if (string.Compare(view.Text.Trim(), "") == 0)
-            {
-                view.Visibility = ViewStates.Gone;
-            }
         }
 
         /// <summary>
@@ -170,9 +168,9 @@ namespace CRRD.Resources.Activities
             string CityStateZip = "";
 
             // Check if there is an Addr_2 in the business object
-            if (_businessObj.Address_2 != "")
+            if (_businessObj.Address_2.Trim() != "")
             {
-                addr_2Str = String.Format("{0}\n", _businessObj.Address_2);
+                addr_2Str = String.Format("{0}\n", _businessObj.Address_2.Trim());
             }
 
             // Check Zip is 5 or 9 digits
@@ -186,7 +184,7 @@ namespace CRRD.Resources.Activities
                     break;
             }
 
-            CityStateZip = String.Format("{0} {1}  {2}", _businessObj.City, _businessObj.State, zipStr);
+            CityStateZip = String.Format("{0} {1}  {2}", _businessObj.City.Trim(), _businessObj.State.Trim(), zipStr.Trim());
 
             // Put all the pieces together in standard Address Format USA
             formatedAddr = String.Format("{0}\n{1}{2}", _businessObj.Address_1, addr_2Str, CityStateZip);
@@ -231,6 +229,29 @@ namespace CRRD.Resources.Activities
             }
 
             return formattedPhone;
+        }
+
+        private string GetSubcategoriesAccepted()
+        {
+            string subcategoryList = "";
+
+            foreach (var cat in _businessObj.CategoryList)
+            {
+
+                foreach (var sub in cat.SubcategoryList)
+                {
+                    subcategoryList += (sub + "\n");
+                }
+               
+            }
+
+
+            return subcategoryList;
+        }
+
+        private string GetSubcategoriesAcceptedLabel()
+        {
+            return _businessObj.Name + " Accepts The Following:";
         }
 
         private void _btnMapViewer_Click(object sender, System.EventArgs e)

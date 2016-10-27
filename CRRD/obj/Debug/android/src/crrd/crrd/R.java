@@ -191,7 +191,7 @@ containing a value of this type.
         public static final int zOrderOnTop=0x7f01000e;
     }
     public static final class color {
-        public static final int black=0x7f05000f;
+        public static final int black=0x7f050010;
         public static final int common_action_bar_splitter=0x7f050009;
         /**  Sign-in Button Colors 
          */
@@ -204,13 +204,14 @@ containing a value of this type.
         public static final int common_signin_btn_light_text_disabled=0x7f050006;
         public static final int common_signin_btn_light_text_focused=0x7f050007;
         public static final int common_signin_btn_light_text_pressed=0x7f050005;
-        public static final int common_signin_btn_text_dark=0x7f050010;
-        public static final int common_signin_btn_text_light=0x7f050011;
-        public static final int cscBlue=0x7f05000d;
+        public static final int common_signin_btn_text_dark=0x7f050011;
+        public static final int common_signin_btn_text_light=0x7f050012;
+        public static final int cscBlue=0x7f05000e;
         public static final int cscGreen=0x7f05000a;
-        public static final int cscGreenDark=0x7f05000b;
-        public static final int cscOrange=0x7f05000c;
-        public static final int white=0x7f05000e;
+        public static final int cscGreenDark=0x7f05000c;
+        public static final int cscGreenLight=0x7f05000b;
+        public static final int cscOrange=0x7f05000d;
+        public static final int white=0x7f05000f;
     }
     public static final class drawable {
         public static final int bigstockphoto_footprint=0x7f020000;
@@ -242,39 +243,59 @@ containing a value of this type.
         public static final int common_signin_btn_text_pressed_light=0x7f02001a;
         public static final int csclogo=0x7f02001b;
         public static final int cscrectangular=0x7f02001c;
-        public static final int icon=0x7f02001d;
-        public static final int powered_by_google_dark=0x7f02001e;
-        public static final int powered_by_google_light=0x7f02001f;
-        public static final int republicservices=0x7f020020;
-        public static final int roundedbutton=0x7f020021;
+        public static final int ic_check_black_24dp=0x7f02001d;
+        public static final int ic_check_box_black_24dp=0x7f02001e;
+        public static final int ic_description_black_24dp=0x7f02001f;
+        public static final int ic_email_black_24dp=0x7f020020;
+        public static final int ic_navigation_black_24dp=0x7f020021;
+        public static final int ic_phone_black_24dp=0x7f020022;
+        public static final int ic_place_black_24dp=0x7f020023;
+        public static final int ic_public_black_24dp=0x7f020024;
+        public static final int icon=0x7f020025;
+        public static final int powered_by_google_dark=0x7f020026;
+        public static final int powered_by_google_light=0x7f020027;
+        public static final int republicservices=0x7f020028;
+        public static final int roundedbutton=0x7f020029;
+        public static final int twitter_48=0x7f02002a;
     }
     public static final class id {
-        public static final int BtnViewMap=0x7f07000e;
+        public static final int BtnViewMap=0x7f070019;
         public static final int adjust_height=0x7f070005;
         public static final int adjust_width=0x7f070006;
-        public static final int btnToMapView=0x7f070010;
-        public static final int buttonRecycle=0x7f070014;
-        public static final int buttonRepair=0x7f070012;
-        public static final int buttonReuse=0x7f070013;
+        public static final int btnToMapView=0x7f07001b;
+        public static final int buttonRecycle=0x7f07001f;
+        public static final int buttonRepair=0x7f07001d;
+        public static final int buttonReuse=0x7f07001e;
         public static final int errorGeneral=0x7f070009;
         public static final int errorMessage=0x7f070008;
         public static final int errorTitle=0x7f070007;
         public static final int hybrid=0x7f070000;
-        public static final int lnkRecyclingCurbside=0x7f070018;
-        public static final int lnkRecyclingFacility=0x7f070017;
-        public static final int lvListArea=0x7f07000f;
-        public static final int map=0x7f070016;
-        public static final int map_parent=0x7f070015;
+        public static final int iconBusinessAccepts=0x7f070015;
+        public static final int iconBusinessAddress=0x7f07000c;
+        public static final int iconBusinessPhone=0x7f07000f;
+        public static final int iconBusinessWebsite=0x7f070012;
+        public static final int layoutBusinessAccepts=0x7f070017;
+        public static final int layoutBusinessAcceptsLabel=0x7f070014;
+        public static final int layoutBusinessAddress=0x7f07000b;
+        public static final int layoutBusinessPhone=0x7f07000e;
+        public static final int layoutBusinessWebsite=0x7f070011;
+        public static final int lnkRecyclingCurbside=0x7f070023;
+        public static final int lnkRecyclingFacility=0x7f070022;
+        public static final int lvListArea=0x7f07001a;
+        public static final int map=0x7f070021;
+        public static final int map_parent=0x7f070020;
         public static final int none=0x7f070001;
         public static final int normal=0x7f070002;
-        public static final int objWebView=0x7f070019;
+        public static final int objWebView=0x7f070024;
         public static final int satellite=0x7f070003;
         public static final int terrain=0x7f070004;
-        public static final int txtBusinessAddress=0x7f07000b;
+        public static final int txtBusinessAccepts=0x7f070018;
+        public static final int txtBusinessAcceptsLabel=0x7f070016;
+        public static final int txtBusinessAddress=0x7f07000d;
         public static final int txtBusinessName=0x7f07000a;
-        public static final int txtBusinessPhone=0x7f07000c;
-        public static final int txtBusinessWebsite=0x7f07000d;
-        public static final int txtCategoryName=0x7f070011;
+        public static final int txtBusinessPhone=0x7f070010;
+        public static final int txtBusinessWebsite=0x7f070013;
+        public static final int txtCategoryName=0x7f07001c;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f060000;

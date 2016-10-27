@@ -104,8 +104,8 @@ namespace CRRD
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f05000f
-			public const int black = 2131034127;
+			// aapt resource value: 0x7f050010
+			public const int black = 2131034128;
 			
 			// aapt resource value: 0x7f050009
 			public const int common_action_bar_splitter = 2131034121;
@@ -137,26 +137,29 @@ namespace CRRD
 			// aapt resource value: 0x7f050005
 			public const int common_signin_btn_light_text_pressed = 2131034117;
 			
-			// aapt resource value: 0x7f050010
-			public const int common_signin_btn_text_dark = 2131034128;
-			
 			// aapt resource value: 0x7f050011
-			public const int common_signin_btn_text_light = 2131034129;
+			public const int common_signin_btn_text_dark = 2131034129;
 			
-			// aapt resource value: 0x7f05000d
-			public const int cscBlue = 2131034125;
+			// aapt resource value: 0x7f050012
+			public const int common_signin_btn_text_light = 2131034130;
+			
+			// aapt resource value: 0x7f05000e
+			public const int cscBlue = 2131034126;
 			
 			// aapt resource value: 0x7f05000a
 			public const int cscGreen = 2131034122;
 			
-			// aapt resource value: 0x7f05000b
-			public const int cscGreenDark = 2131034123;
-			
 			// aapt resource value: 0x7f05000c
-			public const int cscOrange = 2131034124;
+			public const int cscGreenDark = 2131034124;
 			
-			// aapt resource value: 0x7f05000e
-			public const int white = 2131034126;
+			// aapt resource value: 0x7f05000b
+			public const int cscGreenLight = 2131034123;
+			
+			// aapt resource value: 0x7f05000d
+			public const int cscOrange = 2131034125;
+			
+			// aapt resource value: 0x7f05000f
+			public const int white = 2131034127;
 			
 			static Color()
 			{
@@ -259,19 +262,46 @@ namespace CRRD
 			public const int CSCRectangular = 2130837532;
 			
 			// aapt resource value: 0x7f02001d
-			public const int Icon = 2130837533;
+			public const int ic_check_black_24dp = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int powered_by_google_dark = 2130837534;
+			public const int ic_check_box_black_24dp = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int powered_by_google_light = 2130837535;
+			public const int ic_description_black_24dp = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int RepublicServices = 2130837536;
+			public const int ic_email_black_24dp = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int RoundedButton = 2130837537;
+			public const int ic_navigation_black_24dp = 2130837537;
+			
+			// aapt resource value: 0x7f020022
+			public const int ic_phone_black_24dp = 2130837538;
+			
+			// aapt resource value: 0x7f020023
+			public const int ic_place_black_24dp = 2130837539;
+			
+			// aapt resource value: 0x7f020024
+			public const int ic_public_black_24dp = 2130837540;
+			
+			// aapt resource value: 0x7f020025
+			public const int Icon = 2130837541;
+			
+			// aapt resource value: 0x7f020026
+			public const int powered_by_google_dark = 2130837542;
+			
+			// aapt resource value: 0x7f020027
+			public const int powered_by_google_light = 2130837543;
+			
+			// aapt resource value: 0x7f020028
+			public const int RepublicServices = 2130837544;
+			
+			// aapt resource value: 0x7f020029
+			public const int RoundedButton = 2130837545;
+			
+			// aapt resource value: 0x7f02002a
+			public const int Twitter_48 = 2130837546;
 			
 			static Drawable()
 			{
@@ -286,8 +316,8 @@ namespace CRRD
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f07000e
-			public const int BtnViewMap = 2131165198;
+			// aapt resource value: 0x7f070019
+			public const int BtnViewMap = 2131165209;
 			
 			// aapt resource value: 0x7f070005
 			public const int adjust_height = 2131165189;
@@ -295,17 +325,17 @@ namespace CRRD
 			// aapt resource value: 0x7f070006
 			public const int adjust_width = 2131165190;
 			
-			// aapt resource value: 0x7f070010
-			public const int btnToMapView = 2131165200;
+			// aapt resource value: 0x7f07001b
+			public const int btnToMapView = 2131165211;
 			
-			// aapt resource value: 0x7f070014
-			public const int buttonRecycle = 2131165204;
+			// aapt resource value: 0x7f07001f
+			public const int buttonRecycle = 2131165215;
 			
-			// aapt resource value: 0x7f070012
-			public const int buttonRepair = 2131165202;
+			// aapt resource value: 0x7f07001d
+			public const int buttonRepair = 2131165213;
 			
-			// aapt resource value: 0x7f070013
-			public const int buttonReuse = 2131165203;
+			// aapt resource value: 0x7f07001e
+			public const int buttonReuse = 2131165214;
 			
 			// aapt resource value: 0x7f070009
 			public const int errorGeneral = 2131165193;
@@ -319,20 +349,47 @@ namespace CRRD
 			// aapt resource value: 0x7f070000
 			public const int hybrid = 2131165184;
 			
-			// aapt resource value: 0x7f070018
-			public const int lnkRecyclingCurbside = 2131165208;
+			// aapt resource value: 0x7f070015
+			public const int iconBusinessAccepts = 2131165205;
 			
-			// aapt resource value: 0x7f070017
-			public const int lnkRecyclingFacility = 2131165207;
+			// aapt resource value: 0x7f07000c
+			public const int iconBusinessAddress = 2131165196;
 			
 			// aapt resource value: 0x7f07000f
-			public const int lvListArea = 2131165199;
+			public const int iconBusinessPhone = 2131165199;
 			
-			// aapt resource value: 0x7f070016
-			public const int map = 2131165206;
+			// aapt resource value: 0x7f070012
+			public const int iconBusinessWebsite = 2131165202;
 			
-			// aapt resource value: 0x7f070015
-			public const int map_parent = 2131165205;
+			// aapt resource value: 0x7f070017
+			public const int layoutBusinessAccepts = 2131165207;
+			
+			// aapt resource value: 0x7f070014
+			public const int layoutBusinessAcceptsLabel = 2131165204;
+			
+			// aapt resource value: 0x7f07000b
+			public const int layoutBusinessAddress = 2131165195;
+			
+			// aapt resource value: 0x7f07000e
+			public const int layoutBusinessPhone = 2131165198;
+			
+			// aapt resource value: 0x7f070011
+			public const int layoutBusinessWebsite = 2131165201;
+			
+			// aapt resource value: 0x7f070023
+			public const int lnkRecyclingCurbside = 2131165219;
+			
+			// aapt resource value: 0x7f070022
+			public const int lnkRecyclingFacility = 2131165218;
+			
+			// aapt resource value: 0x7f07001a
+			public const int lvListArea = 2131165210;
+			
+			// aapt resource value: 0x7f070021
+			public const int map = 2131165217;
+			
+			// aapt resource value: 0x7f070020
+			public const int map_parent = 2131165216;
 			
 			// aapt resource value: 0x7f070001
 			public const int none = 2131165185;
@@ -340,8 +397,8 @@ namespace CRRD
 			// aapt resource value: 0x7f070002
 			public const int normal = 2131165186;
 			
-			// aapt resource value: 0x7f070019
-			public const int objWebView = 2131165209;
+			// aapt resource value: 0x7f070024
+			public const int objWebView = 2131165220;
 			
 			// aapt resource value: 0x7f070003
 			public const int satellite = 2131165187;
@@ -349,20 +406,26 @@ namespace CRRD
 			// aapt resource value: 0x7f070004
 			public const int terrain = 2131165188;
 			
-			// aapt resource value: 0x7f07000b
-			public const int txtBusinessAddress = 2131165195;
+			// aapt resource value: 0x7f070018
+			public const int txtBusinessAccepts = 2131165208;
+			
+			// aapt resource value: 0x7f070016
+			public const int txtBusinessAcceptsLabel = 2131165206;
+			
+			// aapt resource value: 0x7f07000d
+			public const int txtBusinessAddress = 2131165197;
 			
 			// aapt resource value: 0x7f07000a
 			public const int txtBusinessName = 2131165194;
 			
-			// aapt resource value: 0x7f07000c
-			public const int txtBusinessPhone = 2131165196;
+			// aapt resource value: 0x7f070010
+			public const int txtBusinessPhone = 2131165200;
 			
-			// aapt resource value: 0x7f07000d
-			public const int txtBusinessWebsite = 2131165197;
+			// aapt resource value: 0x7f070013
+			public const int txtBusinessWebsite = 2131165203;
 			
-			// aapt resource value: 0x7f070011
-			public const int txtCategoryName = 2131165201;
+			// aapt resource value: 0x7f07001c
+			public const int txtCategoryName = 2131165212;
 			
 			static Id()
 			{
@@ -394,34 +457,40 @@ namespace CRRD
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int AppError = 2130903040;
+			public const int About = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int BusinessDetails = 2130903041;
+			public const int AppError = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int ListBusiness = 2130903042;
+			public const int BusinessDetails = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int ListCategory = 2130903043;
+			public const int Contact = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int ListCategory_Row = 2130903044;
+			public const int ListBusiness = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int ListSubcategory = 2130903045;
+			public const int ListCategory = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int Main = 2130903046;
+			public const int ListCategory_Row = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int MapViewer = 2130903047;
+			public const int ListSubcategory = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int RecyclingInfo = 2130903048;
+			public const int Main = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int WebViewer = 2130903049;
+			public const int MapViewer = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int RecyclingInfo = 2130903050;
+			
+			// aapt resource value: 0x7f03000b
+			public const int WebViewer = 2130903051;
 			
 			static Layout()
 			{
