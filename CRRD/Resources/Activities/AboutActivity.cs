@@ -12,14 +12,22 @@ using Android.Widget;
 
 namespace CRRD.Resources.Activities
 {
-    [Activity(Label = "Activity1")]
+    /// <summary>
+    /// Android Activity: Used for displaying information about the app
+    /// </summary>
+    /// <seealso cref="Android.App.Activity" />
+    [Activity(Label = "@string/AboutActivityLabel", Icon = "@drawable/CSCLogo")]
     public class AboutActivity : Activity
     {
-        protected override void OnCreate(Bundle savedInstanceState)
+        /// <summary>
+        /// Called on creation of the About Activity.
+        /// </summary>
+        /// <param name="bundle">The bundle, used for passing data between Activities.</param>
+        protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(savedInstanceState);
+            base.OnCreate(bundle);
 
-            // Create your application here
+            SetContentView(Resource.Layout.About);
         }
     }
 }

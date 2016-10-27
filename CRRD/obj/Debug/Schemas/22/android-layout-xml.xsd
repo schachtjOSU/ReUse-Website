@@ -3,7 +3,7 @@
   <xs:import schemaLocation="schemas.android.com.apk.res.android.xsd" namespace="http://schemas.android.com/apk/res/android" />
   <xs:annotation>
     <xs:documentation>v22</xs:documentation>
-    <xs:documentation>10/27/2016 10:34:15 AM</xs:documentation>
+    <xs:documentation>10/27/2016 12:16:30 PM</xs:documentation>
   </xs:annotation>
   <xs:group name="any-view">
     <xs:choice>
@@ -238,15 +238,6 @@
     <xs:attribute ref="android:outlineProvider" />
     <xs:attribute ref="android:layout_width" />
     <xs:attribute ref="android:layout_height" />
-    <xs:attribute ref="android:layout_weight" />
-    <xs:attribute ref="android:layout_gravity" />
-    <xs:attribute ref="android:layout_margin" />
-    <xs:attribute ref="android:layout_marginLeft" />
-    <xs:attribute ref="android:layout_marginTop" />
-    <xs:attribute ref="android:layout_marginRight" />
-    <xs:attribute ref="android:layout_marginBottom" />
-    <xs:attribute ref="android:layout_marginStart" />
-    <xs:attribute ref="android:layout_marginEnd" />
     <xs:attribute ref="android:style" />
   </xs:complexType>
   <xs:element name="ProgressBar" type="ProgressBar">
@@ -1354,15 +1345,6 @@
     <xs:attribute ref="android:fragmentAllowReturnTransitionOverlap" />
     <xs:attribute ref="android:layout_width" />
     <xs:attribute ref="android:layout_height" />
-    <xs:attribute ref="android:layout_weight" />
-    <xs:attribute ref="android:layout_gravity" />
-    <xs:attribute ref="android:layout_margin" />
-    <xs:attribute ref="android:layout_marginLeft" />
-    <xs:attribute ref="android:layout_marginTop" />
-    <xs:attribute ref="android:layout_marginRight" />
-    <xs:attribute ref="android:layout_marginBottom" />
-    <xs:attribute ref="android:layout_marginStart" />
-    <xs:attribute ref="android:layout_marginEnd" />
     <xs:attribute ref="android:style" />
   </xs:complexType>
   <xs:element name="android.support.v4.widget.Space" type="android.support.v4.widget.Space">

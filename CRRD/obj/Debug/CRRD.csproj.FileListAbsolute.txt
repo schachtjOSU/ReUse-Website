@@ -29,6 +29,7 @@ C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debu
 C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\uploadflags.txt
 C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\CRRD.dll.mdb
 C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\CRRD.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.csprojResolveAssemblyReference.cache
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.XML
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.dll
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.pdb
@@ -51,6 +52,8 @@ C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\businessdetails.xml
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\mapviewer.xml
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\apperror.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\about.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\contact.xml
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\main.xml
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\values\strings.xml
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable\cscrectangular.png
@@ -90,6 +93,7 @@ C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_public_black_24dp.png
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_public_black_24dp.png
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_public_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable\twitter_48.png
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_check_black_24dp.png
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_check_black_24dp.png
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_check_black_24dp.png
@@ -126,7 +130,5 @@ C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
-C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.csprojResolveAssemblyReference.cache
-C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable\twitter_48.png
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.dll.mdb

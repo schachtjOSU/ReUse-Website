@@ -14,6 +14,14 @@ CRRD.Resources.Adapters.SubcategoryListAdapter, CRRD;md58f478d3c3d659667f8871a25
 CRRD.Resources.Adapters.SubcategoryListAdapter, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md58f478d3c3d659667f8871a25f39ead64.SubcategoryListAdapter
 CRRD.Resources.Adapters.SubcategoryListAdapter;md58f478d3c3d659667f8871a25f39ead64.SubcategoryListAdapter
 crrd.resources.adapters.SubcategoryListAdapter;md58f478d3c3d659667f8871a25f39ead64.SubcategoryListAdapter
+CRRD.Resources.Activities.AboutActivity, CRRD;md55387cf7d9460a5de76267ef89bc0ff08.AboutActivity
+CRRD.Resources.Activities.AboutActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55387cf7d9460a5de76267ef89bc0ff08.AboutActivity
+CRRD.Resources.Activities.AboutActivity;md55387cf7d9460a5de76267ef89bc0ff08.AboutActivity
+crrd.resources.activities.AboutActivity;md55387cf7d9460a5de76267ef89bc0ff08.AboutActivity
+CRRD.Resources.Activities.ContactActivity, CRRD;md55387cf7d9460a5de76267ef89bc0ff08.ContactActivity
+CRRD.Resources.Activities.ContactActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55387cf7d9460a5de76267ef89bc0ff08.ContactActivity
+CRRD.Resources.Activities.ContactActivity;md55387cf7d9460a5de76267ef89bc0ff08.ContactActivity
+crrd.resources.activities.ContactActivity;md55387cf7d9460a5de76267ef89bc0ff08.ContactActivity
 CRRD.Resources.Activities.ErrorCheckActivity, CRRD;md55387cf7d9460a5de76267ef89bc0ff08.ErrorCheckActivity
 CRRD.Resources.Activities.ErrorCheckActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55387cf7d9460a5de76267ef89bc0ff08.ErrorCheckActivity
 CRRD.Resources.Activities.ErrorCheckActivity;md55387cf7d9460a5de76267ef89bc0ff08.ErrorCheckActivity
