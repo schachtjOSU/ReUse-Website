@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using CRRD.Resources.Adapters;
 using Android.Views;
+using Android.Support.V7.App;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace CRRD.Resources.Activities
 {
@@ -16,7 +18,7 @@ namespace CRRD.Resources.Activities
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
     [Activity(Label = "@string/BusinessDetailsActivityLabel", Icon = "@drawable/CSCLogo")]
-    public class BusinessDetailsActivity : Activity
+    public class BusinessDetailsActivity : AppCompatActivity
     {
         private TextView _txtBusName, _txtBusAddress, _txtBusPhone, _txtBusWebsite, _txtBusAccepts, _txtBusAcceptsLabel;
         private Button _btnMapViewer;
@@ -37,14 +39,17 @@ namespace CRRD.Resources.Activities
             ErrorCheckActivity.checkDataHandlerInitialization(this.ApplicationContext, _handler.isInitialized);
 
             base.OnCreate(bundle);
-
             SetContentView(Resource.Layout.BusinessDetails);
+
+            //Set the toolbar
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = this.ApplicationContext.GetString(Resource.String.ApplicationName);
 
             // Get the passed properties
             _categoryName = Intent.GetStringExtra("categoryName") ?? "No Data Found";
             _subcategoryName = Intent.GetStringExtra("subcategoryName") ?? "No Data Found";
             _businessName = Intent.GetStringExtra("businessName") ?? "No Data Found";
-
             _businessObj = _handler.GetBusinessByName(_businessName);
 
             // Get layout objects
@@ -261,6 +266,42 @@ namespace CRRD.Resources.Activities
             intent.PutExtra("subcategoryName", _subcategoryName);
             intent.PutExtra("businessName", _businessName);
             StartActivity(intent);
+        }
+
+        /// <summary>
+		/// Creates the menu for the Toolbar/Action Bar to use
+		/// </summary>
+		/// <param name="menu">The menu</param>
+		public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Layout.Menu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        /// <summary>
+        /// Manages on-click actions when menu options are selected
+        /// </summary>
+        /// <param name="item">The menu</param>
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId.Equals(Resource.Id.menu_home))
+            {
+                var intent = new Intent(this, typeof(MainActivity));
+                StartActivity(intent);
+                return base.OnOptionsItemSelected(item);
+            }
+            else if (item.ItemId.Equals(Resource.Id.menu_about))
+            {
+                var intent = new Intent(this, typeof(AboutActivity));
+                StartActivity(intent);
+                return base.OnOptionsItemSelected(item);
+            }
+            else
+            {
+                return base.OnOptionsItemSelected(item);
+            }
+
+
         }
     }
 }

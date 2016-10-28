@@ -3,7 +3,7 @@
   <xs:import schemaLocation="schemas.android.com.apk.res.android.xsd" namespace="http://schemas.android.com/apk/res/android" />
   <xs:annotation>
     <xs:documentation>v22</xs:documentation>
-    <xs:documentation>10/27/2016 8:54:58 PM</xs:documentation>
+    <xs:documentation>10/28/2016 8:51:58 AM</xs:documentation>
   </xs:annotation>
   <xs:group name="any-view">
     <xs:choice>
@@ -263,15 +263,6 @@
     <xs:attribute ref="android:outlineProvider" />
     <xs:attribute ref="android:layout_width" />
     <xs:attribute ref="android:layout_height" />
-    <xs:attribute ref="android:layout_weight" />
-    <xs:attribute ref="android:layout_gravity" />
-    <xs:attribute ref="android:layout_margin" />
-    <xs:attribute ref="android:layout_marginLeft" />
-    <xs:attribute ref="android:layout_marginTop" />
-    <xs:attribute ref="android:layout_marginRight" />
-    <xs:attribute ref="android:layout_marginBottom" />
-    <xs:attribute ref="android:layout_marginStart" />
-    <xs:attribute ref="android:layout_marginEnd" />
     <xs:attribute ref="android:style" />
   </xs:complexType>
   <xs:element name="ProgressBar" type="ProgressBar">
@@ -1019,30 +1010,7 @@
   </xs:element>
   <xs:complexType name="Toolbar">
     <xs:complexContent mixed="false">
-      <xs:extension base="ViewGroup">
-        <xs:attribute ref="android:titleTextAppearance" />
-        <xs:attribute ref="android:subtitleTextAppearance" />
-        <xs:attribute ref="android:title" />
-        <xs:attribute ref="android:subtitle" />
-        <xs:attribute ref="android:gravity" />
-        <xs:attribute ref="android:titleMargins" />
-        <xs:attribute ref="android:titleMarginStart" />
-        <xs:attribute ref="android:titleMarginEnd" />
-        <xs:attribute ref="android:titleMarginTop" />
-        <xs:attribute ref="android:titleMarginBottom" />
-        <xs:attribute ref="android:contentInsetStart" />
-        <xs:attribute ref="android:contentInsetEnd" />
-        <xs:attribute ref="android:contentInsetLeft" />
-        <xs:attribute ref="android:contentInsetRight" />
-        <xs:attribute ref="android:maxButtonHeight" />
-        <xs:attribute ref="android:navigationButtonStyle" />
-        <xs:attribute ref="android:buttonGravity" />
-        <xs:attribute ref="android:collapseIcon" />
-        <xs:attribute ref="android:collapseContentDescription" />
-        <xs:attribute ref="android:popupTheme" />
-        <xs:attribute ref="android:navigationIcon" />
-        <xs:attribute ref="android:navigationContentDescription" />
-      </xs:extension>
+      <xs:extension base="ViewGroup" />
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ViewFlipper" type="ViewFlipper">
@@ -1379,15 +1347,6 @@
     <xs:attribute ref="android:fragmentAllowReturnTransitionOverlap" />
     <xs:attribute ref="android:layout_width" />
     <xs:attribute ref="android:layout_height" />
-    <xs:attribute ref="android:layout_weight" />
-    <xs:attribute ref="android:layout_gravity" />
-    <xs:attribute ref="android:layout_margin" />
-    <xs:attribute ref="android:layout_marginLeft" />
-    <xs:attribute ref="android:layout_marginTop" />
-    <xs:attribute ref="android:layout_marginRight" />
-    <xs:attribute ref="android:layout_marginBottom" />
-    <xs:attribute ref="android:layout_marginStart" />
-    <xs:attribute ref="android:layout_marginEnd" />
     <xs:attribute ref="android:style" />
   </xs:complexType>
   <xs:element name="com.google.android.gms.maps.StreetViewPanoramaView" type="com.google.android.gms.maps.StreetViewPanoramaView">
@@ -1437,30 +1396,7 @@
   </xs:element>
   <xs:complexType name="android.support.v7.widget.Toolbar">
     <xs:complexContent mixed="false">
-      <xs:extension base="ViewGroup">
-        <xs:attribute ref="android:titleTextAppearance" />
-        <xs:attribute ref="android:subtitleTextAppearance" />
-        <xs:attribute ref="android:title" />
-        <xs:attribute ref="android:subtitle" />
-        <xs:attribute ref="android:gravity" />
-        <xs:attribute ref="android:titleMargins" />
-        <xs:attribute ref="android:titleMarginStart" />
-        <xs:attribute ref="android:titleMarginEnd" />
-        <xs:attribute ref="android:titleMarginTop" />
-        <xs:attribute ref="android:titleMarginBottom" />
-        <xs:attribute ref="android:contentInsetStart" />
-        <xs:attribute ref="android:contentInsetEnd" />
-        <xs:attribute ref="android:contentInsetLeft" />
-        <xs:attribute ref="android:contentInsetRight" />
-        <xs:attribute ref="android:maxButtonHeight" />
-        <xs:attribute ref="android:navigationButtonStyle" />
-        <xs:attribute ref="android:buttonGravity" />
-        <xs:attribute ref="android:collapseIcon" />
-        <xs:attribute ref="android:collapseContentDescription" />
-        <xs:attribute ref="android:popupTheme" />
-        <xs:attribute ref="android:navigationIcon" />
-        <xs:attribute ref="android:navigationContentDescription" />
-      </xs:extension>
+      <xs:extension base="ViewGroup" />
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="android.support.v7.widget.SwitchCompat" type="android.support.v7.widget.SwitchCompat">

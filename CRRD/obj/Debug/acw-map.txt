@@ -18,10 +18,6 @@ CRRD.Resources.Activities.AboutActivity, CRRD;md55387cf7d9460a5de76267ef89bc0ff0
 CRRD.Resources.Activities.AboutActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55387cf7d9460a5de76267ef89bc0ff08.AboutActivity
 CRRD.Resources.Activities.AboutActivity;md55387cf7d9460a5de76267ef89bc0ff08.AboutActivity
 crrd.resources.activities.AboutActivity;md55387cf7d9460a5de76267ef89bc0ff08.AboutActivity
-CRRD.Resources.Activities.ContactActivity, CRRD;md55387cf7d9460a5de76267ef89bc0ff08.ContactActivity
-CRRD.Resources.Activities.ContactActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55387cf7d9460a5de76267ef89bc0ff08.ContactActivity
-CRRD.Resources.Activities.ContactActivity;md55387cf7d9460a5de76267ef89bc0ff08.ContactActivity
-crrd.resources.activities.ContactActivity;md55387cf7d9460a5de76267ef89bc0ff08.ContactActivity
 CRRD.Resources.Activities.ErrorCheckActivity, CRRD;md55387cf7d9460a5de76267ef89bc0ff08.ErrorCheckActivity
 CRRD.Resources.Activities.ErrorCheckActivity, CRRD, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55387cf7d9460a5de76267ef89bc0ff08.ErrorCheckActivity
 CRRD.Resources.Activities.ErrorCheckActivity;md55387cf7d9460a5de76267ef89bc0ff08.ErrorCheckActivity

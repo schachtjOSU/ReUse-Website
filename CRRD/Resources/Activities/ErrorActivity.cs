@@ -9,6 +9,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using CRRD.Resources.Adapters;
+using Android.Support.V7.App;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace CRRD.Resources.Activities
 {
@@ -17,7 +19,7 @@ namespace CRRD.Resources.Activities
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
     [Activity(Label = "@string/ErrorActivityLabel", Icon = "@drawable/CSCLogo")]
-    public class ErrorActivity : Activity
+    public class ErrorActivity : AppCompatActivity
     {
         private string _errorMessage;
         private TextView _errorMessageShown;
@@ -33,8 +35,13 @@ namespace CRRD.Resources.Activities
             // Create your application here  
             SetContentView(Resource.Layout.AppError);
 
+            //Set the toolbar
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = this.ApplicationContext.GetString(Resource.String.ApplicationName);
+
             // Get the passed error message
-             _errorMessage = Intent.GetStringExtra("errorMessage") ?? "@string/errorUnrecognized";
+            _errorMessage = Intent.GetStringExtra("errorMessage") ?? "@string/errorUnrecognized";
 
             //set the TextView to the error message passed in
             _errorMessageShown = FindViewById<TextView>(Resource.Id.errorMessage);

@@ -1,118 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@color/white"
-        android:padding="30dp">
-        <TextView
-            android:text="@string/AboutActivityLabel"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
-        <TextView
-            android:text="@string/AboutCorvallisReuse"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:layout_marginBottom="20dp"
-            android:textColor="@color/black" />
-        <TextView
-            android:text="@string/ContactCSCLabel"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/layoutEmail">
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:src="@drawable/ic_email_black_24dp"
-                android:tint="@color/cscBlue"
-                android:layout_weight="1" />
+            android:layout_height="fill_parent"
+            android:background="@color/white"
+            android:padding="30dp">
             <TextView
-                android:text="@string/CSCEmail"
-                android:textColor="@color/cscBlue"
+                android:text="@string/AboutActivityLabel"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold"
                 android:layout_marginBottom="20dp"
-                android:textSize="15dp"
-                android:layout_width="0dp"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="4" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/layoutWebsite">
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:src="@drawable/ic_email_black_24dp"
-                android:tint="@color/cscBlue"
-                android:layout_weight="1" />
+                android:gravity="center_horizontal" />
             <TextView
-                android:text="@string/CSCOnline"
-                android:textColor="@color/cscBlue"
-                android:layout_marginBottom="20dp"
+                android:text="@string/AboutCorvallisReuse"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:textSize="15dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/layoutFacebook">
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:src="@drawable/ic_public_black_24dp"
-                android:tint="@color/cscBlue"
-                android:layout_weight="1" />
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/black" />
             <TextView
-                android:text="@string/CSCFacebook"
-                android:textColor="@color/cscBlue"
+                android:text="@string/ContactCSCLabel"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold"
                 android:layout_marginBottom="20dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" />
+          <TextView
+                android:text="@string/AboutContact"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:textSize="15dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/layoutTwitter">
-            <ImageView
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:src="@drawable/ic_public_black_24dp"
-                android:tint="@color/cscBlue"
-                android:layout_weight="1" />
-            <TextView
-                android:text="@string/CSCTwitter"
-                android:textColor="@color/cscBlue"
                 android:layout_marginBottom="20dp"
-                android:textSize="15dp"
-                android:layout_width="0dp"
+                android:textColor="@color/black" />
+          <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="4" />
+                android:orientation="horizontal"
+                android:id="@+id/layoutEmail">
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:src="@drawable/ic_email_black_24dp"
+                    android:tint="@color/cscBlue"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="@string/CSCEmail"
+                    android:textColor="@color/cscBlue"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="15dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/layoutWebsite">
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:src="@drawable/ic_public_black_24dp"
+                    android:tint="@color/cscBlue"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="@string/CSCOnline"
+                    android:textColor="@color/cscBlue"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="15dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/layoutFacebook">
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:src="@drawable/ic_public_black_24dp"
+                    android:tint="@color/cscBlue"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="@string/CSCFacebook"
+                    android:textColor="@color/cscBlue"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="15dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/layoutTwitter">
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:src="@drawable/ic_public_black_24dp"
+                    android:tint="@color/cscBlue"
+                    android:layout_weight="1" />
+                <TextView
+                    android:text="@string/CSCTwitter"
+                    android:textColor="@color/cscBlue"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="15dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

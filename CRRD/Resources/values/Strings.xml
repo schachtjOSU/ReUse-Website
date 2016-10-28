@@ -21,7 +21,8 @@
     <string name="errorMissingData">The directory data cannot be retrieved.</string>
     <string name="errorUnrecognized">There was an unrecognized error.</string>
     <string name="errorGeneral">Please try the app later or access the Corvallis Reuse directory online. Thank you for your patience. </string>
-    <string name="AboutCorvallisReuse">The purpose of the Corvallis Reuse and Repair directory is to provide Corvallis and the outlying community a way to easily locate businesses that will (1) take reusable items that can be sold to the public as used items, (2) take and repair items, and (3) take recyclable items. If you would like to add a business to the directory, you can contact the Corvallis Sustainability Coalition at the email below.</string>
+    <string name="AboutCorvallisReuse">The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will \n\n(1) take reusable items that can be sold to the public as used items \n\n(2) take and repair items, and \n\n(3) take recyclable items. </string>
+    <string name="AboutContact">The Corvallis Reuse and Repair Directory is provided by the Corvallis Sustainability Coalition.</string>
     <string name="CorvallisLat">44.569949</string>
     <string name="CorvallisLong">-123.278285</string>
     <string name="CorvallisZoomLevel">10</string>

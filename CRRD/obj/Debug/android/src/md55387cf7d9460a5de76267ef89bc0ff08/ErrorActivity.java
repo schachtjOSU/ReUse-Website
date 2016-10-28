@@ -2,7 +2,7 @@ package md55387cf7d9460a5de76267ef89bc0ff08;
 
 
 public class ErrorActivity
-	extends android.app.Activity
+	extends android.support.v7.app.AppCompatActivity
 	implements
 		mono.android.IGCUserPeer
 {

@@ -16,6 +16,18 @@
             </summary>
             <param name="bundle">The bundle, used for passing data between Activities.</param>
         </member>
+        <member name="M:CRRD.Resources.Activities.AboutActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.AboutActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
         <member name="T:CRRD.Resources.Activities.ErrorCheckActivity">
             <summary>
             Android Activity: Used to move to ErrorActivity should the directory data not be available.
@@ -109,6 +121,18 @@
             A USA formatted 7, 10, or 11 digit Phone number string value. (Example: 1(222)333-4444)
             </returns>
         </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
         <member name="T:CRRD.Resources.Activities.BusinessListActivity">
             <summary>
             Android Activity: Used for displaying the List of associated Businesses for the given Category and Subcategory.
@@ -131,6 +155,18 @@
             A sorted, uniqe list of all possible business names for the given categoryName and subcategoryName combination key.
             </returns>
         </member>
+        <member name="M:CRRD.Resources.Activities.BusinessListActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessListActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
         <member name="T:CRRD.Resources.Activities.CategoryListActivity">
             <summary>
             Android Activity: Used for displaying the List of Categories a user may select.
@@ -142,6 +178,18 @@
             Called when [create].
             </summary>
             <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.CategoryListActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.CategoryListActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
         </member>
         <member name="T:CRRD.Resources.Activities.MapViewerActivity">
             <summary>
@@ -176,6 +224,18 @@
             </summary>
             <param name="googleMap">The google map.</param>
         </member>
+        <member name="M:CRRD.Resources.Activities.MapViewerActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.MapViewerActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
         <member name="T:CRRD.Resources.Activities.RecyclingInfoActivity">
             <summary>
             Android Activity: Used for displaying the local recycling facility information. Provides navigation for facility information links.
@@ -187,6 +247,18 @@
             Called when [create].
             </summary>
             <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.RecyclingInfoActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.RecyclingInfoActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
         </member>
         <member name="T:CRRD.Resources.Activities.SubcategoryListActivity">
             <summary>
@@ -207,6 +279,18 @@
             <param name="categoryName">Name of the category.</param>
             <returns>The sorted, unique list of subcategories for the given categoryName.</returns>
         </member>
+        <member name="M:CRRD.Resources.Activities.SubcategoryListActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.SubcategoryListActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
         <member name="T:CRRD.Resources.Activities.WebViwerActivity">
             <summary>
             Android Activity: Used for displaying a local application view of a requested web page.
@@ -218,6 +302,18 @@
             Called when [create].
             </summary>
             <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.WebViwerActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.WebViwerActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
         </member>
         <member name="T:CRRD.Resources.Activities.WebClient">
             <summary>
@@ -353,6 +449,18 @@
             </summary>
             <param name="sender">The source of the event.</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.MainActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.MainActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
         </member>
     </members>
 </doc>

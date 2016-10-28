@@ -25,16 +25,16 @@ namespace CRRD.Resources.Activities
         /// <param name="context">The calling context.</param>
         /// <param name="handlerIsInitialized">The value of DataHandler.isInitialed, which indicates if the Category and Business lists have been set.</param>
         public static void checkDataHandlerInitialization(Context context, Boolean handlerIsInitialized)
+        {
+            if (!handlerIsInitialized)
             {
-                if (!handlerIsInitialized)
-                {
                     
-                    var intent = new Intent(context, typeof(ErrorActivity));
-                    intent.SetFlags(ActivityFlags.NewTask);
-                    intent.PutExtra("errorMessage", context.GetString(Resource.String.errorMissingData));
-                    context.StartActivity(intent);
-                }
+                var intent = new Intent(context, typeof(ErrorActivity));
+                intent.SetFlags(ActivityFlags.NewTask);
+                intent.PutExtra("errorMessage", context.GetString(Resource.String.errorMissingData));
+                context.StartActivity(intent);
             }
+        }
         
     }
 }

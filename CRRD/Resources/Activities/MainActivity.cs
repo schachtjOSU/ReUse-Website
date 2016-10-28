@@ -1,10 +1,13 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Support.V7.App;
 using Android.Widget;
 using CRRD.Resources.Activities;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
+using Android.Support.V7.App;
+using Android.Views;
+using Android.Graphics.Drawables;
+using Android.Support.V4.Content;
 
 namespace CRRD
 {
@@ -31,7 +34,14 @@ namespace CRRD
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
             SupportActionBar.Title = this.ApplicationContext.GetString(Resource.String.ApplicationName);
-            //SupportActionBar.SetIcon(this.ApplicationContext.GetDrawable(Resource.Drawable.CSCLogo));
+
+            //Drawable CSCIcon = ContextCompat.GetDrawable(this.ApplicationContext, Resource.Drawable.CSCLogo);
+            //CSCIcon.SetBounds(0, 0, (int)(CSCIcon.IntrinsicWidth * 0.1), (int)(CSCIcon.IntrinsicHeight * 0.1));
+            //ScaleDrawable scaleCSCIcon = new ScaleDrawable(CSCIcon, 0, (int)(CSCIcon.IntrinsicWidth * 0.3), (int)(CSCIcon.IntrinsicHeight * 0.3));
+            //scaleCSCIcon.SetBounds(0, 0, (int)(CSCIcon.IntrinsicWidth * 0.3), (int)(CSCIcon.IntrinsicHeight * 0.3));
+            //SupportActionBar.SetIcon(scaleCSCIcon);
+
+
 
             // Get the elements from the view
             Button btnCategories = FindViewById<Button>(Resource.Id.buttonReuse);
@@ -77,6 +87,44 @@ namespace CRRD
             intent.PutExtra("categoryName", this.ApplicationContext.GetString(Resource.String.RepairCategoryName));
             StartActivity(intent);
         }
+
+        /// <summary>
+		/// Creates the menu for the Toolbar/Action Bar to use
+		/// </summary>
+		/// <param name="menu">The menu</param>
+		public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Layout.Menu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        /// <summary>
+        /// Manages on-click actions when menu options are selected
+        /// </summary>
+        /// <param name="item">The menu</param>
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if(item.ItemId.Equals(Resource.Id.menu_home))
+            {
+                var intent = new Intent(this, typeof(MainActivity));
+                StartActivity(intent);
+                return base.OnOptionsItemSelected(item);
+            }
+            else if (item.ItemId.Equals(Resource.Id.menu_about))
+            {
+                var intent = new Intent(this, typeof(AboutActivity));
+                StartActivity(intent);
+                return base.OnOptionsItemSelected(item);
+            }
+            else
+            {
+                return base.OnOptionsItemSelected(item);
+            }
+            
+            
+        }
+
+
     }
 }
 
