@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Support.V7.App;
 using Android.Widget;
 using CRRD.Resources.Activities;
 using CRRD.Resources.Adapters;
@@ -12,7 +13,7 @@ namespace CRRD
     /// </summary>
     /// <seealso cref="Android.App.Activity" />
     [Activity(Label = "@string/MainActivityLabel", MainLauncher = true, Icon = "@drawable/CSCLogo")]
-    public class MainActivity : Activity
+    public class MainActivity : AppCompatActivity
     {
         
         /// <summary>
