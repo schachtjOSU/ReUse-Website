@@ -28,6 +28,34 @@
             </summary>
             <param name="item">The menu</param>
         </member>
+        <member name="M:CRRD.Resources.Activities.AboutActivity._email_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the CSC Email, opening an email application
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.AboutActivity._website_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event for the CSC website, pulling up the site
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.AboutActivity._facebook_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event for the CSC Facebook link, pulling up the site
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.AboutActivity._twitter_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event for the CSC Twitter link, , pulling up the site
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
         <member name="T:CRRD.Resources.Activities.ErrorCheckActivity">
             <summary>
             Android Activity: Used to move to ErrorActivity should the directory data not be available.
