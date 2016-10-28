@@ -2930,9 +2930,6 @@ namespace CRRD
 			// aapt resource value: 0x7f09008d
 			public const int Animation_AppCompat_DropDownUp = 2131296397;
 			
-			// aapt resource value: 0x7f09014b
-			public const int AppTheme = 2131296587;
-			
 			// aapt resource value: 0x7f09008e
 			public const int Base_AlertDialog_AppCompat = 2131296398;
 			
@@ -3382,6 +3379,12 @@ namespace CRRD
 			
 			// aapt resource value: 0x7f09007d
 			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131296381;
+			
+			// aapt resource value: 0x7f09014b
+			public const int MyTheme = 2131296587;
+			
+			// aapt resource value: 0x7f09014c
+			public const int MyTheme_Base = 2131296588;
 			
 			// aapt resource value: 0x7f090019
 			public const int Platform_AppCompat = 2131296281;

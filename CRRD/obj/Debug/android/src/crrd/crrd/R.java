@@ -2495,7 +2495,6 @@ containing a value of this type.
         public static final int AlertDialog_AppCompat_Light=0x7f09008b;
         public static final int Animation_AppCompat_Dialog=0x7f09008c;
         public static final int Animation_AppCompat_DropDownUp=0x7f09008d;
-        public static final int AppTheme=0x7f09014b;
         public static final int Base_AlertDialog_AppCompat=0x7f09008e;
         public static final int Base_AlertDialog_AppCompat_Light=0x7f09008f;
         public static final int Base_Animation_AppCompat_Dialog=0x7f090090;
@@ -2646,6 +2645,12 @@ containing a value of this type.
         public static final int Base_Widget_AppCompat_TextView_SpinnerItem=0x7f09007c;
         public static final int Base_Widget_AppCompat_Toolbar=0x7f0900bd;
         public static final int Base_Widget_AppCompat_Toolbar_Button_Navigation=0x7f09007d;
+        public static final int MyTheme=0x7f09014b;
+        /**  Base theme applied no matter what API 
+ You can also set colorControlNormal, colorControlActivated
+         colorControlHighlight and colorSwitchThumbNormal. 
+         */
+        public static final int MyTheme_Base=0x7f09014c;
         public static final int Platform_AppCompat=0x7f090019;
         public static final int Platform_AppCompat_Light=0x7f09001a;
         public static final int Platform_ThemeOverlay_AppCompat=0x7f09007e;

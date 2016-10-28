@@ -4,7 +4,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
 using CRRD.Resources.Activities;
-using CRRD.Resources.Adapters;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace CRRD
 {
@@ -25,6 +25,13 @@ namespace CRRD
 
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
+
+
+            //Set the toolbar
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.Title = this.ApplicationContext.GetString(Resource.String.ApplicationName);
+            //SupportActionBar.SetIcon(this.ApplicationContext.GetDrawable(Resource.Drawable.CSCLogo));
 
             // Get the elements from the view
             Button btnCategories = FindViewById<Button>(Resource.Id.buttonReuse);
