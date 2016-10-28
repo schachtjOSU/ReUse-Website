@@ -21,7 +21,7 @@
     <string name="errorMissingData">The directory data cannot be retrieved.</string>
     <string name="errorUnrecognized">There was an unrecognized error.</string>
     <string name="errorGeneral">Please try the app later or access the Corvallis Reuse directory online. Thank you for your patience. </string>
-    <string name="AboutCorvallisReuse">The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will take the following: take reusable items that can be sold to the public as used items \n\n(2) take and repair items, and \n\n(3) take recyclable items. </string>
+    <string name="AboutCorvallisReuse">The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will take the following</string>
     <string name="AboutCorvallisReuseRepair">Items for repair </string>
     <string name="AboutCorvallisReuseReuse">Reusable items that can be sold to the public as used items</string>
     <string name="AboutCorvallisReuseRecycle">Recyclable items </string>
@@ -34,6 +34,6 @@
     <string name="GDocViewer">https://docs.google.com/gview?embedded=true%26url=</string>
     <string name="SavedXMLfilename">CRRD_XML.xml</string>
     <string name="APIBusinessURI">http://localhost/Corvallis-Sustainability-ReUse/reuse_database.xml</string>
-	  <string name="google_maps_key">AIzaSyBgKZsWDgl_yUOSiXRxlRuK1KBPq8X5kng</string>
+	  <string name="google_maps_key">AIzaSyAOZso2u8Gi3elevu4g-5oXJloHc7-l3cg</string>
     <string name="RepairCategoryName">Repair Items</string>
 </resources>

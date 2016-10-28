@@ -86,6 +86,8 @@ namespace CRRD.Resources.Activities
             _layoutBusPhone.Click += _txtBusPhone_Click;
             _layoutBusWebsite.Clickable = true;
             _layoutBusWebsite.Click += _txtBusWebsite_Click;
+            _layoutBusAddress.Clickable = true;
+            _layoutBusAddress.Click += _busAddress_Click;
         }
 
 
@@ -107,7 +109,7 @@ namespace CRRD.Resources.Activities
             _btnMapViewer.Text = (hasMarkerFlag == 0) ? "Map Unavailable" : _btnMapViewer.Text;
 
             // if hasMarkerFlag is not set, the map viewer button is removed
-            if(hasMarkerFlag == 0)
+            if (hasMarkerFlag == 0)
             {
                 _btnMapViewer.Visibility = ViewStates.Gone;
             }
@@ -157,6 +159,21 @@ namespace CRRD.Resources.Activities
 
             var intent = new Intent(Intent.ActionDial, uri);
             StartActivity(intent);
+        }
+
+        
+        /// <summary>
+        /// Opens the phone activity and sets the phone number as the business' phone number to call.
+        /// </summary>
+        /// <param name="sender">The source of the Event, the PhoneNumber TextView</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void _busAddress_Click(object sender, EventArgs e)
+        {
+            
+            var geoUri = Android.Net.Uri.Parse("geo:0,0?q=" + Android.Net.Uri.Parse(_businessObj.Address_1 + " " + _businessObj.Address_2 + " " + _businessObj.City + " " + _businessObj.State + " " + _businessObj.Zip.ToString()));
+            var mapIntent = new Intent(Intent.ActionView, geoUri);
+            StartActivity(mapIntent);
+            
         }
 
         /// <summary>

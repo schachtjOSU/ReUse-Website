@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/BtnViewMap"
                 android:background="@drawable/RoundedButton"
-                android:gravity="center|bottom" />
+                />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

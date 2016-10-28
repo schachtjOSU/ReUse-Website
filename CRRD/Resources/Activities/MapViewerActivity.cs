@@ -94,7 +94,7 @@ namespace CRRD.Resources.Activities
             if (_Map == null)
             {
                 FragmentManager.FindFragmentById<MapFragment>(Resource.Id.map).GetMapAsync(this);
-                /*
+                /* 
                 MapFragment _mapFragment = MapFragment.NewInstance();
                 _mapFragment.GetMapAsync(this);
                 Android.App.FragmentTransaction _transaction = FragmentManager.BeginTransaction();

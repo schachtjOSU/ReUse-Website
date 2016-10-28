@@ -3,7 +3,7 @@
   <xs:import schemaLocation="schemas.android.com.apk.res.android.xsd" namespace="http://schemas.android.com/apk/res/android" />
   <xs:annotation>
     <xs:documentation>v22</xs:documentation>
-    <xs:documentation>10/28/2016 10:10:00 AM</xs:documentation>
+    <xs:documentation>10/28/2016 2:53:46 PM</xs:documentation>
   </xs:annotation>
   <xs:group name="any-view">
     <xs:choice>
@@ -1019,7 +1019,30 @@
   </xs:element>
   <xs:complexType name="Toolbar">
     <xs:complexContent mixed="false">
-      <xs:extension base="ViewGroup" />
+      <xs:extension base="ViewGroup">
+        <xs:attribute ref="android:titleTextAppearance" />
+        <xs:attribute ref="android:subtitleTextAppearance" />
+        <xs:attribute ref="android:title" />
+        <xs:attribute ref="android:subtitle" />
+        <xs:attribute ref="android:gravity" />
+        <xs:attribute ref="android:titleMargins" />
+        <xs:attribute ref="android:titleMarginStart" />
+        <xs:attribute ref="android:titleMarginEnd" />
+        <xs:attribute ref="android:titleMarginTop" />
+        <xs:attribute ref="android:titleMarginBottom" />
+        <xs:attribute ref="android:contentInsetStart" />
+        <xs:attribute ref="android:contentInsetEnd" />
+        <xs:attribute ref="android:contentInsetLeft" />
+        <xs:attribute ref="android:contentInsetRight" />
+        <xs:attribute ref="android:maxButtonHeight" />
+        <xs:attribute ref="android:navigationButtonStyle" />
+        <xs:attribute ref="android:buttonGravity" />
+        <xs:attribute ref="android:collapseIcon" />
+        <xs:attribute ref="android:collapseContentDescription" />
+        <xs:attribute ref="android:popupTheme" />
+        <xs:attribute ref="android:navigationIcon" />
+        <xs:attribute ref="android:navigationContentDescription" />
+      </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="ViewFlipper" type="ViewFlipper">
@@ -1414,7 +1437,30 @@
   </xs:element>
   <xs:complexType name="android.support.v7.widget.Toolbar">
     <xs:complexContent mixed="false">
-      <xs:extension base="ViewGroup" />
+      <xs:extension base="ViewGroup">
+        <xs:attribute ref="android:titleTextAppearance" />
+        <xs:attribute ref="android:subtitleTextAppearance" />
+        <xs:attribute ref="android:title" />
+        <xs:attribute ref="android:subtitle" />
+        <xs:attribute ref="android:gravity" />
+        <xs:attribute ref="android:titleMargins" />
+        <xs:attribute ref="android:titleMarginStart" />
+        <xs:attribute ref="android:titleMarginEnd" />
+        <xs:attribute ref="android:titleMarginTop" />
+        <xs:attribute ref="android:titleMarginBottom" />
+        <xs:attribute ref="android:contentInsetStart" />
+        <xs:attribute ref="android:contentInsetEnd" />
+        <xs:attribute ref="android:contentInsetLeft" />
+        <xs:attribute ref="android:contentInsetRight" />
+        <xs:attribute ref="android:maxButtonHeight" />
+        <xs:attribute ref="android:navigationButtonStyle" />
+        <xs:attribute ref="android:buttonGravity" />
+        <xs:attribute ref="android:collapseIcon" />
+        <xs:attribute ref="android:collapseContentDescription" />
+        <xs:attribute ref="android:popupTheme" />
+        <xs:attribute ref="android:navigationIcon" />
+        <xs:attribute ref="android:navigationContentDescription" />
+      </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="android.support.v7.widget.SwitchCompat" type="android.support.v7.widget.SwitchCompat">

@@ -124,6 +124,13 @@
             <param name="sender">The source of the Event, the PhoneNumber TextView</param>
             <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
         </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity._busAddress_Click(System.Object,System.EventArgs)">
+            <summary>
+            Opens the phone activity and sets the phone number as the business' phone number to call.
+            </summary>
+            <param name="sender">The source of the Event, the PhoneNumber TextView</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
         <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.GetFormattedAddress">
             <summary>
             Gets a USA formatted Address from the business object.
