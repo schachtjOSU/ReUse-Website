@@ -138,5 +138,7 @@ C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\toolbar.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\values\style.xml
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.dll.mdb

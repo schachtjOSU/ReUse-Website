@@ -1942,8 +1942,8 @@ namespace CRRD
 			// aapt resource value: 0x7f0b0075
 			public const int BtnViewMap = 2131427445;
 			
-			// aapt resource value: 0x7f0b007e
-			public const int action0 = 2131427454;
+			// aapt resource value: 0x7f0b007f
+			public const int action0 = 2131427455;
 			
 			// aapt resource value: 0x7f0b0050
 			public const int action_bar = 2131427408;
@@ -1969,8 +1969,8 @@ namespace CRRD
 			// aapt resource value: 0x7f0b0051
 			public const int action_context_bar = 2131427409;
 			
-			// aapt resource value: 0x7f0b0082
-			public const int action_divider = 2131427458;
+			// aapt resource value: 0x7f0b0083
+			public const int action_divider = 2131427459;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int action_menu_divider = 2131427330;
@@ -2020,23 +2020,23 @@ namespace CRRD
 			// aapt resource value: 0x7f0b0039
 			public const int buttonPanel = 2131427385;
 			
-			// aapt resource value: 0x7f0b007b
-			public const int buttonRecycle = 2131427451;
-			
-			// aapt resource value: 0x7f0b0079
-			public const int buttonRepair = 2131427449;
+			// aapt resource value: 0x7f0b007c
+			public const int buttonRecycle = 2131427452;
 			
 			// aapt resource value: 0x7f0b007a
-			public const int buttonReuse = 2131427450;
+			public const int buttonRepair = 2131427450;
 			
-			// aapt resource value: 0x7f0b007f
-			public const int cancel_action = 2131427455;
+			// aapt resource value: 0x7f0b007b
+			public const int buttonReuse = 2131427451;
+			
+			// aapt resource value: 0x7f0b0080
+			public const int cancel_action = 2131427456;
 			
 			// aapt resource value: 0x7f0b0047
 			public const int checkbox = 2131427399;
 			
-			// aapt resource value: 0x7f0b0085
-			public const int chronometer = 2131427461;
+			// aapt resource value: 0x7f0b0086
+			public const int chronometer = 2131427462;
 			
 			// aapt resource value: 0x7f0b0029
 			public const int collapseActionView = 2131427369;
@@ -2068,8 +2068,8 @@ namespace CRRD
 			// aapt resource value: 0x7f0b0026
 			public const int end = 2131427366;
 			
-			// aapt resource value: 0x7f0b008a
-			public const int end_padder = 2131427466;
+			// aapt resource value: 0x7f0b008b
+			public const int end_padder = 2131427467;
 			
 			// aapt resource value: 0x7f0b0065
 			public const int errorGeneral = 2131427429;
@@ -2119,8 +2119,8 @@ namespace CRRD
 			// aapt resource value: 0x7f0b0034
 			public const int image = 2131427380;
 			
-			// aapt resource value: 0x7f0b0089
-			public const int info = 2131427465;
+			// aapt resource value: 0x7f0b008a
+			public const int info = 2131427466;
 			
 			// aapt resource value: 0x7f0b0073
 			public const int layoutBusinessAccepts = 2131427443;
@@ -2152,11 +2152,11 @@ namespace CRRD
 			// aapt resource value: 0x7f0b0015
 			public const int light = 2131427349;
 			
-			// aapt resource value: 0x7f0b0083
-			public const int line1 = 2131427459;
+			// aapt resource value: 0x7f0b0084
+			public const int line1 = 2131427460;
 			
-			// aapt resource value: 0x7f0b0087
-			public const int line3 = 2131427463;
+			// aapt resource value: 0x7f0b0088
+			public const int line3 = 2131427464;
 			
 			// aapt resource value: 0x7f0b0016
 			public const int listMode = 2131427350;
@@ -2164,23 +2164,23 @@ namespace CRRD
 			// aapt resource value: 0x7f0b0036
 			public const int list_item = 2131427382;
 			
-			// aapt resource value: 0x7f0b0094
-			public const int lnkRecyclingCurbside = 2131427476;
+			// aapt resource value: 0x7f0b0095
+			public const int lnkRecyclingCurbside = 2131427477;
 			
-			// aapt resource value: 0x7f0b0093
-			public const int lnkRecyclingFacility = 2131427475;
+			// aapt resource value: 0x7f0b0094
+			public const int lnkRecyclingFacility = 2131427476;
 			
 			// aapt resource value: 0x7f0b0076
 			public const int lvListArea = 2131427446;
 			
+			// aapt resource value: 0x7f0b007e
+			public const int map = 2131427454;
+			
 			// aapt resource value: 0x7f0b007d
-			public const int map = 2131427453;
+			public const int map_parent = 2131427453;
 			
-			// aapt resource value: 0x7f0b007c
-			public const int map_parent = 2131427452;
-			
-			// aapt resource value: 0x7f0b0081
-			public const int media_actions = 2131427457;
+			// aapt resource value: 0x7f0b0082
+			public const int media_actions = 2131427458;
 			
 			// aapt resource value: 0x7f0b0027
 			public const int middle = 2131427367;
@@ -2197,35 +2197,35 @@ namespace CRRD
 			// aapt resource value: 0x7f0b000b
 			public const int normal = 2131427339;
 			
-			// aapt resource value: 0x7f0b0095
-			public const int objWebView = 2131427477;
+			// aapt resource value: 0x7f0b0096
+			public const int objWebView = 2131427478;
 			
 			// aapt resource value: 0x7f0b003b
 			public const int parentPanel = 2131427387;
 			
-			// aapt resource value: 0x7f0b008d
-			public const int place_autocomplete_clear_button = 2131427469;
-			
-			// aapt resource value: 0x7f0b008f
-			public const int place_autocomplete_powered_by_google = 2131427471;
-			
-			// aapt resource value: 0x7f0b0091
-			public const int place_autocomplete_prediction_primary_text = 2131427473;
-			
-			// aapt resource value: 0x7f0b0092
-			public const int place_autocomplete_prediction_secondary_text = 2131427474;
+			// aapt resource value: 0x7f0b008e
+			public const int place_autocomplete_clear_button = 2131427470;
 			
 			// aapt resource value: 0x7f0b0090
-			public const int place_autocomplete_progress = 2131427472;
+			public const int place_autocomplete_powered_by_google = 2131427472;
 			
-			// aapt resource value: 0x7f0b008b
-			public const int place_autocomplete_search_button = 2131427467;
+			// aapt resource value: 0x7f0b0092
+			public const int place_autocomplete_prediction_primary_text = 2131427474;
+			
+			// aapt resource value: 0x7f0b0093
+			public const int place_autocomplete_prediction_secondary_text = 2131427475;
+			
+			// aapt resource value: 0x7f0b0091
+			public const int place_autocomplete_progress = 2131427473;
 			
 			// aapt resource value: 0x7f0b008c
-			public const int place_autocomplete_search_input = 2131427468;
+			public const int place_autocomplete_search_button = 2131427468;
 			
-			// aapt resource value: 0x7f0b008e
-			public const int place_autocomplete_separator = 2131427470;
+			// aapt resource value: 0x7f0b008d
+			public const int place_autocomplete_search_input = 2131427469;
+			
+			// aapt resource value: 0x7f0b008f
+			public const int place_autocomplete_separator = 2131427471;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int progress_circular = 2131427333;
@@ -2314,8 +2314,8 @@ namespace CRRD
 			// aapt resource value: 0x7f0b0011
 			public const int standard = 2131427345;
 			
-			// aapt resource value: 0x7f0b0080
-			public const int status_bar_latest_event_content = 2131427456;
+			// aapt resource value: 0x7f0b0081
+			public const int status_bar_latest_event_content = 2131427457;
 			
 			// aapt resource value: 0x7f0b004a
 			public const int submenuarrow = 2131427402;
@@ -2329,23 +2329,26 @@ namespace CRRD
 			// aapt resource value: 0x7f0b000d
 			public const int terrain = 2131427341;
 			
-			// aapt resource value: 0x7f0b0088
-			public const int text = 2131427464;
+			// aapt resource value: 0x7f0b0089
+			public const int text = 2131427465;
 			
-			// aapt resource value: 0x7f0b0086
-			public const int text2 = 2131427462;
+			// aapt resource value: 0x7f0b0087
+			public const int text2 = 2131427463;
 			
 			// aapt resource value: 0x7f0b0042
 			public const int textSpacerNoButtons = 2131427394;
 			
-			// aapt resource value: 0x7f0b0084
-			public const int time = 2131427460;
+			// aapt resource value: 0x7f0b0085
+			public const int time = 2131427461;
 			
 			// aapt resource value: 0x7f0b0038
 			public const int title = 2131427384;
 			
 			// aapt resource value: 0x7f0b003d
 			public const int title_template = 2131427389;
+			
+			// aapt resource value: 0x7f0b0079
+			public const int toolbar = 2131427449;
 			
 			// aapt resource value: 0x7f0b002e
 			public const int top = 2131427374;
@@ -2590,7 +2593,10 @@ namespace CRRD
 			public const int support_simple_spinner_dropdown_item = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int WebViewer = 2130903093;
+			public const int Toolbar = 2130903093;
+			
+			// aapt resource value: 0x7f030036
+			public const int WebViewer = 2130903094;
 			
 			static Layout()
 			{
@@ -2923,6 +2929,9 @@ namespace CRRD
 			
 			// aapt resource value: 0x7f09008d
 			public const int Animation_AppCompat_DropDownUp = 2131296397;
+			
+			// aapt resource value: 0x7f09014b
+			public const int AppTheme = 2131296587;
 			
 			// aapt resource value: 0x7f09008e
 			public const int Base_AlertDialog_AppCompat = 2131296398;
