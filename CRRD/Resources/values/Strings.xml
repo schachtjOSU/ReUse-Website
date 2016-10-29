@@ -34,6 +34,6 @@
     <string name="GDocViewer">https://docs.google.com/gview?embedded=true%26url=</string>
     <string name="SavedXMLfilename">CRRD_XML.xml</string>
     <string name="APIBusinessURI">http://localhost/Corvallis-Sustainability-ReUse/reuse_database.xml</string>
-	  <string name="google_maps_key">AIzaSyAOZso2u8Gi3elevu4g-5oXJloHc7-l3cg</string>
+	  <string name="google_maps_key">AIzaSyCsadFdudxt17B9_h-mFxFDcPWLzdO6ckM</string>
     <string name="RepairCategoryName">Repair Items</string>
 </resources>
