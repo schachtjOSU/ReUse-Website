@@ -19,7 +19,7 @@
             <TextView
                 android:text="Business Name"
                 android:textColor="@color/black"
-                android:textSize="30dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 android:id="@+id/txtBusinessName"
                 android:layout_marginBottom="20dp"
@@ -28,7 +28,7 @@
                 android:gravity="center_horizontal" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="60dp"
                 android:orientation="horizontal"
                 android:id="@+id/layoutBusinessAddress">
                 <ImageView
@@ -50,7 +50,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:orientation="horizontal"
                 android:id="@+id/layoutBusinessPhone">
                 <ImageView
@@ -72,7 +72,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:orientation="horizontal"
                 android:id="@+id/layoutBusinessWebsite">
                 <ImageView
@@ -94,7 +94,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:orientation="horizontal"
                 android:id="@+id/layoutBusinessAcceptsLabel">
                 <ImageView
@@ -105,13 +105,13 @@
                     android:tint="@color/black"
                     android:layout_weight="1" />
                 <TextView
-                    android:textColor="@color/black"
                     android:id="@+id/txtBusinessAcceptsLabel"
                     android:textSize="15dp"
                     android:layout_marginBottom="10dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4" />
+                    android:layout_weight="4" 
+                    android:textColor="@color/black"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -135,12 +135,13 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
             <Button
-                android:text="View Map"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/BtnViewMap"
-                android:background="@drawable/RoundedButton"
-                />
+                    android:text="View Map"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:id="@+id/BtnViewMap"
+                    android:background="@drawable/RoundedButton"
+                    android:textColor="@color/white"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

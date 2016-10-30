@@ -12,8 +12,8 @@
     <string name="RecyclingInfoActivityLabel">Corvallis Recycling Services</string>
     <string name="SubcategoryListActivityLabel">Categories</string>
     <string name="WebViewerActivityLabel">View PDF</string>
-    <string name="AboutActivityLabel">About</string>
-    <string name="ContactCSCLabel">Contact</string>
+    <string name="AboutActivityLabel">About the Directory</string>
+    <string name="ContactCSCLabel">Contact the Corvallis Sustainability Coalition</string>
     <string name="CSCEmail">info@sustainablecorvallis.org</string>
     <string name="CSCTwitter">https://twitter.com/sustaincorv</string>
     <string name="CSCFacebook">https://www.facebook.com/SustainableCorvallis/</string>
@@ -21,11 +21,11 @@
     <string name="errorMissingData">The directory data cannot be retrieved.</string>
     <string name="errorUnrecognized">There was an unrecognized error.</string>
     <string name="errorGeneral">Please try the app later or access the Corvallis Reuse directory online. Thank you for your patience. </string>
-    <string name="AboutCorvallisReuse">The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will take the following</string>
+    <string name="AboutCorvallisReuse">The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will take the following.</string>
     <string name="AboutCorvallisReuseRepair">Items for repair </string>
     <string name="AboutCorvallisReuseReuse">Reusable items that can be sold to the public as used items</string>
     <string name="AboutCorvallisReuseRecycle">Recyclable items </string>
-    <string name="AboutContact">The Corvallis Reuse and Repair Directory is provided by the Corvallis Sustainability Coalition.</string>
+    <string name="AboutContact">The Corvallis Reuse and Repair Directory is provided by the Corvallis Sustainability Coalition. To add a business to the directory or to update information included in the directory, contact the Corvallis Sustainability Coalition using the email below.</string>
     <string name="CorvallisLat">44.569949</string>
     <string name="CorvallisLong">-123.278285</string>
     <string name="CorvallisZoomLevel">10</string>
