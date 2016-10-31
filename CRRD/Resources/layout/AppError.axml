@@ -6,7 +6,7 @@
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
-    <LinearLayout 
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,19 +17,17 @@
             android:text="Error"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:gravity="center_horizontal"
             android:textColor="@color/black"
-            android:layout_marginBottom="20dp"
-        />
+            android:layout_marginBottom="20dp" />
         <TextView
             android:id="@+id/errorMessage"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/black"
-        />
+            android:textColor="@color/black" />
         <TextView
             android:id="@+id/errorGeneral"
             android:text="@string/errorGeneral"
@@ -37,7 +35,6 @@
             android:layout_height="wrap_content"
             android:textSize="15dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/black"
-        />
+            android:textColor="@color/black" />
     </LinearLayout>
 </LinearLayout>

@@ -47,6 +47,48 @@ namespace CRRD.Resources.Activities
             _errorMessageShown = FindViewById<TextView>(Resource.Id.errorMessage);
             _errorMessageShown.Text = _errorMessage;
         }
+
+
+        /// <summary>
+        /// Creates the menu for the Toolbar/Action Bar to use
+        /// </summary>
+        /// <param name="menu">The menu</param>
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Layout.Menu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        /// <summary>
+        /// Manages on-click actions when menu options are selected
+        /// </summary>
+        /// <param name="item">The menu</param>
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId.Equals(Resource.Id.menu_home))
+            {
+                var intent = new Intent(this, typeof(MainActivity));
+                StartActivity(intent);
+                return base.OnOptionsItemSelected(item);
+            }
+            else if (item.ItemId.Equals(Resource.Id.menu_about))
+            {
+                var intent = new Intent(this, typeof(AboutActivity));
+                StartActivity(intent);
+                return base.OnOptionsItemSelected(item);
+            }
+            else if (item.ItemId.Equals(Resource.Id.menu_contact))
+            {
+                var intent = new Intent(this, typeof(ContactActivity));
+                StartActivity(intent);
+                return base.OnOptionsItemSelected(item);
+            }
+            else
+            {
+                return base.OnOptionsItemSelected(item);
+            }
+        }
+
     }
 
 }

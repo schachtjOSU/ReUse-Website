@@ -24,6 +24,7 @@
       </intent-filter>
     </activity>
     <activity android:icon="@drawable/csclogo" android:label="@string/AboutActivityLabel" android:name="md55387cf7d9460a5de76267ef89bc0ff08.AboutActivity" />
+    <activity android:icon="@drawable/csclogo" android:label="@string/ContactActivityLabel" android:name="md55387cf7d9460a5de76267ef89bc0ff08.ContactActivity" />
     <activity android:icon="@drawable/csclogo" android:label="@string/ErrorActivityLabel" android:name="md55387cf7d9460a5de76267ef89bc0ff08.ErrorActivity" />
     <activity android:icon="@drawable/csclogo" android:label="@string/BusinessDetailsActivityLabel" android:name="md55387cf7d9460a5de76267ef89bc0ff08.BusinessDetailsActivity" />
     <activity android:icon="@drawable/csclogo" android:label="@string/BusinessListActivityLabel" android:name="md55387cf7d9460a5de76267ef89bc0ff08.BusinessListActivity" />

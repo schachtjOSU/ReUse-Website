@@ -119,6 +119,16 @@ C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_info_outline_white_24dp.png
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_info_outline_white_24dp.png
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_info_outline_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_twitter_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_twitter_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_twitter_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_twitter_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_twitter_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_facebook_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_facebook_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_facebook_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_facebook_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_facebook_black_24dp.png
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\R.cs.flag
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\uploadflags.txt
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.dll.mdb
@@ -145,10 +155,5 @@ C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
-C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_twitter_black_24dp.png
-C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_twitter_black_24dp.png
-C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_twitter_black_24dp.png
-C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_twitter_black_24dp.png
-C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_twitter_black_24dp.png
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.dll.mdb
 C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.dll.mdb

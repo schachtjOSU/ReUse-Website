@@ -8,6 +8,8 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Graphics.Drawables;
 using Android.Support.V4.Content;
+using Android.Runtime;
+using System;
 
 namespace CRRD
 {
@@ -104,7 +106,7 @@ namespace CRRD
         /// <param name="item">The menu</param>
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if(item.ItemId.Equals(Resource.Id.menu_home))
+            if (item.ItemId.Equals(Resource.Id.menu_home))
             {
                 var intent = new Intent(this, typeof(MainActivity));
                 StartActivity(intent);
@@ -116,14 +118,19 @@ namespace CRRD
                 StartActivity(intent);
                 return base.OnOptionsItemSelected(item);
             }
+            else if (item.ItemId.Equals(Resource.Id.menu_contact))
+            {
+                var intent = new Intent(this, typeof(ContactActivity));
+                StartActivity(intent);
+                return base.OnOptionsItemSelected(item);
+            }
             else
             {
                 return base.OnOptionsItemSelected(item);
             }
-            
-            
         }
 
+        
 
     }
 }

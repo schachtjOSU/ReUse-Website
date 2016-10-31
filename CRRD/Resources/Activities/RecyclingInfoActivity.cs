@@ -84,12 +84,16 @@ namespace CRRD.Resources.Activities
                 StartActivity(intent);
                 return base.OnOptionsItemSelected(item);
             }
+            else if (item.ItemId.Equals(Resource.Id.menu_contact))
+            {
+                var intent = new Intent(this, typeof(ContactActivity));
+                StartActivity(intent);
+                return base.OnOptionsItemSelected(item);
+            }
             else
             {
                 return base.OnOptionsItemSelected(item);
             }
-
-
         }
     }
 }

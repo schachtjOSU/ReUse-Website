@@ -5,13 +5,12 @@
   <style name="MyTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
     <item name="windowNoTitle">true</item>
     <item name="windowActionBar">false</item>
-    <item name="colorPrimary">#4F5C25</item>
-    <item name="colorPrimaryDark">#4F5C25</item>
-    <!-- colorAccent is used as the default value for colorControlActivated
-         which is used to tint widgets -->
-    <item name="colorAccent">#415E5E</item>
-    <item name="colorControlHighlight">#F89420</item>
-  	<!-- You can also set colorControlNormal, colorControlActivated
-         colorControlHighlight and colorSwitchThumbNormal. -->
+    <item name="colorPrimary">@color/cscGreenDark</item>
+    <item name="colorPrimaryDark">@color/cscGreenDark</item>
   </style>
+  <style name="MyThemeOverflow" parent="ThemeOverlay.AppCompat.Dark">
+    <item name="android:colorBackground">@color/cscGreenDark</item>
+    <item name="android:gravity">right</item>
+    <item name="android:layout_width">wrap_content</item>
+</style>
 </resources>

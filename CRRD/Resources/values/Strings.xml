@@ -6,6 +6,7 @@
     <string name="BusinessDetailsActivityLabel">Business Details</string>
     <string name="BusinessListActivityLabel">Businesses</string>
     <string name="CategoryListActivityLabel">Categories</string>
+    <string name="ContactActivityLabel">Contact</string>
     <string name="ErrorActivityLabel">Error</string>
     <string name="MainActivityLabel">Corvallis Reuse</string>
     <string name="MapViewerActivityLabel">Map</string>
