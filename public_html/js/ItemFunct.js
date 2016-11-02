@@ -4,7 +4,7 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "";
+var webURL = "/js;
 /*
 Function: displayStates();
 Purpose: Displays 50 states in a dropdown

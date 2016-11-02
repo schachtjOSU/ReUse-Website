@@ -4,7 +4,7 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "";
+var webURL = "/js;
 
 //globals
 var x;

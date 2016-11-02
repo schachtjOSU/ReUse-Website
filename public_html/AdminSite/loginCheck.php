@@ -1,23 +1,17 @@
 <?php
-	/**********************************************************************
+    /** This file is concerned with securely logging a user in to the system.
+     *  Also concerned with registering a new user and ending a user's session.
+     */
+    /**********************************************************************
 	*					 error check
 	**********************************************************************/
-    include 'database/database_cred.php';
+    include '../App/Database/reuseConnect.php';
 	/* error check */
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
 	/* start session */
     session_start();
-
-
-    /*******************************************************************
-    				YOUR DB CREDENTIALS HERE
-    ********************************************************************/
-    function connectDB(){
-    	$mysqli = new mysqli("localhost", "root", "tucu11YB", "ReuseApp");
-    	return $mysqli;
-    }
 
 	/**********************************************************************
 					DETERMINE LOGIN ROUTING
@@ -50,10 +44,9 @@
 		/* variables */
 		$username = $_POST['username'];
 		$username = strtoupper($username);
-		//$password = $_POST['password'];
 		$password = crypt($_POST['password'], 'rl');
 
-		$mysqli = connectDB();
+		$mysqli = connectReuseDB();
 		if($mysqli->connect_errno){
 			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}
@@ -124,7 +117,7 @@
 		$_SESSION['password'] = $passwordDB;
 		$_SESSION['loggedIn'] = true;
 
-		$mysqli = connectDB();
+		$mysqli = connectReuseDB();
 		if($mysqli->connect_errno){
 			echo "ERROR : Connection failed: (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}
@@ -132,7 +125,7 @@
 		/************************************************************************************
 		*					Search for duplicate usernames
 		************************************************************************************/
-
+        //Note: Previous dev pulls the entire list out and compares it. Why?
 		/* prepare statement */
 		if(!($stmt = $mysqli->prepare('SELECT login FROM Reuse_User_Credentials'))){
 			echo 'Prepare failed: (' . $mysqli->errno . ') ' . $mysqli->error;
@@ -148,7 +141,7 @@
 			echo 'Binding parameters failed: (' . $stmt->errno . ') ' . $stmt->error;
 		}
 
-		/* while there's ueser names, fill the array */
+		/* while there's user names, fill the array */
 		while($stmt->fetch()){
 			array_push($userArray, $tempArray);
 		}

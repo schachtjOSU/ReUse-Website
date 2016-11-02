@@ -5,7 +5,7 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "";
+var webURL = "/js";
 
 /* check session */
 function checkSession(){
@@ -79,7 +79,7 @@ function newUser(){
   }
 
       /* send data to create table */
-      req.open("POST","index2.php", true);
+      req.open("POST","/AdminSite/loginCheck.php", true);
       req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
       var tableData = "type="+type+"&username="+username+"&password="+password;
         req.send(tableData);
