@@ -4,7 +4,7 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "/js;
+var webURL = "";
 
 //globals
 var x;
@@ -24,7 +24,7 @@ function checkSession(){
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
           window.alert("You are not logged in! You will be redirected.");
-          window.location.href = webURL + "/loginPage.php";
+          window.location.href = webURL + "/AdminSite/loginPage.php";
         }
       }
     }
@@ -41,7 +41,7 @@ purpose: find an item by name
 function searchItem(){
     $('#table').empty();
     $.ajax({type:"GET",
-    url: webURL + "/index/items",
+    url: webURL + "/ruAPI/items",
     dataType: 'json',
     success: function(data){
         var match = $('#searchName').val();
@@ -64,7 +64,7 @@ purpose: delete an item by id
 function delItem(){
     var match = $('#delete').val();
     $.ajax({type:"DELETE",
-    url: webURL + "/index/item/" + match,
+    url: webURL + "/ruAPI/item/" + match,
     dataType: 'json',
     success: function(data){
     }
@@ -88,7 +88,7 @@ function editItem(){
     var c = $('#edit').val();
 
       $.ajax({type:"GET",
-        url: webURL + "/index/category",
+        url: webURL + "/ruAPI/category",
         dataType: 'json',
         success: function(data){
             var cat = "<div class='col-sm-10'><select class='form-control' name='selectState' id='states' onChange='changeCat(this.value)'><option>Select Category</option>";
@@ -106,7 +106,7 @@ function editItem(){
     });
 
     $.ajax({type:"GET",
-        url: webURL + "/index/items/" + c,
+        url: webURL + "/ruAPI/items/" + c,
         dataType: 'json',
         success: function(data){
           var tempname = encodeURI(data[0].name);
@@ -144,7 +144,7 @@ function changeItem(){
 
        var tableData = "name="+y+"&oldName="+x+"&cat="+z;
         $.ajax({type:"POST",
-            url: webURL + "/index/changeItem",
+            url: webURL + "/ruAPI/changeItem",
             data: tableData,
             success: function(){
               $('#form1').empty();

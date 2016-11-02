@@ -5,7 +5,7 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "/js";
+var webURL = "";
 
 /* check session */
 function checkSession(){
@@ -17,7 +17,7 @@ function checkSession(){
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
           window.alert("You are not logged in! You will be redirected.");
-          window.location.href = webURL + "/loginPage.php";
+          window.location.href = webURL + "/AdminSite/loginPage.php";
         }
       }
     }
@@ -57,11 +57,11 @@ function newUser(){
         /* redirect with updates */
         if(<?php echo !(isset($_SESSION['name']))?>){
           window.alert("New Account Created");
-          window.location.href = webURL + "/main.php";
+          window.location.href = webURL + "/AdminSite/main.php";
         }
 
         else{
-          window.location.href = webURL + "/loginPage.php";
+          window.location.href = webURL + "/AdminSite/loginPage.php";
         }
      }
 

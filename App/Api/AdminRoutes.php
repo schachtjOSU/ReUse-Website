@@ -464,6 +464,8 @@ $app->post('/category', function(){
 		$mysqli->close();
 });
 
+
+/* Update the category an item is in */
 $app->post('/updateItems', function(){
 		$category = $_POST['category'];
 		$name = $_POST['name'];

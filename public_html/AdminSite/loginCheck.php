@@ -5,7 +5,7 @@
     /**********************************************************************
 	*					 error check
 	**********************************************************************/
-    include '../App/Database/reuseConnect.php';
+    include '../../App/Database/reuseConnect.php';
 	/* error check */
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
@@ -41,7 +41,8 @@
 	*				POST: Login
 	***********************************************************************/
 	function login(){
-		/* variables */
+        
+        /* variables */
 		$username = $_POST['username'];
 		$username = strtoupper($username);
 		$password = crypt($_POST['password'], 'rl');
@@ -80,7 +81,7 @@
 				echo 1;				// true back to javascript
 
 				// start slims sessions
-				require 'Slim/Slim.php';
+				require '../Slim/Slim.php';
 				\Slim\Slim::registerAutoloader();
 				$app = new \Slim\Slim(
 					//More debugging
@@ -193,7 +194,6 @@
 	function killSession(){
 		session_unset();
 		session_destroy();
-		//header('Location: loginPage.php');
 		echo 1;
 	}
 

@@ -4,14 +4,14 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "/js;
+var webURL = "";
 /*
 Function: displayStates();
 Purpose: Displays 50 states in a dropdown
 */
 function displayStates(){
     $.ajax({type:"GET",
-    url: webURL + "/index/category",
+    url: webURL + "/RUapi/states",
     dataType: 'json',
     success: function(data){
         var c = "<select class='form-control' name='selectCat' id='categories'><option>Select Item Category</option>";
@@ -42,7 +42,7 @@ function checkSession(){
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
           window.alert("You are not logged in! You will be redirected.");
-          window.location.href = webURL + "/loginPage.php";
+          window.location.href = webURL + "/AdminSite/loginPage.php";
         }
       }
     }
@@ -73,7 +73,7 @@ function addNewItem(){
   else{
     var tableData = "type="+type+"&name="+name+"&cat="+cat;
     $.ajax({type:"POST",
-      url: webURL + "/index/items",
+      url: webURL + "/RUapi/items",
       data: tableData,
       success: function(data){
         console.log("in success");
@@ -91,7 +91,7 @@ function displayTable(){
   $('#table').empty();
   $('#output2').empty();
     $.ajax({type:"GET",
-    url: webURL + "/index/category",
+    url: webURL + "/RUapi/category",
     dataType: 'json',
     success: function(data){
         var row = '<tr><th>' + 'Name' + '</th><th>'  + 'Add to Category' + '</th></tr>';
@@ -117,7 +117,7 @@ function updateItem(value){
   var tableData = "name="+name+"&category="+category;
 
     $.ajax({type:"POST",
-      url: webURL + "/index/updateItems",
+      url: webURL + "/ruAPI/updateItems",
       data: tableData,
       success: function(data){
         $('#table').empty();
