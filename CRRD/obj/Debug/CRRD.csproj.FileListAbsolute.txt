@@ -1,0 +1,159 @@
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\CRRD.XML
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\CRRD.dll
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\CRRD.pdb
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\CRRD.CRRD.apk
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\CRRD.CRRD-Signed.apk
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Base.dll
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Basement.dll
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Location.dll
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Maps.dll
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\CRRD.csprojResolveAssemblyReference.cache
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\CRRD.dll
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\CRRD.pdb
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\android\bin\CRRD.CRRD.apk
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\layout\recyclinginfo.xml
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\layout\webviewer.xml
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\layout\listcategory.xml
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\layout\listcategory_row.xml
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\layout\listsubcategory.xml
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\layout\listbusiness.xml
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\layout\businessdetails.xml
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\layout\mapviewer.xml
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\layout\main.xml
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\values\strings.xml
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\drawable\csclogo.png
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\drawable\icon.png
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\res\drawable\republicservices.png
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\R.cs.flag
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\uploadflags.txt
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\obj\Debug\CRRD.dll.mdb
+C:\Users\volma_000\Documents\Visual Studio 2015\Projects\CRRD\CRRD\CRRD\bin\Debug\CRRD.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.XML
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.pdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.CRRD.apk
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.CRRD-Signed.apk
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Compat.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Core.UI.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Core.Utils.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Fragment.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Media.Compat.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Base.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Basement.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Location.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Xamarin.GooglePlayServices.Maps.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.csprojResolveAssemblyReference.cache
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.dll
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.pdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\bin\CRRD.CRRD.apk
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\recyclinginfo.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\webviewer.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\listcategory.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\listcategory_row.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\listsubcategory.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\listbusiness.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\businessdetails.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\mapviewer.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\apperror.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\about.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\contact.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\toolbar.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\menu.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\layout\main.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\values\strings.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable\cscrectangular.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable\icon.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable\republicservices.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\values\colors.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable\roundedbutton.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable\csclogo.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable\bigstockphoto_footprint.jpg
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_description_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_description_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_description_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_description_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_description_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_email_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_email_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_email_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_email_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_email_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_navigation_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_navigation_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_navigation_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_navigation_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_navigation_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_phone_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_phone_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_phone_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_phone_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_phone_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_place_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_place_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_place_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_place_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_place_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_public_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_public_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_public_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_public_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_public_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_check_box_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_check_box_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_check_box_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_check_box_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_check_box_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\values\style.xml
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_home_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_home_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_home_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_home_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_home_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_info_outline_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_info_outline_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_info_outline_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_info_outline_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_info_outline_white_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_twitter_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_twitter_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_twitter_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_twitter_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_twitter_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-hdpi\ic_facebook_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-mdpi\ic_facebook_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xhdpi\ic_facebook_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxhdpi\ic_facebook_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\res\drawable-xxxhdpi\ic_facebook_black_24dp.png
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\R.cs.flag
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\uploadflags.txt
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Java.Interop.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\Mono.Android.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\mscorlib.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\System.ComponentModel.Composition.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\System.Core.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\System.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\System.Net.Http.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\System.Runtime.Serialization.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\System.ServiceModel.Internals.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\System.Xml.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\System.Xml.Linq.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\CRRD.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Java.Interop.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\Mono.Android.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\mscorlib.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Core.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Net.Http.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Runtime.Serialization.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\obj\Debug\CRRD.dll.mdb
+C:\Users\Lauren\Desktop\ReUse\Project419\Project419\AndroidSourceCode\CRRD\CRRD\bin\Debug\CRRD.dll.mdb

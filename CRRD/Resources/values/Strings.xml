@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ApplicationName">Corvallis Reuse</string>
+    <string name="ApplicationNameLong">The Corvallis Reuse and Repair Directory</string>
+    <string name="ApplicationDescription">Provided by the Corvallis Sustainability Coalition</string>
+    <string name="BusinessDetailsActivityLabel">Business Details</string>
+    <string name="BusinessListActivityLabel">Businesses</string>
+    <string name="CategoryListActivityLabel">Categories</string>
+    <string name="ContactActivityLabel">Contact</string>
+    <string name="ErrorActivityLabel">Error</string>
+    <string name="MainActivityLabel">Corvallis Reuse</string>
+    <string name="MapViewerActivityLabel">Map</string>
+    <string name="RecyclingInfoActivityLabel">Corvallis Recycling Services</string>
+    <string name="SubcategoryListActivityLabel">Categories</string>
+    <string name="WebViewerActivityLabel">View PDF</string>
+    <string name="AboutActivityLabel">About the Directory</string>
+    <string name="ContactCSCLabel">Contact the Corvallis Sustainability Coalition</string>
+    <string name="CSCEmail">info@sustainablecorvallis.org</string>
+    <string name="CSCTwitter">https://twitter.com/sustaincorv</string>
+    <string name="CSCFacebook">https://www.facebook.com/SustainableCorvallis/</string>
+    <string name="CSCOnline">http://sustainablecorvallis.org/</string>
+    <string name="errorMissingData">The directory data cannot be retrieved.</string>
+    <string name="errorUnrecognized">There was an unrecognized error.</string>
+    <string name="errorGeneral">Please try the app later or access the Corvallis Reuse directory online. Thank you for your patience. </string>
+    <string name="AboutCorvallisReuse">The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will take the following.</string>
+    <string name="AboutCorvallisReuseRepair">Items for repair </string>
+    <string name="AboutCorvallisReuseReuse">Reusable items that can be sold to the public as used items</string>
+    <string name="AboutCorvallisReuseRecycle">Recyclable items </string>
+    <string name="AboutContact">The Corvallis Reuse and Repair Directory is provided by the Corvallis Sustainability Coalition. To add a business to the directory or to update information included in the directory, contact the Corvallis Sustainability Coalition using the email below.</string>
+    <string name="CorvallisLat">44.569949</string>
+    <string name="CorvallisLong">-123.278285</string>
+    <string name="CorvallisZoomLevel">10</string>
+    <string name="RSRecycleDepotPDF">http://site.republicservices.com/site/corvallis-or/en/documents/corvallisrecycledepot.pdf</string>
+    <string name="RSCurbsidePDF">http://site.republicservices.com/site/corvallis-or/en/documents/detailedrecyclingguide.pdf</string>
+    <string name="GDocViewer">https://docs.google.com/gview?embedded=true%26url=</string>
+    <string name="SavedXMLfilename">CRRD_XML.xml</string>
+    <string name="APIBusinessURI">http://localhost/Corvallis-Sustainability-ReUse/reuse_database.xml</string>
+	  <string name="google_maps_key">AIzaSyCsadFdudxt17B9_h-mFxFDcPWLzdO6ckM</string>
+    <string name="RepairCategoryName">Repair Items</string>
+</resources>

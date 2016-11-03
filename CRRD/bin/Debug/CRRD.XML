@@ -1,0 +1,537 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CRRD</name>
+    </assembly>
+    <members>
+        <member name="T:CRRD.Resources.Activities.AboutActivity">
+            <summary>
+            Android Activity: Used for displaying information about the app
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.AboutActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called on creation of the About Activity.
+            </summary>
+            <param name="bundle">The bundle, used for passing data between Activities.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.AboutActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.AboutActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.ContactActivity">
+            <summary>
+            Android Activity: Used for displaying information about the app
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.ContactActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called on creation of the About Activity.
+            </summary>
+            <param name="bundle">The bundle, used for passing data between Activities.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.ContactActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.ContactActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.ContactActivity._email_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the CSC Email, opening an email application
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.ContactActivity._website_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event for the CSC website, pulling up the site
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.ContactActivity._facebook_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event for the CSC Facebook link, pulling up the site
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.ContactActivity._twitter_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event for the CSC Twitter link, , pulling up the site
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.ErrorCheckActivity">
+            <summary>
+            Android Activity: Used to move to ErrorActivity should the directory data not be available.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.ErrorCheckActivity.checkDataHandlerInitialization(Android.Content.Context,System.Boolean)">
+            <summary>
+            Moves to AppErrorActivity if DataHandler is invalid
+            </summary>
+            <param name="context">The calling context.</param>
+            <param name="handlerIsInitialized">The value of DataHandler.isInitialed, which indicates if the Category and Business lists have been set.</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.ErrorActivity">
+            <summary>
+            Android Activity: Used for displaying an error message.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.ErrorActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called when [create].
+            </summary>
+            <param name="bundle">The bundle, used to pass data between Activities.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.ErrorActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.ErrorActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.BusinessDetailsActivity">
+            <summary>
+            Android Activity: Used for displaying the the details of a specific business
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called on creation of Business Details Activity.
+            </summary>
+            <param name="bundle">The bundle, used for passing data between Activities.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.CheckBusinessHasLatLng">
+            <summary>
+            Check is the business object contains a Latitude or Logitude value ther than 0. If no values are found, 
+            The _btnMapViewer.Clickable will be set to false. 
+            </summary>
+            <returns>
+            Return the button text string as default if a map marker is available or "Not Available On Map"
+            if no map marker is available (eg. No LatLng values)
+            </returns>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.RemoveOnEmptyTextView(Android.Widget.TextView,Android.Views.View)">
+            <summary>
+            Sets a LinearLayout's visibility to Gone if the TextView's text is "".
+            </summary>
+            <param name="view1">A TextView with text set to "" or longer.</param>
+            <param name="view2">The view to be made hidden if view1's text is empty</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity._txtBusWebsite_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event of the _txtBusWebsite control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity._txtBusPhone_Click(System.Object,System.EventArgs)">
+            <summary>
+            Opens the phone activity and sets the phone number as the business' phone number to call.
+            </summary>
+            <param name="sender">The source of the Event, the PhoneNumber TextView</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity._busAddress_Click(System.Object,System.EventArgs)">
+            <summary>
+            Opens the phone activity and sets the phone number as the business' phone number to call.
+            </summary>
+            <param name="sender">The source of the Event, the PhoneNumber TextView</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.GetFormattedAddress">
+            <summary>
+            Gets a USA formatted Address from the business object.
+            </summary>
+            <returns>
+            A USA formatted Address string value as per the USPS. 
+            </returns>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.GetFormattedZip(System.String)">
+            <summary>
+            Gets a USA formatted 9 digit Zip from the business object.
+            </summary>
+            <param name="zip">The Zip in string form.</param>
+            <returns>
+            A USA 9 digit formatted Zip string value. (Example: 12345-6789)
+            </returns>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.GetFormattedPhoneNumber">
+            <summary>
+            Gets a USA formatted 7, 10, or 11 digit Phone number from the business object.
+            </summary>
+            <returns>
+            A USA formatted 7, 10, or 11 digit Phone number string value. (Example: 1(222)333-4444)
+            </returns>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessDetailsActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.BusinessListActivity">
+            <summary>
+            Android Activity: Used for displaying the List of associated Businesses for the given Category and Subcategory.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessListActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called when [create].
+            </summary>
+            <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessListActivity.GetBusinessList(System.String,System.String)">
+            <summary>
+            Gets the list of all possible business names for a given categoryName and subcategoryName combination key.
+            </summary>
+            <param name="categoryName">Name of the category.</param>
+            <param name="subcategoryName">Name of the subcategory.</param>
+            <returns>
+            A sorted, uniqe list of all possible business names for the given categoryName and subcategoryName combination key.
+            </returns>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessListActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.BusinessListActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.CategoryListActivity">
+            <summary>
+            Android Activity: Used for displaying the List of Categories a user may select.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.CategoryListActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called when [create].
+            </summary>
+            <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.CategoryListActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.CategoryListActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.MapViewerActivity">
+            <summary>
+            Android Activity: Used for displaying the The Google Map Fragment populated by the user's current location and any business location map markers.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+            <seealso cref="T:Android.Gms.Maps.IOnMapReadyCallback" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.MapViewerActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called when [create].
+            </summary>
+            <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.MapViewerActivity.GetBusinessList(System.String,System.String,System.String)">
+            <summary>
+            Gets the list of all possible business objects for a given categoryName and subcategoryName combination key.
+            Populates the global List(Business), _businessList.
+            </summary>
+            <param name="businessName">Name of the business.</param>
+            <param name="categoryName">Name of the category.</param>
+            <param name="subcategoryName">Name of the subcategory.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.MapViewerActivity.SetUpMap">
+            <summary>
+            Starts up an instance of Google Maps
+            </summary>
+        </member>
+        <member name="M:CRRD.Resources.Activities.MapViewerActivity.OnMapReady(Android.Gms.Maps.GoogleMap)">
+            <summary>
+            Called when [map ready]. Populates the map with requested markers and canters the map on Corvallis at the city level.
+            </summary>
+            <param name="googleMap">The google map.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.MapViewerActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.MapViewerActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.RecyclingInfoActivity">
+            <summary>
+            Android Activity: Used for displaying the local recycling facility information. Provides navigation for facility information links.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.RecyclingInfoActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called when [create].
+            </summary>
+            <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.RecyclingInfoActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.RecyclingInfoActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.SubcategoryListActivity">
+            <summary>
+            Android Activity: Used for displaying the List of Subcategories the user may select.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.SubcategoryListActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called when [create].
+            </summary>
+            <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.SubcategoryListActivity.GetSubcategoryListUnique(System.String)">
+            <summary>
+            Gets a unique List of all possible subcategories for the given categoryName.
+            </summary>
+            <param name="categoryName">Name of the category.</param>
+            <returns>The sorted, unique list of subcategories for the given categoryName.</returns>
+        </member>
+        <member name="M:CRRD.Resources.Activities.SubcategoryListActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.SubcategoryListActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.WebViwerActivity">
+            <summary>
+            Android Activity: Used for displaying a local application view of a requested web page.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.WebViwerActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called when [create].
+            </summary>
+            <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.WebViwerActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.Resources.Activities.WebViwerActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+        <member name="T:CRRD.Resources.Activities.WebClient">
+            <summary>
+            Custom class that inherits from WebViewClient. Used to enable the override of the ShouldOverrideUrlLoading() method.
+            </summary>
+            <seealso cref="T:Android.Webkit.WebViewClient" />
+        </member>
+        <member name="M:CRRD.Resources.Activities.WebClient.ShouldOverrideUrlLoading(Android.Webkit.WebView,System.String)">
+            <summary>
+            Shoulds the override URL loading.
+            </summary>
+            <param name="view">The view.</param>
+            <param name="url">The URL.</param>
+            <returns>Return true with the requested URL loaded into the object.</returns>
+        </member>
+        <member name="M:CRRD.Resources.Adapters.CategoryListAdapter.GetAllPosibleSubcategoryCount(System.String)">
+            <summary>
+            Gets the count of all posible unique subcategories for a given category name
+            </summary>
+            <param name="categoryName">The name of Category requesting the subcategory count</param>
+            <returns>The count of all possible unique subcategories for a given category name</returns>
+        </member>
+        <member name="M:CRRD.Resources.Adapters.DataHandler.#ctor">
+            <summary>
+            Costructor for the DataHandler class., which runs miscellaneous parsing methods for Activities.
+            </summary>
+        </member>
+        <member name="M:CRRD.Resources.Adapters.DataHandler.GetBusinessByName(System.String)">
+            <summary>
+            Gets a Business object from the BusinessList by the passed Name parameter.
+            </summary>
+            <param name="businessName">Name of the business.</param>
+            <returns>
+            The Business object of the given Name perameter is returned.
+            </returns>
+        </member>
+        <member name="M:CRRD.Resources.Data.MyDeviceIO.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CRRD.Resources.Data.MyDeviceIO"/> class.
+            </summary>
+            <param name="filename">The filename.</param>
+        </member>
+        <member name="M:CRRD.Resources.Data.MyDeviceIO.SaveToDevice(System.String)">
+            <summary>
+            Saves to device.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:CRRD.Resources.Data.MyDeviceIO.ReadFromDevice">
+            <summary>
+            Reads from device.
+            </summary>
+        </member>
+        <member name="M:CRRD.Resources.Data.MyDeviceIO.HasNetwork">
+            <summary>
+            Determines whether the device is connected to a network.
+            </summary>
+            <returns>
+            Returns true if the device is connected to a network.
+            </returns>
+        </member>
+        <member name="M:CRRD.Resources.Data.MyDeviceIO.BusinessFileExists">
+            <summary>
+            Used to find a bool value of if a BusinessList File exists on the local device. 
+            </summary>
+            <returns>
+            Returns true if a BusinessList File exists on the local device
+            </returns>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.#ctor">
+            <summary>
+            Costructor for the XMLHandler class. Instanciates and sets collection properties. Runs all parsing methods 
+            for setting the Business and Category classes. 
+            </summary>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.SetBusinessList">
+            <summary>
+            Parses the data in the CRRD Database XML file into the Business and Category classes
+            </summary>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.SetCategoryList">
+            <summary>
+            Sets the category list of Category objects.
+            </summary>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.GetXmlFromDevice">
+            <summary>
+            Gets the XML from device.
+            </summary>
+            <returns>The XML string</returns>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.GetXMLFromURL">
+            <summary>
+            Gets the XML from URL.
+            </summary>
+            <returns>A string result of the requested XML file</returns>
+        </member>
+        <member name="M:CRRD.Resources.Data.XMLHandler.SaveXmlToDevice(System.String)">
+            <summary>
+            Saves the XML to device.
+            </summary>
+            <param name="xmlString">The XML string.</param>
+        </member>
+        <member name="T:CRRD.MainActivity">
+            <summary>
+            Android Activity: The Main page activity for the application.
+            </summary>
+            <seealso cref="T:Android.App.Activity" />
+        </member>
+        <member name="M:CRRD.MainActivity.OnCreate(Android.OS.Bundle)">
+            <summary>
+            Called when [create].
+            </summary>
+            <param name="bundle">The bundle.</param>
+        </member>
+        <member name="M:CRRD.MainActivity.BtnCategories_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event for Categories Navigation (to CategoryListActivity)
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.MainActivity.BtnRecycleInfo_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event for Recycling Navigation (to RecyclingInfoActivity)
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.MainActivity.BtnRepair_Click(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Click event for Recycling Navigation (to RecyclingInfoActivity)
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CRRD.MainActivity.OnCreateOptionsMenu(Android.Views.IMenu)">
+            <summary>
+            Creates the menu for the Toolbar/Action Bar to use
+            </summary>
+            <param name="menu">The menu</param>
+        </member>
+        <member name="M:CRRD.MainActivity.OnOptionsItemSelected(Android.Views.IMenuItem)">
+            <summary>
+            Manages on-click actions when menu options are selected
+            </summary>
+            <param name="item">The menu</param>
+        </member>
+    </members>
+</doc>
