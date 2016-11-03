@@ -4,7 +4,7 @@ Purpose: Displays 50 states in a dropdown
 ***************************************************************/
 function displayStates(){
     $.ajax({type:"GET",
-    url: window.location.href + "/index/category",
+    url: "/ruAPI/category",
     dataType: 'json',
     success: function(data){
         var c = "<select class='form-control' name='selectCat' id='categories'><option>Select Item Category</option>";
@@ -26,7 +26,6 @@ for security purposes
 ***************************************************************/
 function checkSession(){
 
-    turl = window.location.href;
     req = new XMLHttpRequest();
     req.onreadystatechange = function(){
      if(req.readyState == 4 && req.status == 200){
@@ -34,7 +33,7 @@ function checkSession(){
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
           window.alert("You are not logged in! You will be redirected.");
-          window.location.href = turl + "/loginPage.php";
+          window.location.href = "/AdminSite/loginPage.php";
         }
       }
     }

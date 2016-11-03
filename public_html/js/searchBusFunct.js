@@ -26,7 +26,7 @@ function searchBusiness(){
     $('#table').empty();
     var match = $('#searchName').val();
     $.ajax({type:"GET",
-    url: webURL + "/index/business/" + match,
+    url: webURL + "/ruAPI/business/" + match,
     dataType: 'json',
     success: function(data){
       $('#EditData').empty();
@@ -51,7 +51,7 @@ function delItem(){
     console.log(match);
     $.ajax({
     type:"DELETE",
-    url: webURL + "/index/business/" + match,
+    url: webURL + "/ruAPI/business/" + match,
     dataType: 'json',
     success: function(data){
       console.log(data);
@@ -70,7 +70,7 @@ function editBusiness(){
       var d ='<label class="control-label col-sm-2" for="text">' + 'Edit Information:' + '</label></br>';
       $('#EditData').html(d);
       $.ajax({type:"GET",
-        url: webURL + "/index/business",
+        url: webURL + "/ruAPI/business",
         dataType: 'json',
         success: function(data){
             var cat = "<select class='form-control' name='selectState' id='states' onChange='changeCat(this.value)'><option>Select Business</option>";
@@ -86,7 +86,7 @@ function editBusiness(){
 
     var sid;
     $.ajax({type:"GET",
-        url: webURL + "/index/business/" + c,
+        url: webURL + "/ruAPI/business/" + c,
         dataType: 'json',
         success: function(data){
           console.log("In success");
@@ -113,7 +113,7 @@ function editBusiness(){
           d += '</div></div>'       
           $('#EditData').append(d);
             $.ajax({type:"GET",
-              url: webURL + "/index/states",
+              url: webURL + "/ruAPI/states",
               dataType: 'json',
               success: function(data){
                   var states ='<form class="form-horizontal" role="form" action="#" id="form1">';
@@ -137,7 +137,7 @@ function editBusiness(){
 
 
     $.ajax({type:"GET",
-        url: webURL + "/index/business/" + c,
+        url: webURL + "/ruAPI/business/" + c,
         dataType: 'json',
         success: function(data){
           console.log("In success");
@@ -198,7 +198,7 @@ function changeBusiness(){
 
        var tableData = "name="+y+"&oldName="+x+"&add1="+z+"&add2="+a+"&city="+b+"&state="+d+"&zip="+e+"&phone="+f+"&website="+g;
         $.ajax({type:"POST",
-            url: webURL + "/index/changeBusiness",
+            url: webURL + "/ruAPI/changeBusiness",
             data: tableData,
             success: function(){
               $('#form1').empty();
@@ -219,7 +219,7 @@ purpose: displays items for addition of new or deletion of old
 function editBusItems(){
   $('#EditData').empty();
   $.ajax({type:"GET",
-    url: webURL + "/index/items",
+    url: webURL + "/ruAPI/items",
     dataType: 'json',
     success: function(data){
       window.alert("Select as many items as you'd like to be added to the Business.");
@@ -253,7 +253,7 @@ function delBusItem(value){
   console.log(item);
   var tableData = "name="+name+"&items="+item;
     $.ajax({type:"DELETE",
-      url: webURL + "/index/updateBusiness/" + name + "/" + item,
+      url: webURL + "/ruAPI/updateBusiness/" + name + "/" + item,
       //data: tableData,
       success: function(data){
         console.log(data);
@@ -280,7 +280,7 @@ function updateItem(value){
   var tableData = "name="+name+"&items="+item;
 
     $.ajax({type:"POST",
-      url: webURL + "/index/updateBusiness",
+      url: webURL + "/ruAPI/updateBusiness",
       data: tableData,
       success: function(data){
         console.log(data);
@@ -315,7 +315,7 @@ function checkSession(){
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
           window.alert("You are not logged in! You will be redirected.");
-          window.location.href = webURL + "/loginPage.php";
+          window.location.href = webURL + "/AdminSite/loginPage.php";
         }
       }
     }

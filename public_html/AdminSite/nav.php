@@ -5,7 +5,7 @@
       
        <div class="navbar-header">
         <div class="collapse navbar-collapse">
-           <img src="img/CSCLogo.png" class="img-thumbnail">
+           <img src="/img/CSCLogo.png" class="img-thumbnail">
         </div>
         </div> <!-- End brand section -->
       

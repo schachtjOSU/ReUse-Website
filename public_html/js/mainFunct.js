@@ -18,7 +18,7 @@ function checkSession(){
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
           window.alert("You are not logged in! You will be redirected.");
-          window.location.href = webURL + "/loginPage.php";
+          window.location.href = webURL + "/AdminSite/loginPage.php";
         }
       }
     }
@@ -37,11 +37,11 @@ function addRoute(){
   /* send to appropriate site */
   var name = document.getElementById("choose").value;
   if(name == "Business")
-    window.location.href = webURL + "/addBusiness.php";
+    window.location.href = webURL + "/AdminSite/addBusiness.php";
   if(name == "Category")
-        window.location.href = webURL + "/addCategory.php";
+        window.location.href = webURL + "/AdminSite/addCategory.php";
   if(name == "Item")
-        window.location.href = webURL + "/addItem.php";
+        window.location.href = webURL + "/AdminSite/addItem.php";
 }
 
 /*
@@ -53,9 +53,9 @@ function EditRoute(){
   /* send to appropriate site */
   var name = document.getElementById("choose").value;
   if(name == "Business")
-    window.location.href = webURL + "/searchBusiness.php";
+    window.location.href = webURL + "/AdminSite/searchBusiness.php";
   if(name == "Category")
-        window.location.href = webURL + "/searchCategory.php";
+        window.location.href = webURL + "/AdminSite/searchCategory.php";
   if(name == "Item")
-        window.location.href = webURL + "/searchItem.php";
+        window.location.href = webURL + "/AdminSite/searchItem.php";
 }

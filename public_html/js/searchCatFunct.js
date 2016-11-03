@@ -18,7 +18,7 @@ purpose: search for a category by name
 function searchCategory(){
     $('#table').empty();
     $.ajax({type:"GET",
-    url: webURL + "/index/category",
+    url: webURL + "/ruAPI/category",
     dataType: 'json',
     success: function(data){
         var match = $('#searchName').val();
@@ -43,7 +43,7 @@ function delCategory(){
     var match = $('#delete').val();
     x = match;
     $.ajax({type:"DELETE",
-      url: webURL + "/index/category/" + match,
+      url: webURL + "/ruAPI/category/" + match,
       dataType: 'json',
       success: function(data){
     }
@@ -60,7 +60,7 @@ purpose: edit a category by name
 function editCategory(){
     var x = $('#edit').val();
     $.ajax({type:"GET",
-    url: webURL + "/index/category/" + x,
+    url: webURL + "/ruAPI/category/" + x,
     dataType: 'json',
     success: function(data){
       $('#table').empty();
@@ -95,12 +95,12 @@ function changeCategory(){
   console.log(x);
   console.log(y);
   $.ajax({type:"GET",
-    url: webURL + "/index/category/" + x,
+    url: webURL + "/ruAPI/category/" + x,
     dataType: 'json',
     success: function(data){
        var tableData = "name="+y+"&oldName="+x;
         $.ajax({type:"POST",
-            url: webURL + "/index/changeCategory",
+            url: webURL + "/ruAPI/changeCategory",
             data: tableData,
             success: function(){
               $('#form1').empty();
@@ -125,7 +125,7 @@ function checkSession(){
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
           window.alert("You are not logged in! You will be redirected.");
-          window.location.href = webURL + "/loginPage.php";
+          window.location.href = webURL + "/AdminSite/loginPage.php";
         }
       }
     }

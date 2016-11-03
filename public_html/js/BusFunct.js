@@ -25,7 +25,7 @@ function checkSession(){
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
           window.alert("You are not logged in! You will be redirected.");
-          window.location.href = webURL + "/loginPage.php";
+          window.location.href = webURL + "/AdminSite/loginPage.php";
         }
       }
     }
@@ -41,7 +41,7 @@ Purpose: Generate dropdown for 50 states
 */
 function displayStates(){
     $.ajax({type:"GET",
-      url: webURL + "/index/states",
+      url: webURL + "/ruAPI/states",
       dataType: 'json',
       success: function(data){
           var states = "<select class='form-control' name='selectState' id='states'><option>Select State</option>";
@@ -144,7 +144,7 @@ function addNewBusiness(){
     var tableData = "type="+type+"&name="+name+"&address="+address+"&address2="+address2+"&city="+city+"&state="+state+"&phone="+phone+"&zipcode="+zipcode+"&website="+website;
     $('#output2').empty();
     $.ajax({type:"POST",
-      url: webURL + "/index/business",
+      url: webURL + "/ruAPI/business",
       data: tableData,
       success: function(data){
         displayTable();
@@ -161,7 +161,7 @@ function displayTable(){
   $('#output2').empty();
   $('#table').empty();
     $.ajax({type:"GET",
-    url: webURL + "/index/items",
+    url: webURL + "/ruAPI/items",
     dataType: 'json',
     success: function(data){
       window.alert("Select as many items as you'd like to be added to the Business.");
@@ -202,7 +202,7 @@ function updateItem(value){
   var tableData = "name="+name+"&items="+item;
 
     $.ajax({type:"POST",
-      url: webURL + "/index/updateBusiness",
+      url: webURL + "/ruAPI/updateBusiness",
       data: tableData,
       success: function(data){
         console.log(data);

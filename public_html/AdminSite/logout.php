@@ -18,9 +18,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Corvallis Reuse and Repair Directory: Web Portal</title>
-  <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/customStylesheet.css" rel="stylesheet">
-  <link href="css/media.css" rel="stylesheet">
+  <link href="/Css/bootstrap.css" rel="stylesheet">
+  <link href="/Css/customStylesheet.css" rel="stylesheet">
+  <link href="/Css/media.css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
   <script>
@@ -44,7 +44,7 @@
           if(req.responseText == 1){
             /* everything has passed! Yay! Go into your session */
             window.alert("You are not logged in! You will be redirected.");
-            window.location.href = webURL + "/loginPage.php";
+            window.location.href = webURL + "loginPage.php";
           }
         }
       }
@@ -64,7 +64,7 @@ function logOut(){
 
 	    	 if(req.responseText == 1){
     	    	/* everything has passed! Yay! Go back to login page*/
-        		window.location.href = webURL + "/loginPage.php";
+        		window.location.href = webURL + "loginPage.php";
      		}
 
         /* no specific instance for causing false, but if it's not true... tell me */
@@ -75,7 +75,7 @@ function logOut(){
   	}
 
         /* send data to kill the sesions */
-        req.open("POST","index2.php", true);
+        req.open("POST","loginCheck.php", true);
         req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         data = "type="+type;
         req.send(data);
@@ -110,6 +110,6 @@ function logOut(){
   </div> <!-- end container-->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
   </body>
 </html>
