@@ -111,7 +111,7 @@ function echoXMLFile() {
 	include ( 'xmlGeneratorConfig.php' );
 	
 	/*output type is xml*/
-	header('Content-Type: text/xml');
+	header('Content-Type: application/xml');
 
 	
 	//create the file if it doesn't exist
