@@ -4,11 +4,8 @@
 *		Special Route the Updates Every Business with a Latitude and Longitude
 ******************************************************************************************/
 	
-	
-	
-	
 	/* Updates all businesses with lats and longs */
-/*	$app->put('/setLatLongs', function(){
+	$app->put('/setLatLongs', function(){
 
 		$mysqli = connectReuseDB();
 		
@@ -21,7 +18,6 @@
 	      $returnArray[] = $row;
 	    }
 		$result->close();
-		
 		
 		for($i = 0; $i < count($returnArray); $i++) {
 			$id = $returnArray[$i] -> id;
@@ -39,17 +35,17 @@
 					
 					$latitude = $latlong['lat'];
 					$longitude = $latlong['long'];
-					echo($latitude." ");
-					
-					$mysqli->query("UPDATE Reuse_Locations SET latitude = '$name', longitude = '$longitude' WHERE id = '$id'");
+
+					$updateCount++;
+
+					$mysqli->query("UPDATE Reuse_Locations SET latitude = '$latitude', longitude = '$longitude' WHERE id = '$id'");
 					
 				}
 			}
 			
 		}
-		//echo json_encode($returnArray);
 		$mysqli->close();
 
 	});
-)*/
+
 ?>

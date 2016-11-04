@@ -71,8 +71,24 @@
 			return $results;
 		}
 		
+		/*
+		if(isset($lat[0])) {
+			$results['lat'] = $lat[0];
+		}
+		else {
+			$results['lat'] = $lat;
+		}
+		
+		if(isset($long[0])) {
+			$results['long'] = $long[0];
+		}
+		else {
+			$results['long'] = $long;
+		}
+		*/
 		$results['lat'] = $lat[0];
 		$results['long'] = $long[0];
+		
 		return $results;
 	}
 	
