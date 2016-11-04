@@ -4,25 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>ReUse APP</title>
+    <link rel="icon" href="../img/CSCLogo.png">
+    <title>The Corvallis Reuse and Repair Directory</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../Css/bootstrap.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
-    <link href="jumbotron-narrow.css" rel="stylesheet">
-   <style>
-       #map {
-        height: 400px;
-        width: 100%;
-       }
-   </style>
-
+    <link href="../Css/jumbotron-narrow.css" rel="stylesheet">
+	<!-- Generic Reuse public site styling css -->
+	<link href="../Css/publicSite.css" rel="stylesheet">
+    <!-- Generic map styling css -->
+	<link href="../Css/map.css" rel="stylesheet">
   </head>
 
   <body>
@@ -31,66 +27,66 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="http://sustainablecorvallis.org">CSC Home</a></li>
-            <li role="presentation"><a href="#">Sponsors</a></li>
+            <li role="presentation"><a href="#">Repair</a></li>
+			<li role="presentation"><a href="#">Reuse</a></li>
+			<li role="presentation"><a href="#">Recycle</a></li>
+			<li role="presentation"><a href="#">About</a></li>
             <li role="presentation"><a href="#">Contact</a></li>
-            <li role="presentation"><a href="../AdminSite/loginPage.php">Admin Portal</a></li>
+            <li role="presentation"><a href="../AdminSite/loginPage.php">Admin</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">CSC Reuse Directory</h3>
+		<img id="header-icon" src="../img/CSCLogo.png">
+        <h3 class="text-muted" id="header-title">The Corvallis Reuse and Repair Directory</h3>
       </div>
-
-
-
-
-      <div class="jumbotron">
-        <h1>Temporary Mockup</h1>
-        <div id="map"></div>
-        <p class="lead">When the button is clicked the map will calculate the location of the closest matching business</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Find Business</a></p>
+      <div id="map"></div> 
       </div>
 
       <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>Item Dropdown</h4>
-          <p>Every dropdown doesn't have to be filled for the query to execute and the google map to populate</p>
-
-          <h4>State Dropdown</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Category Dropdown</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+	  
+	    <div class="col-md-3 home-text">
+          <h4>Key</h4>
+          <p>Repair Services</p>
+          <p>Businesses Accepting Items for Resale</p>
+          <p>Recycling Centers</p>
         </div>
-
-        <div class="col-lg-6">
-          <h4>Subheading</h4>
-          <p>Powered by the Corvallis Sustainability Coaliton</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+		
+        <div class="col-md-6 home-text">
+          <h4>About</h4>
+          <p>The purpose of the Reuse and Repair Directory is to provide the Corvallis and outlying community a way to easily locate businesses that will accept the follwing. take reusable items that can be sold to the public as used items, 2) take and repair items, and 3) take recyclable items.</p>
         </div>
-      </div>
+		
+	    <div class="col-md-3 home-text">
+          <h4>Sponsors</h4>
+          <p>If you would like to support the Corvallis Reuse and Repair Directory, contact the Corvallis Sustainability Coalition.</p>
+        </div>
+	  </div>
+		
 
       <footer class="footer">
-        <p>&copy; 2016 Company, Inc.</p>
-      </footer>
+		<div class="footer-content">
+			<p class="footer-element">2016 &copy; </p>
+			<a href="http://sustainablecorvallis.org/" class="footer-element">Corvallis Sustainability Coalition</a>
+			<p class="footer-element"> | </p>
+			<a href="mailto:info@sustainablecorvallis.org?Subject=Reuse%20And%20Repair%20Directory" target="_top" class="footer-element">sustainablecorvallis.org</a>
+		</div>
+	  </footer>
 
     </div> <!-- /container -->
 
     <script>
       function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
+
+        var Corvallis = {lat: 44.569949, lng: -123.278285};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
+          zoom: 12,
+          center: Corvallis
         });
+		/*
         var marker = new google.maps.Marker({
-          position: uluru,
+          position: Corvallis,
           map: map
         });
+		*/
       }
     </script>
     <script async defer

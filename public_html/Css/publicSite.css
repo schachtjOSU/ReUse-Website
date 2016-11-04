@@ -1,0 +1,42 @@
+/* Override jumbotron-narrow width */
+@media (min-width: 768px) {
+	.container {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+.container-narrow > hr {
+	margin: 0px 0;
+}
+
+#header-icon {
+	height: 35px;
+	display: inline-block;
+}
+
+#header-title {
+	
+	display: inline-block;
+	padding-left: 10px;
+}
+
+
+.footer-content {
+	margin-left: auto;
+    margin-right: auto;
+    width: 450px; 
+	overflow: visible;
+	
+	
+}
+
+.footer-element {
+	display: inline-block;
+	text-align: center
+	
+}
+
+.home-text {
+	padding-left: 60px;
+	padding-right: 60px;
+}
