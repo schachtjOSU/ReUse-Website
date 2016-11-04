@@ -59,7 +59,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 
      /**
       * GET response that provides a listing of all 
-      * categories available in the 
+      * businesses available in the 
       * database and the corresponding ID.
       * @api
       * @return void
