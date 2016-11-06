@@ -35,9 +35,7 @@
 					
 					$latitude = $latlong['lat'];
 					$longitude = $latlong['long'];
-
-					$updateCount++;
-
+				
 					$mysqli->query("UPDATE Reuse_Locations SET latitude = '$latitude', longitude = '$longitude' WHERE id = '$id'");
 					
 				}

@@ -15,9 +15,7 @@
 }
 
 #header-title {
-	
 	display: inline-block;
-	padding-left: 10px;
 }
 
 
@@ -37,6 +35,50 @@
 }
 
 .home-text {
-	padding-left: 60px;
-	padding-right: 60px;
+	padding: 20px;
+	
 }
+
+.header {
+	position: relative;
+	top: 0px;
+	width: 100%;
+	padding: 20px;
+	padding-top: 0px;
+	margin-bottom: 20px;
+}
+
+.footer {
+	position: relative;
+	bottom: 0px;
+	width: 100%;
+	padding: 20px;
+}
+
+.description{
+	position: relative;
+	bottom: 0p;
+	width: 100%;
+	margin: 0px;
+}
+
+html, body, .container
+{
+    height: 100%;
+    width: 100%;
+}
+
+.home-map-container {
+	position: relative;
+	width: 100%;
+	height:50%;
+	
+}
+
+.category-map-container {
+	position: relative;
+	width: 100%;
+	height:80%;
+	
+}
+

@@ -39,7 +39,8 @@ function initGeneralMap() {
 		
 	};
 	
-	req.open("GET", "http://localhost/business", true);//NOTE THAT THIS URL WILL NEED TO BE CHANGED FOR LIVE SITE
+	req.open("GET", "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php/business", true);//use when developing locally
+	//req.open("GET", "http://app.sustainablecorvallis.org/business", true);//use for live site
 	req.send();
 
 }
