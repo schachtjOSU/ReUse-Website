@@ -28,7 +28,7 @@
 			<div class="about-container">
 				<h1 class="center-title">About the Corvallis Reuse and Repair Directory</h1>
 				<div class="about-information">
-					<p class="about-text">The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will take the following.<p>
+					<p class="about-text">The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will take the following:<p>
 					<ul "about-text">
 						<li>Items for repair</li>
 						<li>Reusable items that can be sold to the public as used items</li>

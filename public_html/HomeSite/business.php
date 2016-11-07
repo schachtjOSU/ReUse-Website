@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="../img/CSCLogo.png">
-		<title>Error - The Corvallis Reuse and Repair Directory</title>
+		<title>Business - The Corvallis Reuse and Repair Directory</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="../Css/bootstrap.css" rel="stylesheet">
@@ -23,8 +23,14 @@
 			<?php
 				include 'header.php';
 			?>
-			<div class="error-container">
-			
+			<div class="business-container">
+				<div class="business-info-container">
+				
+				</div>
+				
+				<div class="business-map-container">
+					<div id="map"></div>
+				</div>
 			</div>
 			<?php 
 				include 'footer.php';

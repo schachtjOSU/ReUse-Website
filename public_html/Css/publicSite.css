@@ -81,48 +81,40 @@ html, body, .container
 	
 }
 
-.category-map-container {
+.category-map-container, .item-map-container {
 	position: relative;
 	width: 70%;
 	height:100%;
 	float: left;
 }
 
-.category-list-container {
+.category-list-container, .item-list-container {
 	position: relative;
 	width: 30%;
 	height:100%;
 	float: left;
 }
 
-.category-container {
+.business-map-container {
+	position: relative;
+	width: 30%;
+	height:100%;
+	float: left;
+}
+
+.business-info-container {
+	position: relative;
+	width: 70%;
+	height:100%;
+	float: left;
+}
+
+.category-container, .about-container, .business-container, .contact-container, .error-container, .item-container {
 	position: relative;
 	width: 100%;
 	height:80%;
 	padding-bottom: 20px;
 }
-
-
-.error-container {
-	position: relative;
-	width: 100%;
-	height:80%;
-}
-
-.contact-container {
-	position: relative;
-	width: 100%;
-	height:80%;
-	margin-left:auto;
-	margin-right:auto;
-}
-
-.about-container {
-	position: relative;
-	width: 100%;
-	height:80%;
-}
-
 
 .center-title {
 	text-align: center;

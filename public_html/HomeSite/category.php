@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="../img/CSCLogo.png">
-		<title>The Corvallis Reuse and Repair Directory</title>
+		<title>Category - The Corvallis Reuse and Repair Directory</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="../Css/bootstrap.css" rel="stylesheet">
