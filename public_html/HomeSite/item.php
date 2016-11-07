@@ -36,5 +36,10 @@
 				include 'footer.php';
 			?>
 		</div> <!-- /container -->
+		<script src="../js/mapFunct.js" type="text/javascript">
+		<script></script>
+		<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initGeneralMap">
+		</script>
     </body>
 </html>

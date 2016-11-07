@@ -18,10 +18,18 @@ function initGeneralMap() {
 			
 			for(i = 0; i < businesses.length; i++) {
 				
+				var pinColor = "F89420";
+				var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+					new google.maps.Size(21, 34),
+					new google.maps.Point(0,0),
+					new google.maps.Point(10, 34));
+				
 				var myLatLng = {lat: parseFloat(businesses[i].latitude), lng: parseFloat(businesses[i].longitude)};
+				
 				var marker = new google.maps.Marker({
 				position: myLatLng,
 				map: map,
+				icon: pinImage,
 				title: businesses[i].name,
 				street_address: businesses[i].address_line_1,
 				city_address: businesses[i].city + " " + ", " + businesses[i].abbreviation + " " + businesses[i].zip_code
@@ -31,7 +39,7 @@ function initGeneralMap() {
 				
 				google.maps.event.addListener(marker, 'click', function() {
 					infowindow.open(map, this);
-					infowindow.setContent("<p><strong>" + this.title + "</strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
+					infowindow.setContent("<p><strong><a href=business.php?b=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
 				});
 				
 			}
