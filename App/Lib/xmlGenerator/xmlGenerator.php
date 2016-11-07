@@ -111,13 +111,13 @@ function echoXMLFile() {
 	include ( 'xmlGeneratorConfig.php' );
 	
 	/*output type is xml*/
-	header('Content-Type: application/xml');
+	header('Content-Type: text/xml');
 
 	
 	//create the file if it doesn't exist
 	if (file_exists($XML_FILENAME) == false) {
-		//reuse_generateXML();
-		echo "broken";
+		reuse_generateXML();
+		
 		if (file_exists($XML_FILENAME) == false) {
 			// if the file still doesn't exist, there are problems
 			echo "$XML_FILENAME Does not Exist.  Check the configuration of XML Generator";
@@ -125,7 +125,7 @@ function echoXMLFile() {
 	}
 	
 	
-	echo file_get_contents($XML_FILENAME);
+	echo file_get_contents( $XML_FILENAME );
 	
 	return;
 }

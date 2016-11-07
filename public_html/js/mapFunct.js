@@ -272,15 +272,15 @@ function initBusinessMap(busName) {
 	var req = new XMLHttpRequest();
 	
 	req.onreadystatechange = function() {
-		console.log("test 0");
+		
 		if (this.readyState == 4 && this.status == 200) {
 			var businesses = JSON.parse(this.responseText);
 			
-			console.log("test 1");
+			
 			
 			for(i = 0; i < businesses.length; i++) {
 				
-				console.log("test 2");
+				//console.log(businesses[i].name);
 				
 				//Reference http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker/7686977#7686977
 				var pinColor = "F89420";
