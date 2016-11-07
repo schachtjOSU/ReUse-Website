@@ -36,9 +36,9 @@
 
 				<div class="col-md-3 home-text">
 					<h4>Key</h4>
-					<p>Repair Services</p>
-					<p>Businesses Accepting Items for Resale</p>
-					<p>Recycling Centers</p>
+					<p class="pin-label"><img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|47A6B2" class="pin-icon">Repair Services</p>
+					<p class="pin-label"><img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|F89420" class="pin-icon">Businesses Accepting Items for Resale</p>
+					<p class="pin-label"><img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|7C903A" class="pin-icon">Recycling Centers</p>
 				</div>
 
 				<div class="col-md-6 home-text">

@@ -6,6 +6,28 @@
 	$app->get('/', function() use ($app) {
 		$app->redirect("/HomeSite/home.php");
 	}); 
+	
+	/*
+	* a special GET request that provides a list of distinct businesses NOT in Repair, Repair Items, or Recycle
+	* @api
+	* @return string JSON
+	*/
+	$app->get('/business/reuseOnly', function(){
+		header("Content-Type: application/json; charset=UTF-8");
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id WHERE cat.name NOT IN ('Repair', 'Repair Items', 'Recycle')");
+
+		$returnArray = array();
+	    while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+
+	    echo json_encode($returnArray);
+
+	    $result->close();
+	    $mysqli->close();
+	});
 	 
 	/*
 	* GET request that provides a list of distinct businesses associated with a given category
