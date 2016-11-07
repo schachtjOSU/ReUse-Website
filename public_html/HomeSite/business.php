@@ -16,6 +16,8 @@
 		<link href="../Css/jumbotron-narrow.css" rel="stylesheet">
 		<!-- Generic Reuse public site styling css -->
 		<link href="../Css/publicSite.css" rel="stylesheet">
+		<!-- Generic map styling css -->
+		<link href="../Css/map.css" rel="stylesheet">
 	</head>
 
     <body>
@@ -25,21 +27,33 @@
 			?>
 			<div class="business-container">
 				<div class="business-info-container">
-				
 				</div>
 				
 				<div class="business-map-container">
 					<div id="map"></div>
 				</div>
 			</div>
+			
 			<?php 
 				include 'footer.php';
 			?>
 		</div> <!-- /container -->
-		<script src="../js/mapFunct.js" type="text/javascript">
-		<script></script>
+		<!-- Map JS -->
+		<script src="../js/mapFunct.js" type="text/javascript"></script>
+		<script type="text/javascript">
+
+			function initBusinessMapWrapper() {
+				var busName = encodeURI("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
+				console.log(busName);
+				if(busName != "") {
+					initBusinessMap(busName);
+				}
+				
+			}
+			
+		</script>
 		<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initGeneralMap">
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initBusinessMapWrapper">
 		</script>
     </body>
 </html>

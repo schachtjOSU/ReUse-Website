@@ -27,7 +27,6 @@
 			?>
 			<div class="category-container">
 				<div class="category-list-container">
-				
 				</div>
 				
 				<div class="category-map-container">
@@ -40,10 +39,22 @@
 			?>
 		</div> <!-- /container -->
 		<!-- Map JS -->
-		<script src="../js/mapFunct.js" type="text/javascript">
-		<script></script>
+		<script src="../js/mapFunct.js" type="text/javascript"></script>
+		<script type="text/javascript">
+
+			function initCategoryMapWrapper() {
+				var catName = encodeURI("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
+				if(catName == "") {
+					initCategoryMap();
+				}
+				else {
+					initCategoryMap(catName);
+				}
+			}
+			
+		</script>
 		<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initGeneralMap">
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initCategoryMapWrapper">
 		</script>
     </body>
 </html>

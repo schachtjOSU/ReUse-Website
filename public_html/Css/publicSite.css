@@ -97,14 +97,14 @@ html, body, .container
 
 .business-map-container {
 	position: relative;
-	width: 30%;
+	width: 40%;
 	height:100%;
 	float: left;
 }
 
 .business-info-container {
 	position: relative;
-	width: 70%;
+	width: 60%;
 	height:100%;
 	float: left;
 }
