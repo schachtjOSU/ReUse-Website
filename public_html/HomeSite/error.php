@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 		<link rel="icon" href="../img/CSCLogo.png">
-		<title>The Corvallis Reuse and Repair Directory</title>
+		<title>Error - The Corvallis Reuse and Repair Directory</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="../Css/bootstrap.css" rel="stylesheet">
@@ -25,25 +25,12 @@
 			<?php
 				include 'header.php';
 			?>
-			<div class="category-container">
-				<div class="category-list-container">
-				
-				</div>
-				
-				<div class="category-map-container">
-					<div id="map"></div>
-				</div>
-			</div>
+			<div class="error-container">
 			
+			</div>
 			<?php 
 				include 'footer.php';
 			?>
 		</div> <!-- /container -->
-		<!-- Map JS -->
-		<script src="../js/mapFunct.js" type="text/javascript">
-		<script></script>
-		<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initGeneralMap">
-		</script>
     </body>
 </html>

@@ -4,7 +4,7 @@
 	* @return string JSON
 	*/
 	$app->get('/', function() use ($app) {
-		$app->redirect("/HomeSite/HomeSite.html");
+		$app->redirect("/HomeSite/home.php");
 	}); 
 	 
 	/*
