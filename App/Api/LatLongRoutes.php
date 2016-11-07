@@ -5,7 +5,7 @@
 ******************************************************************************************/
 	
 	/* Updates all businesses with lats and longs */
-	$app->put('/setLatLongs', function(){
+	$app->get('/setLatLongs', function(){
 
 		$mysqli = connectReuseDB();
 		

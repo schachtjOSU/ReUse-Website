@@ -61,6 +61,7 @@ function addReuseLinks() {
 	req.send();
 }
 
+
 //adds dropdown menu links of all businesses associated with the Category Recycle
 function addRecycleLinks() {
 	var req = new XMLHttpRequest();
@@ -70,9 +71,9 @@ function addRecycleLinks() {
 		if (this.readyState == 4 && this.status == 200) {
 			var recycleCenters = JSON.parse(this.responseText);
 			
-			for(i = 0; i < items.length; i++) {
+			for(i = 0; i < recycleCenters.length; i++) {
 				
-				var dropDown = document.getElementById("header-reuse-links");
+				var dropDown = document.getElementById("header-recycle-links");
 				
 				var link = document.createElement("a");
 				var linkText = document.createTextNode(recycleCenters[i].name);

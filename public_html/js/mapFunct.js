@@ -147,7 +147,6 @@ function initCategoryMap(categoryName) {
 			for(i = 0; i < businesses.length; i++) {
 				
 				var pinImage = pin();
-				
 				var myLatLng = LatLng(businesses[i].latitude, businesses[i].longitude);
 				
 				var myMarker = marker(myLatLng, map, pinImage, businesses[i].name, businesses[i].address_line_1, businesses[i].city, businesses[i].abbreviation, businesses[i].zip_code);
