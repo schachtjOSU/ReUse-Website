@@ -1,8 +1,22 @@
 var APIBase = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
 //var APIBase = "http://app.sustainablecorvallis.org"; //used by the live website
 
-function initGeneralMap() {
-		
+// Returns a pin with the passed color, or CSC orange by default. Reference http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker/7686977#7686977
+function pin(pinColor) {
+	if (pinColor === undefined) {
+		pinColor = "F89420"; //setting default color to CSC orange
+	}
+	
+	var pin = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+		new google.maps.Size(21, 34),
+		new google.maps.Point(0,0),
+		new google.maps.Point(10, 34));
+	
+	return pin;
+}
+
+//ititializes the map centered on the Corvallis area
+function corvallisMap () {
 	//centering the map on Corvallis
 	var Corvallis = {lat: 44.569949, lng: -123.278285};
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -10,8 +24,44 @@ function initGeneralMap() {
 		center: Corvallis
 	});
 	
+	return map;
+}
+
+//returns an object with lat and lng as floats
+function LatLng(lat, lng) {
+	var latLng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+	return latLng;
+}
+
+//ititializes a marker with latLng, map, pin, busName, busAddress, busCity, busState, busZip
+function marker(latLng, map, pin, busName, busAddress, busCity, busState, busZip) {
+	var marker = new google.maps.Marker({
+		position: latLng,
+		map: map,
+		icon: pin,
+		title: busName,
+		street_address: busAddress,
+		city_address: busCity + " " + ", " + busState + " " + busZip
+		});
+		
+	return marker;
+}
+
+//adds an info window for a given marker
+function addInfoWindow(marker, map) {
+	var infoWindow = new google.maps.InfoWindow();
 	
-	//calling reqReuse, then ReqRepair, then reqRecycle
+	google.maps.event.addListener(marker, 'click', function() {
+		infoWindow.open(map, this);
+		infoWindow.setContent("<p><strong><a href=business.php?b=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
+	});
+}
+
+//initializes a map with repair, recycling, and other businesses in three colors
+function initGeneralMap() {
+	
+	var map =  corvallisMap();
+	
 	var reqReuse = new XMLHttpRequest();
 	var reqRecycle = new XMLHttpRequest();
 	var reqRepair = new XMLHttpRequest();
@@ -22,35 +72,16 @@ function initGeneralMap() {
 			
 			for(i = 0; i < businesses.length; i++) {
 				
-				//Reference http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker/7686977#7686977
 				var pinColor = "7C903A";
-				var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-					new google.maps.Size(21, 34),
-					new google.maps.Point(0,0),
-					new google.maps.Point(10, 34));
+				var pinImage = pin(pinColor);
 				
-				var myLatLng = {lat: parseFloat(businesses[i].latitude), lng: parseFloat(businesses[i].longitude)};
-				
-				var marker = new google.maps.Marker({
-				position: myLatLng,
-				map: map,
-				icon: pinImage,
-				title: businesses[i].name,
-				street_address: businesses[i].address_line_1,
-				city_address: businesses[i].city + " " + ", " + businesses[i].abbreviation + " " + businesses[i].zip_code
-				});	
+				var myLatLng = LatLng(businesses[i].latitude, businesses[i].longitude);
+				var myMarker = marker(myLatLng, map, pinImage, businesses[i].name, businesses[i].address_line_1, businesses[i].city, businesses[i].abbreviation, businesses[i].zip_code);
 
-				var infowindow = new google.maps.InfoWindow();
-				
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.open(map, this);
-					infowindow.setContent("<p><strong><a href=business.php?b=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
-				});
+				addInfoWindow(myMarker, map);
 				
 			}
-
 		}
-		
 	};
 	
 	reqRepair.onreadystatechange = function() {
@@ -59,35 +90,17 @@ function initGeneralMap() {
 			
 			for(i = 0; i < businesses.length; i++) {
 				
-				//Reference http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker/7686977#7686977
 				var pinColor = "47A6B2";
-				var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-					new google.maps.Size(21, 34),
-					new google.maps.Point(0,0),
-					new google.maps.Point(10, 34));
+				var pinImage = pin(pinColor);
 				
-				var myLatLng = {lat: parseFloat(businesses[i].latitude), lng: parseFloat(businesses[i].longitude)};
+				var myLatLng = LatLng(businesses[i].latitude, businesses[i].longitude);
 				
-				var marker = new google.maps.Marker({
-				position: myLatLng,
-				map: map,
-				icon: pinImage,
-				title: businesses[i].name,
-				street_address: businesses[i].address_line_1,
-				city_address: businesses[i].city + " " + ", " + businesses[i].abbreviation + " " + businesses[i].zip_code
-				});	
-
-				var infowindow = new google.maps.InfoWindow();
-				
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.open(map, this);
-					infowindow.setContent("<p><strong><a href=business.php?b=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
-				});
+				var myMarker = marker(myLatLng, map, pinImage, businesses[i].name, businesses[i].address_line_1, businesses[i].city, businesses[i].abbreviation, businesses[i].zip_code);
+				addInfoWindow(myMarker, map);
 				
 			}
 			
-			reqRecycle.open("GET", APIBase + "/business/category/name/Recycle", true);
-			reqRecycle.send();
+			
 			
 			
 		}
@@ -100,57 +113,35 @@ function initGeneralMap() {
 			
 			for(i = 0; i < businesses.length; i++) {
 				
-				//Reference http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker/7686977#7686977
 				var pinColor = "F89420";
-				var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-					new google.maps.Size(21, 34),
-					new google.maps.Point(0,0),
-					new google.maps.Point(10, 34));
+				var pinImage = pin(pinColor);
 				
-				var myLatLng = {lat: parseFloat(businesses[i].latitude), lng: parseFloat(businesses[i].longitude)};
+				var myLatLng = LatLng(businesses[i].latitude, businesses[i].longitude);
 				
-				var marker = new google.maps.Marker({
-				position: myLatLng,
-				map: map,
-				icon: pinImage,
-				title: businesses[i].name,
-				street_address: businesses[i].address_line_1,
-				city_address: businesses[i].city + " " + ", " + businesses[i].abbreviation + " " + businesses[i].zip_code
-				});	
-
-				var infowindow = new google.maps.InfoWindow();
-				
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.open(map, this);
-					infowindow.setContent("<p><strong><a href=business.php?b=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
-				});
+				var myMarker = marker(myLatLng, map, pinImage, businesses[i].name, businesses[i].address_line_1, businesses[i].city, businesses[i].abbreviation, businesses[i].zip_code);
+				addInfoWindow(myMarker, map);
 				
 			}
-			
-			reqRepair.open("GET", APIBase + "/business/category/name/Repair%20Items", true);
-			reqRepair.send();
-			
-			
 		}
 		
 	};
 
-	reqReuse.open("GET", APIBase + "/business/reuseOnly", true);//use when developing locally
+	reqReuse.open("GET", APIBase + "/business/reuseOnly", true);
 	reqReuse.send();
+	
+	reqRecycle.open("GET", APIBase + "/business/category/name/Recycle", true);
+	reqRecycle.send();
+	
+	reqRepair.open("GET", APIBase + "/business/category/name/Repair%20Items", true);
+	reqRepair.send();
 
 }
 
+//initializes a map with businesses from a given category, or all categories except Repair Items and Recycle if no category name is given
 function initCategoryMap(categoryName) {
 		
-	//centering the map on Corvallis
-	var Corvallis = {lat: 44.569949, lng: -123.278285};
-	var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 11,
-		center: Corvallis
-	});
+	var map =  corvallisMap();
 	
-	
-	//calling reqReuse, then ReqRepair, then reqRecycle
 	var req = new XMLHttpRequest();
 	
 	req.onreadystatechange = function() {
@@ -159,36 +150,15 @@ function initCategoryMap(categoryName) {
 			
 			for(i = 0; i < businesses.length; i++) {
 				
-				//Reference http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker/7686977#7686977
-				var pinColor = "F89420";
-				var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-					new google.maps.Size(21, 34),
-					new google.maps.Point(0,0),
-					new google.maps.Point(10, 34));
+				var pinImage = pin();
 				
-				var myLatLng = {lat: parseFloat(businesses[i].latitude), lng: parseFloat(businesses[i].longitude)};
+				var myLatLng = LatLng(businesses[i].latitude, businesses[i].longitude);
 				
-				var marker = new google.maps.Marker({
-				position: myLatLng,
-				map: map,
-				icon: pinImage,
-				title: businesses[i].name,
-				street_address: businesses[i].address_line_1,
-				city_address: businesses[i].city + " " + ", " + businesses[i].abbreviation + " " + businesses[i].zip_code
-				});	
-
-				var infowindow = new google.maps.InfoWindow();
-				
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.open(map, this);
-					infowindow.setContent("<p><strong><a href=business.php?b=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
-				});
-				
+				var myMarker = marker(myLatLng, map, pinImage, businesses[i].name, businesses[i].address_line_1, businesses[i].city, businesses[i].abbreviation, businesses[i].zip_code);
+				addInfoWindow(myMarker, map);		
 			}
-		}
-		
+		}	
 	};
-	
 	
 	
 	if(categoryName === undefined) {
@@ -202,17 +172,11 @@ function initCategoryMap(categoryName) {
 	req.send();
 }
 
+//initializes a map with businesses associated with a given category and item
 function initItemMap(categoryName, itemName) {
 		
-	//centering the map on Corvallis
-	var Corvallis = {lat: 44.569949, lng: -123.278285};
-	var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 11,
-		center: Corvallis
-	});
+	var map =  corvallisMap();
 	
-	
-	//calling reqReuse, then ReqRepair, then reqRecycle
 	var req = new XMLHttpRequest();
 	
 	req.onreadystatechange = function() {
@@ -222,30 +186,11 @@ function initItemMap(categoryName, itemName) {
 			
 			for(i = 0; i < businesses.length; i++) {
 				
-				//Reference http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker/7686977#7686977
-				var pinColor = "F89420";
-				var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-					new google.maps.Size(21, 34),
-					new google.maps.Point(0,0),
-					new google.maps.Point(10, 34));
-				
-				var myLatLng = {lat: parseFloat(businesses[i].latitude), lng: parseFloat(businesses[i].longitude)};
-				
-				var marker = new google.maps.Marker({
-				position: myLatLng,
-				map: map,
-				icon: pinImage,
-				title: businesses[i].name,
-				street_address: businesses[i].address_line_1,
-				city_address: businesses[i].city + " " + ", " + businesses[i].abbreviation + " " + businesses[i].zip_code
-				});	
+				var pinImage = pin();
+				var myLatLng = LatLng(businesses[i].latitude, businesses[i].longitude);
+				var myMarker = marker(myLatLng, map, pinImage, businesses[i].name, businesses[i].address_line_1, businesses[i].city, businesses[i].abbreviation, businesses[i].zip_code);
 
-				var infowindow = new google.maps.InfoWindow();
-				
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.open(map, this);
-					infowindow.setContent("<p><strong><a href=business.php?b=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
-				});
+				addInfoWindow(myMarker, map);
 				
 			}
 		}
@@ -258,17 +203,10 @@ function initItemMap(categoryName, itemName) {
 	req.send();
 }
 
+//initializes a map with a pin for a single business with a given name
 function initBusinessMap(busName) {
 		
-	//centering the map on Corvallis
-	var Corvallis = {lat: 44.569949, lng: -123.278285};
-	var map = new google.maps.Map(document.getElementById('map'), {
-		zoom: 11,
-		center: Corvallis
-	});
-	
-	
-	//calling reqReuse, then ReqRepair, then reqRecycle
+	var map =  corvallisMap();
 	var req = new XMLHttpRequest();
 	
 	req.onreadystatechange = function() {
@@ -276,40 +214,13 @@ function initBusinessMap(busName) {
 		if (this.readyState == 4 && this.status == 200) {
 			var businesses = JSON.parse(this.responseText);
 			
+			var pinImage = pin();
+			var myLatLng = LatLng(businesses.latitude, businesses.longitude);
+			var myMarker = marker(myLatLng, map, pinImage, businesses.name, businesses.address_line_1, businesses.city, businesses.abbreviation, businesses.zip_code);
 			
+			addInfoWindow(myMarker, map);
 			
-			for(i = 0; i < businesses.length; i++) {
-				
-				//console.log(businesses[i].name);
-				
-				//Reference http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker/7686977#7686977
-				var pinColor = "F89420";
-				var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
-					new google.maps.Size(21, 34),
-					new google.maps.Point(0,0),
-					new google.maps.Point(10, 34));
-				
-				var myLatLng = {lat: parseFloat(businesses[i].latitude), lng: parseFloat(businesses[i].longitude)};
-				
-				var marker = new google.maps.Marker({
-				position: myLatLng,
-				map: map,
-				icon: pinImage,
-				title: businesses[i].name,
-				street_address: businesses[i].address_line_1,
-				city_address: businesses[i].city + " " + ", " + businesses[i].abbreviation + " " + businesses[i].zip_code
-				});	
-
-				var infowindow = new google.maps.InfoWindow();
-				
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.open(map, this);
-					infowindow.setContent("<p><strong><a href=business.php?b=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
-				});
-				
-			}
 		}
-		
 	};
 
 	var busURI = APIBase + "/business/name/" + busName;
