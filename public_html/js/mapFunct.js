@@ -98,11 +98,7 @@ function initGeneralMap() {
 				var myMarker = marker(myLatLng, map, pinImage, businesses[i].name, businesses[i].address_line_1, businesses[i].city, businesses[i].abbreviation, businesses[i].zip_code);
 				addInfoWindow(myMarker, map);
 				
-			}
-			
-			
-			
-			
+			}	
 		}
 		
 	};
@@ -126,7 +122,7 @@ function initGeneralMap() {
 		
 	};
 
-	reqReuse.open("GET", APIBase + "/business/reuseOnly", true);
+	reqReuse.open("GET", APIBase + "/business/reuseExclusive", true);
 	reqReuse.send();
 	
 	reqRecycle.open("GET", APIBase + "/business/category/name/Recycle", true);
@@ -162,7 +158,7 @@ function initCategoryMap(categoryName) {
 	
 	
 	if(categoryName === undefined) {
-		var catURI = APIBase + "/business/reuseOnly"; 
+		var catURI = APIBase + "/business/reuseExclusive"; 
 	}
 	else {
 		var catURI = APIBase + "/business/category/name/" + categoryName; 

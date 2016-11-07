@@ -34,11 +34,6 @@
 	
 }
 
-.home-text {
-	padding: 20px;
-	
-}
-
 .header {
 	position: relative;
 	top: 0px;
@@ -57,6 +52,12 @@
 	height:10%;
 	margin-top: 0px;
 	overflow:hidden;
+}
+
+
+.home-text {
+	padding: 20px;
+	
 }
 
 .description{
@@ -137,7 +138,8 @@ html, body, .container
 	width: 65%;
 	height:90%;
 	float: left;
-	padding: 60px;	
+	padding: 60px;
+	
 }
 
 .about-image-container {
@@ -159,7 +161,6 @@ html, body, .container
     font-size: 120%;
 }
 
-
 .contact-text, .about-text {
 	padding: 10px;
 }
@@ -167,6 +168,9 @@ html, body, .container
 .zmdi {
 	padding-right: 20px;
 }
+
+
+
 
 .pin-icon{
 	
@@ -182,5 +186,44 @@ html, body, .container
 .key-item {
 
 	width: 100%;
+}
+
+
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+	z-index: 1000;
+	margin-top:10px;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #99B247;
+	color: #FFFFFF;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #99B247;
+	color: #FFFFFF;
 }
 
