@@ -27,7 +27,7 @@
 				include 'header.php';
 			?>
 			<div class="category-container">
-				<div class="list-group" id="category-list-container">
+				<div id="category-list-container">
 					
 				</div>
 				
@@ -58,6 +58,7 @@
 		<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initCategoryMapWrapper">
 		</script>
+		<!-- List JS -->
 		<script src="../js/listFunct.js" type="text/javascript"></script>
 		<script>
 			addItemList("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");

@@ -207,6 +207,27 @@
 	});
 	
 	/*
+	* GET request that provides an array of item names for items in any categories excluding the special categories of Repair, Repair Items, or Recycling as the number of businesses for each item, ordered by ordered by item name
+	* @api
+	* @return string JSON
+	*/
+	$app->get('/item/category/reuseExclusive', function(){
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT item.name, COUNT(loc_item.location_id) AS item_count FROM Reuse_Items AS item INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id WHERE cat.name NOT IN ('Repair', 'Repair Items', 'Recycle') GROUP BY (item.name) ORDER BY item.name");
+
+		$returnArray = array();
+	    while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+
+	    echo json_encode($returnArray);
+
+	    $result->close();
+	    $mysqli->close();
+	});
+	
+	/*
 	* GET request that provides an array of category names not including Repair, Repair Items, and Recycle, ordered by ordered by category names
 	* @api
 	* @return string JSON

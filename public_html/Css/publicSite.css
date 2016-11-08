@@ -89,12 +89,14 @@ html, body, .container
 	float: left;
 }
 
-#category-list-container, .item-list-container {
+#category-list-container, #item-list-container {
 	position: relative;
 	width: 30%;
 	height:100%;
 	float: left;
-	overflow: scroll;
+	overflow: auto;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .business-map-container {
@@ -226,5 +228,12 @@ html, body, .container
 .dropdown:hover .dropbtn {
     background-color: #99B247;
 	color: #FFFFFF;
+}
+
+
+.list-group-item{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 

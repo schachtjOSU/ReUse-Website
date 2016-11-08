@@ -26,7 +26,7 @@
 				include 'header.php';
 			?>
 			<div class="item-container">
-				<div class="item-list-container">
+				<div id="item-list-container">
 				</div>
 				
 				<div class="item-map-container">
@@ -55,6 +55,11 @@
 		</script>
 		<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initItemMapWrapper">
+		</script>
+		<!-- List JS -->
+		<script src="../js/listFunct.js" type="text/javascript"></script>
+		<script>
+			addBusinessList("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
 		</script>
     </body>
 </html>
