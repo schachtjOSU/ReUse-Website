@@ -18,6 +18,8 @@
 		<link href="../Css/publicSite.css" rel="stylesheet">
 		<!-- Generic map styling css -->
 		<link href="../Css/map.css" rel="stylesheet">
+		<!-- Material Design Iconic Font -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 	</head>
 
     <body>
@@ -26,7 +28,10 @@
 				include 'header.php';
 			?>
 			<div class="business-container">
-				<div class="business-info-container">
+				<div id="business-info-container">
+					<p class="side-container-title"></p>
+					<div id="contact-container"></div>
+					<div id="services-container"></div>
 				</div>
 				
 				<div class="business-map-container">
@@ -44,16 +49,20 @@
 
 			function initBusinessMapWrapper() {
 				var busName = encodeURI("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
-				//console.log(busName);
 				if(busName != "") {
 					initBusinessMap(busName);
 				}
 				
 			}
-			
 		</script>
 		<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initBusinessMapWrapper">
+		</script>
+		<script src="../js/listFunct.js" type="text/javascript"></script>
+		<script>
+			var name = encodeURI("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
+			addBusinessContact(name);
+			addBusinessServices(name);
 		</script>
     </body>
 </html>

@@ -18,6 +18,8 @@
 		<link href="../Css/publicSite.css" rel="stylesheet">
 		<!-- Generic map styling css -->
 		<link href="../Css/map.css" rel="stylesheet">
+		<!-- Material Design Iconic Font -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 	</head>
 
     <body>
@@ -27,6 +29,7 @@
 			?>
 			<div class="item-container">
 				<div id="item-list-container">
+					<p class="side-container-title"></p>
 				</div>
 				
 				<div class="item-map-container">

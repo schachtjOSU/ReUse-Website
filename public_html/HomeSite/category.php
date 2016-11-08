@@ -18,7 +18,6 @@
 		<link href="../Css/publicSite.css" rel="stylesheet">
 		<!-- Generic map styling css -->
 		<link href="../Css/map.css" rel="stylesheet">
-		<!-- C
 	</head>
 
     <body>
@@ -27,8 +26,9 @@
 				include 'header.php';
 			?>
 			<div class="category-container">
+				
 				<div id="category-list-container">
-					
+					<p class="side-container-title"></p>
 				</div>
 				
 				<div class="category-map-container">

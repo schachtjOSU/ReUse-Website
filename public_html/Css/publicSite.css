@@ -82,14 +82,14 @@ html, body, .container
 	
 }
 
-.category-map-container, .item-map-container {
+.category-map-container, .item-map-container, .business-map-container {
 	position: relative;
 	width: 70%;
 	height:100%;
 	float: left;
 }
 
-#category-list-container, #item-list-container {
+#category-list-container, #item-list-container, #business-info-container {
 	position: relative;
 	width: 30%;
 	height:100%;
@@ -99,19 +99,6 @@ html, body, .container
 	padding-right: 20px;
 }
 
-.business-map-container {
-	position: relative;
-	width: 40%;
-	height:100%;
-	float: left;
-}
-
-.business-info-container {
-	position: relative;
-	width: 60%;
-	height:100%;
-	float: left;
-}
 
 .category-container, .about-container, .business-container, .contact-container, .error-container, .item-container {
 	position: relative;
@@ -237,11 +224,35 @@ html, body, .container
 	text-overflow: ellipsis;
 }
 
+.list-group-item-text{
+	padding-bottom: 10px;
+}
+
 .list-item-title {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-weight: bold;
 	margin-bottom: 5px;
 	
+}
+
+.side-container-title {
+
+	font-size: x-large;
+}
+
+.side-container-subtitle {
+	
+	font-size: large;
+}
+
+.services-description-text {
+	white-space: normal;
+}
+
+#second-line-address {
+	/*explicitly set padding to pin width + padding*/
+	padding-left: 32px;
+	margin-bottom: 0px;
 }
 
