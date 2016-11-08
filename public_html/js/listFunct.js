@@ -96,7 +96,7 @@ function addItemList(catName) {
 }
 
 
-//adds the page title and a list of businesses to "item-list-container"
+//adds the page title and a list of businesses to "item-list-container" - it also sets the map width to 0 if none of the businesses have a lat and long
 function addBusinessList(categoryName, itemName) {
 	
 	//setting the page title 
@@ -114,6 +114,9 @@ function addBusinessList(categoryName, itemName) {
 		
 		if (this.readyState == 4 && this.status == 200) {
 			var bus = JSON.parse(this.responseText);
+			
+			var latLongCount = 0;
+			
 			
 			//printing the businesses
 			for(i = 0; i < bus.length; i++) {
@@ -193,6 +196,19 @@ function addBusinessList(categoryName, itemName) {
 				}
 				
 				listDiv.appendChild(link);
+				
+				//counting if lat and long
+				if(bus[i].latitude && bus[i].longitude) {
+					latLongCount++;
+				}
+				
+			}
+			
+			
+			//adjusting business-map-container and business-info-container widths depending on lat and long
+			if(latLongCount == 0) {
+				document.getElementById('item-list-container').setAttribute("style","width:100%");
+				document.getElementsByClassName("item-map-container")[0].setAttribute("style","width:0%");;
 			}
 			
 		}
@@ -212,11 +228,13 @@ function addBusinessList(categoryName, itemName) {
 	req.send();
 }
 
-//adds the page title and contact information for a given businesses to "contact-container", not including the list of items accepted
+//adds the page title and contact information for a given businesses to "contact-container", not including the list of items accepted - it also sets the map width to 0 if the business doesn't have a lat and long
 function addBusinessContact(busName) {
 	
 	//setting the page title
 	document.getElementsByClassName("side-container-title")[0].innerHTML = decodeURI(busName);
+	
+	
 	
 	var req = new XMLHttpRequest();
 	
@@ -225,6 +243,15 @@ function addBusinessContact(busName) {
 		if (this.readyState == 4 && this.status == 200) {
 			
 			var bus = JSON.parse(this.responseText);
+			
+			//adjusting business-map-container and business-info-container widths depending on lat and long
+			if(!bus.latitude|| !bus.longitude) {
+				document.getElementById('business-info-container').setAttribute("style","width:100%");
+				document.getElementsByClassName("business-map-container")[0].setAttribute("style","width:0%");;
+			}
+			
+			
+			
 
 			//printing the business contact
 			
@@ -307,7 +334,7 @@ function addBusinessContact(busName) {
 	req.send();
 }
 
-//adds the list of items a given business accepts tp "services-container"
+//adds the list of items a given business accepts to "services-container"
 function addBusinessServices(busName) {
 	
 	var req = new XMLHttpRequest();
