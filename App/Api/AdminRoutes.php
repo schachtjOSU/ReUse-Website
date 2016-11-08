@@ -8,17 +8,16 @@ $app->response->headers->set('Content-Type', 'application/json');
 	/****************************************************************************
 	*				Gets
 	****************************************************************************/
-     
-
-
-
-     /**
-      * GET request will display the category 
-      * corresponding to the ID presented.
-      * @api
-      *
-      * @return string JSON
-      */
+        
+    /**
+  	 * @api {get} /category/:id 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+     * 
+	 * @apiParam {Integer} id category unique ID.
+     *
+	 * @apiSuccess {String} The name of the category corresponding to that ID
+	 */  
 	$app->get('/category/:id', function($id){
 		$mysqli = connectReuseDB();
 
@@ -35,13 +34,17 @@ $app->response->headers->set('Content-Type', 'application/json');
 	    $mysqli->close();
 	});
 
-     /**
-      * GET request will display all 
-      * states and their unique ID's from the database.
-      * @api
-      *
-      * @return string JSON
-      */
+     
+    /**
+  	 * @api {get} /states Gets name and ID of all states, returns as JSON string 
+     *
+     * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiSuccess {string[]} name Names of all states are returned
+	 * @apiSuccess {integer} id ID of all states
+	 */
+
 	$app->get('/states', function() {
 		$mysqli = connectReuseDB();
 
@@ -57,13 +60,17 @@ $app->response->headers->set('Content-Type', 'application/json');
 	    $mysqli->close();
 	});		
 
-     /**
-      * GET response that provides a listing of all 
-      * businesses available in the 
-      * database and the corresponding ID.
-      * @api
-      * @return void
-      */
+    /**
+     * GET response that provides a listing of all 
+     * businesses available in the 
+     * database and the corresponding ID.
+  	 * @api {get} /business 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiSuccess {String} All names and corresponding ID of businesses in the table
+	 */
+  
 	$app->get('/business', function() {
 		$mysqli = connectReuseDB();
 
@@ -81,13 +88,19 @@ $app->response->headers->set('Content-Type', 'application/json');
 	});
 
 
-     /**
-      * GET response that provides a listing of all 
-      * categories available in the 
-      * database and the corresponding ID.
-      * @api
-      * @return string JSON
-      */
+    /**
+     * GET response that provides a listing of all 
+     * categories available in the 
+     * database and the corresponding ID.
+     *
+     * @api {get} /category Request User information
+     * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiSuccess {String} name Name of the category.
+	 * @apiSuccess {Integer} id ID of the category.
+	 */ 
+      
 	$app->get('/category', function() {
 		$mysqli = connectReuseDB();
 
@@ -104,12 +117,15 @@ $app->response->headers->set('Content-Type', 'application/json');
 	    $mysqli->close();
 	});
 
-     /**
-      * GET request that provides the
-      * name of an item given the ID
-      * @api
-      * @return string JSON
-      */
+	/**
+	 * @api {get} /items/:id Request item name and category id from item id. 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiParam {integer} id Item ID.
+	 *
+	 * @apiSuccess {string} name Name of business.
+	 */
 	$app->get('/items/:id', function($id){
 		$mysqli = connectReuseDB();
 
@@ -128,15 +144,25 @@ $app->response->headers->set('Content-Type', 'application/json');
 	    $mysqli->close();
 	});
 
-
-     /**
-      * This method will not change until a major release.
-      * GET request that given the name of the business will 
-      * provide info on said business 
-      *
-      * @return string JSON
-      */
-	$app->get('/business/:one', function($one){
+	/**
+	 * @api {get} /businesss/:one Request business info. 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiParam {String} one  Name of business.
+	 *
+     
+	 * @apiSuccess {String} name Name of business
+	 * @apiSuccess {Integer} id ID of business 
+     * @apiSuccess {String} Address_line1 Street
+     * @apiSuccess {String} address_line2 Street continued
+     * @apiSuccess {Integer} state_id State ID where business resides. 
+     * @apiSuccess {string} phone Phone Number of business.
+	 * @apiSuccess {string} website Website URL
+	 * @apiSuccess {string} city City 
+	 * @apiSuccess {string} zip_code Zipcode
+	 */
+    $app->get('/business/:one', function($one){
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.name = '$one'");
@@ -152,14 +178,15 @@ $app->response->headers->set('Content-Type', 'application/json');
 	    $mysqli->close();
 	});
 
-     /**
-      * This method will not change until a major release.
-      * GET request that provides a list of all items currently in the database
-      * and their corresponding category 
-      * @api
-      *
-      * @return string JSON
-      */
+     
+	/**
+	 * @api {get} /items/:id Request item name and category id from item id. 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 *
+	 * @apiSuccess {string[]} name Name of all businesses in JSON format.
+	 */
 	$app->get('/items', function() {
 		$mysqli = connectReuseDB();
 
@@ -179,8 +206,15 @@ $app->response->headers->set('Content-Type', 'application/json');
 /************************************************************************************
 *					DELETES
 *************************************************************************************/
-	//Remove Specific Business	
-	$app->delete('/business/:id', function($id){
+    
+	/**
+	 * @api {delete} /business/:id Remove a specific business. 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiParam {integer} id business ID.
+	 */
+    $app->delete('/business/:id', function($id){
 		$mysqli = connectReuseDB();
 		echo json_encode("IN RIGHT FUNCTION");
 		$delID = $mysqli->real_escape_string($id);	
@@ -193,8 +227,14 @@ $app->response->headers->set('Content-Type', 'application/json');
 		reuse_generateXML();
 	});
 	
-	//Remove Specific Item
-	$app->delete('/item/:id', function($id){
+	/**
+	 * @api {delete} /item/:id Remove a specific item. 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiParam {integer} id item ID.
+	 */
+    $app->delete('/item/:id', function($id){
 		$mysqli = connectReuseDB();
 
 		$delID = $mysqli->real_escape_string($id);
@@ -205,7 +245,13 @@ $app->response->headers->set('Content-Type', 'application/json');
 		reuse_generateXML();
 	});
 	
-	//Remove Specific Business
+	/**
+	 * @api {delete} /category/:id Remove a specific category (associated businesses default to NULL). 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiParam {integer} id Category ID.
+	 */
 	$app->delete('/category/:id', function($id){
 		$mysqli = connectReuseDB();
 
@@ -217,6 +263,13 @@ $app->response->headers->set('Content-Type', 'application/json');
 		reuse_generateXML();
 	});
 
+	/**
+	 * @api {delete} /updateBusiness/:one/:id Remove a specific item from a business's catalog. 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiParam {integer} id Category ID.
+	 */
 	$app->delete('/updateBusiness/:one/:id', function($one, $id){
 		
 		$mysqli = connectReuseDB();
