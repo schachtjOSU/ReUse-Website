@@ -237,3 +237,11 @@ html, body, .container
 	text-overflow: ellipsis;
 }
 
+.list-item-title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+	margin-bottom: 5px;
+	
+}
+

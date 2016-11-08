@@ -47,7 +47,7 @@
 				
 				
 				if (item != "" && cat != "") {
-					console.log(cat + " " + item);
+					
 					initItemMap(cat, item);
 					
 				}
@@ -59,7 +59,9 @@
 		<!-- List JS -->
 		<script src="../js/listFunct.js" type="text/javascript"></script>
 		<script>
-			addBusinessList("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
+			var cat = encodeURI("<?php if(isset($_REQUEST['cat'])) {echo $_REQUEST['cat'];}?>");
+			var item = encodeURI("<?php if(isset($_REQUEST['item'])) {echo $_REQUEST['item'];}?>");
+			addBusinessList(cat, item);
 		</script>
     </body>
 </html>

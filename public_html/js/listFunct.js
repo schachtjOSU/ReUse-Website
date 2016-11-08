@@ -50,7 +50,7 @@ function addItemList(catName) {
 
 
 //adds list of businesses to "item-list-container"
-function addBusinessList(busName) {
+function addBusinessList(categoryName, itemName) {
 	var req = new XMLHttpRequest();
 	
 	req.onreadystatechange = function() {
@@ -68,7 +68,8 @@ function addBusinessList(busName) {
 				link.setAttribute('href', "business.php?name=" + encodeURI(bus[i].name));
 				
 				var linkTitle = document.createElement("p");
-				linkTitle.className = "list-group-item-heading";
+				linkTitle.className = "list-group-item-text";
+				linkTitle.className += " list-item-title";
 				var busName = document.createTextNode(bus[i].name);
 				linkTitle.appendChild(busName);
 				
@@ -76,7 +77,7 @@ function addBusinessList(busName) {
 				
 				if (bus[i].address_line_1  && bus[i].city && bus[i].abbreviation && bus[i].zip_code ) {
 					var linkAddress = document.createElement("p");
-					linkTitle.className = "list-group-item-text";
+					linkAddress.className = "list-group-item-text";
 					var busAddress = document.createTextNode(bus[i].address_line_1 + ", " + bus[i].city + ", " + bus[i].abbreviation + " " + bus[i].zip_code);
 					linkAddress.appendChild(busAddress);
 					link.appendChild(linkAddress);
@@ -100,11 +101,12 @@ function addBusinessList(busName) {
 		}
 	};
 	
-	if(busName === undefined || busName === "") {
+	if(categoryName === undefined || itemName === undefined || categoryName === "" || itemName === "") {
 		var busURI = APIBase + "/business/reuseExclusive";
 	}
 	else {
-		var busURI = APIBase + "/business/name/" + busName;
+		//var busURI = APIBase + "/business/name/" + busName;
+		var busURI = APIBase + "/business/category/name/" + categoryName + "/item/name/" + itemName;
 	}
 	
 	
