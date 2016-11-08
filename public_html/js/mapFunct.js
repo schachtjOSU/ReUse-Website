@@ -24,6 +24,7 @@ function corvallisMap () {
 		center: Corvallis
 	});
 	
+	
 	return map;
 }
 
@@ -43,7 +44,7 @@ function marker(latLng, map, pin, busName, busAddress, busCity, busState, busZip
 		street_address: busAddress,
 		city_address: busCity + " " + ", " + busState + " " + busZip
 		});
-		
+
 	return marker;
 }
 
@@ -51,9 +52,15 @@ function marker(latLng, map, pin, busName, busAddress, busCity, busState, busZip
 function addInfoWindow(marker, map) {
 	var infoWindow = new google.maps.InfoWindow();
 	
+	//adding the listener for clicking a marker
 	google.maps.event.addListener(marker, 'click', function() {
 		infoWindow.open(map, this);
 		infoWindow.setContent("<p><strong><a href=business.php?b=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
+	});
+	
+	// adding listener so clicking the map closes Info Windows
+	google.maps.event.addListener(map, "click", function(event) {
+		infoWindow.close();
 	});
 }
 
@@ -61,6 +68,9 @@ function addInfoWindow(marker, map) {
 function initGeneralMap() {
 	
 	var map =  corvallisMap();
+	
+	
+	
 	
 	var reqReuse = new XMLHttpRequest();
 	var reqRecycle = new XMLHttpRequest();

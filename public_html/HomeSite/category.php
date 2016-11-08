@@ -18,6 +18,7 @@
 		<link href="../Css/publicSite.css" rel="stylesheet">
 		<!-- Generic map styling css -->
 		<link href="../Css/map.css" rel="stylesheet">
+		<!-- C
 	</head>
 
     <body>
@@ -26,7 +27,8 @@
 				include 'header.php';
 			?>
 			<div class="category-container">
-				<div class="category-list-container">
+				<div class="list-group" id="category-list-container">
+					
 				</div>
 				
 				<div class="category-map-container">
@@ -55,6 +57,10 @@
 		</script>
 		<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initCategoryMapWrapper">
+		</script>
+		<script src="../js/listFunct.js" type="text/javascript"></script>
+		<script>
+			addItemList("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
 		</script>
     </body>
 </html>

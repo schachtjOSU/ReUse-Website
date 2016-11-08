@@ -89,11 +89,12 @@ html, body, .container
 	float: left;
 }
 
-.category-list-container, .item-list-container {
+#category-list-container, .item-list-container {
 	position: relative;
 	width: 30%;
 	height:100%;
 	float: left;
+	overflow: scroll;
 }
 
 .business-map-container {
@@ -203,11 +204,12 @@ html, body, .container
     background-color: #f9f9f9;
     min-width: 200px;
 	z-index: 1000;
+	
 }
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 10px 15px;
     text-decoration: none;
     display: block;
 }
