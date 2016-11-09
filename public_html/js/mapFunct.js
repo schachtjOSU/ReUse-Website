@@ -231,6 +231,8 @@ function initBusinessMap(busName) {
 		if (this.readyState == 4 && this.status == 200) {
 			var businesses = JSON.parse(this.responseText);
 			
+			console.log(businesses);
+			
 			if (busName === undefined || busName === "") { //if no business name is given, printing multiple businesses
 				for(i = 0; i < businesses.length; i++) {
 					var pinImage = pin();
