@@ -16,8 +16,13 @@
 	
 	
 	//replacing a single single-quote with two single-quotes in a given string
-	function singleToDoubleQuotes(&$variableString) {
-		$variableString = str_replace("'","''", $variableString);
+	function singleToDoubleQuotes(&$string) {
+		$string = str_replace("'","''", $string);
+	}
+	
+	//replacing a single underscore with a slash 
+	function underscoreToSlash(&$string) {
+		$string = str_replace("_","/", $string);
 	}
 	
 	/*
@@ -49,6 +54,7 @@
 	*/
 	$app->get('/business/category/name/:cat_name', function($cat_name){
 		singleToDoubleQuotes($cat_name);
+		underscoreToSlash($cat_name);
 		
 		$mysqli = connectReuseDB();
 
@@ -72,6 +78,7 @@
 	*/
 	$app->get('/business/category/name/not/:cat_name', function($cat_name){
 		singleToDoubleQuotes($cat_name);
+		underscoreToSlash($cat_name);
 		
 		$mysqli = connectReuseDB();
 
@@ -118,6 +125,7 @@
 	*/
 	$app->get('/business/item/name/:item_name', function($item_name){
 		singleToDoubleQuotes($item_name);
+		underscoreToSlash($item_name);
 		
 		$mysqli = connectReuseDB();
 		
@@ -143,6 +151,9 @@
 		
 		singleToDoubleQuotes($cat_name);
 		singleToDoubleQuotes($item_name);
+		underscoreToSlash($item_name);
+		underscoreToSlash($cat_name);
+		//echo $cat_name."	".$item_name;
 		
 		$mysqli = connectReuseDB();
 
@@ -170,6 +181,7 @@
 		$mysqli = connectReuseDB();
 		
 		singleToDoubleQuotes($bus_name);
+		underscoreToSlash($bus_name);
 		
 		$result = $mysqli->query("SELECT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id WHERE loc.name = '$bus_name'");
 
@@ -190,6 +202,7 @@
 		$mysqli = connectReuseDB();
 
 		singleToDoubleQuotes($bus_name);
+		underscoreToSlash($bus_name);
 		
 		$result = $mysqli->query("SELECT item.name FROM Reuse_Items AS item INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id INNER JOIN
 		Reuse_Locations AS loc ON loc.id = loc_item.location_id WHERE loc.name = '$bus_name' ORDER BY item.name");
@@ -213,6 +226,9 @@
 	$app->get('/item/category/name/:cat_name', function($cat_name){
 		
 		singleToDoubleQuotes($cat_name);
+		underscoreToSlash($cat_name);
+		
+		
 		
 		$mysqli = connectReuseDB();
 

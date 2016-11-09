@@ -64,12 +64,18 @@ function addInfoWindow(marker, map) {
 	});
 }
 
+//replaces a single slash with an underscore - a counterpart to underscoreToSlash in WebsiteRoutes.php
+function slashToUnderscore(string) {
+	var string = string.replace("/", "_");
+	return string;
+}
+
 //initializes a map with repair, recycling, and other businesses in three colors
 function initGeneralMap() {
 	
+	
+	
 	var map =  corvallisMap();
-	
-	
 	
 	
 	var reqReuse = new XMLHttpRequest();
@@ -145,6 +151,8 @@ function initGeneralMap() {
 
 //initializes a map with businesses from a given category, or all categories except Repair Items and Recycle if no category name is given
 function initCategoryMap(categoryName) {
+	
+	categoryName = slashToUnderscore(categoryName);
 		
 	var map =  corvallisMap();
 	
@@ -180,6 +188,8 @@ function initCategoryMap(categoryName) {
 //initializes a map with businesses associated with a given category and item
 function initItemMap(categoryName, itemName) {
 		
+	categoryName = slashToUnderscore(categoryName);
+	itemName = slashToUnderscore(itemName);
 	var map =  corvallisMap();
 	
 	var req = new XMLHttpRequest();
@@ -223,6 +233,8 @@ function initItemMap(categoryName, itemName) {
 //initializes a map with a pin for a single business with a given name
 function initBusinessMap(busName) {
 		
+	busName = slashToUnderscore(busName);
+	
 	var map =  corvallisMap();
 	var req = new XMLHttpRequest();
 	
