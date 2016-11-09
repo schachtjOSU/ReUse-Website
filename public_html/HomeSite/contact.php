@@ -16,8 +16,6 @@
 		<link href="../Css/jumbotron-narrow.css" rel="stylesheet">
 		<!-- Generic Reuse public site styling css -->
 		<link href="../Css/publicSite.css" rel="stylesheet">
-		<!-- Google Material Icons -->
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!-- Material Design Iconic Font -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 

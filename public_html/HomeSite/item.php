@@ -18,6 +18,8 @@
 		<link href="../Css/publicSite.css" rel="stylesheet">
 		<!-- Generic map styling css -->
 		<link href="../Css/map.css" rel="stylesheet">
+		<!-- Material Design Iconic Font -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 	</head>
 
     <body>
@@ -26,7 +28,8 @@
 				include 'header.php';
 			?>
 			<div class="item-container">
-				<div class="item-list-container">
+				<div id="item-list-container">
+					<p class="side-container-title"></p>
 				</div>
 				
 				<div class="item-map-container">
@@ -47,7 +50,7 @@
 				
 				
 				if (item != "" && cat != "") {
-					console.log(cat + " " + item);
+					
 					initItemMap(cat, item);
 					
 				}
@@ -55,6 +58,13 @@
 		</script>
 		<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initItemMapWrapper">
+		</script>
+		<!-- List JS -->
+		<script src="../js/listFunct.js" type="text/javascript"></script>
+		<script>
+			var cat = encodeURI("<?php if(isset($_REQUEST['cat'])) {echo $_REQUEST['cat'];}?>");
+			var item = encodeURI("<?php if(isset($_REQUEST['item'])) {echo $_REQUEST['item'];}?>");
+			addBusinessList(cat, item);
 		</script>
     </body>
 </html>

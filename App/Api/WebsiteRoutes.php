@@ -186,14 +186,35 @@
 	});
 	
 	/*
-	* GET request that provides an array of item names for items in a given category, ordered by ordered by item name
+	* GET request that provides an array of item names for items in a given category as well as the number of businesses for each item, ordered by ordered by item name
 	* @api
 	* @return string JSON
 	*/
 	$app->get('/item/category/name/:cat_name', function($cat_name){
 		$mysqli = connectReuseDB();
 
-		$result = $mysqli->query("SELECT item.name FROM Reuse_Items AS item INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id WHERE cat.name = '$cat_name' ORDER BY item.name");
+		$result = $mysqli->query("SELECT item.name, COUNT(loc_item.location_id) AS item_count FROM Reuse_Items AS item INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id WHERE cat.name = '$cat_name' GROUP BY (item.name) ORDER BY item.name");
+
+		$returnArray = array();
+	    while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+
+	    echo json_encode($returnArray);
+
+	    $result->close();
+	    $mysqli->close();
+	});
+	
+	/*
+	* GET request that provides an array of item names for items in any categories excluding the special categories of Repair, Repair Items, or Recycling as the number of businesses for each item, ordered by ordered by item name
+	* @api
+	* @return string JSON
+	*/
+	$app->get('/item/category/reuseExclusive', function(){
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT item.name, COUNT(loc_item.location_id) AS item_count FROM Reuse_Items AS item INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id WHERE cat.name NOT IN ('Repair', 'Repair Items', 'Recycle') GROUP BY (item.name) ORDER BY item.name");
 
 		$returnArray = array();
 	    while($row = $result->fetch_object()){
