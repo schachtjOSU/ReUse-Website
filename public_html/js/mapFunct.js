@@ -15,24 +15,36 @@ function pin(pinColor) {
 	return pin;
 }
 
+//returns an object with lat and lng as floats
+function LatLng(lat, lng) {
+	var latLng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+	return latLng;
+}
+
 //ititializes the map centered on the Corvallis area
 function corvallisMap () {
-	//centering the map on Corvallis
+	
 	var Corvallis = {lat: 44.569949, lng: -123.278285};
 	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 11,
 		center: Corvallis
 	});
 	
+	return map;
+}
+
+//ititializes the map centered on the given lat and lng
+function centeredMap (busLat, busLng) {
+
+	var  mapCenter = LatLng(busLat, busLng);
+	var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 11,
+		center: mapCenter
+	});
 	
 	return map;
 }
 
-//returns an object with lat and lng as floats
-function LatLng(lat, lng) {
-	var latLng = {lat: parseFloat(lat), lng: parseFloat(lng)};
-	return latLng;
-}
 
 //ititializes a marker with latLng, map, pin, busName, busAddress, busCity, busState, busZip
 function marker(latLng, map, pin, busName, busAddress, busCity, busState, busZip) {
@@ -55,7 +67,7 @@ function addInfoWindow(marker, map) {
 	//adding the listener for clicking a marker
 	google.maps.event.addListener(marker, 'click', function() {
 		infoWindow.open(map, this);
-		infoWindow.setContent("<p><strong><a href=business.php?b=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
+		infoWindow.setContent("<p><strong><a href=business.php?name=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
 	});
 	
 	// adding listener so clicking the map closes Info Windows
@@ -73,10 +85,7 @@ function slashToUnderscore(string) {
 //initializes a map with repair, recycling, and other businesses in three colors
 function initGeneralMap() {
 	
-	
-	
 	var map =  corvallisMap();
-	
 	
 	var reqReuse = new XMLHttpRequest();
 	var reqRecycle = new XMLHttpRequest();
@@ -162,6 +171,12 @@ function initCategoryMap(categoryName) {
 		if (this.readyState == 4 && this.status == 200) {
 			var businesses = JSON.parse(this.responseText);
 			
+			//centering on single business
+			if(businesses.length == 1 && businesses[0].latitude && businesses[0].longitude) {
+				map = centeredMap (businesses[0].latitude, businesses[0].longitude);
+			}
+			
+			//placing the pins
 			for(i = 0; i < businesses.length; i++) {
 				
 				var pinImage = pin();
@@ -198,6 +213,10 @@ function initItemMap(categoryName, itemName) {
 		if (this.readyState == 4 && this.status == 200) {
 			var businesses = JSON.parse(this.responseText);
 			
+			//centering on single business
+			if(businesses.length == 1 && businesses[0].latitude && businesses[0].longitude) {
+				map = centeredMap (businesses[0].latitude, businesses[0].longitude);
+			}
 			
 			for(i = 0; i < businesses.length; i++) {
 				
@@ -243,10 +262,18 @@ function initBusinessMap(busName) {
 		if (this.readyState == 4 && this.status == 200) {
 			var businesses = JSON.parse(this.responseText);
 			
-			console.log(businesses);
+			
 			
 			if (busName === undefined || busName === "") { //if no business name is given, printing multiple businesses
+				
+				//centering on single business
+				if(businesses.length == 1 && businesses[0].latitude && businesses[0].longitude) {
+					map = centeredMap (businesses[0].latitude, businesses[0].longitude);
+				}
+				
+				//placing the pins
 				for(i = 0; i < businesses.length; i++) {
+					
 					var pinImage = pin();
 					var myLatLng = LatLng(businesses[i].latitude, businesses[i].longitude);
 					var myMarker = marker(myLatLng, map, pinImage, businesses[i].name, businesses[i].address_line_1, businesses[i].city, businesses[i].abbreviation, businesses[i].zip_code);
@@ -256,6 +283,13 @@ function initBusinessMap(busName) {
 				
 			}
 			else {//if a business name is given, showing that business
+			
+				//centering on single business
+				if(businesses.latitude && businesses.longitude) {
+					map = centeredMap (businesses.latitude, businesses.longitude);
+				}
+				
+				//placing the pin
 				var pinImage = pin();
 				var myLatLng = LatLng(businesses.latitude, businesses.longitude);
 				var myMarker = marker(myLatLng, map, pinImage, businesses.name, businesses.address_line_1, businesses.city, businesses.abbreviation, businesses.zip_code);
