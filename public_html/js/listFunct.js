@@ -214,12 +214,18 @@ function addBusinessList(categoryName, itemName) {
 		}
 	};
 	
-	//selecting all businesses in the Reuse category if none is specified
-	if(categoryName === undefined || itemName === undefined || categoryName === "" || itemName === "") {
+	
+	if(categoryName === undefined || itemName === undefined || categoryName === "" || itemName === "") {//selecting all businesses in the Reuse category if none is specified
 		var busURI = APIBase + "/business/reuseExclusive";
 	}
-	else {
-		//var busURI = APIBase + "/business/name/" + busName;
+	else if (itemName === undefined || itemName === "") {//if a category is given but not an item, list all businesses associated with a category
+		var busURI = APIBase + "/business/category/name/" + categoryName;
+	}
+	else if (categoryName === undefined || categoryName === "") {//if an item is given but not a category, list all businesses associated with an item
+		var busURI = APIBase + "business/item/name/" + itemName;
+	}
+	else {//if both category and item names are given, list all businesses associated with both
+		
 		var busURI = APIBase + "/business/category/name/" + categoryName + "/item/name/" + itemName;
 	}
 	
@@ -327,11 +333,58 @@ function addBusinessContact(busName) {
 
 		}
 	};
+
+	if (busName === undefined || busName === "") { //if no business name is given, printing an error message
+		//resetting the page title
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Error";
+		
+		//setting an error message
+		
+		var contactDiv = document.getElementById("contact-container");
+		contactDiv.className = "list-group-item";
+		contactDiv.className += " error-message-text";
+		
+		var errorMessage = document.createElement("p");
+		errorMessage.className = "list-group-item-text";
+		errorMessage.appendChild(document.createTextNode("Unforunately, we could not find your business."));
+		errorMessage.appendChild(document.createElement("br"));
+		errorMessage.appendChild(document.createElement("br"));
+		errorMessage.appendChild(document.createTextNode("Try reviewing "));
+		
+		repairMessage = document.createElement("a");
+		repairMessage.setAttribute('href', "category.php?name=Repair%20Items");
+		repairMessage.innerHTML = "items accepted for repair";
+		errorMessage.appendChild(repairMessage);
+		
+		errorMessage.appendChild(document.createTextNode(", "));
+		
+		reuseMessage = document.createElement("a");
+		reuseMessage.setAttribute('href', "category.php?name=Repair%20Items");
+		reuseMessage.innerHTML = "items accepted for resale";
+		errorMessage.appendChild(reuseMessage);
+		
+		errorMessage.appendChild(document.createTextNode(", "));
+		
+		reuseMessage = document.createElement("a");
+		reuseMessage.setAttribute('href', "item.php?cat=Recycle%20Items&item=Recycle");
+		reuseMessage.innerHTML = "recycling services";
+		errorMessage.appendChild(reuseMessage);
+		
+		errorMessage.appendChild(document.createTextNode(", or the businesses shown on the map."));
+		
+		contactDiv.appendChild(errorMessage);
+		
+		
+		
+	}
+	else {//if a business name is given, printing its details
+		var busURI = APIBase + "/business/name/" + busName;
 	
-	var busURI = APIBase + "/business/name/" + busName;
+		req.open("GET", busURI, true);
+		req.send();
+	}
 	
-	req.open("GET", busURI, true);
-	req.send();
+	
 }
 
 //adds the list of items a given business accepts to "services-container"
@@ -385,8 +438,10 @@ function addBusinessServices(busName) {
 		}
 	};
 	
-	var busURI = APIBase + "/item/business/name/" + busName;
+	if (busName != undefined && busName != "") { //only if a business name is given should services be printed
+		var busURI = APIBase + "/item/business/name/" + busName;
 	
-	req.open("GET", busURI, true);
-	req.send();
+		req.open("GET", busURI, true);
+		req.send();
+	}
 }

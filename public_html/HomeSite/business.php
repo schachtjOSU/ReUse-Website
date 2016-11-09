@@ -49,9 +49,8 @@
 
 			function initBusinessMapWrapper() {
 				var busName = encodeURI("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
-				if(busName != "") {
-					initBusinessMap(busName);
-				}
+				
+				initBusinessMap(busName);
 				
 			}
 		</script>

@@ -202,7 +202,19 @@ function initItemMap(categoryName, itemName) {
 		
 	};
 
-	var itemURI = APIBase + "/business/category/name/" + categoryName + "/item/name/" + itemName;
+	if(categoryName === undefined || itemName === undefined || categoryName === "" || itemName === "") {//selecting all businesses in the Reuse category if none is specified
+		var itemURI = APIBase + "/business/reuseExclusive";
+	}
+	else if (itemName === undefined || itemName === "") {//if a category is given but not an item, list all businesses associated with a category
+		var itemURI = APIBase + "/business/category/name/" + categoryName;
+	}
+	else if (categoryName === undefined || categoryName === "") {//if an item is given but not a category, list all businesses associated with an item
+		var itemURI = APIBase + "business/item/name/" + itemName;
+	}
+	else {//if both category and item names are given, list all businesses associated with both
+		
+		var itemURI = APIBase + "/business/category/name/" + categoryName + "/item/name/" + itemName;
+	}
 	
 	req.open("GET", itemURI, true);
 	req.send();
@@ -219,16 +231,38 @@ function initBusinessMap(busName) {
 		if (this.readyState == 4 && this.status == 200) {
 			var businesses = JSON.parse(this.responseText);
 			
-			var pinImage = pin();
-			var myLatLng = LatLng(businesses.latitude, businesses.longitude);
-			var myMarker = marker(myLatLng, map, pinImage, businesses.name, businesses.address_line_1, businesses.city, businesses.abbreviation, businesses.zip_code);
+			if (busName === undefined || busName === "") { //if no business name is given, printing multiple businesses
+				for(i = 0; i < businesses.length; i++) {
+					var pinImage = pin();
+					var myLatLng = LatLng(businesses[i].latitude, businesses[i].longitude);
+					var myMarker = marker(myLatLng, map, pinImage, businesses[i].name, businesses[i].address_line_1, businesses[i].city, businesses[i].abbreviation, businesses[i].zip_code);
+					
+					addInfoWindow(myMarker, map);
+				}
+				
+			}
+			else {//if a business name is given, showing that business
+				var pinImage = pin();
+				var myLatLng = LatLng(businesses.latitude, businesses.longitude);
+				var myMarker = marker(myLatLng, map, pinImage, businesses.name, businesses.address_line_1, businesses.city, businesses.abbreviation, businesses.zip_code);
+				
+				addInfoWindow(myMarker, map);
+			}
 			
-			addInfoWindow(myMarker, map);
+			
 			
 		}
 	};
 
-	var busURI = APIBase + "/business/name/" + busName;
+	
+	if (busName === undefined || busName === "") { //if no business name is given, showing all businesses
+		var busURI = APIBase + "/business";
+		
+	}
+	else {//if a business name is given, show that business
+		var busURI = APIBase + "/business/name/" + busName;
+	}
+	
 	
 	req.open("GET", busURI, true);
 	req.send();
