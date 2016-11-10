@@ -11,8 +11,8 @@ $app->response->headers->set('Content-Type', 'application/json');
         
     /**
   	 * @api {get} /category/:id 
- 	 * @apiName ReUseApp
-	 * @apiGroup RUapi
+     * @apiName ReUseApp
+     * @apiGroup RUapi
      * 
 	 * @apiParam {Integer} id category unique ID.
      *
@@ -151,7 +151,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 	 *
 	 * @apiParam {String} one  Name of business.
 	 *
-     
+     * 
 	 * @apiSuccess {String} name Name of business
 	 * @apiSuccess {Integer} id ID of business 
      * @apiSuccess {String} Address_line1 Street
@@ -208,10 +208,10 @@ $app->response->headers->set('Content-Type', 'application/json');
 *************************************************************************************/
     
 	/**
-	 * @api {delete} /business/:id Remove a specific business. 
+	 * @api {delete} /business/:id Remove a specific business.  
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
-	 *
+	 * 
 	 * @apiParam {integer} id business ID.
 	 */
     $app->delete('/business/:id', function($id){
@@ -291,7 +291,17 @@ $app->response->headers->set('Content-Type', 'application/json');
 *				PUTS -- doing it as POSTS with UPDATES to avoid form issues
 ******************************************************************************************/
 	
-	/* Update a specific category name */	
+    /* Update a specific category name */
+
+	/**
+	 * @api {PUT} /changeCategory Update the name of a category 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiParam {string} name New category name.
+	 * @apiParam {string} oldName Current category name.
+	 *
+	 */
 	$app->post('/changeCategory', function(){
 
 		$oldName = $_POST['oldName'];
@@ -308,8 +318,16 @@ $app->response->headers->set('Content-Type', 'application/json');
 		reuse_generateXML();
 	});
 
-	/* update item */
-	$app->post('/changeItem', function(){
+
+	/**
+	 * @api {PUT} /changeItem Update the name of an item 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiParam {string} name New item name.
+	 * @apiParam {string} oldName Current item name.
+	 */
+    $app->post('/changeItem', function(){
 
 			$oldName = $_POST['oldName'];
 			$name = $_POST['name'];
@@ -329,12 +347,26 @@ $app->response->headers->set('Content-Type', 'application/json');
 		reuse_generateXML();
 	});
 
-		/* update item */
+		/* update business */
+    /**
+  	 * @api {PUT} /changeBusiness Update a business, identify by name 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+     * 
+	 * @apiParam {string} oldName Current name of business.
+	 * @apiParam {String} name Name of business
+     * @apiParam {String} add1 Street
+     * @apiParam {String} add2 Street continued
+     * @apiParam {string} phone Phone Number of business.
+	 * @apiParam {string} website Website URL
+     * @apiParam {string} city City
+     * @apiParam {string} state State
+	 * @apiParam {string} zip Zipcode
+	 */  
 	$app->post('/changeBusiness', function(){
 
 		$oldName = $_POST['oldName'];
 		$name = $_POST['name'];
-		$state = $_POST['state'];
 		$address = $_POST['add1'];
 		$address2 = $_POST['add2'];
 		$zipcode = $_POST['zip'];
@@ -378,8 +410,23 @@ $app->response->headers->set('Content-Type', 'application/json');
 /*****************************************************************************************
 *			POSTS
 ******************************************************************************************/
-/* Adding a New Business to the Directory */
-$app->post('/business', function(){
+    
+		/* update business */
+    /**
+  	 * @api {POST} /Business Insert a business, identify by name 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+     * 
+	 * @apiParam {String} name Name of business
+     * @apiParam {String} address Street
+     * @apiParam {String} address2 Street continued
+     * @apiParam {string} phone Phone Number of business.
+	 * @apiParam {string} website Website URL
+     * @apiParam {string} city City
+     * @apiParam {string} state State
+	 * @apiParam {string} zipcode Zipcode
+	 */  
+    $app->post('/business', function(){
 		
 		$name = $_POST['name'];
 		if (isset($_POST['address']) && !empty($_POST['address'])){
@@ -480,7 +527,13 @@ $app->post('/business', function(){
 		reuse_generateXML();
 });
 
-/* Adding a New Category */
+    /**
+  	 * @api {POST} /category Insert a new category 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+     * 
+	 * @apiParam {string} name Category name to add
+	 */
 $app->post('/category', function(){
 		$name = $_POST['name'];
 
@@ -518,7 +571,14 @@ $app->post('/category', function(){
 });
 
 
-/* Update the category an item is in */
+    /**
+  	 * @api {POST} /updateItems Update category item is in  
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+     * 
+	 * @apiParam {Integer} category Category ID item will belong to
+	 * @apiParam {string} name Item name to set
+	 */
 $app->post('/updateItems', function(){
 		$category = $_POST['category'];
 		$name = $_POST['name'];
@@ -531,9 +591,15 @@ $app->post('/updateItems', function(){
 		$mysqli->close();
 });
 
-/* many to many connection for business and items */
+
+    /**
+  	 * @api {POST} /updateBusiness Update items sold by a given business 
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+     * 
+	 * @apiParam {string} name Business name to set
+	 */
 $app->post('/updateBusiness', function(){
-		$item = $_POST['items'];
 		$name = $_POST['name'];
 
 		$mysqli = connectReuseDB();
@@ -569,6 +635,15 @@ $app->post('/updateBusiness', function(){
 });
 
 /* Adding a New Item */
+
+    /**
+  	 * @api {POST} /items  
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+     * 
+	 * @apiParam {Integer} cat Category ID item will belong to
+	 * @apiParam {string} name Item name to set
+	 */
 $app->post('/items', function(){
 
 		$name = $_POST['name'];

@@ -3,8 +3,8 @@
 
  /**
    *GET request prints out an XML tree of the contents of DB.
-   * @api
-   * @return void
+   * api
+   * return void
    *                            
    */
 
