@@ -51,7 +51,7 @@ function addNewCategory(){
     var tableData = "type="+type+"&name="+name;
 
     $.ajax({type:"POST",
-      url: webURL + "/ruAPI/category",
+      url: webURL + "/RUapi/category",
       data: tableData,
       success: function(data){
         console.log("success");

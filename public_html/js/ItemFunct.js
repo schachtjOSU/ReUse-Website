@@ -117,7 +117,7 @@ function updateItem(value){
   var tableData = "name="+name+"&category="+category;
 
     $.ajax({type:"POST",
-      url: webURL + "/ruAPI/updateItems",
+      url: webURL + "/RUapi/updateItems",
       data: tableData,
       success: function(data){
         $('#table').empty();

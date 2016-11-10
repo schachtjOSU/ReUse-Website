@@ -18,7 +18,7 @@ purpose: search for a category by name
 function searchCategory(){
     $('#table').empty();
     $.ajax({type:"GET",
-    url: webURL + "/ruAPI/category",
+    url: webURL + "/RUapi/category",
     dataType: 'json',
     success: function(data){
         var match = $('#searchName').val();
@@ -43,7 +43,7 @@ function delCategory(){
     var match = $('#delete').val();
     x = match;
     $.ajax({type:"DELETE",
-      url: webURL + "/ruAPI/category/" + match,
+      url: webURL + "/RUapi/category/" + match,
       dataType: 'json',
       success: function(data){
     }
@@ -60,7 +60,7 @@ purpose: edit a category by name
 function editCategory(){
     var x = $('#edit').val();
     $.ajax({type:"GET",
-    url: webURL + "/ruAPI/category/" + x,
+    url: webURL + "/RUapi/category/" + x,
     dataType: 'json',
     success: function(data){
       $('#table').empty();
@@ -95,12 +95,12 @@ function changeCategory(){
   console.log(x);
   console.log(y);
   $.ajax({type:"GET",
-    url: webURL + "/ruAPI/category/" + x,
+    url: webURL + "/RUapi/category/" + x,
     dataType: 'json',
     success: function(data){
        var tableData = "name="+y+"&oldName="+x;
         $.ajax({type:"POST",
-            url: webURL + "/ruAPI/changeCategory",
+            url: webURL + "/RUapi/changeCategory",
             data: tableData,
             success: function(){
               $('#form1').empty();

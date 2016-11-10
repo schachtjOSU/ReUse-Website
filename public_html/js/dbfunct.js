@@ -4,7 +4,7 @@ Purpose: Displays 50 states in a dropdown
 ***************************************************************/
 function displayStates(){
     $.ajax({type:"GET",
-    url: "/ruAPI/category",
+    url: "/RUapi/category",
     dataType: 'json',
     success: function(data){
         var c = "<select class='form-control' name='selectCat' id='categories'><option>Select Item Category</option>";

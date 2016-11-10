@@ -41,7 +41,7 @@ Purpose: Generate dropdown for 50 states
 */
 function displayStates(){
     $.ajax({type:"GET",
-      url: webURL + "/ruAPI/states",
+      url: webURL + "/RUapi/states",
       dataType: 'json',
       success: function(data){
           var states = "<select class='form-control' name='selectState' id='states'><option>Select State</option>";
@@ -144,7 +144,7 @@ function addNewBusiness(){
     var tableData = "type="+type+"&name="+name+"&address="+address+"&address2="+address2+"&city="+city+"&state="+state+"&phone="+phone+"&zipcode="+zipcode+"&website="+website;
     $('#output2').empty();
     $.ajax({type:"POST",
-      url: webURL + "/ruAPI/business",
+      url: webURL + "/RUapi/business",
       data: tableData,
       success: function(data){
         displayTable();
@@ -161,7 +161,7 @@ function displayTable(){
   $('#output2').empty();
   $('#table').empty();
     $.ajax({type:"GET",
-    url: webURL + "/ruAPI/items",
+    url: webURL + "/RUapi/items",
     dataType: 'json',
     success: function(data){
       window.alert("Select as many items as you'd like to be added to the Business.");
@@ -202,7 +202,7 @@ function updateItem(value){
   var tableData = "name="+name+"&items="+item;
 
     $.ajax({type:"POST",
-      url: webURL + "/ruAPI/updateBusiness",
+      url: webURL + "/RUapi/updateBusiness",
       data: tableData,
       success: function(data){
         console.log(data);
