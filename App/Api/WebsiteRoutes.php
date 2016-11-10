@@ -15,7 +15,15 @@
 	
 	
 	
+	//replacing a single single-quote with two single-quotes in a given string
+	function singleToDoubleQuotes(&$string) {
+		$string = str_replace("'","''", $string);
+	}
 	
+	//replacing a single underscore with a slash 
+	function underscoreToSlash(&$string) {
+		$string = str_replace("_","/", $string);
+	}
 	
 	/*
 	* a special GET request that provides a list of distinct businesses NOT in Repair, Repair Items, or Recycle
@@ -23,7 +31,7 @@
 	* @return string JSON
 	*/
 	$app->get('/business/reuseExclusive', function(){
-		header("Content-Type: application/json; charset=UTF-8");
+		
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id WHERE cat.name NOT IN ('Repair', 'Repair Items', 'Recycle')");
@@ -45,6 +53,9 @@
 	* @return string JSON
 	*/
 	$app->get('/business/category/name/:cat_name', function($cat_name){
+		singleToDoubleQuotes($cat_name);
+		underscoreToSlash($cat_name);
+		
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id WHERE cat.name = '$cat_name' ORDER BY loc.name");
@@ -66,7 +77,9 @@
 	* @return string JSON
 	*/
 	$app->get('/business/category/name/not/:cat_name', function($cat_name){
-		header("Content-Type: application/json; charset=UTF-8");
+		singleToDoubleQuotes($cat_name);
+		underscoreToSlash($cat_name);
+		
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id WHERE cat.name <> '$cat_name'");
@@ -88,6 +101,8 @@
 	* @return string JSON
 	*/
 	$app->get('/business', function(){
+		
+		
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id");//NOTE THAT LAST INNER JOIN IS UNNECESSARY - REMOVE LATER 
@@ -109,8 +124,11 @@
 	* @return string JSON
 	*/
 	$app->get('/business/item/name/:item_name', function($item_name){
+		singleToDoubleQuotes($item_name);
+		underscoreToSlash($item_name);
+		
 		$mysqli = connectReuseDB();
-
+		
 		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id WHERE item.name = '$item_name'");
 
 		$returnArray = array();
@@ -130,6 +148,13 @@
 	* @return string JSON
 	*/
 	$app->get('/business/category/name/:cat_name/item/name/:item_name', function($cat_name, $item_name){
+		
+		singleToDoubleQuotes($cat_name);
+		singleToDoubleQuotes($item_name);
+		underscoreToSlash($item_name);
+		underscoreToSlash($cat_name);
+		//echo $cat_name."	".$item_name;
+		
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id WHERE cat.name = '$cat_name' AND item.name = '$item_name'");
@@ -145,6 +170,8 @@
 	    $mysqli->close();
 	});
 
+	
+	
 	/*
 	* GET request that provides a business with a given name, not including items accepted
 	* @api
@@ -152,7 +179,10 @@
 	*/
 	$app->get('/business/name/:bus_name', function($bus_name){
 		$mysqli = connectReuseDB();
-
+		
+		singleToDoubleQuotes($bus_name);
+		underscoreToSlash($bus_name);
+		
 		$result = $mysqli->query("SELECT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id WHERE loc.name = '$bus_name'");
 
 		$business = $result->fetch_object();
@@ -171,6 +201,9 @@
 	$app->get('/item/business/name/:bus_name', function($bus_name){
 		$mysqli = connectReuseDB();
 
+		singleToDoubleQuotes($bus_name);
+		underscoreToSlash($bus_name);
+		
 		$result = $mysqli->query("SELECT item.name FROM Reuse_Items AS item INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id INNER JOIN
 		Reuse_Locations AS loc ON loc.id = loc_item.location_id WHERE loc.name = '$bus_name' ORDER BY item.name");
 
@@ -191,6 +224,12 @@
 	* @return string JSON
 	*/
 	$app->get('/item/category/name/:cat_name', function($cat_name){
+		
+		singleToDoubleQuotes($cat_name);
+		underscoreToSlash($cat_name);
+		
+		
+		
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query("SELECT item.name, COUNT(loc_item.location_id) AS item_count FROM Reuse_Items AS item INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id WHERE cat.name = '$cat_name' GROUP BY (item.name) ORDER BY item.name");

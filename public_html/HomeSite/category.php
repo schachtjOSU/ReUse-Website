@@ -46,6 +46,7 @@
 
 			function initCategoryMapWrapper() {
 				var catName = encodeURI("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
+				
 				if(catName == "") {
 					initCategoryMap();
 				}
@@ -61,7 +62,9 @@
 		<!-- List JS -->
 		<script src="../js/listFunct.js" type="text/javascript"></script>
 		<script>
-			addItemList("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
+			var catName = encodeURI("<?php if(isset($_REQUEST['name'])) {echo $_REQUEST['name'];}?>");
+			
+			addItemList(catName);
 		</script>
     </body>
 </html>

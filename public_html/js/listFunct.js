@@ -34,15 +34,24 @@ function getFormattedZip(zipString) {
 	return formattedZip;
 }
 
+//replaces a single slash with an underscore - a counterpart to underscoreToSlash in WebsiteRoutes.php
+function slashToUnderscore(string) {
+	var string = string.replace("/", "_");
+	return string;
+}
+
 //adds the page title and  and the list of items to "category-list-container"
 function addItemList(catName) {
+	
+	var oldCatName = catName;
+	catName = slashToUnderscore(catName);
 
 	//adding the page title
 	if(catName === undefined || catName === "") {
 		document.getElementsByClassName("side-container-title")[0].innerHTML = "Items Accepted";
 	}
 	else {
-		document.getElementsByClassName("side-container-title")[0].innerHTML = decodeURI(catName);
+		document.getElementsByClassName("side-container-title")[0].innerHTML = decodeURI(oldCatName);
 	}
 	
 	var req = new XMLHttpRequest();
@@ -51,6 +60,7 @@ function addItemList(catName) {
 		
 		if (this.readyState == 4 && this.status == 200) {
 			var items = JSON.parse(this.responseText);
+			console.log(items);
 			
 			//printing the items
 			for(i = 0; i < items.length; i++) {
@@ -62,7 +72,7 @@ function addItemList(catName) {
 				var link = document.createElement("a");
 				link.className = "list-group-item";
 				link.className += " list-item-title";
-				link.setAttribute('href', "item.php?cat=" + catName +"&item=" + encodeURI(items[i].name));
+				link.setAttribute('href', "item.php?cat=" + oldCatName +"&item=" + encodeURI(items[i].name));
 				
 				//the item name		
 				var itemName = document.createTextNode(items[i].name);
@@ -87,6 +97,7 @@ function addItemList(catName) {
 		var itemsURI = APIBase + "/item/category/reuseExclusive";
 	}
 	else {
+		
 		var itemsURI = APIBase + "/item/category/name/" + catName;
 	}
 	
@@ -99,12 +110,18 @@ function addItemList(catName) {
 //adds the page title and a list of businesses to "item-list-container" - it also sets the map width to 0 if none of the businesses have a lat and long
 function addBusinessList(categoryName, itemName) {
 	
+	var oldCategoryName = categoryName;
+	var oldItemName = itemName;
+	
+	categoryName = slashToUnderscore(categoryName);
+	itemName = slashToUnderscore(itemName);
+	
 	//setting the page title 
 	if(categoryName === undefined || itemName === undefined || categoryName === "" || itemName === "") {
 		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses";
 	}
 	else {
-		document.getElementsByClassName("side-container-title")[0].innerHTML = decodeURI(itemName);
+		document.getElementsByClassName("side-container-title")[0].innerHTML = decodeURI(oldItemName);
 	}
 	
 	
@@ -214,14 +231,22 @@ function addBusinessList(categoryName, itemName) {
 		}
 	};
 	
-	//selecting all businesses in the Reuse category if none is specified
-	if(categoryName === undefined || itemName === undefined || categoryName === "" || itemName === "") {
+	
+	if(categoryName === undefined || itemName === undefined || categoryName === "" || itemName === "") {//selecting all businesses in the Reuse category if none is specified
 		var busURI = APIBase + "/business/reuseExclusive";
 	}
-	else {
-		//var busURI = APIBase + "/business/name/" + busName;
+	else if (itemName === undefined || itemName === "") {//if a category is given but not an item, list all businesses associated with a category
+		var busURI = APIBase + "/business/category/name/" + categoryName;
+	}
+	else if (categoryName === undefined || categoryName === "") {//if an item is given but not a category, list all businesses associated with an item
+		var busURI = APIBase + "business/item/name/" + itemName;
+	}
+	else {//if both category and item names are given, list all businesses associated with both
+		
 		var busURI = APIBase + "/business/category/name/" + categoryName + "/item/name/" + itemName;
 	}
+	
+	console.log(busURI);
 	
 	
 	req.open("GET", busURI, true);
@@ -234,7 +259,7 @@ function addBusinessContact(busName) {
 	//setting the page title
 	document.getElementsByClassName("side-container-title")[0].innerHTML = decodeURI(busName);
 	
-	
+	busName = slashToUnderscore(busName);
 	
 	var req = new XMLHttpRequest();
 	
@@ -327,15 +352,65 @@ function addBusinessContact(busName) {
 
 		}
 	};
+
+	if (busName === undefined || busName === "") { //if no business name is given, printing an error message
+		//resetting the page title
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Error";
+		
+		//setting an error message
+		
+		var contactDiv = document.getElementById("contact-container");
+		contactDiv.className = "list-group-item";
+		contactDiv.className += " error-message-text";
+		
+		var errorMessage = document.createElement("p");
+		errorMessage.className = "list-group-item-text";
+		errorMessage.appendChild(document.createTextNode("Unforunately, we could not find your business."));
+		errorMessage.appendChild(document.createElement("br"));
+		errorMessage.appendChild(document.createElement("br"));
+		errorMessage.appendChild(document.createTextNode("Try reviewing "));
+		
+		repairMessage = document.createElement("a");
+		repairMessage.setAttribute('href', "category.php?name=Repair%20Items");
+		repairMessage.innerHTML = "items accepted for repair";
+		errorMessage.appendChild(repairMessage);
+		
+		errorMessage.appendChild(document.createTextNode(", "));
+		
+		reuseMessage = document.createElement("a");
+		reuseMessage.setAttribute('href', "category.php?name=Repair%20Items");
+		reuseMessage.innerHTML = "items accepted for resale";
+		errorMessage.appendChild(reuseMessage);
+		
+		errorMessage.appendChild(document.createTextNode(", "));
+		
+		reuseMessage = document.createElement("a");
+		reuseMessage.setAttribute('href', "item.php?cat=Recycle%20Items&item=Recycle");
+		reuseMessage.innerHTML = "recycling services";
+		errorMessage.appendChild(reuseMessage);
+		
+		errorMessage.appendChild(document.createTextNode(", or the businesses shown on the map."));
+		
+		contactDiv.appendChild(errorMessage);
+		
+		
+		
+	}
+	else {//if a business name is given, printing its details
+		var busURI = APIBase + "/business/name/" + busName;
 	
-	var busURI = APIBase + "/business/name/" + busName;
+		req.open("GET", busURI, true);
+		req.send();
+	}
 	
-	req.open("GET", busURI, true);
-	req.send();
+	
 }
 
 //adds the list of items a given business accepts to "services-container"
 function addBusinessServices(busName) {
+	
+	var oldBusName = busName;
+	busName = slashToUnderscore(busName);
 	
 	var req = new XMLHttpRequest();
 	
@@ -363,7 +438,7 @@ function addBusinessServices(busName) {
 			var servicesDesc = document.createElement("p");
 			servicesDesc.className = "list-group-item-text";
 			servicesDesc.className += " services-description-text";
-			servicesDesc.appendChild(document.createTextNode(decodeURI(busName) + " accepts the following items:"));
+			servicesDesc.appendChild(document.createTextNode(decodeURI(oldBusName) + " accepts the following items:"));
 			servicesDiv.appendChild(servicesDesc);
 			
 			//printing the items
@@ -385,8 +460,10 @@ function addBusinessServices(busName) {
 		}
 	};
 	
-	var busURI = APIBase + "/item/business/name/" + busName;
+	if (busName != undefined && busName != "") { //only if a business name is given should services be printed
+		var busURI = APIBase + "/item/business/name/" + busName;
 	
-	req.open("GET", busURI, true);
-	req.send();
+		req.open("GET", busURI, true);
+		req.send();
+	}
 }

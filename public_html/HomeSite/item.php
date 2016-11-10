@@ -47,13 +47,9 @@
 			function initItemMapWrapper() {
 				var cat = encodeURI("<?php if(isset($_REQUEST['cat'])) {echo $_REQUEST['cat'];}?>");
 				var item = encodeURI("<?php if(isset($_REQUEST['item'])) {echo $_REQUEST['item'];}?>");
-				
-				
-				if (item != "" && cat != "") {
 					
-					initItemMap(cat, item);
-					
-				}
+				initItemMap(cat, item);
+		
 			}
 		</script>
 		<script async defer
