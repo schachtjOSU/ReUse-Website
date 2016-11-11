@@ -24,6 +24,5 @@ function connectReuseDB() {
 	return $mysqli;
 }
 
-connectReuseDB();
 
 ?>
