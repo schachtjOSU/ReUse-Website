@@ -5,6 +5,8 @@
     YOUR WEBSITE HERE
 ************************************/
 var webURL = "";
+//var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
+
 /*
 Function: displayStates();
 Purpose: Displays 50 states in a dropdown
@@ -42,7 +44,7 @@ function checkSession(){
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
           window.alert("You are not logged in! You will be redirected.");
-          window.location.href = webURL + "/AdminSite/loginPage.php";
+          window.location.href = webURL + "loginPage.php";
         }
       }
     }

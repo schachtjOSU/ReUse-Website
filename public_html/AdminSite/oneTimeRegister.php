@@ -15,9 +15,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Corvallis Reuse and Repair Directory: Web Portal</title>
-  <link href="/Css/bootstrap.css" rel="stylesheet">
-  <link href="/Css/customStylesheet.css" rel="stylesheet">
-  <link href="/Css/media.css" rel="stylesheet">
+  <link href="../Css/bootstrap.css" rel="stylesheet">
+  <link href="../Css/customStylesheet.css" rel="stylesheet">
+  <link href="../Css/media.css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
   <script>
@@ -48,7 +48,7 @@ function newUser(){
       /* response was true, allow the user to continue */
      if(req.responseText == 1){
         /* redirect with updates */
-          window.location.href = "http://web.engr.oregonstate.edu/~masseyta/testApi/loginPage.php";
+          window.location.href = "loginPage.php";
      }
 
      /* response was false, can't add to DB */
@@ -65,7 +65,7 @@ function newUser(){
   }
 
       /* send data to create table */
-      req.open("POST","index2.php", true);
+      req.open("POST","loginCheck.php", true);
       req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
       var tableData = "type="+type+"&username="+username+"&password="+password;
         req.send(tableData);
@@ -109,6 +109,6 @@ function newUser(){
   </div> <!-- end container-->
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

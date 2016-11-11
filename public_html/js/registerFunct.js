@@ -6,6 +6,7 @@
     YOUR WEBSITE HERE
 ************************************/
 var webURL = "";
+//var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
 
 /* check session */
 function checkSession(){
@@ -17,7 +18,7 @@ function checkSession(){
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
           window.alert("You are not logged in! You will be redirected.");
-          window.location.href = webURL + "/AdminSite/loginPage.php";
+          window.location.href = webURL + "loginPage.php";
         }
       }
     }
@@ -57,11 +58,11 @@ function newUser(){
         /* redirect with updates */
         if(<?php echo !(isset($_SESSION['name']))?>){
           window.alert("New Account Created");
-          window.location.href = webURL + "/AdminSite/main.php";
+          window.location.href = webURL + "main.php";
         }
 
         else{
-          window.location.href = webURL + "/AdminSite/loginPage.php";
+          window.location.href = webURL + "loginPage.php";
         }
      }
 
@@ -79,7 +80,7 @@ function newUser(){
   }
 
       /* send data to create table */
-      req.open("POST","/AdminSite/loginCheck.php", true);
+      req.open("POST","loginCheck.php", true);
       req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
       var tableData = "type="+type+"&username="+username+"&password="+password;
         req.send(tableData);

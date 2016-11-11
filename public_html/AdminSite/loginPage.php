@@ -1,6 +1,11 @@
 <?php
-    session_unset();
-    session_destroy();
+	
+	//clearing any session variables there is an active session
+	if (session_status() == PHP_SESSION_ACTIVE) {
+		session_start();
+		session_unset();
+	}
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,11 +14,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Corvallis Reuse and Repair Directory: Web Portal</title>
-  <link href="/Css/bootstrap.css" type="text/css" rel="stylesheet">
-  <link href="/Css/customStylesheet.css" type="text/css" rel="stylesheet">
+  <link href="../Css/bootstrap.css" type="text/css" rel="stylesheet">
+  <link href="../Css/customStylesheet.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
-  <script src="/js/loginFunct.js"></script>
+  <script src="../js/loginFunct.js"></script>
 </head>
 
 
@@ -23,7 +28,7 @@
   <div class="container-fluid" id="smallCont">
 
     <!-- logo, left corner -->
-    <img src="/img/CSCLogo.png" class="img-thumbnail">
+    <img src="../img/CSCLogo.png" class="img-thumbnail">
     <div class="row">
       <div class="col-xs-12 col-md-12">
 
@@ -62,7 +67,7 @@
     <hr></hr>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
 
 </body>
 </html>
