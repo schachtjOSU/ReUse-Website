@@ -86,7 +86,7 @@ function addRecycleLinks() {
 		}
 	};
 	
-	var recycleURI = APIBase + "/business/category/name/Recycle/item/name/Recycle";
+	var recycleURI = APIBase + "/business/recycleExclusive";
 	
 	req.open("GET", recycleURI, true);
 	req.send();

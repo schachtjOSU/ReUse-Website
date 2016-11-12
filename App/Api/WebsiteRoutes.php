@@ -48,6 +48,30 @@
 	});
 	
 	/*
+	* a special GET request that provides a list of distinct businesses that are recycling centers
+	* @api
+	* @return string JSON
+	*/
+	$app->get('/business/recycleExclusive', function(){
+		
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id WHERE loc.recycle = 1");
+
+		$returnArray = array();
+	    while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+
+	    echo json_encode($returnArray);
+
+	    $result->close();
+	    $mysqli->close();
+	});
+	
+	
+	
+	/*
 	* GET request that provides a list of distinct businesses associated with a given category, ordered by business names
 	* @api
 	* @return string JSON

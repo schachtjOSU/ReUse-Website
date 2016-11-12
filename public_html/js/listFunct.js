@@ -138,7 +138,14 @@ function addBusinessList(categoryName, itemName) {
 			//printing the businesses
 			for(i = 0; i < bus.length; i++) {
 				
-				var listDiv = document.getElementById("item-list-container");
+				
+				if (categoryName === "Recycle" && itemName === "Recycle") {// if the special case used for recycling centers is used 
+					var listDiv = document.getElementById("recycle-list-container");
+				}
+				else {
+					var listDiv = document.getElementById("item-list-container");
+				}
+				
 				listDiv.className += " list-group";
 				
 				//the link
@@ -239,7 +246,10 @@ function addBusinessList(categoryName, itemName) {
 		var busURI = APIBase + "/business/category/name/" + categoryName;
 	}
 	else if (categoryName === undefined || categoryName === "") {//if an item is given but not a category, list all businesses associated with an item
-		var busURI = APIBase + "business/item/name/" + itemName;
+		var busURI = APIBase + "/business/item/name/" + itemName;
+	}
+	else if (categoryName === "Recycle" && itemName === "Recycle") {// if the special case used for recycling centers is used 
+		var busURI = APIBase + "/business/recycleExclusive";
 	}
 	else {//if both category and item names are given, list all businesses associated with both
 		
@@ -385,7 +395,7 @@ function addBusinessContact(busName) {
 		errorMessage.appendChild(document.createTextNode(", "));
 		
 		reuseMessage = document.createElement("a");
-		reuseMessage.setAttribute('href', "item.php?cat=Recycle%20Items&item=Recycle");
+		reuseMessage.setAttribute('href', "recycle.php");
 		reuseMessage.innerHTML = "recycling services";
 		errorMessage.appendChild(reuseMessage);
 		

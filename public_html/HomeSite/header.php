@@ -19,7 +19,7 @@
 						<div class="dropdown-content" id="header-reuse-links">
 						</div>
 					</li>
-					<li role="presentation" class="dropdown"><a href="item.php?cat=Recycle%20Items&item=Recycle" class="dropbtn">Recycle <span class="caret"></span></a>
+					<li role="presentation" class="dropdown"><a href="recycle.php" class="dropbtn">Recycle <span class="caret"></span></a>
 						<div class="dropdown-content" id="header-recycle-links">
 						</div>
 					</li>

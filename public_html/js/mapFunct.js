@@ -238,7 +238,10 @@ function initItemMap(categoryName, itemName) {
 		var itemURI = APIBase + "/business/category/name/" + categoryName;
 	}
 	else if (categoryName === undefined || categoryName === "") {//if an item is given but not a category, list all businesses associated with an item
-		var itemURI = APIBase + "business/item/name/" + itemName;
+		var itemURI = APIBase + "/business/item/name/" + itemName;
+	}
+	else if (categoryName === "Recycle" && itemName === "Recycle") {//if the special Recyce case is used 
+		var itemURI = APIBase + "/business/recycleExclusive";
 	}
 	else {//if both category and item names are given, list all businesses associated with both
 		
@@ -316,8 +319,6 @@ function initBusinessMap(busName) {
 	req.send();
 }
 
-
-  
   
   
   
