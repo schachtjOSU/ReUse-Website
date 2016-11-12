@@ -62,7 +62,6 @@ Function: addNewBusiness();
 Purpose: Add new Business Info, except many to many
 */
 function addNewBusiness(){
-
   /* get values from form */
   var name = document.getElementById("name").value;
   var address = document.getElementById("address").value;
@@ -70,7 +69,7 @@ function addNewBusiness(){
   var city = document.getElementById("city").value;
   var state = document.getElementById("states").value;
   var zipcode = document.getElementById("zipcode").value;
-  var phone = document.getElementById("phone").value;
+  var phone = (document.getElementById("phone").value).replace(/\D/g,'');
   var website = document.getElementById("website").value;
   var type = "add";
   x = name;
