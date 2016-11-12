@@ -11,21 +11,21 @@
 		<div class="header clearfix">
 			<nav>
 				<ul class="nav nav-pills pull-right">
-					<li role="presentation" class="dropdown"><a href="category.php?name=Repair%20Items" class="dropbtn">Repair <span class="caret"></span></a> 
+					<li role="presentation" class="dropdown header-button"><a href="category.php?name=Repair%20Items" class="dropbtn header-link">Repair <span class="caret"></span></a> 
 						<div class="dropdown-content" id="header-repair-links">
 						</div>
 					</li>
-					<li role="presentation" class="dropdown"><a href="category.php" class="dropbtn">Reuse <span class="caret"></span></a>
+					<li role="presentation" class="dropdown header-button"><a href="category.php" class="dropbtn header-link">Reuse <span class="caret"></span></a>
 						<div class="dropdown-content" id="header-reuse-links">
 						</div>
 					</li>
-					<li role="presentation" class="dropdown"><a href="recycle.php" class="dropbtn">Recycle <span class="caret"></span></a>
+					<li role="presentation" class="dropdown header-button"><a href="recycle.php" class="dropbtn header-link">Recycle <span class="caret"></span></a>
 						<div class="dropdown-content" id="header-recycle-links">
 						</div>
 					</li>
-					<li role="presentation"><a href="about.php">About</a></li>
-					<li role="presentation"><a href="contact.php">Contact</a></li>
-					<li role="presentation"><a href="../AdminSite/loginPage.php">Admin</a></li>
+					<li role="presentation" class="header-button"><a href="about.php" class="header-link">About</a></li>
+					<li role="presentation" class="header-button"><a href="contact.php" class="header-link">Contact</a></li>
+					<li role="presentation" class="header-button"><a href="../AdminSite/loginPage.php" class="header-link">Admin</a></li>
 				</ul>
 				<a href ="home.php">
 					<img id="header-icon" src="../img/CSCLogo.png">

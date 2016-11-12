@@ -36,7 +36,10 @@ function getFormattedZip(zipString) {
 
 //replaces a single slash with an underscore - a counterpart to underscoreToSlash in WebsiteRoutes.php
 function slashToUnderscore(string) {
-	var string = string.replace("/", "_");
+	if(string) {
+		var string = string.replace("/", "_");
+	}
+	
 	return string;
 }
 
@@ -60,7 +63,17 @@ function addItemList(catName) {
 		
 		if (this.readyState == 4 && this.status == 200) {
 			var items = JSON.parse(this.responseText);
-			console.log(items);
+			
+			
+			if (items.length == 0) { //printing the error message if no results
+				
+				if(catName === undefined) {
+					catName = "";
+				}
+				
+				printErrorMessage("side-container-title", "category-list-container", catName);
+				return;
+			}
 			
 			//printing the items
 			for(i = 0; i < items.length; i++) {
@@ -132,8 +145,17 @@ function addBusinessList(categoryName, itemName) {
 		if (this.readyState == 4 && this.status == 200) {
 			var bus = JSON.parse(this.responseText);
 			
-			var latLongCount = 0;
+			if (bus.length == 0) { //printing the error message if no results
+				
+				if (itemName === undefined) {
+					itemName = "";
+				}
+				
+				printErrorMessage("side-container-title", "item-list-container", itemName);
+				return;
+			}
 			
+			var latLongCount = 0;
 			
 			//printing the businesses
 			for(i = 0; i < bus.length; i++) {
@@ -256,8 +278,7 @@ function addBusinessList(categoryName, itemName) {
 		var busURI = APIBase + "/business/category/name/" + categoryName + "/item/name/" + itemName;
 	}
 	
-	console.log(busURI);
-	
+
 	
 	req.open("GET", busURI, true);
 	req.send();
@@ -278,6 +299,16 @@ function addBusinessContact(busName) {
 		if (this.readyState == 4 && this.status == 200) {
 			
 			var bus = JSON.parse(this.responseText);
+			
+			if (bus === null) { //printing the error message if no results
+				
+				if (busName === undefined) {
+					busName = "";
+				}
+				
+				printErrorMessage("side-container-title", "business-info-container", busName);
+				return;
+			}
 			
 			//adjusting business-map-container and business-info-container widths depending on lat and long
 			if(!bus.latitude|| !bus.longitude) {
@@ -364,46 +395,8 @@ function addBusinessContact(busName) {
 	};
 
 	if (busName === undefined || busName === "") { //if no business name is given, printing an error message
-		//resetting the page title
-		document.getElementsByClassName("side-container-title")[0].innerHTML = "Error";
-		
-		//setting an error message
-		
-		var contactDiv = document.getElementById("contact-container");
-		contactDiv.className = "list-group-item";
-		contactDiv.className += " error-message-text";
-		
-		var errorMessage = document.createElement("p");
-		errorMessage.className = "list-group-item-text";
-		errorMessage.appendChild(document.createTextNode("Unforunately, we could not find your business."));
-		errorMessage.appendChild(document.createElement("br"));
-		errorMessage.appendChild(document.createElement("br"));
-		errorMessage.appendChild(document.createTextNode("Try reviewing "));
-		
-		repairMessage = document.createElement("a");
-		repairMessage.setAttribute('href', "category.php?name=Repair%20Items");
-		repairMessage.innerHTML = "items accepted for repair";
-		errorMessage.appendChild(repairMessage);
-		
-		errorMessage.appendChild(document.createTextNode(", "));
-		
-		reuseMessage = document.createElement("a");
-		reuseMessage.setAttribute('href', "category.php?name=Repair%20Items");
-		reuseMessage.innerHTML = "items accepted for resale";
-		errorMessage.appendChild(reuseMessage);
-		
-		errorMessage.appendChild(document.createTextNode(", "));
-		
-		reuseMessage = document.createElement("a");
-		reuseMessage.setAttribute('href', "recycle.php");
-		reuseMessage.innerHTML = "recycling services";
-		errorMessage.appendChild(reuseMessage);
-		
-		errorMessage.appendChild(document.createTextNode(", or the businesses shown on the map."));
-		
-		contactDiv.appendChild(errorMessage);
-		
-		
+		printErrorMessage("side-container-title", "business-info-container", "");
+		return;
 		
 	}
 	else {//if a business name is given, printing its details
@@ -476,4 +469,53 @@ function addBusinessServices(busName) {
 		req.open("GET", busURI, true);
 		req.send();
 	}
+}
+
+function printErrorMessage(titleClass, containerId, topic) {
+		//resetting the page title
+		document.getElementsByClassName(titleClass)[0].innerHTML = "Error";
+
+		var parentDiv = document.getElementById(containerId);
+		
+		var errorDiv = document.createElement("div");
+		errorDiv.className = "list-group-item";
+		errorDiv.className += " error-message-text";
+		
+		var errorMessage = document.createElement("p");
+		errorMessage.className = "list-group-item-text";
+		
+		if(topic === undefined || topic === "") {
+			errorMessage.appendChild(document.createTextNode("Unforunately, we could not find what you were looking for."));
+		}
+		else {
+			errorMessage.appendChild(document.createTextNode("Unforunately, we could not find any results related to " + topic.toLowerCase() + "."));
+		}
+		
+		errorMessage.appendChild(document.createElement("br"));
+		errorMessage.appendChild(document.createElement("br"));
+		errorMessage.appendChild(document.createTextNode("Try reviewing "));
+		
+		repairMessage = document.createElement("a");
+		repairMessage.setAttribute('href', "category.php?name=Repair%20Items");
+		repairMessage.innerHTML = "items accepted for repair";
+		errorMessage.appendChild(repairMessage);
+		
+		errorMessage.appendChild(document.createTextNode(", "));
+		
+		reuseMessage = document.createElement("a");
+		reuseMessage.setAttribute('href', "category.php?name=Repair%20Items");
+		reuseMessage.innerHTML = "items accepted for resale";
+		errorMessage.appendChild(reuseMessage);
+		
+		errorMessage.appendChild(document.createTextNode(", "));
+		
+		reuseMessage = document.createElement("a");
+		reuseMessage.setAttribute('href', "recycle.php");
+		reuseMessage.innerHTML = "recycling services";
+		errorMessage.appendChild(reuseMessage);
+		
+		errorMessage.appendChild(document.createTextNode(", or the businesses shown on the map."));
+		
+		errorDiv.appendChild(errorMessage);
+		parentDiv.appendChild(errorDiv);
 }

@@ -82,6 +82,11 @@ function slashToUnderscore(string) {
 	return string;
 }
 
+//shows the default map, which is one listing all businesses
+function showErrorMap() {
+	initBusinessMap();
+}
+
 //initializes a map with repair, recycling, and other businesses in three colors
 function initGeneralMap() {
 	
@@ -171,6 +176,11 @@ function initCategoryMap(categoryName) {
 		if (this.readyState == 4 && this.status == 200) {
 			var businesses = JSON.parse(this.responseText);
 			
+			if(businesses.length == 0) {//printing the default error map if no results
+				showErrorMap();
+				return;
+			}
+			
 			//centering on single business
 			if(businesses.length == 1 && businesses[0].latitude && businesses[0].longitude) {
 				map = centeredMap (businesses[0].latitude, businesses[0].longitude);
@@ -212,6 +222,11 @@ function initItemMap(categoryName, itemName) {
 	req.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var businesses = JSON.parse(this.responseText);
+			
+			if(businesses.length == 0) {//printing the default error map if no results
+				showErrorMap();
+				return;
+			}
 			
 			//centering on single business
 			if(businesses.length == 1 && businesses[0].latitude && businesses[0].longitude) {
@@ -264,10 +279,15 @@ function initBusinessMap(busName) {
 		
 		if (this.readyState == 4 && this.status == 200) {
 			var businesses = JSON.parse(this.responseText);
-			
-			
+
 			
 			if (busName === undefined || busName === "") { //if no business name is given, printing multiple businesses
+				
+				
+				if(businesses.length == 0) {//printing the default error map if no results
+					showErrorMap();
+					return;
+				}
 				
 				//centering on single business
 				if(businesses.length == 1 && businesses[0].latitude && businesses[0].longitude) {
@@ -286,6 +306,11 @@ function initBusinessMap(busName) {
 				
 			}
 			else {//if a business name is given, showing that business
+			
+				if(businesses === null) {//printing the default error map if no results
+					showErrorMap();
+					return;
+				}
 			
 				//centering on single business
 				if(businesses.latitude && businesses.longitude) {
@@ -318,6 +343,8 @@ function initBusinessMap(busName) {
 	req.open("GET", busURI, true);
 	req.send();
 }
+
+
 
   
   

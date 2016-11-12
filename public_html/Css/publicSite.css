@@ -212,10 +212,12 @@ html, body, .container
     display: block;
 }
 
-.dropdown:hover .dropbtn {
+.dropdown:hover .dropbtn, .header-button:hover .header-link{
     background-color: #99B247;
 	color: #FFFFFF;
 }
+
+
 
 
 .list-group-item{
