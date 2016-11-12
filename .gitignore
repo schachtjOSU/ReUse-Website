@@ -8,7 +8,7 @@
 /logs/
 
 # apache
-.htaccess 
+.htaccess
 
 # DB
 database_cred.php
@@ -19,3 +19,6 @@ bingApiKey.php
 
 # Android
 AndroidSourceCode
+
+# .DS_Store that my mc makes
+.DS_Store
