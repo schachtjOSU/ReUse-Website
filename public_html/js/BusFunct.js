@@ -36,7 +36,7 @@ function checkSession(){
     req.send();
 }
 
-/* 
+/*
 Function: displayStates
 Purpose: Generate dropdown for 50 states
 */
@@ -46,7 +46,7 @@ function displayStates(){
       dataType: 'json',
       success: function(data){
           var states = "<select class='form-control' name='selectState' id='states'><option>Select State</option>";
-          for(var i = 0; i < data.length; i++){ 
+          for(var i = 0; i < data.length; i++){
             states += "<option value = " + data[i].id + ">";
             states += data[i].name;
             states += "</option>";
@@ -82,59 +82,48 @@ function addNewBusiness(){
   /* check for blanks in the form */
   if(address == null){
     document.getElementById("output2").innerHTML ="Please enter a valid business address.\n";
-    document.getElementById("addBusiness").reset();
     flag = 1;
   }
   if(city == null){
     document.getElementById("output2").innerHTML ="Please enter a valid city.\n";
-    document.getElementById("addBusiness").reset();
     flag = 1;
   }
   if(state == null){
     document.getElementById("output2").innerHTML ="Please enter a state from the drop down.\n";
-    document.getElementById("addBusiness").reset();
     flag =1;
   }
   if(phone == null){
     document.getElementById("output2").innerHTML ="Please enter a valid phone number.\n";
-    document.getElementById("addBusiness").reset();
     flag = 1;
   }
   if(zipcode == null){
       document.getElementById("output2").innerHTML ="Please enter a valid phone zip code.\n";
-      document.getElementById("addBusiness").reset();
     flag = 1;
   }
 
   /* now check for errors */
   if(isNaN(zipcode)){
       document.getElementById("output2").innerHTML ="Zipcode input should be numeric.\n";
-      document.getElementById("addBusiness").reset();
       flag = 1;
   }
   if(zipcode.length != 5){
       document.getElementById("output2").innerHTML ="Please enter a valid zip code of 5 digits.\n";
-      document.getElementById("addBusiness").reset();
       flag = 1;
   }
   if(isNaN(phone)){
       document.getElementById("output2").innerHTML ="Phone input should be numeric, with no special characters. Ex: 5031234566.\n";
-      document.getElementById("addBusiness").reset();
       flag = 1;
   }
   if(phone.length != 10){
       document.getElementById("output2").innerHTML ="Please enter a valid phone number of 10 digits.\n";
-      document.getElementById("addBusiness").reset();
       flag = 1;
   }
   if(address.length > 150){
       document.getElementById("output2").innerHTML ="Please enter a valid address, less than 150 characters.\n";
-      document.getElementById("addBusiness").reset();
       flag = 1;
   }
   if(address.length > 50){
       document.getElementById("output2").innerHTML ="Please enter a valid city, less than 50 characters.\n";
-      document.getElementById("addBusiness").reset();
       flag = 1;
   }
   if(flag != 0){
@@ -170,7 +159,7 @@ function displayTable(){
         entry += '<label>Accepts Following Items: </label>';
         $('#tableHere').append(entry);
         var row = '<tr><th>' + 'Name' + '</th><th>'  + 'Add to Business' + '</th></tr>';
-        for(var i = 0; i < data.length; i++){ 
+        for(var i = 0; i < data.length; i++){
             row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= update1 value=' + data[i].id + '><input type= submit value=update id=update onclick=updateItem('+data[i].id+')>' + '</td></tr>';
         }
         $('#table').append(row);
@@ -209,4 +198,4 @@ function updateItem(value){
         console.log(data);
       },
     });
-  }  
+  }
