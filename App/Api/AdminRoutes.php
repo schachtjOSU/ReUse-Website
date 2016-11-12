@@ -237,7 +237,8 @@ $app->response->headers->set('Content-Type', 'application/json');
     $app->delete('/item/:id', function($id){
 		$mysqli = connectReuseDB();
 
-		$delID = $mysqli->real_escape_string($id);
+        $delID = $mysqli->real_escape_string($id);
+		$mysqli->query("DELETE FROM Reuse_Locations_Items WHERE item_id = '$delID'");
 		$mysqli->query("DELETE FROM Reuse_Items WHERE Reuse_Items.id ='$delID'");
 		$mysqli->close();
 

@@ -46,6 +46,7 @@ function searchItem(){
     url: webURL + "/RUapi/items",
     dataType: 'json',
     success: function(data){
+
         var match = $('#searchName').val();
         x = match;
         var row = '<tr><th>' + 'Name' + '</th><th>' + 'Modify' + '</th><th>' + 'Delete' + '</th></tr>';
