@@ -432,6 +432,13 @@ function addBusinessServices(busName) {
 
 			//checking for a special case for Recycling Businesses with no items besides "Recycle" or the case where no items are returned
 			if((items.length == 0 || items.length == 1 && items[0].name == "Recycle")) {
+				
+				//setting the contact div so that it expands to fill the remainding space in business-info-container
+				var minHeight = document.getElementById('business-info-container').offsetHeight - document.getElementsByClassName('side-container-title')[0].offsetHeight - 10;
+				if(document.getElementById('contact-container').offsetHeight < minHeight) {
+					document.getElementById('contact-container').style.height = minHeight + "px";
+				}
+				
 				return;
 			}
 			
