@@ -379,6 +379,7 @@ function addBusinessContact(busName) {
 			
 			//website
 			if(bus.website) {
+
 				var busWebsite = document.createElement("a");
 				busWebsite.setAttribute('href', bus.website);
 				busWebsite.className = "list-group-item-text";
@@ -433,12 +434,16 @@ function addBusinessServices(busName) {
 			//checking for a special case for Recycling Businesses with no items besides "Recycle" or the case where no items are returned
 			if((items.length == 0 || items.length == 1 && items[0].name == "Recycle")) {
 				
+				//adding any links the business may have
+				addBusinessLinks(busName);
+				
 				//setting the contact div so that it expands to fill the remainding space in business-info-container
+				/*
 				var minHeight = document.getElementById('business-info-container').offsetHeight - document.getElementsByClassName('side-container-title')[0].offsetHeight - 10;
 				if(document.getElementById('contact-container').offsetHeight < minHeight) {
 					document.getElementById('contact-container').style.height = minHeight + "px";
 				}
-				
+				*/
 				return;
 			}
 			
@@ -474,6 +479,9 @@ function addBusinessServices(busName) {
 
 			servicesDiv.appendChild(itemList);
 			
+			//adding any links the business may have
+			addBusinessLinks(busName);
+			
 			//setting the services div so that it expands to fill the remainding space in business-info-container
 			var minServicesHeight = document.getElementById('business-info-container').offsetHeight - document.getElementsByClassName('side-container-title')[0].offsetHeight - document.getElementById('contact-container').offsetHeight - 10;
 			if(servicesDiv.offsetHeight < minServicesHeight) {
@@ -485,6 +493,83 @@ function addBusinessServices(busName) {
 	
 	if (busName != undefined && busName != "") { //only if a business name is given should services be printed
 		var busURI = APIBase + "/item/business/name/" + busName;
+	
+		req.open("GET", busURI, true);
+		req.send();
+	}
+}
+
+//adds the list of items a given business accepts to "services-container"
+function addBusinessLinks(busName) {
+	var oldBusName = busName;
+	busName = slashToUnderscore(busName);
+	
+	var req = new XMLHttpRequest();
+	
+	req.onreadystatechange = function() {
+		
+		if (this.readyState == 4 && this.status == 200) {
+			
+			var links = JSON.parse(this.responseText);
+
+			//checking if there are no links
+			if(links.length == 0) {
+
+				//expanding the contact div
+				if(!document.getElementById("services-container").firstChild) {
+					//setting the contact div so that it expands to fill the remainding space in business-info-container				
+					var minHeight = document.getElementById('business-info-container').offsetHeight - document.getElementsByClassName('side-container-title')[0].offsetHeight - 10;
+					if(document.getElementById('contact-container').offsetHeight < minHeight) {
+						document.getElementById('contact-container').style.height = minHeight + "px";
+					}
+				}
+				
+				
+				return;
+			}
+			
+			
+			var servicesDiv = document.getElementById("services-container");
+			servicesDiv.className = "list-group-item";
+			
+			//services label
+			var servicesTitle = document.createElement("p");
+			servicesTitle.className = "side-container-subtitle";
+			servicesTitle.innerHTML = "Additional Information";
+			servicesDiv.appendChild(servicesTitle);
+			
+			console.log(links);
+			
+			//adding links
+			for(i = 0; i < links.length; i++) {
+				
+				var busPar = document.createElement("p");
+				var busLink = document.createElement("a");
+				busLink.setAttribute('href', links[i].URI);
+				
+				var linkIcon = document.createElement("i");
+				linkIcon.className = "zmdi";
+				linkIcon.className += " zmdi-link";
+				
+				busLink.appendChild(linkIcon);
+				busLink.appendChild(document.createTextNode(links[i].name));
+				busPar.appendChild(busLink);
+
+				servicesDiv.appendChild(busPar);
+			}
+
+			//setting the services div so that it expands to fill the remainding space in business-info-container
+			var minServicesHeight = document.getElementById('business-info-container').offsetHeight - document.getElementsByClassName('side-container-title')[0].offsetHeight - document.getElementById('contact-container').offsetHeight - 10;
+			if(servicesDiv.offsetHeight < minServicesHeight) {
+				servicesDiv.style.height = minServicesHeight + "px";
+			}
+			
+
+		}
+	};
+	
+	if (busName != undefined && busName != "") { //only if a business name is given should links be printed
+		var busURI = APIBase + "/document/business/name/" + busName;
 	
 		req.open("GET", busURI, true);
 		req.send();

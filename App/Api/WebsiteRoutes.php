@@ -311,6 +311,29 @@
 	    $mysqli->close();
 	});
 	
+	/*
+	* GET request that provides an array of links associated with a given business ordered by name
+	* @api
+	* @return string JSON
+	*/
+	$app->get('/document/business/name/:bus_name', function($bus_name){
+		singleToDoubleQuotes($bus_name);
+		underscoreToSlash($bus_name);
+		
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT DISTINCT doc.name, doc.URI FROM Reuse_Documents AS doc INNER JOIN Reuse_Locations AS loc ON doc.location_id = loc.id WHERE loc.name = '$bus_name' ORDER BY doc.name");
+
+		$returnArray = array();
+	    while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+
+	    echo json_encode($returnArray);
+
+	    $result->close();
+	    $mysqli->close();
+	});
 	
 	
 	?>
