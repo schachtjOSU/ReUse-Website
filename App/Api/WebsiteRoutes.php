@@ -336,4 +336,26 @@
 	});
 	
 	
+	/*
+	* GET request that provides an array donors ordered by name
+	* @api
+	* @return string JSON
+	*/
+	$app->get('/donor', function(){
+		
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT DISTINCT donor.name, donor.description, donor.websiteurl FROM Reuse_Donors AS donor ORDER BY donor.name");
+
+		$returnArray = array();
+	    while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+
+	    echo json_encode($returnArray);
+
+	    $result->close();
+	    $mysqli->close();
+	});
+	
 	?>

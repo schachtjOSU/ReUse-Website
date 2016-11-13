@@ -126,9 +126,9 @@ html, body, .container
 .about-information {
 	position:relative;
 	width: 65%;
-	height:90%;
+	min-height:90%;
 	float: left;
-	padding: 60px;
+	padding: 20px;
 	
 }
 
@@ -148,7 +148,7 @@ html, body, .container
 
 .contact-link {
 	padding: 10px;
-    font-size: 120%;
+    font-size: 100%;
 }
 
 .contact-text, .about-text {
@@ -258,3 +258,6 @@ html, body, .container
 	margin-bottom: 0px;
 }
 
+.donor-label {
+	
+}

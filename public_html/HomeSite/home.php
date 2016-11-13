@@ -46,9 +46,9 @@
 					<p>The purpose of the Reuse and Repair Directory is to provide the Corvallis and outlying community a way to easily locate businesses that will accept the follwing. take reusable items that can be sold to the public as used items, 2) take and repair items, and 3) take recyclable items.</p>
 				</div>
 
-				<div class="col-md-3 home-text">
+				<div class="col-md-3 home-text" id="donor-thanks">
 					<h4>Sponsors</h4>
-					<p>If you would like to support the Corvallis Reuse and Repair Directory, contact the Corvallis Sustainability Coalition.</p>
+					<p>If you would like to sponsor the Corvallis Reuse and Repair Directory, please <a href="contact.php">let us know</a>. We appreciate your support.</p>
 				</div>
 			</div>
 			
@@ -57,10 +57,15 @@
 			?>
 		</div> <!-- /container -->
 		<!-- Map JS -->
-		<script src="../js/mapFunct.js" type="text/javascript">
+		<script src="../js/mapFunct.js" type="text/javascript" />
 		<script></script>
 		<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiF8JALjnfAymACLHqPAhlrLlUj3y9DTo&callback=initGeneralMap">
+		</script>
+		<!-- Donor JS -->
+		<script src="../js/sponsorsFunct.js" type="text/javascript"></script>
+		<script>
+			addShortSponsorsThanks();
 		</script>
     </body>
 </html>
