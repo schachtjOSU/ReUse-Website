@@ -15,10 +15,6 @@ function reuse_generateXML() {
 		// - As $XML_FILENAME	
 	require 'xmlGeneratorConfig.php' ;
 	
-	/* Database Connection function */
-	/* It's messy, but assumed to be defined prior to this page being included */
-	//require $DATABASE_CONNECT;
-	
 	/* SimpleXML Declaration */
 	$sxml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?><reuse/>');
 	
@@ -96,6 +92,26 @@ function reuse_generateXML() {
 		}
 		$stmt2->close();
 		
+		
+		//adding links
+		
+		$linkList = $business->addChild("link_list");
+		
+		if ( !(	$stmt4 = $mysqli->prepare( "SELECT DISTINCT link.name, link.URI FROM Reuse_Documents AS link INNER JOIN Reuse_Locations AS loc ON loc.id = link.location_id WHERE loc.id = ?") ) ) {
+					echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+		}
+		$stmt4->bind_param('i', $Loc_id);
+		$stmt4->bind_result($link_name, $link_URI);
+		$stmt4->execute();
+		$stmt4->store_result();
+		while ($stmt4->fetch()) {
+			$link = $linkList->addChild("link");
+				$link->addChild("name", $link_name);
+				$link->addChild("URI", $link_URI);
+		}
+		$stmt4->close();
+		
+		
 	}
 	$stmt->close();
 	
@@ -130,4 +146,136 @@ function echoXMLFile() {
 	return;
 }
 
+/* Prints out text/xml MIME-type information about existing the recycling centers*/
+function echoRecycleXML() {
+	
+	/* Database Connection */
+	include ( 'xmlGeneratorConfig.php' );
+	$mysqli = connectReuseDB();
+	
+	/*output type is xml*/
+	header('Content-Type: text/xml');
+
+	/* SimpleXML Declaration */
+	$sxml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?><recycle/>');
+	
+	/* Recycle List*/
+	$businessList = $sxml->addChild("recycle_list");
+	
+	
+	
+	/* Query for recycling centers and all items associated with it */
+	if ( !($stmt = $mysqli->prepare( "SELECT L.id, L.name, L.address_line_1, L.address_line_2, L.city, S.abbreviation, L.zip_code, L.phone, L.website, L.latitude, L.longitude  FROM Reuse_Locations L LEFT JOIN States S ON L.state_id = S.id WHERE L.recycle = 1 ORDER BY L.name;" ) ) ) {
+		echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+	}
+	
+	$stmt->bind_result($Loc_id, $name, $address_line_1, $address_line_2, $city, $state, $zip_code, $phone, $website, $latitude, $longitude);
+	$stmt->execute();
+	$stmt->store_result();
+	
+	  //fetch and print results
+	while ($stmt->fetch()) {
+		
+		//adding business details
+		$business = $businessList->addChild("business");
+		$business->addChild("id", $Loc_id);
+		$business->addChild("name", escapeSpecial($name));
+		$contact_info = $business->addChild("contact_info");
+			$address = $contact_info->addChild("address");			
+				$address->addChild("address_line_1", escapeSpecial($address_line_1));
+				$address->addChild("address_line_2", $address_line_2);
+				$address->addChild("city", escapeSpecial($city));
+				$address->addChild("state", $state);
+				$address->addChild("zip", escapeSpecial($zip_code));
+			$contact_info->addChild("phone", escapeSpecial($phone));
+			$contact_info->addChild("website", escapeSpecial($website));
+			$latlong = $contact_info->addChild("latlong");
+				$latlong->addChild("latitude", $latitude);
+				$latlong->addChild("longitude", $longitude);
+		
+		
+		//adding items
+		
+		$itemList = $business->addChild("services_list");
+
+		if ( !(	$stmt2 = $mysqli->prepare( "SELECT DISTINCT item.name FROM Reuse_Items AS item INNER JOIN Reuse_Locations_Items AS loc_item ON loc_item.item_id = item.id INNER JOIN Reuse_Locations AS loc ON loc.id = loc_item.location_id WHERE loc.id = ?") ) ) {
+					echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+		}
+		$stmt2->bind_param('i', $Loc_id);
+		$stmt2->bind_result($item_name);
+		$stmt2->execute();
+		$stmt2->store_result();
+		while ($stmt2->fetch()) {
+			$item = $itemList->addChild("item", $item_name);
+		}
+		$stmt2->close();
+		
+		//adding links
+		
+		$linkList = $business->addChild("link_list");
+		
+		if ( !(	$stmt3 = $mysqli->prepare( "SELECT DISTINCT link.name, link.URI FROM Reuse_Documents AS link INNER JOIN Reuse_Locations AS loc ON loc.id = link.location_id WHERE loc.id = ?") ) ) {
+					echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+		}
+		$stmt3->bind_param('i', $Loc_id);
+		$stmt3->bind_result($link_name, $link_URI);
+		$stmt3->execute();
+		$stmt3->store_result();
+		while ($stmt3->fetch()) {
+			$link = $linkList->addChild("link");
+				$link->addChild("name", $link_name);
+				$link->addChild("URI", $link_URI);
+		}
+		$stmt3->close();
+		
+	}
+	$stmt->close();
+	
+	echo $sxml->asXML();
+	return true;
+	
+}
+
+/* Prints out text/xml MIME-type information about existing donors*/
+function echoDonorXML() {
+	
+	/* Database Connection */
+	include ( 'xmlGeneratorConfig.php' );
+	$mysqli = connectReuseDB();
+	
+	/*output type is xml*/
+	header('Content-Type: text/xml');
+
+	/* SimpleXML Declaration */
+	$sxml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?><donor/>');
+	
+	/* Recycle List*/
+	$donorList = $sxml->addChild("donor_list");
+	
+	
+	
+	/* Query for donors */
+	if ( !($stmt = $mysqli->prepare( "SELECT donor.name, donor.websiteurl, donor.description FROM Reuse_Donors AS donor ORDER BY donor.name" ) ) ) {
+		echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+	}
+	
+	$stmt->bind_result($donorName, $donorURL, $donorDescription);
+	$stmt->execute();
+	$stmt->store_result();
+	
+	  //fetch and print results
+	while ($stmt->fetch()) {
+		
+		//adding business details
+		$business = $donorList->addChild("donor");
+			$business->addChild("name", escapeSpecial($donorName));
+			$business->addChild("URL", $donorURL);
+			$business->addChild("description", $donorDescription);
+	}
+	$stmt->close();
+	
+	echo $sxml->asXML();
+	return true;
+	
+}
 ?>

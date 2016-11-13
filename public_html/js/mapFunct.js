@@ -65,7 +65,11 @@ function addInfoWindow(marker, map) {
 	var infoWindow = new google.maps.InfoWindow();
 	
 	//adding the listener for clicking a marker
-	google.maps.event.addListener(marker, 'click', function() {
+	google.maps.event.addListener(marker, 'click', function(event) {
+		//closing other infowindows
+		infoWindow.close();
+		
+		//opening the selected infowindow
 		infoWindow.open(map, this);
 		infoWindow.setContent("<p><strong><a href=business.php?name=" + encodeURI(this.title) + ">" + this.title + "</a></strong></p><p>" + this.street_address + "<br>" + this.city_address + "</p>"); 
 	});
