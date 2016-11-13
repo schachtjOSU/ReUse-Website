@@ -28,25 +28,26 @@
 			<div class="about-container">
 				<h1 class="center-title">About the Corvallis Reuse and Repair Directory</h1>
 				<div class="about-information">
+					
+						<img class="about-image" src="../img/bigstockphoto_Footprint.jpg">
+					
 					<div id = "about-purpose">
 						<h2>Our Purpose</h2>
-						<p class="about-text">The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will take the following:<p>
-						<ul "about-text">
+						<p >The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will take the following:<p>
+						<ul>
 							<li>Items for repair</li>
 							<li>Reusable items that can be sold to the public as used items</li>
 							<li>Recyclable items</li>
 						</ul>
-						<p class="about-text">Please note that reusable items may either be donated or sold on consignment.<p>
-						<p class="about-text">To add a business to the directory or to update information included in the directory, <a href="contact.php">contact us with the relevant details</a>.</p>
+						<p >Please note that reusable items may either be donated or sold on consignment.<p>
+						<p >To add a business to the directory or to update information included in the directory, <a href="contact.php">contact us with the relevant details</a>.</p>
 					</div>
 					<div id = "about-donors">
 						<h2>Our Donors</h2>
 						<p>If you would like to sponsor the Corvallis Reuse and Repair Directory, please <a href="contact.php">let us know</a>.</p>
 					</div>
 				</div>
-				<div class="about-image-container">
-					<img class="about-image" src="../img/bigstockphoto_Footprint.jpg">
-				</div>
+				
 				
 			</div>
 			<?php 
