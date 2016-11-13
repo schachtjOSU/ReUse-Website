@@ -55,7 +55,7 @@ function addItemList(catName) {
 	}
 	else {
 		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses Accepting " + decodeURI(oldCatName);
-		document.title = "Businesses Accepting " + decodeURI(oldCategoryName);
+		document.title = "Businesses Accepting " + decodeURI(oldCatName);
 	}
 	
 	var req = new XMLHttpRequest();

@@ -26,7 +26,7 @@
 	}
 	
 	/*
-	* a special GET request that provides a list of distinct businesses NOT in Repair, Repair Items, or Recycle
+	* a special GET request that provides a list of distinct businesses NOT in Repair, Repair Items, or Recycle and where the business does not have the recycle flag set to 1
 	* @api
 	* @return string JSON
 	*/
@@ -34,7 +34,7 @@
 		
 		$mysqli = connectReuseDB();
 
-		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id WHERE cat.name NOT IN ('Repair', 'Repair Items', 'Recycle')");
+		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id WHERE cat.name NOT IN ('Repair', 'Repair Items', 'Recycle') AND loc.recycle <> 1");
 
 		$returnArray = array();
 	    while($row = $result->fetch_object()){
@@ -270,7 +270,7 @@
 	});
 	
 	/*
-	* GET request that provides an array of item names for items in any categories excluding the special categories of Repair, Repair Items, or Recycling as the number of businesses for each item, ordered by ordered by item name
+	* GET request that provides an array of item names for items in any category excluding the special categories of Repair, Repair Items, or Recycling and a count of the number of businesses for each item, ordered by ordered by item name
 	* @api
 	* @return string JSON
 	*/
@@ -291,7 +291,7 @@
 	});
 	
 	/*
-	* GET request that provides an array of category names not including Repair, Repair Items, and Recycle, ordered by ordered by category names
+	* GET request that provides an array of category names not including Repair, Repair Items, and Recycle and businesses with the recycle flag set, ordered by ordered by category names
 	* @api
 	* @return string JSON
 	*/
