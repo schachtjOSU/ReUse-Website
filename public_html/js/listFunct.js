@@ -54,7 +54,8 @@ function addItemList(catName) {
 		document.getElementsByClassName("side-container-title")[0].innerHTML = "Items Accepted";
 	}
 	else {
-		document.getElementsByClassName("side-container-title")[0].innerHTML = decodeURI(oldCatName);
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses Accepting " + decodeURI(oldCatName);
+		document.title = "Businesses Accepting " + decodeURI(oldCategoryName);
 	}
 	
 	var req = new XMLHttpRequest();
@@ -130,11 +131,16 @@ function addBusinessList(categoryName, itemName) {
 	itemName = slashToUnderscore(itemName);
 	
 	//setting the page title 
-	if(categoryName === undefined || itemName === undefined || categoryName === "" || itemName === "") {
+	if((itemName === undefined || itemName === "") && (categoryName === undefined || categoryName === "")) {
 		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses";
 	}
+	else if(itemName === undefined || itemName === "") {
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses Accepting " + decodeURI(oldCategoryName);
+		document.title = "Businesses Accepting " + decodeURI(oldCategoryName);
+	}
 	else {
-		document.getElementsByClassName("side-container-title")[0].innerHTML = decodeURI(oldItemName);
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses Accepting " + decodeURI(oldItemName);
+		document.title = "Businesses Accepting " + decodeURI(oldItemName);
 	}
 	
 	
@@ -261,7 +267,7 @@ function addBusinessList(categoryName, itemName) {
 	};
 	
 	
-	if(categoryName === undefined || itemName === undefined || categoryName === "" || itemName === "") {//selecting all businesses in the Reuse category if none is specified
+	if((categoryName === undefined || itemName === undefined) && (categoryName === "" || itemName === "")) {//selecting all businesses in the Reuse category if none is specified
 		var busURI = APIBase + "/business/reuseExclusive";
 	}
 	else if (itemName === undefined || itemName === "") {//if a category is given but not an item, list all businesses associated with a category
@@ -289,6 +295,7 @@ function addBusinessContact(busName) {
 	
 	//setting the page title
 	document.getElementsByClassName("side-container-title")[0].innerHTML = decodeURI(busName);
+	document.title = decodeURI(busName);
 	
 	busName = slashToUnderscore(busName);
 	
@@ -424,7 +431,7 @@ function addBusinessServices(busName) {
 			var items = JSON.parse(this.responseText);
 
 			//checking for a special case for Recycling Businesses with no items besides "Recycle" or the case where no items are returned
-			if((items.length == 1 && items[0].name == "Recycle") || items.length == 0) {
+			if((items.length == 0 || items.length == 1 && items[0].name == "Recycle")) {
 				return;
 			}
 			
@@ -478,9 +485,20 @@ function addBusinessServices(busName) {
 }
 
 function printErrorMessage(titleClass, containerId, topic) {
-		//resetting the page title
-		document.getElementsByClassName(titleClass)[0].innerHTML = "Error";
+		
+		//setting the page titles
+		if(topic != "" && topic != undefined) {
+			
+			document.title = "Error - Unable to Find \"" + topic + "\"";
+			document.getElementsByClassName(titleClass)[0].innerHTML = "Error - Unable to Find \"" + topic + "\"";
+		}
+		else {
+			document.title = "Error";
+			document.getElementsByClassName(titleClass)[0].innerHTML = "Error";
+		}
 
+		//adding the error message
+		
 		var parentDiv = document.getElementById(containerId);
 		
 		var errorDiv = document.createElement("div");
