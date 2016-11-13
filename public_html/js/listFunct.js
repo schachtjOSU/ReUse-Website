@@ -459,6 +459,12 @@ function addBusinessServices(busName) {
 			}
 
 			servicesDiv.appendChild(itemList);
+			
+			//setting the services div so that it expands to fill the remainding space in business-info-container
+			var minServicesHeight = document.getElementById('business-info-container').offsetHeight - document.getElementsByClassName('side-container-title')[0].offsetHeight - document.getElementById('contact-container').offsetHeight - 10;
+			if(servicesDiv.offsetHeight < minServicesHeight) {
+				servicesDiv.style.height = minServicesHeight + "px";
+			}
 
 		}
 	};
@@ -516,6 +522,22 @@ function printErrorMessage(titleClass, containerId, topic) {
 		
 		errorMessage.appendChild(document.createTextNode(", or the businesses shown on the map."));
 		
+		errorMessage.appendChild(document.createElement("br"));
+		errorMessage.appendChild(document.createElement("br"));
+		
+		errorMessage.appendChild(document.createTextNode("If you believe that there are businesses or items that should be included in the Corvallis Reuse and Repair Directory, please "));
+		reuseMessage = document.createElement("a");
+		reuseMessage.setAttribute('href', "contact.php");
+		reuseMessage.innerHTML = "let us know";
+		errorMessage.appendChild(reuseMessage);
+		errorMessage.appendChild(document.createTextNode("."));
+		
 		errorDiv.appendChild(errorMessage);
 		parentDiv.appendChild(errorDiv);
+		
+		//setting the error div so that it expands to fill the remainding space in business-info-container
+		var minHeight = parentDiv.offsetHeight - document.getElementsByClassName('side-container-title')[0].offsetHeight - 10;
+		if(errorDiv.offsetHeight < minHeight) {
+			errorDiv.style.height = minHeight + "px";
+		}
 }
