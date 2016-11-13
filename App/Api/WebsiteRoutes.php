@@ -1,8 +1,11 @@
 <?php
-	/*
-	* GET request that returns the home page of the Reuse and Repair Directory
-	* @return string JSON
-	*/
+
+	/**
+  	 * @api {get} /
+     * @apiName ReUseWebsite
+     *
+	 * @apiSuccess {Webpage} /HomeSite/home.php The home page of the Reuse and Repair Directory
+	 */ 
 	$app->get('/', function() use ($app) {
 		$app->redirect("/HomeSite/home.php");
 	}); 
@@ -25,11 +28,12 @@
 		$string = str_replace("_","/", $string);
 	}
 	
-	/*
-	* a special GET request that provides a list of distinct businesses NOT in Repair, Repair Items, or Recycle and where the business does not have the recycle flag set to 1
-	* @api
-	* @return string JSON
-	*/
+	/**
+  	 * @api {get} /business/reuseExclusive
+     * @apiName ReUseApp
+     *
+	 * @apiSuccess {JSON[]} returnArray Distinct businesses not in Repair, Repair Items, or Recycle and not having the recycle flag set to 1.
+	 */ 
 	$app->get('/business/reuseExclusive', function(){
 		
 		$mysqli = connectReuseDB();
@@ -47,11 +51,12 @@
 	    $mysqli->close();
 	});
 	
-	/*
-	* a special GET request that provides a list of distinct businesses that are recycling centers
-	* @api
-	* @return string JSON
-	*/
+	/**
+  	 * @api {get} /business/recycleExclusive
+     * @apiName ReUseApp
+     *
+	 * @apiSuccess {JSON[]} returnArray Distinct businesses that are recycling centers, having the recycle flag set to 1.
+	 */ 
 	$app->get('/business/recycleExclusive', function(){
 		
 		$mysqli = connectReuseDB();
@@ -71,11 +76,13 @@
 	
 	
 	
-	/*
-	* GET request that provides a list of distinct businesses associated with a given category, ordered by business names
-	* @api
-	* @return string JSON
-	*/
+	/**
+  	 * @api {get} /business/category/name/:cat_name
+     * @apiName ReUseApp
+     *
+	 * @apiParam {String} cat_name Category name (mandatory).
+	 * @apiSuccess {JSON[]} returnArray Distinct businesses associated with a given category, ordered by business names.
+	 */ 
 	$app->get('/business/category/name/:cat_name', function($cat_name){
 		singleToDoubleQuotes($cat_name);
 		underscoreToSlash($cat_name);
@@ -94,19 +101,21 @@
 	    $result->close();
 	    $mysqli->close();
 	});
-	
-	/*
-	* GET request that provides a list of distinct businesses NOT in the given category
-	* @api
-	* @return string JSON
-	*/
+
+	/**
+  	 * @api {get} /business/category/name/not/:cat_name
+     * @apiName ReUseApp
+     *
+	 * @apiParam {String} cat_name Category name (mandatory).
+	 * @apiSuccess {JSON[]} returnArray Distinct businesses not associated with a given category, ordered by business names.
+	 */ 
 	$app->get('/business/category/name/not/:cat_name', function($cat_name){
 		singleToDoubleQuotes($cat_name);
 		underscoreToSlash($cat_name);
 		
 		$mysqli = connectReuseDB();
 
-		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id WHERE cat.name <> '$cat_name'");
+		$result = $mysqli->query("SELECT DISTINCT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id INNER JOIN Reuse_Locations_Items AS loc_item ON loc.id = loc_item.location_id INNER JOIN Reuse_Items AS item ON loc_item.item_id = item.id INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id WHERE cat.name <> '$cat_name' ORDER BY loc.name");
 
 		$returnArray = array();
 	    while($row = $result->fetch_object()){
@@ -119,11 +128,13 @@
 	    $mysqli->close();
 	});
 	
-	/*
-	* GET request that provides all distinct businesses
-	* @api
-	* @return string JSON
-	*/
+
+	/**
+  	 * @api {get} /business/category/name/not/:cat_name
+     * @apiName ReUseApp
+     *
+	 * @apiSuccess {JSON[]} returnArray All distinct businesses.
+	 */
 	$app->get('/business', function(){
 		
 		
@@ -142,11 +153,14 @@
 	    $mysqli->close();
 	});
 	
-	/*
-	* GET request that provides a list of distinct businesses accepting a given item
-	* @api
-	* @return string JSON
-	*/
+
+	/**
+  	 * @api {get} /business/item/name/:item_name
+     * @apiName ReUseApp
+     *
+	 * @apiParam {String} item_name Item name (mandatory).
+	 * @apiSuccess {JSON[]} returnArray Distinct businesses accepting a given item.
+	 */
 	$app->get('/business/item/name/:item_name', function($item_name){
 		singleToDoubleQuotes($item_name);
 		underscoreToSlash($item_name);
@@ -165,12 +179,15 @@
 	    $result->close();
 	    $mysqli->close();
 	});
-	
-	/*
-	* GET request that provides a list of distinct businesses associated with a given category and and item in the category
-	* @api
-	* @return string JSON
-	*/
+
+	/**
+  	 * @api {get} /business/item/name/:item_name
+     * @apiName ReUseApp
+     *
+	 * @apiParam {String} item_name Item name (mandatory).
+	 * @apiParam {String} cat_name Category name (mandatory).
+	 * @apiSuccess {JSON[]} returnArray Distinct businesses associated with a given category and and item in the category.
+	 */
 	$app->get('/business/category/name/:cat_name/item/name/:item_name', function($cat_name, $item_name){
 		
 		singleToDoubleQuotes($cat_name);
@@ -196,11 +213,13 @@
 
 	
 	
-	/*
-	* GET request that provides a business with a given name, not including items accepted
-	* @api
-	* @return string JSON
-	*/
+	/**
+  	 * @api {get} /business/name/:bus_name
+     * @apiName ReUseApp
+     *
+	 * @apiParam {String} bus_name Business name (mandatory).
+	 * @apiSuccess {JSON Object} business Businesses with a given name.
+	 */
 	$app->get('/business/name/:bus_name', function($bus_name){
 		$mysqli = connectReuseDB();
 		
@@ -217,11 +236,13 @@
 	    $mysqli->close();
 	});
 	
-	/*
-	* GET request that provides an ordered array of items accepted by a business with a given name, ordered by item names
-	* @api
-	* @return string JSON
-	*/
+	/**
+  	 * @api {get} /item/business/name/:bus_name
+     * @apiName ReUseApp
+     *
+	 * @apiParam {String} bus_name Business name (mandatory).
+	 * @apiSuccess {JSON[]} returnArray Items accepted by the business with the given name, ordered by item name.
+	 */
 	$app->get('/item/business/name/:bus_name', function($bus_name){
 		$mysqli = connectReuseDB();
 
@@ -242,11 +263,14 @@
 	    $mysqli->close();
 	});
 	
-	/*
-	* GET request that provides an array of item names for items in a given category as well as the number of businesses for each item, ordered by ordered by item name
-	* @api
-	* @return string JSON
-	*/
+
+	/**
+  	 * @api {get} /item/category/name/:cat_name
+     * @apiName ReUseApp
+     *
+	 * @apiParam {String} cat_name Category name (mandatory).
+	 * @apiSuccess {JSON[]} returnArray Items in the given category as well as the number of businesses accepting an item, ordered by item name.
+	 */
 	$app->get('/item/category/name/:cat_name', function($cat_name){
 		
 		singleToDoubleQuotes($cat_name);
@@ -269,11 +293,12 @@
 	    $mysqli->close();
 	});
 	
-	/*
-	* GET request that provides an array of item names for items in any category excluding the special categories of Repair, Repair Items, or Recycling and a count of the number of businesses for each item, ordered by ordered by item name
-	* @api
-	* @return string JSON
-	*/
+	/**
+  	 * @api {get} /item/category/reuseExclusive
+     * @apiName ReUseApp
+     *
+	 * @apiSuccess {JSON[]} returnArray Items in any category excluding the special categories of Repair, Repair Items, or Recycling and a count of the number of businesses for each item, ordered by ordered by item name.
+	 */
 	$app->get('/item/category/reuseExclusive', function(){
 		$mysqli = connectReuseDB();
 
@@ -290,11 +315,13 @@
 	    $mysqli->close();
 	});
 	
-	/*
-	* GET request that provides an array of category names not including Repair, Repair Items, and Recycle and businesses with the recycle flag set, ordered by ordered by category names
-	* @api
-	* @return string JSON
-	*/
+
+	/**
+  	 * @api {get} /category/reuseExclusive
+     * @apiName ReUseApp
+     *
+	 * @apiSuccess {JSON[]} returnArray All category names not including Repair, Repair Items, and Recycle, ordered by ordered by category name.
+	 */
 	$app->get('/category/reuseExclusive', function(){
 		$mysqli = connectReuseDB();
 
@@ -311,11 +338,13 @@
 	    $mysqli->close();
 	});
 	
-	/*
-	* GET request that provides an array of links associated with a given business ordered by name
-	* @api
-	* @return string JSON
-	*/
+	/**
+  	 * @api {get} /document/business/name/:bus_name
+     * @apiName ReUseApp
+     *
+	 * @apiParam {String} bus_name Business name (mandatory).
+	 * @apiSuccess {JSON[]} returnArray Documents/links associated with a given business, ordered by document name.
+	 */
 	$app->get('/document/business/name/:bus_name', function($bus_name){
 		singleToDoubleQuotes($bus_name);
 		underscoreToSlash($bus_name);
@@ -336,11 +365,12 @@
 	});
 	
 	
-	/*
-	* GET request that provides an array donors ordered by name
-	* @api
-	* @return string JSON
-	*/
+	/**
+  	 * @api {get} /donor
+     * @apiName ReUseApp
+     *
+	 * @apiSuccess {JSON[]} returnArray All donors, ordered by donor name.
+	 */
 	$app->get('/donor', function(){
 		
 		$mysqli = connectReuseDB();
