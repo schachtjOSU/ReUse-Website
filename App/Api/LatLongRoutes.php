@@ -11,7 +11,7 @@
 		
 		//getting old addresses and ids
 		
-		$result = $mysqli->query("SELECT DISTINCT loc.id, loc.address_line_1, state.abbreviation, loc.city, loc.zip_code FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id ");
+		$result = $mysqli->query("SELECT DISTINCT loc.id, loc.address_line_1, state.abbreviation, loc.city, loc.zip_code FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id WHERE loc.latitude IS NULL OR loc.longitude IS NULL");
 
 		$returnArray = array();
 	    while($row = $result->fetch_object()){
