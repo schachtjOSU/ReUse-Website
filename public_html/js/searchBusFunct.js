@@ -26,6 +26,8 @@ purpose: search business by name
 function searchBusiness(){
     $('#table').empty();
     var match = $('#searchName').val();
+    match = ((Boolean(match)) ? match : "all")
+    
     $.ajax({type:"GET",
     url: webURL + "/RUapi/business/" + match,
     dataType: 'json',
@@ -33,7 +35,7 @@ function searchBusiness(){
       $('#EditData').empty();
       $('#EditData1').empty();
       $('#EditData2').empty();
-        console.log(match);
+        console.log(data);
         var row = '<tr><th>' + 'Name' + '</th><th>' + 'Address' + '</th><th>' + 'Modify' + '</th><th>' + 'Delete' + '</th></tr>';
         for(var i = 0; i < data.length; i++){ 
             row += '<tr><td>' + data[i].name + '</td><td>' + data[i].address_line_1 + '</td><td>' + '<input type= hidden id= edit value=' + data[i].id + '><input type= submit value=Edit id=edit onclick=editBusiness()>' + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td></tr>';

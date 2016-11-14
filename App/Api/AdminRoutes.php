@@ -165,15 +165,20 @@ $app->response->headers->set('Content-Type', 'application/json');
     $app->get('/business/:one', function($one){
 		$mysqli = connectReuseDB();
 
-		$result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.name = '$one'");
-
+        if($one == "all")
+        {    
+        $result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations");
+        } else {
+        $result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.name = '$one'");
+        }
 		$returnArray = array();
-	    while($row = $result->fetch_object()){
-	      $returnArray[] = $row;
+	    while($row = $result->fetch_assoc()){
+            //$returnArray[] = $row;
+            $returnArray[] = array_map("utf8_encode", $row);
 	    }
-
-	    echo json_encode($returnArray);
-
+        #echo json_encode($returnArray);
+        echo json_encode($returnArray);
+        //echo json_last_error();
 	    $result->close();
 	    $mysqli->close();
 	});

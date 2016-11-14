@@ -5,7 +5,6 @@
     YOUR WEBSITE HERE
 ************************************/
 var webURL = "";
-//var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
 
 
 //globals
