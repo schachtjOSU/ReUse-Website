@@ -5,6 +5,7 @@
     YOUR WEBSITE HERE
 ************************************/
 var webURL = "";
+//var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
 
 
 //globals
@@ -49,7 +50,7 @@ function searchItem(){
         var match = $('#searchName').val();
         x = match;
         var row = '<tr><th>' + 'Name' + '</th><th>' + 'Modify' + '</th><th>' + 'Delete' + '</th></tr>';
-        for(var i = 0; i < data.length; i++){ 
+        for(var i = 0; i < data.length; i++){
          if(data[i].name == match){
             row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= edit value=' + data[i].id + '><input type= submit value=Edit id=edit onclick=editItem()>'  + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td></tr>';
          }
@@ -58,6 +59,50 @@ function searchItem(){
     },
   });
 }
+
+function allItems(){
+    $('#table').empty();
+    // var match = $('#searchName').val();
+    $.ajax({type:"GET",
+    url: webURL + "/RUapi/items",
+    dataType: 'json',
+    success: function(data){
+      $('#EditData').empty();
+      $('#EditData1').empty();
+      $('#EditData2').empty();
+        var row = '<tr><th>' + 'Name' + '</th><th>'  + '</th><th>' + '</th><th>'  + '</th></tr>';
+        for(var i = 0; i < data.length; i++){
+             var name = data[i].name.split(' ').join('+');
+             console.log(name);
+            row += '<tr><td>' + data[i].name +'</td><td></td><td>' + "<button value=" + data[i].id + " type=submit id=edit onclick='searchItemHelper(this.value); return false;'>" + 'Select' + "</button>"  + '</td><td>' + '</td></tr>';
+        }
+        $('#table').append(row);
+    },
+  });
+}
+
+function searchItemHelper(name){
+  $('#table').empty();
+  console.log("THE NAME" + name);
+  var match = name.replace(' ',"+");
+  var match = match.replace('/','%2F')
+  $.ajax({type:"GET",
+  url: webURL + "/RUapi/category/" + match,
+  dataType: 'json',
+  success: function(data){
+    $('#EditData').empty();
+    $('#EditData1').empty();
+    $('#EditData2').empty();
+      console.log(match);
+      var row = '<tr><th>' + 'Name' + '</th><th>'  + '</th><th>' + '</th><th>'  + '</th></tr>';
+      for(var i = 0; i < data.length; i++){
+          row += '<tr><td>' + data[i].name + '</td><td></td><td>' + '<input type= hidden id= edit value=' + data[i].id + '><input type= submit value=Edit id=edit onclick=editItem()>' + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td></tr>';
+      }
+      $('#table').append(row);
+  },
+});
+}
+
 
 /*
 function: delItem()
@@ -74,8 +119,8 @@ function delItem(){
     $('#EditData').empty();
     $('#EditData1').empty();
     $('#EditData2').empty();
-    document.getElementById("edItem").reset();  
-    $('#table').empty();   
+    document.getElementById("edItem").reset();
+    $('#table').empty();
 }
 
 /*
@@ -86,15 +131,15 @@ function editItem(){
     $('#EditData').empty();
     $('#EditData1').empty();
     $('#EditData2').empty();
-    document.getElementById("edItem").reset();   
+    document.getElementById("edItem").reset();
     var c = $('#edit').val();
 
       $.ajax({type:"GET",
-        url: webURL + "/RUapi/category",
+        url: webURL + "/RUapi/items",
         dataType: 'json',
         success: function(data){
-            var cat = "<div class='col-sm-10'><select class='form-control' name='selectState' id='states' onChange='changeCat(this.value)'><option>Select Category</option>";
-            for(var i = 0; i < data.length; i++){ 
+            var cat = "<div class='col-sm-10'><select class='form-control' name='selectState' id='states' onChange='changeCat(this.value)'><option>Select Item</option>";
+            for(var i = 0; i < data.length; i++){
               cat += "<option value = " + data[i].id + ">";
               cat += data[i].name;
               cat += "</option>";

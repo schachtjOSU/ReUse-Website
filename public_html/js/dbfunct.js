@@ -5,14 +5,15 @@ Purpose: Displays 50 states in a dropdown
 
 var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
 
-var webURL = "";
+//var webURL = "";
+
 function displayStates(){
     $.ajax({type:"GET",
     url: webURL + "/RUapi/category",
     dataType: 'json',
     success: function(data){
         var c = "<select class='form-control' name='selectCat' id='categories'><option>Select Item Category</option>";
-        for(var i = 0; i < data.length; i++){ 
+        for(var i = 0; i < data.length; i++){
           c += "<option value = " + data[i].id + ">";
           c += data[i].name;
           c += "</option>";

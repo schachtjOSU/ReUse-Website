@@ -8,16 +8,16 @@ $app->response->headers->set('Content-Type', 'application/json');
 	/****************************************************************************
 	*				Gets
 	****************************************************************************/
-        
+
     /**
-  	 * @api {get} /category/:id 
+  	 * @api {get} /category/:id
      * @apiName ReUseApp
      * @apiGroup RUapi
-     * 
+     *
 	 * @apiParam {Integer} id category unique ID.
      *
 	 * @apiSuccess {String} The name of the category corresponding to that ID
-	 */  
+	 */
 	$app->get('/category/:id', function($id){
 		$mysqli = connectReuseDB();
 
@@ -34,9 +34,9 @@ $app->response->headers->set('Content-Type', 'application/json');
 	    $mysqli->close();
 	});
 
-     
+
     /**
-  	 * @api {get} /states Gets name and ID of all states, returns as JSON string 
+  	 * @api {get} /states Gets name and ID of all states, returns as JSON string
      *
      * @apiName ReUseApp
 	 * @apiGroup RUapi
@@ -58,23 +58,23 @@ $app->response->headers->set('Content-Type', 'application/json');
 	    echo json_encode($returnArray);
 	    $result->close();
 	    $mysqli->close();
-	});		
+	});
 
     /**
-     * GET response that provides a listing of all 
-     * businesses available in the 
+     * GET response that provides a listing of all
+     * businesses available in the
      * database and the corresponding ID.
-  	 * @api {get} /business 
+  	 * @api {get} /business
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
 	 *
 	 * @apiSuccess {String} All names and corresponding ID of businesses in the table
 	 */
-  
+
 	$app->get('/business', function() {
 		$mysqli = connectReuseDB();
 
-		$result = $mysqli->query('SELECT name, id FROM Reuse_Locations');
+    $result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations");
 
 		$returnArray = array();
 	    while($row = $result->fetch_object()){
@@ -89,8 +89,8 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 
     /**
-     * GET response that provides a listing of all 
-     * categories available in the 
+     * GET response that provides a listing of all
+     * categories available in the
      * database and the corresponding ID.
      *
      * @api {get} /category Request User information
@@ -99,13 +99,13 @@ $app->response->headers->set('Content-Type', 'application/json');
 	 *
 	 * @apiSuccess {String} name Name of the category.
 	 * @apiSuccess {Integer} id ID of the category.
-	 */ 
-      
+	 */
+
 	$app->get('/category', function() {
 		$mysqli = connectReuseDB();
 
 		$result = $mysqli->query('SELECT name, id FROM Reuse_Categories');
-	    
+
 	    $returnArray = array();
 	    while($row = $result->fetch_object()){
 	      $returnArray[] = $row;
@@ -118,7 +118,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 	});
 
 	/**
-	 * @api {get} /items/:id Request item name and category id from item id. 
+	 * @api {get} /items/:id Request item name and category id from item id.
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
 	 *
@@ -145,47 +145,42 @@ $app->response->headers->set('Content-Type', 'application/json');
 	});
 
 	/**
-	 * @api {get} /businesss/:one Request business info. 
+	 * @api {get} /businesss/:one Request business info.
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
 	 *
 	 * @apiParam {String} one  Name of business.
 	 *
-     * 
+     *
 	 * @apiSuccess {String} name Name of business
-	 * @apiSuccess {Integer} id ID of business 
+	 * @apiSuccess {Integer} id ID of business
      * @apiSuccess {String} Address_line1 Street
      * @apiSuccess {String} address_line2 Street continued
-     * @apiSuccess {Integer} state_id State ID where business resides. 
+     * @apiSuccess {Integer} state_id State ID where business resides.
      * @apiSuccess {string} phone Phone Number of business.
 	 * @apiSuccess {string} website Website URL
-	 * @apiSuccess {string} city City 
+	 * @apiSuccess {string} city City
 	 * @apiSuccess {string} zip_code Zipcode
 	 */
     $app->get('/business/:one', function($one){
 		$mysqli = connectReuseDB();
 
-        if($one == "all")
-        {    
-        $result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations");
-        } else {
-        $result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.name = '$one'");
-        }
+		$result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.name = '$one'");
+
 		$returnArray = array();
-	    while($row = $result->fetch_assoc()){
-            //$returnArray[] = $row;
-            $returnArray[] = array_map("utf8_encode", $row);
+	    while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
 	    }
-        #echo json_encode($returnArray);
-        echo json_encode($returnArray);
-        //echo json_last_error();
+
+	    echo json_encode($returnArray);
+
 	    $result->close();
 	    $mysqli->close();
 	});
 
-     
+
 	/**
-	 * @api {get} /items/:id Request item name and category id from item id. 
+	 * @api {get} /items/:id Request item name and category id from item id.
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
 	 *
@@ -211,18 +206,18 @@ $app->response->headers->set('Content-Type', 'application/json');
 /************************************************************************************
 *					DELETES
 *************************************************************************************/
-    
+
 	/**
-	 * @api {delete} /business/:id Remove a specific business.  
+	 * @api {delete} /business/:id Remove a specific business.
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
-	 * 
+	 *
 	 * @apiParam {integer} id business ID.
 	 */
     $app->delete('/business/:id', function($id){
 		$mysqli = connectReuseDB();
 		echo json_encode("IN RIGHT FUNCTION");
-		$delID = $mysqli->real_escape_string($id);	
+		$delID = $mysqli->real_escape_string($id);
 
 		$mysqli->query("DELETE FROM Reuse_Locations_Items WHERE location_id = '$delID'");
 		$mysqli->query("DELETE FROM Reuse_Locations WHERE Reuse_Locations.id ='$delID'");
@@ -231,9 +226,9 @@ $app->response->headers->set('Content-Type', 'application/json');
 		/* Update Mobile Database */
 		reuse_generateXML();
 	});
-	
+
 	/**
-	 * @api {delete} /item/:id Remove a specific item. 
+	 * @api {delete} /item/:id Remove a specific item.
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
 	 *
@@ -250,9 +245,9 @@ $app->response->headers->set('Content-Type', 'application/json');
 		/* Update Mobile Database */
 		reuse_generateXML();
 	});
-	
+
 	/**
-	 * @api {delete} /category/:id Remove a specific category (associated businesses default to NULL). 
+	 * @api {delete} /category/:id Remove a specific category (associated businesses default to NULL).
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
 	 *
@@ -270,14 +265,14 @@ $app->response->headers->set('Content-Type', 'application/json');
 	});
 
 	/**
-	 * @api {delete} /updateBusiness/:one/:id Remove a specific item from a business's catalog. 
+	 * @api {delete} /updateBusiness/:one/:id Remove a specific item from a business's catalog.
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
 	 *
 	 * @apiParam {integer} id Category ID.
 	 */
 	$app->delete('/updateBusiness/:one/:id', function($one, $id){
-		
+
 		$mysqli = connectReuseDB();
 
 		/* get location id based off name */
@@ -286,8 +281,8 @@ $app->response->headers->set('Content-Type', 'application/json');
             if($row->name == $one){
 				$match = $row->id;
 			}
-		}		
-		$match2 = $mysqli->real_escape_string($id);		
+		}
+		$match2 = $mysqli->real_escape_string($id);
 
 		$mysqli->query("DELETE FROM Reuse_Locations_Items WHERE location_id = '$match' AND item_id = '$match2'");
 		$mysqli->close();
@@ -296,11 +291,11 @@ $app->response->headers->set('Content-Type', 'application/json');
 /******************************************************************************************
 *				PUTS -- doing it as POSTS with UPDATES to avoid form issues
 ******************************************************************************************/
-	
+
     /* Update a specific category name */
 
 	/**
-	 * @api {PUT} /changeCategory Update the name of a category 
+	 * @api {PUT} /changeCategory Update the name of a category
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
 	 *
@@ -326,7 +321,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 
 	/**
-	 * @api {PUT} /changeItem Update the name of an item 
+	 * @api {PUT} /changeItem Update the name of an item
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
 	 *
@@ -342,7 +337,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli = connectReuseDB();
 
 		if($name != 'undefined' && $oldName != 'undefined'){
-			$mysqli->query("UPDATE Reuse_Items SET name = '$name' WHERE name = '$oldName'");			
+			$mysqli->query("UPDATE Reuse_Items SET name = '$name' WHERE name = '$oldName'");
 		}
 		if($cat != 'undefined' && $oldName != 'undefined'){
 			$mysqli->query("UPDATE Reuse_Items SET category_id = '$cat' WHERE name = '$oldName'");
@@ -355,10 +350,10 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 		/* update business */
     /**
-  	 * @api {PUT} /changeBusiness Update a business, identify by name 
+  	 * @api {POST} /changeBusiness Update a business, identify by name
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
-     * 
+     *
 	 * @apiParam {string} oldName Current name of business.
 	 * @apiParam {String} name Name of business
      * @apiParam {String} add1 Street
@@ -368,7 +363,7 @@ $app->response->headers->set('Content-Type', 'application/json');
      * @apiParam {string} city City
      * @apiParam {string} state State
 	 * @apiParam {string} zip Zipcode
-	 */  
+	 */
 	$app->post('/changeBusiness', function(){
 
 		$oldName = $_POST['oldName'];
@@ -404,25 +399,27 @@ $app->response->headers->set('Content-Type', 'application/json');
 			$mysqli->query("UPDATE Reuse_Locations SET website = '$website' WHERE name = '$oldName'");
 		}
 		if($name != 'undefined' && $oldName != 'undefined'){
-			$mysqli->query("UPDATE Reuse_Locations SET name = '$name' WHERE name = '$oldName'");			
+			$mysqli->query("UPDATE Reuse_Locations SET name = '$name' WHERE name = '$oldName'");
 		}
 		$mysqli->close();
 
 		/* Update Mobile Database */
-		reuse_generateXML();
+	//	reuse_generateXML();
+
+    echo json_encode("success");
 	});
 
 
 /*****************************************************************************************
 *			POSTS
 ******************************************************************************************/
-    
+
 		/* update business */
     /**
-  	 * @api {POST} /Business Insert a business, identify by name 
+  	 * @api {POST} /Business Insert a business, identify by name
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
-     * 
+     *
 	 * @apiParam {String} name Name of business
      * @apiParam {String} address Street
      * @apiParam {String} address2 Street continued
@@ -431,9 +428,9 @@ $app->response->headers->set('Content-Type', 'application/json');
      * @apiParam {string} city City
      * @apiParam {string} state State
 	 * @apiParam {string} zipcode Zipcode
-	 */  
+	 */
     $app->post('/business', function(){
-		
+
 		$name = $_POST['name'];
 		if (isset($_POST['address']) && !empty($_POST['address'])){
 			$address = $_POST['address'];
@@ -478,22 +475,22 @@ $app->response->headers->set('Content-Type', 'application/json');
 			$website = null;
 		}
 
-		
+
 		/* Convert state_id to the string it references */
 		$mysqli = connectReuseDB();
 		if (!($stmt = $mysqli->prepare("SELECT abbreviation FROM  `States` WHERE id = ?"))){
 			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}
-		
+
 		$stmt->bind_param('i', $stateId);
 		$stmt->bind_result($state);
 		$stmt->execute();
 		$stmt->fetch();
-		
+
 		$stmt->close();
 		$mysqli->close();
-		
-		
+
+
 		/* Geocode address for storage */
 		$latlong = bingGeocode($address, $city, $state, $zipcode);
 
@@ -504,10 +501,10 @@ $app->response->headers->set('Content-Type', 'application/json');
 			$latitude = $latlong['lat'];
 			$longitude = $latlong['long'];
 		}
-		
-		
+
+
 		$mysqli = connectReuseDB();
-		
+
 
 		/* prepare the statement*/
 		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Locations (name, address_line_1, address_line_2, city, state_id, zip_code, phone, website, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"))){
@@ -534,10 +531,10 @@ $app->response->headers->set('Content-Type', 'application/json');
 });
 
     /**
-  	 * @api {POST} /category Insert a new category 
+  	 * @api {POST} /category Insert a new category
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
-     * 
+     *
 	 * @apiParam {string} name Category name to add
 	 */
 $app->post('/category', function(){
@@ -578,10 +575,10 @@ $app->post('/category', function(){
 
 
     /**
-  	 * @api {POST} /updateItems Update category item is in  
+  	 * @api {POST} /updateItems Update category item is in
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
-     * 
+     *
 	 * @apiParam {Integer} category Category ID item will belong to
 	 * @apiParam {string} name Item name to set
 	 */
@@ -599,10 +596,10 @@ $app->post('/updateItems', function(){
 
 
     /**
-  	 * @api {POST} /updateBusiness Update items sold by a given business 
+  	 * @api {POST} /updateBusiness Update items sold by a given business
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
-     * 
+     *
 	 * @apiParam {string} name Business name to set
 	 */
 $app->post('/updateBusiness', function(){
@@ -616,7 +613,7 @@ $app->post('/updateBusiness', function(){
             if($row->name == $name){
 				$match = $row->id;
 			}
-		}		
+		}
 		$mysqli->close();
 
 		// add to joining table
@@ -638,15 +635,19 @@ $app->post('/updateBusiness', function(){
 
 
 		$mysqli->close();
+
+    header("Location: http://localhost:4000/AdminSite/searchBusiness.php"); /* Redirect browser */
+    exit();
+
 });
 
 /* Adding a New Item */
 
     /**
-  	 * @api {POST} /items  
+  	 * @api {POST} /items
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
-     * 
+     *
 	 * @apiParam {Integer} cat Category ID item will belong to
 	 * @apiParam {string} name Item name to set
 	 */
@@ -664,7 +665,7 @@ $app->post('/items', function(){
 					$mysqli->close();
 				}
 			}
-			
+
 
 		/* prepare the statement*/
 		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Items (name, category_id) VALUES (?, ?)"))){

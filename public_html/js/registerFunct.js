@@ -5,8 +5,8 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
-
+//var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
+var webURL = "";
 /* check session */
 function checkSession(){
 
@@ -26,8 +26,6 @@ function checkSession(){
     req.open("POST","checkSession.php", true);
     req.send();
 }
-
-var webURL = "";
 
 /* register new User */
 function newUser(){
@@ -69,7 +67,7 @@ function newUser(){
      /* response was false, can't add to DB */
     if(req.responseText == 0){
       document.getElementById("output2").innerHTML = "Error: Username taken.";
-      document.getElementById("newUser").reset(); 
+      document.getElementById("newUser").reset();
     }
 
     /* horrible weirdness happened. Print it */

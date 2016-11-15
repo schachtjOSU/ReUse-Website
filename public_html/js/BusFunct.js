@@ -5,12 +5,13 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
-
 var webURL = "";
+//var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
+
 // Global
   var x;
   var count = 0;
+
 
 /*
 Function: checkSession();
@@ -130,6 +131,7 @@ function addNewBusiness(){
   }
   else{
 
+
     var tableData = "type="+type+"&name="+name+"&address="+address+"&address2="+address2+"&city="+city+"&state="+state+"&phone="+phone+"&zipcode="+zipcode+"&website="+website;
     $('#output2').empty();
     $.ajax({type:"POST",
@@ -142,30 +144,28 @@ function addNewBusiness(){
   }
 }
 
-/*
-Function: displayTable();
-Purpose: Add Items that Business can accept for selection
-*/
 function displayTable(){
-  $('#output2').empty();
-  $('#table').empty();
-    $.ajax({type:"GET",
+  $.ajax({type:"GET",
     url: webURL + "/RUapi/items",
     dataType: 'json',
-    success: function(data){
-      window.alert("Select as many items as you'd like to be added to the Business.");
-        var entry = '<input type = button value = DONE id = done onclick=clearAll() style="margin-right: 30px;">'
-        entry += '<label>Accepts Following Items: </label>';
-        $('#tableHere').append(entry);
-        var row = '<tr><th>' + 'Name' + '</th><th>'  + 'Add to Business' + '</th></tr>';
-        for(var i = 0; i < data.length; i++){
-            row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= update1 value=' + data[i].id + '><input type= submit value=update id=update onclick=updateItem('+data[i].id+')>' + '</td></tr>';
-        }
-        $('#table').append(row);
+    success: function(categoriesList){
+      var list = document.getElementById('categoriesList');
+      while (list.firstChild) {
+          list.removeChild(list.firstChild);
+      }
+      for (var idx = 0; idx < categoriesList.length; idx++) {
+          var li = document.createElement("li");
+          //Make checkbox:
+          var checkbox = document.createElement('input');
+              checkbox.type = "checkbox";
+              checkbox.value = 0;
+          li.appendChild(checkbox);
+          li.appendChild(document.createTextNode(categoriesList[idx].name));
+          list.appendChild(li);
+      }
     },
   });
 }
-
 /*
 Function: clearAll();
 Purpose: Wipe screen to prevent clutter

@@ -23,15 +23,16 @@
   <link href="../Css/customStylesheet.css" rel="stylesheet">
   <link href="../Css/media.css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>  
+  <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="../js/BusFunct.js"></script>
   <script>
   //ONLOAD -- GET requests and checking of session with jQuery
   $(document).ready(function(){
-    displayStates();
     checkSession();
+    displayStates();
   });
+
 </script>
   </head>
   <body>
@@ -46,7 +47,6 @@
         <br></br>
         <h3>Add a New Business</h3>
         <hr></hr>
-
        <form id="addBusiness">
         <div class="form-group">
            <label>Business Name: </label>
@@ -87,12 +87,12 @@
         </p>
         </form>
         <div id="doneHere"></div>
+        <ul id="categoriesList">
+
+        </ul>
         <hr></hr>
         <div class="form-group">
         <div>
-          <p id="tableHere">
-            <table class="table table-striped" id="table"></table>
-          </p>
         </div>
         </div><!-- end formgroup -->
         <!-- Hidden row for displaying login errors -->
@@ -104,4 +104,5 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   </body>
+  <span id="test"></span>
 </html>

@@ -1,9 +1,9 @@
 /********************************************
         Login Screen
 ********************************************/
-var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php";//used for local development by Lauren Miller
-
 var webURL = "";
+//var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php";//used for local development by Lauren Miller
+
 /*
 function: login()
 purpose: directs user to separate API for login
@@ -47,7 +47,7 @@ function login(){
         /* false, errors. Notify  user, no addition to DB */
         if(req.responseText == 0){
             document.getElementById("output").innerHTML = "Error: Username or Password Incorrect.";
-            document.getElementById("loginForm").reset(); 
+            document.getElementById("loginForm").reset();
          }
 
          /* logged in already under another name */
