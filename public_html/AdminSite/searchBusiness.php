@@ -52,8 +52,7 @@
         <div class="form-group" id="searchForm">
            <label class="control-label col-sm-2" for="text">Business Name: </label>
            <div class="col-sm-10">
-            <input type ="text" class="form-control" Id="searchName" placeholder="Enter Business Name, leave blank to display all">
-            <input id="searchName" name="searchbox" class="form-control" onfocus="this.value = ''" type="text" value="search">
+            <input id="searchName" name="searchName" class="form-control" onfocus="this.value = ''" type="text" value="search">
 
             </div>
         </div> <!-- end formground-->

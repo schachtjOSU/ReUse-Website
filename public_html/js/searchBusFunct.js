@@ -4,9 +4,9 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
-
 var webURL = "";
+//var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
+
 /*This happens when the user presses save in the edit view*/
 
 function saveClicked() {
@@ -29,7 +29,7 @@ function saveClicked() {
         success: function() {
             $('instructions').innerHTML = "Edit or Remove any of the businesses listed below, or search for one in our search box!";
             $('#editFields').hide();
-            $('#searchBox').show();
+            $('#searchName').show();
             clearAll();
             allBusinesses();
         },
@@ -47,7 +47,12 @@ function searchBusiness()
 purpose: search business by name
 */
 function searchBusiness() {
+  $('#table').empty();
+  $('#editFields').hide();
+
+
     var match = $('#searchName').val();
+    clearAll();
     $.ajax({
         type: "GET",
         url: webURL + "/RUapi/business/" + match,
@@ -58,7 +63,7 @@ function searchBusiness() {
             $('#EditData2').empty();
             var row = '<tr><th>' + 'Name' + '</th><th>' + 'Address' + '</th><th>' + 'Modify' + '</th><th>' + 'Delete' + '</th></tr>';
             for (var i = 0; i < data.length; i++) {
-                row += '<tr><td>' + data[i].name + '</td><td>' + data[i].address_line_1 + '</td><td>' + '<input type= hidden id= edit value=' + data[i].id + '><input type= submit value=Edit id=edit onclick=editBusiness()>' + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td></tr>';
+                row += '<tr><td>' + data[i].name + '</td><td>' + data[i].address_line_1 + '</td><td>' + '<input type= hidden id= edit value=' + data[i].id + '><input type= submit value=Edit id=edit onclick=editBusiness()>' + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delBusiness()>' + '</td></tr>';
             }
             $('#table').append(row);
         },
@@ -70,8 +75,12 @@ function allBusinesses()
 purpose: display all businesses
 */
 function allBusinesses() {
+  $('#table').empty();
     clearAll();
-    $('#table').empty();
+
+    // $('#table').empty();
+    $('#editFields').hide();
+
     // var match = $('#searchName').val();
     $.ajax({
         type: "GET",
@@ -95,18 +104,18 @@ function allBusinesses() {
 // purpose: function to call searchBusiness when one of the list businesses is selected
 // */
 function searchBusinessHelper(name) {
+  clearAll();
     $('#table').empty();
     $('#searchName')[0].value = '' + name + '';
-    searchBusiness();
+    editBusiness();
 }
 
 
 /*
-function delItem()
+function delBusiness()
 purpose: delete business by id
 */
-function delItem() {
-    var match = $('#delete').val();
+function delItem(match) {
     console.log(match);
     $.ajax({
         type: "DELETE",
@@ -157,7 +166,8 @@ function editBusiness()
 purpose: edit any field of any business searched for previously by name
 */
 function editBusiness() {
-    $('#searchForm').hide();
+    // $('#searchForm').hide();
+    $('#table').empty();
     clearAll();
     $('#editFields').show();
     var nameOfBizToEdit =  $('#searchName').val();
@@ -207,7 +217,6 @@ function editBusItems()
 purpose: displays items for addition of new or deletion of old
 */
 function editBusItems() {
-    $('#EditData').empty();
     $.ajax({
         type: "GET",
         url: webURL + "/RUapi/items",
@@ -286,7 +295,6 @@ function clearAll()
 purpose: table and div cleanup for new searches
 */
 function clearAll() {
-    $('#table').empty();
     $('#statesHere').empty();
     $('#EditData').empty();
     $('#EditData1').empty();
