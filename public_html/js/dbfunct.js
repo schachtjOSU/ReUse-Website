@@ -5,7 +5,7 @@ Purpose: Displays 50 states in a dropdown
 
 var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
 
-//var webURL = "";
+var webURL = "";
 
 function displayStates(){
     $.ajax({type:"GET",

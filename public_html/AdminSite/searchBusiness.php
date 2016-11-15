@@ -52,12 +52,9 @@
         <div class="form-group" id="searchForm">
            <label class="control-label col-sm-2" for="text">Business Name: </label>
            <div class="col-sm-10">
-<<<<<<< HEAD
             <input type ="text" class="form-control" Id="searchName" placeholder="Enter Business Name, leave blank to display all">
-=======
             <input id="searchName" name="searchbox" class="form-control" onfocus="this.value = ''" type="text" value="search">
 
->>>>>>> 2864ae1f238524335432273f9c6b389007ea8558
             </div>
         </div> <!-- end formground-->
 
