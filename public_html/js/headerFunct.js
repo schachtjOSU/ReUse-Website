@@ -1,5 +1,5 @@
-var APIBase = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
-//var APIBase = "http://app.sustainablecorvallis.org"; //used by the live website
+//var APIBase = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
+var APIBase = ""; //used by the live website
 
 //adds dropdown menu links of items in the Repair Items category to "header-repair-links"
 function addRepairLinks() {

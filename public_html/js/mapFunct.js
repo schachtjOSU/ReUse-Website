@@ -1,5 +1,5 @@
-var APIBase = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
-//var APIBase = "http://app.sustainablecorvallis.org"; //used by the live website
+//var APIBase = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
+var APIBase = ""; //used by the live website
 
 // Returns a pin with the passed color, or CSC orange by default. Reference http://stackoverflow.com/questions/7095574/google-maps-api-3-custom-marker-color-for-default-dot-marker/7686977#7686977
 function pin(pinColor) {
