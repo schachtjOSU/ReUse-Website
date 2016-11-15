@@ -223,8 +223,10 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli->query("DELETE FROM Reuse_Locations WHERE Reuse_Locations.id ='$delID'");
 		$mysqli->close();
 
+    echo json_encode($returnArray);
+
 		/* Update Mobile Database */
-		reuse_generateXML();
+	//	reuse_generateXML();
 	});
 
 	/**

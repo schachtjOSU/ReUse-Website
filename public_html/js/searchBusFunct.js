@@ -47,10 +47,6 @@ function searchBusiness()
 purpose: search business by name
 */
 function searchBusiness() {
-  $('#table').empty();
-  $('#editFields').hide();
-
-
     var match = $('#searchName').val();
     clearAll();
     $.ajax({
@@ -75,13 +71,8 @@ function allBusinesses()
 purpose: display all businesses
 */
 function allBusinesses() {
-  $('#table').empty();
     clearAll();
-
-    // $('#table').empty();
     $('#editFields').hide();
-
-    // var match = $('#searchName').val();
     $.ajax({
         type: "GET",
         url: webURL + "/RUapi/business",
@@ -92,7 +83,7 @@ function allBusinesses() {
             $('#EditData2').empty();
             var row = '<tr><th>' + 'Name' + '</th><th>' + 'Address' + '</th><th>' + 'Modify' + '</th><th>' + 'Delete' + '</th></tr>';
             for (var i = 0; i < data.length; i++) {
-                row += '<tr><td>' + data[i].name + '</td><td>' + data[i].address_line_1 + '</td><td>' + "<button value='" + data[i].name + "' type=submit id=edit onclick='searchBusinessHelper(this.value); return false;'>" + 'Edit' + "</button>" + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td>' + '</tr>';
+                row += '<tr><td>' + data[i].name + '</td><td>' + data[i].address_line_1 + '</td><td>' + "<button value='" + data[i].name + "' type=submit id=edit onclick='editBusinessHelper(this.value); return false;'>" + 'Edit' + "</button>" + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td>' + '</tr>';
             }
             $('#table').append(row);
         },
@@ -103,9 +94,8 @@ function allBusinesses() {
 // function searchBusiness()
 // purpose: function to call searchBusiness when one of the list businesses is selected
 // */
-function searchBusinessHelper(name) {
+function editBusinessHelper(name) {
   clearAll();
-    $('#table').empty();
     $('#searchName')[0].value = '' + name + '';
     editBusiness();
 }
@@ -167,7 +157,6 @@ purpose: edit any field of any business searched for previously by name
 */
 function editBusiness() {
     // $('#searchForm').hide();
-    $('#table').empty();
     clearAll();
     $('#editFields').show();
     var nameOfBizToEdit =  $('#searchName').val();
@@ -299,6 +288,7 @@ function clearAll() {
     $('#EditData').empty();
     $('#EditData1').empty();
     $('#EditData2').empty();
+    $('#table').empty();
 }
 
 
