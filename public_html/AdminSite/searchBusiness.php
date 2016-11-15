@@ -48,7 +48,7 @@
         <div class="form-group">
            <label class="control-label col-sm-2" for="text">Business Name: </label>
            <div class="col-sm-10">
-            <input type ="text" class="form-control" Id="searchName" placeholder="Enter Business Name">
+            <input type ="text" class="form-control" Id="searchName" placeholder="Enter Business Name, leave blank to display all">
             </div>
         </div> <!-- end formground-->
 
