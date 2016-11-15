@@ -28,6 +28,7 @@
 <script>
   $(document).ready(function(){
     checkSession();
+    allCategories();
   });
 </script>
   </head>
@@ -52,15 +53,18 @@
         </div> <!-- end formground-->
 
         <p align="center">
-          <button Id ="submit" type ="submit" class="btn btn-primary" onclick="searchCategory(); return false" align="center">Search for Category</button>
+          <button Id ="submit" type ="submit" class="btn btn-primary" onclick="searchCategoryByName(); return false" align="center">Search for Category</button>
         </p>
         </form>
+        <p align="center">
+          <button Id ="submit" type ="submit" class="btn btn-primary" onclick="allCategories(); return false" align="center">View all Categories</button>
+        </p>
 
         <!-- Table is created when button is hit -->
         <div id="tableHere">
           <table class="table table-striped" id="table"></table>
         </div>
-      
+
         <!-- edit info -->
         <div id= "EditData"></div>
     </div>

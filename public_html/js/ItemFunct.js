@@ -4,9 +4,9 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
-
 var webURL = "";
+//var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
+
 /*
 Function: displayStates();
 Purpose: Displays 50 states in a dropdown
@@ -17,7 +17,7 @@ function displayStates(){
     dataType: 'json',
     success: function(data){
         var c = "<select class='form-control' name='selectCat' id='categories'><option>Select Item Category</option>";
-        for(var i = 0; i < data.length; i++){ 
+        for(var i = 0; i < data.length; i++){
           c += "<option value = " + data[i].id + ">";
           c += data[i].name;
           c += "</option>";
@@ -97,7 +97,7 @@ function displayTable(){
     dataType: 'json',
     success: function(data){
         var row = '<tr><th>' + 'Name' + '</th><th>'  + 'Add to Category' + '</th></tr>';
-        for(var i = 0; i < data.length; i++){ 
+        for(var i = 0; i < data.length; i++){
             row += '<tr><td>' + data[i].name + '</td><td>' + '<input type= hidden id= update1 value=' + data[i].id + '><input type= submit value=update id=update onclick=updateItem('+ data[i].id +')>' + '</td></tr>';
         }
         $('#table').append(row);
@@ -129,4 +129,4 @@ function updateItem(value){
     $('#output2').empty();
     document.getElementById("addItem").reset();
     document.getElementById("output2").innerHTML ="Successfully added to the database.\n";
-  }  
+  }

@@ -30,6 +30,7 @@
 <script>
   $(document).ready(function(){
     checkSession();
+    allItems();
   });
 </script>
   </head>
@@ -57,12 +58,12 @@
           <button Id ="submit" type ="submit" class="btn btn-primary" onclick="searchItem(); return false" align="center">Search for Item</button>
         </p>
         </form>
-        
+
         <!-- Table is created when button is hit -->
         <div id="tableHere">
           <table class="table table-striped" id="table"></table>
         </div>
-    
+
     </div>
     <hr></hr>
     <div class="row">

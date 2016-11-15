@@ -4,9 +4,9 @@
 /************************************
     YOUR WEBSITE HERE
 ************************************/
-var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
-
 var webURL = "";
+//var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php"; //used for local development by Lauren Miller
+
 /*
 Function: checkSession();
 Purpose: check to make sure a session is active, if not, redirect
