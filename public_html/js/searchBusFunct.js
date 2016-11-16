@@ -51,7 +51,7 @@ function searchBusiness() {
     clearAll();
     $.ajax({
         type: "GET",
-        url: webURL + "/RUapi/business/" + match,
+        url: webURL + "/RUapi/business/" + encodeURIComponent(match),
         dataType: 'json',
         success: function(data) {
             $('#EditData').empty();
@@ -165,7 +165,7 @@ function editBusiness() {
     //Fill the search forms with data
     $.ajax({
         type: "GET",
-        url: webURL + "/RUapi/business/" + nameOfBizToEdit,
+        url: webURL + "/RUapi/business/" + encodeURIComponent(nameOfBizToEdit),
         dataType: 'json',
         success: function(data) {
             $('#name')[0].value = '' + data[0].name; + '';
