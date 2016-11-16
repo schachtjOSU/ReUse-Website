@@ -112,14 +112,14 @@
     <input type="text" class="form-control" id="website" name="website" aria-describedby="basic-addon3">
   </div>
 
-  <label for="State">State</label>
+  <!-- <label for="State">State</label>
   <div class="input-group">
     <span class="input-group-addon" id="basic-addonState">https://example.com/users/</span>
     <input type="text" class="form-control" id="state" name="state" value="1" aria-describedby="basic-addon3">
-  </div>
-  <input type="hidden" id="stateHidden" name="inputHidden">
+  </div> -->
+  <input type="hidden" id="stateHidden" name="stateHidden">
 
-  <input type="hidden" id="inputHidden" name="inputHidden">
+  <!-- <input type="hidden" id="inputHidden" name="inputHidden"> -->
 
   <label for="statesHere">State</label>
   <div class="input-group">

@@ -19,6 +19,8 @@ function saveClicked() {
     payload.zip = document.getElementById('zip').value;
     payload.phone = document.getElementById('phone').value;
     payload.website = document.getElementById('website').value;
+  //  alert(document.getElementById('stateHidden').value);
+
     if( $('#selectState').find("option:selected").val() == 'Select State'){
       payload.state = document.getElementById('stateHidden').value;
 
@@ -154,7 +156,6 @@ function getStatesDropdown(state_id) {
                   console.log(state_id);
                   console.log("FIN");
                   console.log(data[i].name);
-            //      $('#basic-addonStatesHere').innerHTML = 'Was: ' + data[i].name; + '';
                   $('#basic-addonStatesHere')[0].innerHTML = 'Was: ' + data[i].name; + '';
 
                 //////@@@@   optionsList += "<option selected='false' value = " + data[i].id + ">";
@@ -211,9 +212,7 @@ function editBusiness() {
             $('#website')[0].value = '' + data[0].website + '';
             $('#basic-addonWebsite')[0].innerHTML = 'Was: ' + data[0].website + '';
 
-            $('#state')[0].value = '' + data[0].state_id + '';
-            $('#basic-addonState')[0].innerHTML = 'Was: ' + data[0].state_id + '';
-            $('#stateHidden')[0].value = '' + data[0].state_id + '';
+            $('#stateHidden').value = '' + data[0].state_id;
 
             getStatesDropdown(data[0].state_id);
         }
