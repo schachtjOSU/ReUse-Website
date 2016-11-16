@@ -8,6 +8,7 @@ var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.
 
 var webURL = "";
 /*This happens when the user presses save in the edit view*/
+var globalState;
 
 function saveClicked() {
     var payload = {};
@@ -19,6 +20,12 @@ function saveClicked() {
     payload.zip = document.getElementById('zip').value;
     payload.phone = document.getElementById('phone').value;
     payload.website = document.getElementById('website').value;
+    if(globalState !== null){
+      payload.state = globalState;
+    }
+    // else{
+    //   payload.state =
+    // }
 
     //TODO: Make a function called getStateId which will retrieve
     //the id of the state by name.
@@ -58,6 +65,7 @@ function searchBusiness() {
         url: webURL + "/RUapi/business/" + encodeURIComponent(match),
         dataType: 'json',
         success: function(data) {
+            $('#inputHidden')[0].value = '' + data[0].name; + '';
             $('#EditData').empty();
             $('#EditData1').empty();
             $('#EditData2').empty();
@@ -128,7 +136,7 @@ function getStatesDropdown(state_id) {
         url: webURL + "/RUapi/states",
         dataType: 'json',
         success: function(data) {
-         var optionsList = "<select class='form-control' id='selectState' name='selectState' id='states'><option>Select State</option>";
+        var optionsList = "<select class='form-control' id='selectState' name='selectState' id='states'}><option>Select State</option>";
 
           //  var optionsList = "<select class='form-control' id='selectState' name='selectState' onChange='changeState()' id='states'><option>Select State</option>";
             for (var i = 0; i < data.length; i++) {
