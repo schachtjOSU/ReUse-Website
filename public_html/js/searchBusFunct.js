@@ -125,6 +125,7 @@ function delItem(match) {
 }
 
 function getStatesDropdown(state_id) {
+  // alert(state_id);
     $.ajax({
         type: "GET",
         url: webURL + "/RUapi/states",
@@ -141,10 +142,23 @@ function getStatesDropdown(state_id) {
               This happens even if i don't include the line that you see with
               "6 slashmarks" next to it below.
               */
-                // if(data[i].id = state_id){
-                //   $('#basic-addonStatesHere').innerHTML = 'Was: ' + data[i].name; + '';
+              // console.log(i);
+              // console.log(state_id);
+              // console.log(i + 1);
+              // console.log(state_id);
+
+
+                if(i+1 == state_id){
+                  console.log("look, i + 1 is");
+                  console.log(i + 1);
+                  console.log(state_id);
+                  console.log("FIN");
+                  console.log(data[i].name);
+            //      $('#basic-addonStatesHere').innerHTML = 'Was: ' + data[i].name; + '';
+                  $('#basic-addonStatesHere')[0].innerHTML = 'Was: ' + data[i].name; + '';
+
                 //////@@@@   optionsList += "<option selected='false' value = " + data[i].id + ">";
-              // }
+              }
                 // else{
                   optionsList += "<option value = " + data[i].id+ ">";
               // }
@@ -200,8 +214,6 @@ function editBusiness() {
             $('#state')[0].value = '' + data[0].state_id + '';
             $('#basic-addonState')[0].innerHTML = 'Was: ' + data[0].state_id + '';
             $('#stateHidden')[0].value = '' + data[0].state_id + '';
-
-            $('#basic-addonStatesHere')[0].innerHTML = 'Was: ' + data[0].state_id; + '';
 
             getStatesDropdown(data[0].state_id);
         }
