@@ -11,7 +11,7 @@ var webURL = "";
 
 function saveClicked() {
     var payload = {};
-    payload.oldName = document.getElementById('inputHidden').value;
+    payload.oldName = document.getElementById('oldNameHidden').value;
     payload.name = document.getElementById('name').value;
     payload.add1 = document.getElementById('add1').value;
     payload.add2 = document.getElementById('add2').value;
@@ -60,7 +60,7 @@ function searchBusiness() {
         url: webURL + "/RUapi/business/" + encodeURIComponent(match),
         dataType: 'json',
         success: function(data) {
-            $('#inputHidden')[0].value = '' + data[0].name; + '';
+            $('#oldNameHidden')[0].value = '' + data[0].name; + '';
             $('#EditData').empty();
             $('#EditData1').empty();
             $('#EditData2').empty();
@@ -137,17 +137,17 @@ function getStatesDropdown(state_id) {
             for (var i = 0; i < data.length; i++) {
 
                 if(i+1 == state_id){
-                  console.log("look, i + 1 is");
-                  console.log(i + 1);
-                  console.log(state_id);
-                  console.log("FIN");
-                  console.log(data[i].name);
                   $('#basic-addonStatesHere')[0].innerHTML = 'Was: ' + data[i].name; + '';
+                  optionsList += "<option selected='selected' value = " + data[i].id+ ">";
+                  optionsList += data[i].name;
+                  optionsList += "</option>";
 
               }
+              else{
                 optionsList += "<option value = " + data[i].id+ ">";
                 optionsList += data[i].name;
                 optionsList += "</option>";
+              }
             }
             optionsList += "</select>";
             $("#statesHere").append(optionsList);
@@ -174,7 +174,7 @@ function editBusiness() {
         success: function(data) {
             $('#name')[0].value = '' + data[0].name; + '';
             $('#basic-addonName')[0].innerHTML = 'Was: ' + data[0].name; + '';
-            $('#inputHidden')[0].value = '' + data[0].name; + '';
+            $('#oldNameHidden')[0].value = '' + data[0].name; + '';
             $('#oldName')[0].innerHTML = 'Edit data for business ' + data[0].name;+ '';
 
             $('#add1')[0].value = '' + data[0].address_line_1 + '';

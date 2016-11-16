@@ -119,7 +119,7 @@
   </div> -->
   <input type="hidden" id="stateHidden" name="stateHidden">
 
-  <!-- <input type="hidden" id="inputHidden" name="inputHidden"> -->
+  <!-- <input type="hidden" id="oldNameHidden" name="oldNameHidden"> -->
 
   <label for="statesHere">State</label>
   <div class="input-group">
@@ -128,7 +128,7 @@
 
     <!-- <input type="text" class="form-control" id="state" name="state" value="1" aria-describedby="basic-addon3"> -->
   </div>
-  <input type="hidden" id="inputHidden" name="inputHidden">
+  <input type="hidden" id="oldNameHidden" name="oldNameHidden">
 
 
 <input type="submit" value="save" id="submitChangesButton">
