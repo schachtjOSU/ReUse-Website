@@ -19,7 +19,6 @@ function saveClicked() {
     payload.zip = document.getElementById('zip').value;
     payload.phone = document.getElementById('phone').value;
     payload.website = document.getElementById('website').value;
-  //  alert(document.getElementById('stateHidden').value);
 
     if( $('#selectState').find("option:selected").val() == 'Select State'){
       payload.state = document.getElementById('stateHidden').value;
@@ -135,20 +134,7 @@ function getStatesDropdown(state_id) {
         success: function(data) {
         var optionsList = "<select class='form-control' id='selectState' name='selectState' id='states'}><option>Select State</option>";
 
-          //  var optionsList = "<select class='form-control' id='selectState' name='selectState' onChange='changeState()' id='states'><option>Select State</option>";
             for (var i = 0; i < data.length; i++) {
-              /*From colleen: I had to take this part out because it causes
-              whatever option i run the if-statement on (the previous choice for
-            state) it still thinks that that option is 'selected' later and doesnt
-              change the state.
-              This happens even if i don't include the line that you see with
-              "6 slashmarks" next to it below.
-              */
-              // console.log(i);
-              // console.log(state_id);
-              // console.log(i + 1);
-              // console.log(state_id);
-
 
                 if(i+1 == state_id){
                   console.log("look, i + 1 is");
@@ -158,11 +144,8 @@ function getStatesDropdown(state_id) {
                   console.log(data[i].name);
                   $('#basic-addonStatesHere')[0].innerHTML = 'Was: ' + data[i].name; + '';
 
-                //////@@@@   optionsList += "<option selected='false' value = " + data[i].id + ">";
               }
-                // else{
-                  optionsList += "<option value = " + data[i].id+ ">";
-              // }
+                optionsList += "<option value = " + data[i].id+ ">";
                 optionsList += data[i].name;
                 optionsList += "</option>";
             }
