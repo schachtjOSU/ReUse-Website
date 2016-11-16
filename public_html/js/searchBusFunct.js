@@ -18,8 +18,12 @@ function saveClicked() {
     payload.city = document.getElementById('city').value;
     payload.zip = document.getElementById('zip').value;
     payload.phone = document.getElementById('phone').value;
-    payload.state = '' + $('#selectState').find("option:selected").val();
     payload.website = document.getElementById('website').value;
+
+    //TODO: Make a function called getStateId which will retrieve
+    //the id of the state by name.
+  //payload.state = getStateId('' + $('#selectState').find("option:selected").val());
+  payload.state = 3;
 
     $.ajax({
         type: "POST",
@@ -140,7 +144,7 @@ function getStatesDropdown(state_id) {
                 //////@@@@   optionsList += "<option selected='false' value = " + data[i].id + ">";
               // }
                 // else{
-                  optionsList += "<option value = " + data[i].id + ">";
+                  optionsList += "<option value = " + data[i].name + ">";
               // }
                 optionsList += data[i].name;
                 optionsList += "</option>";
@@ -194,7 +198,7 @@ function editBusiness() {
             $('#state')[0].value = '' + data[0].state_id + '';
             $('#basic-addonState')[0].innerHTML = 'Was: ' + data[0].state_id + '';
 
-            // $('#basic-addonStatesHere')[0].innerHTML = 'Was: ' + data[0].state_id; + '';
+            $('#basic-addonStatesHere')[0].innerHTML = 'Was: ' + data[0].state_id; + '';
 
             getStatesDropdown(data[0].state_id);
         }
