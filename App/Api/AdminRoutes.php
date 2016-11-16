@@ -77,8 +77,8 @@ $app->response->headers->set('Content-Type', 'application/json');
     $result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations");
 
 		$returnArray = array();
-	    while($row = $result->fetch_object()){
-	      $returnArray[] = $row;
+	    while($row = $result->fetch_assoc()){
+	       $returnArray[] = array_map("utf8_encode", $row); 
 	    }
 
 	    echo json_encode($returnArray);
