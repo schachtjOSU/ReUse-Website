@@ -60,10 +60,17 @@
           <button Id ="submit" type ="submit" class="btn btn-primary" onclick="allCategories(); return false" align="center">View all Categories</button>
         </p>
 
-        <!-- Table is created when button is hit -->
-        <div id="tableHere">
-          <table class="table table-striped" id="table"></table>
-        </div>
+
+         <!-- Table is created when button is hit -->
+ <div id="table-wrapper">
+   <div id="table-scroll">
+    <div id="tableHere">
+      <table id="table"  class="table table-striped">
+         <tbody id="table" ></tbody>
+      </table>
+    </div>
+  </div>
+ </div>
 
         <!-- edit info -->
         <div id= "EditData"></div>

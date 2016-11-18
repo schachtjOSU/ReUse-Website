@@ -142,18 +142,33 @@
 
 </span>
 
+
+
         <!-- Table is created when button is hit -->
-        <div id="tableHere">
-          <table class="table table-striped" id="table"></table>
-        </div>
+<div id="table-wrapper">
+  <div id="table-scroll">
+   <div id="tableHere">
+     <table id="table"  class="table table-striped">
+        <tbody id="table" ></tbody>
+     </table>
+   </div>
+ </div>
+</div>
 
-                <!-- edit info -->
+
+
+
+
+
+
+
+
+
+<!--Do these divs do anything?
         <div id= "EditData"></div>
-                <!-- edit info -->
         <div id= "EditData1"></div>
-                <!-- edit info -->
         <div id= "EditData2"></div>
-
+-->
     </div>
     <hr></hr>
     <!-- Hidden row for displaying login errors -->

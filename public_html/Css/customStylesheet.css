@@ -356,3 +356,36 @@ hr {
 .filler {
     margin-bottom: 10%;
 }
+
+
+
+
+
+/*
+ * Scrollable functionality when search all buttons are rpessed in the Admin Site
+ *
+ */
+
+
+#table-wrapper {
+ position:relative;
+}
+
+#table-scroll {
+  height:30em;
+  overflow:auto;  
+  margin-top:20px;
+}
+#table-wrapper table {
+  width:100%;
+
+}
+/*Lock the top row in place (currently not working)*/
+.locked{
+  position:absolute;   
+  top:-20px;
+  z-index:2;
+  height:20px;
+  width:35%;
+}
+

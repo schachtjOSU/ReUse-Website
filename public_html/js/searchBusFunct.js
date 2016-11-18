@@ -88,7 +88,7 @@ function allBusinesses() {
             $('#EditData').empty();
             $('#EditData1').empty();
             $('#EditData2').empty();
-            var row = '<tr><th>' + 'Name' + '</th><th>' + 'Address' + '</th><th>' + 'Modify' + '</th><th>' + 'Delete' + '</th></tr>';
+            var row = '<tr><th><span class="locked">' + 'Name' + '</span></th><th><span class="locked">' + 'Address' + '</span></th><th><span class="locked">' + 'Modify' + '</span></th><th><span class="locked">' + 'Delete' + '</span></th></tr>';
             for (var i = 0; i < data.length; i++) {
                 row += '<tr><td>' + data[i].name + '</td><td>' + data[i].address_line_1 + '</td><td>' + "<button value='" + data[i].name + "' type=submit id=edit onclick='editBusinessHelper(this.value); return false;'>" + 'Edit' + "</button>" + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td>' + '</tr>';
             }
