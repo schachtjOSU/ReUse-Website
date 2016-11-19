@@ -177,7 +177,7 @@ function echoRecycleNameXML() {
 	while ($stmt->fetch()) {
 		
 		//adding business names
-		$business->addChild("name", $name);
+		$businessList->addChild("name", $name);
 	}
 	$stmt->close();
 	
