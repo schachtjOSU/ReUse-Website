@@ -19,10 +19,27 @@
     });
 
 	/**
+  	 * @api {get} /recycleNameXML
+     * @apiName ReUseApp
+     *
+	 * @apiSuccess {XML} An XML tree with a list names of recycling centers, ordered by name.
+	 */  
+	$app->get('/recycleNameXML', function() {
+    
+        global $app;
+		
+		//printing an xml file, set headers accordingly
+		$app->response->headers->set('content-type', 'application/xml');
+	
+		//echo out the xml file
+		echoRecycleXML();		
+    });
+	
+	/**
   	 * @api {get} /recycleXML
      * @apiName ReUseApp
      *
-	 * @apiSuccess {XML} An XML tree with a list of recycling centers and data relevant to the businesses, including contact information, items they accept, and a list of links associated with the recycling center.
+	 * @apiSuccess {XML} An XML tree with a list of recycling centers and data relevant to the businesses, including contact information, items they accept, and a list of links associated with the recycling center, ordered by name.
 	 */  
 	$app->get('/recycleXML', function() {
     
@@ -39,7 +56,7 @@
   	 * @api {get} /reuseDB
      * @apiName ReUseApp
      *
-	 * @apiSuccess {XML} An XML tree of the donors/sponsors, with their name, description, and website.
+	 * @apiSuccess {XML} An XML tree of the donors/sponsors, with their name, description, and website, ordered by name.
 	 */  
 	$app->get('/donorXML', function() {
     

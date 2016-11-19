@@ -146,6 +146,46 @@ function echoXMLFile() {
 	return;
 }
 
+/* Prints out text/xml MIME-type name of the existing the recycling centers*/
+function echoRecycleNameXML() {
+	
+	/* Database Connection */
+	include ( 'xmlGeneratorConfig.php' );
+	$mysqli = connectReuseDB();
+	
+	/*output type is xml*/
+	header('Content-Type: text/xml');
+
+	/* SimpleXML Declaration */
+	$sxml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?><recycle/>');
+	
+	/* Recycle List*/
+	$businessList = $sxml->addChild("recycle_center_names");
+	
+	
+	
+	/* Query for recycling center names */
+	if ( !($stmt = $mysqli->prepare( "SELECT L.name FROM Reuse_Locations L WHERE L.recycle = 1 ORDER BY L.name;" ) ) ) {
+		echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+	}
+	
+	$stmt->bind_result($name);
+	$stmt->execute();
+	$stmt->store_result();
+	
+	  //fetch and print results
+	while ($stmt->fetch()) {
+		
+		//adding business names
+		$business->addChild("name", $name);
+	}
+	$stmt->close();
+	
+	echo $sxml->asXML();
+	return true;
+	
+}
+
 /* Prints out text/xml MIME-type information about existing the recycling centers*/
 function echoRecycleXML() {
 	
