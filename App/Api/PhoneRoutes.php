@@ -32,7 +32,7 @@
 		$app->response->headers->set('content-type', 'application/xml');
 	
 		//echo out the xml file
-		echoRecycleXML();		
+		echoRecycleNameXML();		
     });
 	
 	/**
