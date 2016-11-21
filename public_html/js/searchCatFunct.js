@@ -171,7 +171,7 @@ function checkSession(){
 
         if(req.responseText == 1){
           /* everything has passed! Yay! Go into your session */
-          window.alert("You are not logged in! You will be redirected.");
+          //window.alert("You are not logged in! You will be redirected.");
           window.location.href = webURL + "loginPage.php";
         }
       }

@@ -28,7 +28,8 @@
   <div class="container-fluid" id="smallCont">
 
     <!-- logo, left corner -->
-    <img src="../img/CSCLogo.png" class="img-thumbnail">
+    
+    <img src="../img/CSCRectangular.png" >
     <div class="row">
       <div class="col-xs-12 col-md-12">
 
@@ -38,7 +39,7 @@
         <!-- Get the user's login information -->
         <form id="loginForm">
 
-          <h3> DATABASE MANAGEMENT PORTAL </h3>
+          <h3> Reuse Administration Portal </h3>
        <div class="form-group">
            <label>Enter your username: </label>
            <input type ="text" class="form-control" Id="username" placeholder="Enter Username">
