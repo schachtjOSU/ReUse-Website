@@ -199,6 +199,11 @@ function editBusiness() {
             $('#stateHidden').value = '' + data[0].state_id;
 
             getStatesDropdown(data[0].state_id);
+
+
+            //Show all associated documents below
+            allDocs(data[0].id);
+
         }
     });
 }
@@ -284,9 +289,25 @@ function updateItem(value) {
 /****Adding documents to a businesss*****/
 
 /*
-function showDoc()
+function allDocs()
 purpose: Displays all documents in a table.
 */
+function allDocs(loc_id) {
+    clearAll();
+    $.ajax({
+        type: "GET",
+        url: webURL + "/RUapi/businessdocs/" + loc_id,
+        dataType: 'json',
+        success: function(data) {
+            var doc_row = '<tr><th><span class="locked">' + 'Name' + '</span></th><th><span class="locked">' + 'Link to document' + '</span></th></tr>';
+            for (var i = 0; i < data.length; i++) {
+                doc_row += '<tr><td>' + data[i].name + '</td><td>' + data[i].URI + '</td><td>' + '<input type= hidden id= deldoc_id value=' + data[i].id + '><input type= submit value=Delete id=deldoc onclick=delDoc()>' + '</td>' + '</tr>';
+            }
+            $('#table_doc').append(doc_row);
+        },
+    });
+}
+
 
 /*
 function updateDoc()
@@ -295,7 +316,7 @@ purpose: Adds new document to the business
 
 
 /*
-function deleteDoc()
+function delDoc()
 purpose: Deletes a document from a business
 */
 

@@ -155,8 +155,8 @@
 <div id="table-wrapper">
   <div id="table-scroll-docs">
    <div id="tableHere">
-     <table id="tablet"  class="table table-striped">
-        <tbody id="tablet" ></tbody>
+     <table id="table_doc"  class="table table-striped">
+        <tbody id="table_doc" ></tbody>
      </table>
    </div>
  </div>
@@ -198,11 +198,11 @@
 
 
 
-<!--Do these divs do anything?
+
         <div id= "EditData"></div>
         <div id= "EditData1"></div>
         <div id= "EditData2"></div>
--->
+
     </div>
     <hr></hr>
     <!-- Hidden row for displaying login errors -->

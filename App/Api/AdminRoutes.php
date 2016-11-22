@@ -145,7 +145,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 	});
 
 	/**
-	 * @api {get} /businesss/:one Request business info.
+	 * @api {get} /business/:one Request business info.
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
 	 *
@@ -212,22 +212,19 @@ $app->response->headers->set('Content-Type', 'application/json');
 	 *
 	 * @apiSuccess {string[]} name All documents in JSON format.
 	 */
-	$app->get('/items', function() {
+	$app->get('/businessdocs/:id', function($id) {
 		$mysqli = connectReuseDB();
 
-		$result = $mysqli->query("SELECT name, URI FROM Reuse_Documents WHERE location_id = '$id'");
+		$result = $mysqli->query("SELECT id, name, URI FROM Reuse_Documents WHERE location_id = '$id'");
 
 		$returnArray = array();
 
         while($row = $result->fetch_object()){
 	      $returnArray[] = $row;
 	    }
-/*
-	    while($row = $result->fetch_assoc()){
-	       $returnArray[] = array_map("utf8_encode", $row); 
-	    }
-*/
-	    echo json_encode($returnArray);
+        
+        
+        echo json_encode($returnArray);
 
 	    $result->close();
 	    $mysqli->close();
