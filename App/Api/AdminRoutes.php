@@ -201,6 +201,36 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 	    $result->close();
 	    $mysqli->close();
+    });
+
+
+	/**
+	 * @api {get} /businessdocs/:id Request all documents for a given business.
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 *
+	 * @apiSuccess {string[]} name All documents in JSON format.
+	 */
+	$app->get('/items', function() {
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT name, URI FROM Reuse_Documents WHERE location_id = '$id'");
+
+		$returnArray = array();
+
+        while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+/*
+	    while($row = $result->fetch_assoc()){
+	       $returnArray[] = array_map("utf8_encode", $row); 
+	    }
+*/
+	    echo json_encode($returnArray);
+
+	    $result->close();
+	    $mysqli->close();
 	});
 
 /************************************************************************************

@@ -281,6 +281,28 @@ function updateItem(value) {
 }
 
 
+/****Adding documents to a businesss*****/
+
+/*
+function showDoc()
+purpose: Displays all documents in a table.
+*/
+
+/*
+function updateDoc()
+purpose: Adds new document to the business
+*/
+
+
+/*
+function deleteDoc()
+purpose: Deletes a document from a business
+*/
+
+
+/****Additional utility functions****/
+
+
 /*
 function clearAll()
 purpose: table and div cleanup for new searches
