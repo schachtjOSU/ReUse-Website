@@ -176,6 +176,7 @@ function editBusiness() {
             $('#basic-addonName')[0].innerHTML = 'Was: ' + data[0].name; + '';
             $('#oldNameHidden')[0].value = '' + data[0].name; + '';
             $('#oldName')[0].innerHTML = 'Edit data for business ' + data[0].name;+ '';
+            $('#oldName2')[0].innerHTML = 'Documents associated with  business ' + data[0].name;+ '';
 
             $('#add1')[0].value = '' + data[0].address_line_1 + '';
             $('#basic-addonAddress1')[0].innerHTML = 'Was: ' + data[0].address_line_1 + '';

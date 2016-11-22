@@ -25,7 +25,7 @@
   <link href="../Css/media.css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="../js/jquery-1.11.1.min.js"></script>
   <script src="../js/searchBusFunct.js"></script>
 <script>
   $(document).ready(function(){
@@ -67,7 +67,7 @@
 
 <span id="editFields">
   <form>
-    <p id="oldName"></p>
+    <p id="oldName" align="center"></p>
 
 
   <label for="name">Name of Business</label>
@@ -123,20 +123,54 @@
 
   <label for="statesHere">State</label>
   <div class="input-group">
-    <span class="input-group-addon" id="basic-addonStatesHere">https://example.com/users/</span>
+    <span class="input-group-addon" id="basic-addonStatesHere">Placeholder</span>
     <div id="statesHere"></div>
 
     <!-- <input type="text" class="form-control" id="state" name="state" value="1" aria-describedby="basic-addon3"> -->
   </div>
   <input type="hidden" id="oldNameHidden" name="oldNameHidden">
 
+<br><br><p align="center">
+<input align="center" type="submit" class="btn btn-primary" value="save" id="submitChangesButton">
+</p>
 
-<input type="submit" value="save" id="submitChangesButton">
 
 <script type="text/javascript">
     document.getElementById("submitChangesButton").addEventListener("click", saveClicked, false);
 </script>
 </form>
+
+
+
+
+
+<!-- Begin document addition to Businesses -->
+
+
+    <p  align="center"  id="oldName2" ></p>
+
+
+
+        <!-- Table is created when button is hit -->
+<div id="table-wrappert">
+  <div id="table-scroll-docs">
+   <div id="tableHeret">
+     <table id="tablet"  class="table table-striped">
+        <tbody id="tablet" ></tbody>
+     </table>
+   </div>
+ </div>
+</div>
+
+<!-- End document section -->
+
+
+
+
+
+
+
+
 
 
 
@@ -178,7 +212,7 @@
   </div> <!-- end row -->
   </div> <!-- end container-->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="../js/jquery-1.11.1.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

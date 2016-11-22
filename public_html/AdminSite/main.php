@@ -24,7 +24,7 @@
   <link href="../Css/media.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rubik:700' rel='stylesheet' type='text/css'>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="../js/jquery-1.11.1.min.js"></script>
   <script src="../js/mainFunct.js"></script>
   <script>
   //ONLOAD -- GET requests and checking of session with jQuery
@@ -70,7 +70,7 @@
     </div> <!-- end row -->
   </div> <!-- end container-->
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="../js/jquery-1.11.1.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -292,9 +292,10 @@ label {
 .form-horizontal{
     margin-bottom: 2%;
 }
-#table{
+/* This messes with the column titles, consider fully removing
+ * #table{   
     margin-top: 10%;
-}
+}*/
 .table-responsive {
     margin-top: 5%;
 }
@@ -362,7 +363,7 @@ hr {
 
 
 /*
- * Scrollable functionality when search all buttons are rpessed in the Admin Site
+ * Scrollable functionality when search all buttons are pressed in the Admin Site
  *
  */
 
@@ -373,6 +374,12 @@ hr {
 
 #table-scroll {
   height:30em;
+  overflow:auto;  
+  margin-top:20px;
+}
+
+#table-scroll-docs {
+  height:15em;
   overflow:auto;  
   margin-top:20px;
 }
