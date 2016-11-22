@@ -317,6 +317,29 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli->close();
 	});
 
+
+	/**
+	 * @api {delete} /businessDoc/:id Remove a specific document from a business.
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 * @apiParam {integer} id business ID.
+	 */
+    $app->delete('/businessDoc/:id', function($id){
+		$mysqli = connectReuseDB();
+		$delID = $mysqli->real_escape_string($id);
+         
+        $result = $mysqli->query("SELECT location_id FROM Reuse_Documents WHERE id = '$delID'");
+      
+        while($row = $result->fetch_object()){
+	      $returnArray[] = $row;
+	    }
+    echo json_encode($returnArray);
+        
+	$mysqli->query("DELETE FROM Reuse_Documents WHERE id ='$delID'");
+    $mysqli->close();
+    });        
+        
 /******************************************************************************************
 *				PUTS -- doing it as POSTS with UPDATES to avoid form issues
 ******************************************************************************************/
