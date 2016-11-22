@@ -147,14 +147,14 @@
 <!-- Begin document addition to Businesses -->
 
 
-    <p  align="center"  id="oldName2" ></p>
+    <h3><p  align="center"  id="oldName2" ></p></h3>
 
 
 
         <!-- Table is created when button is hit -->
-<div id="table-wrappert">
+<div id="table-wrapper">
   <div id="table-scroll-docs">
-   <div id="tableHeret">
+   <div id="tableHere">
      <table id="tablet"  class="table table-striped">
         <tbody id="tablet" ></tbody>
      </table>
