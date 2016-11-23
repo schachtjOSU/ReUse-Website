@@ -195,9 +195,9 @@ label {
     margin-bottom: 5%;
     margin-top: 5%;
     width: 100%;
-    background-color: #6A9113; /* fallback for old browsers */
-    background-color: -webkit-linear-gradient(to left, #6A9113 , #141517); /* Chrome 10-25, Safari 5.1-6 */
-    background-color: linear-gradient(to left, #6A9113 , #141517); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #3CA55C; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #3CA55C , #B5AC49); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #3CA55C , #B5AC49); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
     font-size: 1em;
 }
