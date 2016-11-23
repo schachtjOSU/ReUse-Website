@@ -739,5 +739,55 @@ $app->post('/items', function(){
 		$stmt->close();
 		$mysqli->close();
 });
+
+
+/* Adding a new document to a given location */
+
+    /**
+  	 * @api {POST} /addBusinessDoc
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+     *
+	 * @apiParam {Integer} cat Category ID item will belong to
+	 * @apiParam {string} name Item name to set
+	 */
+$app->post('/addBusinessDoc', function(){
+
+		$doc_name = $_POST['doc_name'];
+		$doc_url = $_POST['doc_url'];
+
+		$mysqli = connectReuseDB();
+
+		/* Check to  make sure it's not a duplicate */
+		$result = $mysqli->query('SELECT name, URI FROM Reuse_Documents');
+            while($row = $result->fetch_object()){
+                if($row->name == $doc_name){
+                    $mysqli->close();
+                    echo "Item already exists, please select a different name.";
+                }
+			}
+
+
+		/* prepare the statement*/
+		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Documents (name, URI) VALUES (?, ?)"))){
+			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
+		}
+
+		/* bind the variables */
+		if(!$stmt->bind_param('ss', $doc_name, $doc_url)){
+	 		echo "Binding failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
+	 	}
+
+		/* execute */
+		if(!$stmt->execute()){
+			echo "Execute failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
+		}
+
+		/* updated */
+		echo "Item added succesfully";
+		$stmt->close();
+		$mysqli->close();
+});
+
 });
 ?>
