@@ -3,7 +3,9 @@
     margin-bottom: 0;
     margin-left: 0;
     margin-right: 0;
-    background-color: #7DA43E;
+    background: #76b852; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #76b852 , #8DC26F); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #76b852 , #8DC26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 label {
@@ -74,7 +76,7 @@ label {
     padding-right: 20px !important;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-bottom: 2%; 
+    margin-bottom: 2%;
     margin-left: 35%;
     color: white;
     font-weight: bold;
@@ -105,7 +107,7 @@ label {
     padding-right: 20px !important;
     padding-top: 5px;
     padding-bottom: 5px;
-    margin-bottom: 5%; 
+    margin-bottom: 5%;
     margin-bottom: 2%;
     margin-left: 35%;
     color: white;
@@ -228,7 +230,7 @@ label {
 }
 
 .navbar li {
-    padding-right: 10px; 
+    padding-right: 10px;
 }
 
 .navbar a{
@@ -293,7 +295,7 @@ label {
     margin-bottom: 2%;
 }
 /* This messes with the column titles, consider fully removing
- * #table{   
+ * #table{
     margin-top: 10%;
 }*/
 .table-responsive {
@@ -342,7 +344,7 @@ label {
 
 h3 {
     text-align: center;
-    font-family: 'Rubik', sans-serif;    
+    font-family: 'Rubik', sans-serif;
     padding-bottom: 2%;
     margin-bottom: 5%;
     margin-top: 3%;
@@ -350,7 +352,7 @@ h3 {
 
 hr {
     border-top: 1px solid #FF9900 !important;
-    margin-bottom:5px !important; 
+    margin-bottom:5px !important;
     margin-top:5px !important;
 }
 
@@ -374,13 +376,13 @@ hr {
 
 #table-scroll {
   height:30em;
-  overflow:auto;  
+  overflow:auto;
   margin-top:20px;
 }
 
 #table-scroll-docs {
   height:15em;
-  overflow:auto;  
+  overflow:auto;
   margin-top:20px;
 }
 #table-wrapper table {
@@ -389,7 +391,7 @@ hr {
 }
 /*Lock the top row in place (currently not working)*/
 .locked{
-  position:absolute;   
+  position:absolute;
   top:-20px;
   z-index:2;
   height:20px;
@@ -402,4 +404,3 @@ hr {
     width = 50px;
     height = 50px;
 }
-
