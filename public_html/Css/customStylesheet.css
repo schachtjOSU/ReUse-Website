@@ -62,7 +62,9 @@ label {
     text-decoration: underline;
 }
 .btn-primary {
-    background-color: #2C6700 !important;
+    background-color: #76b852 !important;
+    background: -webkit-linear-gradient(to left, #76b852 , #8DC26F); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #76b852 , #8DC26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding-left: 20px !important;
     padding-right: 20px !important;
     padding-top: 5px;
