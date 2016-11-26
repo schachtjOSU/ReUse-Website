@@ -755,7 +755,7 @@ $app->post('/addBusinessDoc', function(){
 
 		$doc_name = $_POST['doc_name'];
 		$doc_url = $_POST['doc_url'];
-
+        $business_id = $_POST['business_id'];
 		$mysqli = connectReuseDB();
 
 		/* Check to  make sure it's not a duplicate */
@@ -769,12 +769,12 @@ $app->post('/addBusinessDoc', function(){
 
 
 		/* prepare the statement*/
-		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Documents (name, URI) VALUES (?, ?)"))){
+		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Documents (name, URI, location_id) VALUES (?, ?)"))){
 			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}
 
 		/* bind the variables */
-		if(!$stmt->bind_param('ss', $doc_name, $doc_url)){
+		if(!$stmt->bind_param('ssi', $doc_name, $doc_url, $business_id)){
 	 		echo "Binding failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
 	 	}
 

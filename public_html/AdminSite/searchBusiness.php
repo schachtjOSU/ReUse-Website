@@ -75,6 +75,8 @@
     <span class="input-group-addon" id="basic-addonName">Was: Whatever name</span>
     <input type="text" class="form-control" id="name" name="name" aria-describedby="basic-addon3">
   </div>
+ 
+  <input type="hidden" id="bus_id" name="bus_id" value="">
 
   <label for="add1">Address Line One</label>
   <div class="input-group">
@@ -146,10 +148,33 @@
 
 <!-- Begin document addition to Businesses -->
 
+<br><br>
+<legend><center><hr> Add a Document </h3> </center></legend>
 
-    <h3><p  align="center"  id="oldName2" ></p></h3>
+
+        <form class="form-horizontal" role="form" id="addDocForm">
+
+        <div class="form-group" id="addDoc">
+           <div class="col-sm-10">
+           <label class="control-label col-md-2" for="text">Name</label>
+           <label class="control-label col-sm-6" for="text">URL</label>
+           </div> 
+       </div>
+           <div class="col-sm-10">
+            <input id="docName" name="docName" class="col-sm-6" onfocus="this.value = ''" type="text">
+            <input id="docURL" name="docURI"  onfocus="this.value = ''" type="text">
+           </div>
+
+        <p align="center">
+          <button id ="sub" type ="sub" class="btn btn-primary" onclick="addDoc(); return false" >Save Document</button>
+        </p>
+        </form>
 
 
+
+
+
+<legend><h3><p  align="center"  id="oldName2" ></p></h3></legend>
 
         <!-- Table is created when button is hit -->
 <div id="table-wrapper">
