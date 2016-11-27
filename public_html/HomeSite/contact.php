@@ -35,7 +35,7 @@
 					</div>
 					
 					<p>The Corvallis Reuse and Repair Directory is a service provided by the Corvallis Sustainability Coalition, a network of organizations and individual volunteers in Corvallis, Oregon, who are working together to create a sustainable community. To find out more, visit the Corvallis Sustainability Coalition website, Twitter page, or Facebook page. <p>
-					<p >To add a business to the directory or to update information included in the directory, contact us with the relevant details using the email below.</p>
+					<p >To add an organization or service to the directory or to update information included in the directory, contact us with the relevant details using the email below.</p>
 					
 					<div class="contact-link"><a href="mailto:info@sustainablecorvallis.org?Subject=Reuse%20And%20Repair%20Directory"><i class="zmdi zmdi-email"></i>info@sustainablecorvallis.org</a></div>
 					<div class="contact-link"><a href="http://sustainablecorvallis.org/"><i class="zmdi zmdi-globe"></i> sustainablecorvallis.org</a></div>

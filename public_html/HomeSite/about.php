@@ -33,14 +33,14 @@
 					
 					<div id = "about-purpose">
 						<h2>Our Purpose</h2>
-						<p >The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate businesses that will take the following:<p>
+						<p >The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate organizations that will take the following:<p>
 						<ul>
 							<li>Items for repair</li>
 							<li>Reusable items that can be sold to the public as used items</li>
 							<li>Recyclable items</li>
 						</ul>
 						<p >Please note that reusable items may either be donated or sold on consignment.<p>
-						<p >To add a business to the directory or to update information included in the directory, <a href="contact.php">contact us with the relevant details</a>.</p>
+						<p >To add an organization or service to the directory or to update information included in the directory, <a href="contact.php">contact us with the relevant details</a>.</p>
 					</div>
 					<div id = "about-donors">
 						<h2>Our Donors</h2>

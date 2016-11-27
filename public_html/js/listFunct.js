@@ -118,7 +118,7 @@ function addBusinessList(categoryName, itemName) {
 
 	//setting the page title
 	if(categoryName === undefined || itemName === undefined || categoryName === "" || itemName === "") {
-		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses";
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Organizations";
 	}
 	else {
 		document.getElementsByClassName("side-container-title")[0].innerHTML = decodeURI(oldItemName);
@@ -365,7 +365,7 @@ function addBusinessContact(busName) {
 
 		var errorMessage = document.createElement("p");
 		errorMessage.className = "list-group-item-text";
-		errorMessage.appendChild(document.createTextNode("Unforunately, we could not find your business."));
+		errorMessage.appendChild(document.createTextNode("Unforunately, we could not find the organization you are looking for."));
 		errorMessage.appendChild(document.createElement("br"));
 		errorMessage.appendChild(document.createElement("br"));
 		errorMessage.appendChild(document.createTextNode("Try reviewing "));
@@ -389,7 +389,7 @@ function addBusinessContact(busName) {
 		reuseMessage.innerHTML = "recycling services";
 		errorMessage.appendChild(reuseMessage);
 
-		errorMessage.appendChild(document.createTextNode(", or the businesses shown on the map."));
+		errorMessage.appendChild(document.createTextNode(", or the organizations shown on the map."));
 
 		contactDiv.appendChild(errorMessage);
 
