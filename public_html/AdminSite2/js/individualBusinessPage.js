@@ -81,7 +81,7 @@ $.ajax({
     },
 });
 
-/*add a list item to the unoredered list #thisList*/
+/**/
 function fillTable(name, address_line_1, address_line_2, city, zip_code, website, phone, id){
   var shortenedURL = website.replace(/^(https?|ftp):\/\//, '');
   /*Add list item to list in allBusinessesPage.php*/
