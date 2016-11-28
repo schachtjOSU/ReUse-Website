@@ -758,36 +758,41 @@ $app->post('/addBusinessDoc', function(){
 		$doc_url = $_POST['doc_url'];
         $business_id =(int)$_POST['business_id'];
 		$mysqli = connectReuseDB();
-
+		$trigger = 1;
 		/* Check to  make sure it's not a duplicate */
 		$result = $mysqli->query('SELECT name, URI FROM Reuse_Documents');
-            while($row = $result->fetch_object()){
-                if($row->name == $doc_name){
-                    $mysqli->close();
-                    echo "Item already exists, please select a different name.";
-                }
-			}
-
-
-		/* prepare the statement*/
-		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Documents (name, URI, location_id) VALUES (?, ?, ?)"))){
-			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
+        while($row = $result->fetch_object()){
+            if($row->name == $doc_name){
+                $mysqli->close();
+                echo json_encode("Item already exists, please select a different name.");
+                $trigger = 0;
+			 }
 		}
+     
+        if($trigger)
+        {
 
-		/* bind the variables */
-		if(!$stmt->bind_param('ssi', $doc_name, $doc_url, $business_id)){
+		    /* prepare the statement*/
+		    if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Documents (name, URI, location_id) VALUES (?, ?, ?)"))){
+			    echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
+		    }
+
+		    /* ind the variables */
+		    if(!$stmt->bind_param('ssi', $doc_name, $doc_url, $business_id)){
 	 		echo "Binding failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
-	 	}
+	    	}
 
-		/* execute */
-		if(!$stmt->execute()){
+		    /* execute */
+		    if(!$stmt->execute()){
 			echo "Execute failed. (".$mysqli->connect_errno.")".$mysqli->connect_error;
-		}
+		    }
 
-		/* updated */
-		echo  json_encode("Item added succesfully");
-		$stmt->close();
-		$mysqli->close();
+		    /* ulpdated */
+		    echo  json_encode("Item added succesfully");
+		    $stmt->close();
+            $mysqli->close();
+
+        }
 });
 
 });
