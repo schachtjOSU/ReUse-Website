@@ -318,10 +318,6 @@ function addDoc() {
     var doc_name = $('#docName')[0].value;
     var doc_url = $('#docURL')[0].value;
     var business_id = $('#bus_id')[0].value;
-    console.log(business_id);
-    console.log(doc_name);
-    console.log(doc_url);
-    //var item = document.getElementById("update1").value;
     var tableData = "doc_name=" + doc_name + "&doc_url=" + doc_url + "&business_id=" + business_id;
 
     $.ajax({
@@ -329,8 +325,11 @@ function addDoc() {
         url: webURL + "/RUapi/addBusinessDoc",
         data: tableData,
         success: function(data) {
-            console.log(data);
-            alert("The entry was succesfully added");
+            alert(data);
+            $('#docName')[0].value = "";
+            $('#docURL')[0].value = "";
+            $('#table_doc').empty();
+            allDocs($('#bus_id')[0].value);
         },
     });
 }
@@ -348,7 +347,6 @@ function delDoc(doc_id) {
         dataType: 'json',
         success: function(data) { 
             $('#table_doc').empty();
-            //allDocs(data[0].location_id);
             allDocs($('#bus_id')[0].value);
         }
     });

@@ -252,7 +252,6 @@ $app->response->headers->set('Content-Type', 'application/json');
             echo "The business was not removed";
 		$mysqli->close();
 
-    echo "Succesfully Deleted";
 
 		/* Update Mobile Database */
 	//	reuse_generateXML();
@@ -757,7 +756,7 @@ $app->post('/addBusinessDoc', function(){
 
 		$doc_name = $_POST['doc_name'];
 		$doc_url = $_POST['doc_url'];
-        $business_id = $_POST['business_id'];
+        $business_id =(int)$_POST['business_id'];
 		$mysqli = connectReuseDB();
 
 		/* Check to  make sure it's not a duplicate */
@@ -771,7 +770,7 @@ $app->post('/addBusinessDoc', function(){
 
 
 		/* prepare the statement*/
-		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Documents (name, URI, location_id) VALUES (?, ?)"))){
+		if (!($stmt = $mysqli->prepare("INSERT INTO Reuse_Documents (name, URI, location_id) VALUES (?, ?, ?)"))){
 			echo "Prepare failed : (".$mysqli->connect_errno.")".$mysqli->connect_error;
 		}
 
@@ -786,7 +785,7 @@ $app->post('/addBusinessDoc', function(){
 		}
 
 		/* updated */
-		echo "Item added succesfully";
+		echo  json_encode("Item added succesfully");
 		$stmt->close();
 		$mysqli->close();
 });

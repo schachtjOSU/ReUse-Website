@@ -151,28 +151,19 @@
 <br><br>
 <legend><center><hr> Add a Document </h3> </center></legend>
 
+<form id="addDocForm">
 
-        <form class="form-horizontal" role="form" id="addDocForm">
-
-        <div class="form-group" id="addDoc">
-           <div class="col-sm-10">
-           <label class="control-label col-md-2" for="text">Name</label>
-           <label class="control-label col-sm-6" for="text">URL</label>
-           </div> 
-       </div>
-           <div class="col-sm-10">
-            <input id="docName" name="docName" class="col-sm-6" onfocus="this.value = ''" type="text">
-            <input id="docURL" name="docURI"  onfocus="this.value = ''" type="text">
-           </div>
-
-        <p align="center">
-          <button id ="sub" type ="sub" class="btn btn-primary" onclick="addDoc(); return false" >Save Document</button>
-        </p>
-        </form>
-
-
-
-
+<div class="row">
+  <div class="col-xs-3">
+    <input id="docName" class="form-control" name="docName"  onfocus="this.value = ''"  placeholder="Name">  
+  </div>
+  
+  <div class="col-xs-6">
+    <input type="text" class="form-control" id="docURL" name="docURL"  onfocus="this.value = ''"  placeholder="URL">  
+  </div>
+  <button id ="sub" type ="submit" class="btn btn-success" onclick="addDoc(); return false" >Save Document</button>
+</div>
+</form>  
 
 <legend><h3><p  align="center"  id="oldName2" ></p></h3></legend>
 
