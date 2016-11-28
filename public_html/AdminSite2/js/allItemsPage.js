@@ -74,7 +74,7 @@ addFunctionForSquare = function(thisSquare, id){
 
   clickListenersForSquares[id] = function(){
      var hiddenFormToSubmit = document.createElement('form');
-     hiddenFormToSubmit.action = 'individualBusinessPage.php';
+     hiddenFormToSubmit.action = 'individualItemPage.php';
      hiddenFormToSubmit.method = 'post';
 
      var hiddenInput = document.createElement('input');

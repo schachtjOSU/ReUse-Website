@@ -1,6 +1,15 @@
 <?php
 //Routes used by the admin portal to change or view the database.
 
+/**
+   * @api {get} /
+   * @apiName Admin Site
+   *
+ */
+$app->get('/admin', function() use ($app) {
+  $app->redirect("/AdminSite2/loginPage.php");
+});
+
 $app->response->headers->set('Content-Type', 'application/json');
 // API group
  	$app->group('/RUapi', function () use ($app) {
@@ -9,7 +18,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 	*				Gets
 	****************************************************************************/
 
-    /**
+    /***
   	 * @api {get} /category/:id
      * @apiName ReUseApp
      * @apiGroup RUapi
@@ -78,7 +87,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 		$returnArray = array();
 	    while($row = $result->fetch_assoc()){
-	       $returnArray[] = array_map("utf8_encode", $row); 
+	       $returnArray[] = array_map("utf8_encode", $row);
 	    }
 
 	    echo json_encode($returnArray);
@@ -165,7 +174,7 @@ $app->response->headers->set('Content-Type', 'application/json');
     $app->get('/business/:one', function($one){
 		$mysqli = connectReuseDB();
 
-		$result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.name = '$one'");
+		$result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.id = '$one'");
 
 		$returnArray = array();
 	    while($row = $result->fetch_object()){
@@ -222,8 +231,7 @@ $app->response->headers->set('Content-Type', 'application/json');
         while($row = $result->fetch_object()){
 	      $returnArray[] = $row;
 	    }
-        
-        
+
         echo json_encode($returnArray);
 
 	    $result->close();
@@ -329,18 +337,18 @@ $app->response->headers->set('Content-Type', 'application/json');
     $app->delete('/businessDoc/:id', function($id){
 		$mysqli = connectReuseDB();
 		$delID = $mysqli->real_escape_string($id);
-         
+
         $result = $mysqli->query("SELECT location_id FROM Reuse_Documents WHERE id = '$delID'");
-      
+
         while($row = $result->fetch_object()){
 	      $returnArray[] = $row;
 	    }
     echo json_encode($returnArray);
-        
+
 	$mysqli->query("DELETE FROM Reuse_Documents WHERE id ='$delID'");
     $mysqli->close();
-    });        
-        
+    });
+
 /******************************************************************************************
 *				PUTS -- doing it as POSTS with UPDATES to avoid form issues
 ******************************************************************************************/
@@ -689,7 +697,7 @@ $app->post('/updateBusiness', function(){
 
 		$mysqli->close();
 
-    header("Location: /AdminSite/searchBusiness.php"); /* Redirect browser */
+    header("Location: /Site/searchBusiness.php"); /* Redirect browser */
     exit();
 
 });
@@ -768,7 +776,7 @@ $app->post('/addBusinessDoc', function(){
                 $trigger = 0;
 			 }
 		}
-     
+
         if($trigger)
         {
 

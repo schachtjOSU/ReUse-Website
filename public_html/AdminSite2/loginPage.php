@@ -8,7 +8,7 @@
 <body>
    <div class="login">
       <h1>Login</h1>
-      <form method="post" action="mainAdminPage.php">
+      <form method="post" action="main.php">
          <input type="text" name="u" placeholder="Username" required="required" />
          <input type="password" name="p" placeholder="Password" required="required" />
          <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>

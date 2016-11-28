@@ -10,7 +10,7 @@
 		<link rel="icon" href="../img/CSCLogo.png">
 		<title>About the Corvallis Reuse and Repair Directory</title>
 
-		<!-- Bootstrap core CSS -->
+		<!-- Bootstrap core CSS
 		<link href="../Css/bootstrap.css" rel="stylesheet">
 		<!-- Custom styles for this template -->
 		<link href="../Css/jumbotron-narrow.css" rel="stylesheet">
@@ -28,9 +28,9 @@
 			<div class="about-container">
 				<h1 class="center-title">About the Corvallis Reuse and Repair Directory</h1>
 				<div class="about-information">
-					
+
 						<img class="about-image" src="../img/bigstockphoto_Footprint.jpg">
-					
+
 					<div id = "about-purpose">
 						<h2>Our Purpose</h2>
 						<p >The purpose of the Corvallis Reuse and Repair Directory is to provide Corvallis and the outlying community a way to easily locate organizations that will take the following:<p>
@@ -47,10 +47,10 @@
 						<p>If you would like to sponsor the Corvallis Reuse and Repair Directory, please <a href="contact.php">let us know</a>.</p>
 					</div>
 				</div>
-				
-				
+
+
 			</div>
-			<?php 
+			<?php
 				include 'footer.php';
 			?>
 		</div> <!-- /container -->
@@ -60,4 +60,4 @@
 			addLongSponsorsThanks();
 		</script>
     </body>
-</html>
+</html> -->

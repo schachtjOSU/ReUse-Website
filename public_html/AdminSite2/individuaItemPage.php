@@ -3,7 +3,7 @@ in allBusinessesPage.php -->
 
 <html>
    <head>
-      <link rel="stylesheet" type="text/css" href="css/individualBusinessPage.css">
+      <link rel="stylesheet" type="text/css" href="css/individualItemPage.css">
       <?php
          if(isset($_POST['id']) && !empty($_POST['id'])) {
            $id = $_POST['id'];
@@ -12,12 +12,9 @@ in allBusinessesPage.php -->
            include("components/largeDraggable.php");
          }
          ?>
-         <div class="container" style="padding: 4em">
-            <?php include("components/gridComponent.php"); ?>
-         </div>
    </head>
    <body>
       <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-      <script src="js/individualBusinessPage.js"></script>
+      <script src="js/individualItemPage.js"></script>
    </body>
 </html>

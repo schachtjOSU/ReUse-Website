@@ -30,7 +30,10 @@ $.ajax({
 function fillTable(name, category_id, id){
   /*Build the url to the category page with the id and link to it
   Currently links to google*/
-  var categoryPageUrl = "https://www.google.com/#q=" + category_id;
+  // var categoryPageUrl = "https://www.google.com/#q=" + category_id;
+  var categoryPageUrl = "RUapi/AdminSite2/individualCategoryPage.php/#q=" + category_id;
+var x = category_id + '';
+console.log(category_id);
   /*Add list item to list in allBusinessesPage.php*/
    $("#thisList").append("\
       <li class='white-square' id='" + id + "'> \
@@ -66,7 +69,7 @@ addFunctionForSquare = function(thisSquare, id){
 
   clickListenersForSquares[id] = function(){
      var hiddenFormToSubmit = document.createElement('form');
-     hiddenFormToSubmit.action = 'individualBusinessPage.php';
+     hiddenFormToSubmit.action = 'individualCategoryPage.php';
      hiddenFormToSubmit.method = 'post';
 
      var hiddenInput = document.createElement('input');
