@@ -185,5 +185,5 @@ plusItem.addEventListener('click', function() {
 
  var homeItem = document.querySelector('.fi-home');
  homeItem.addEventListener('click', function() {
-   document.location.href = "mainAdminPage.php";
+   document.location.href = "main.php";
   });

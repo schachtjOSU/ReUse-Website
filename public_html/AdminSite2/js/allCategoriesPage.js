@@ -1,5 +1,5 @@
-/*This is the javascript for allItemsPages.php to create the
-grid/list of businesses (w/the grid component)*/
+/*This is the javascript for allCategoriesPage.php to create the
+grid/list of categories (w/the grid component).*/
 
 /*Set the togglers*/
 $(function() {
@@ -14,22 +14,14 @@ $(function() {
 /*Get the list of businesses*/
 $.ajax({
     type: "GET",
-    url: "/RUapi/items",
+    url: "/RUapi/category",
     dataType: 'json',
     success: function(data) {
         for (var i = 0; i < data.length; i++) {
           console.log('nard');
             var name = data[i].name;
             var id = data[i].id + '';
-            if(!data[i].category_id){
-              category_id = "category id is missing";
-            }
-            else{
-              category_id = data[i].category_id ;
-            }
-
-            /*fill the table (really ul) with each list item*/
-            fillTable(name, category_id, id);
+            fillTable(name, id);
           }
     },
 });
