@@ -301,7 +301,7 @@ function allDocs(loc_id) {
         success: function(data) {
             var doc_row = '<tr><th><span class="locked">' + 'Name' + '</span></th><th><span class="locked">' + 'Document Link' + '</span></th></tr>';
             for (var i = 0; i < data.length; i++) {
-                doc_row += '<tr><td>' + data[i].name + '</td><td><a href=' + data[i].URI + '>Document Link</a></td><td>' + '<input type= hidden id= deldoc_id value=' + data[i].id + '><input type= submit value= DELETE id=' + data[i].id + ' onclick=delDoc(this.id)>' + '</td>' + '</tr>';
+                doc_row += '<tr><td>' + data[i].name + '</td><td><a href=http://' + data[i].URI + '>Document Link</a></td><td>' + '<input type= hidden id= deldoc_id value=' + data[i].id + '><input type= submit value= DELETE id=' + data[i].id + ' onclick=delDoc(this.id)>' + '</td>' + '</tr>';
             }
             $('#table_doc').append(doc_row);
         },

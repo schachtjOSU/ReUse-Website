@@ -689,7 +689,7 @@ $app->post('/updateBusiness', function(){
 
 		$mysqli->close();
 
-    header("Location: http://localhost:4000/AdminSite/searchBusiness.php"); /* Redirect browser */
+    header("Location: /AdminSite/searchBusiness.php"); /* Redirect browser */
     exit();
 
 });
