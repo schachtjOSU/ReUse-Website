@@ -243,14 +243,16 @@ $app->response->headers->set('Content-Type', 'application/json');
 	 */
     $app->delete('/business/:id', function($id){
 		$mysqli = connectReuseDB();
-		echo json_encode("IN RIGHT FUNCTION");
 		$delID = $mysqli->real_escape_string($id);
 
 		$mysqli->query("DELETE FROM Reuse_Locations_Items WHERE location_id = '$delID'");
-		$mysqli->query("DELETE FROM Reuse_Locations WHERE Reuse_Locations.id ='$delID'");
+        if($mysqli->query("DELETE FROM Reuse_Locations WHERE Reuse_Locations.id ='$delID'"))
+            echo "Succesfully Deleted";
+        else
+            echo "The business was not removed";
 		$mysqli->close();
 
-    echo json_encode($returnArray);
+    echo "Succesfully Deleted";
 
 		/* Update Mobile Database */
 	//	reuse_generateXML();

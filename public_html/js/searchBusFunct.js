@@ -90,7 +90,7 @@ function allBusinesses() {
             $('#EditData2').empty();
             var row = '<tr><th><span class="locked">' + 'Name' + '</span></th><th><span class="locked">' + 'Address' + '</span></th><th><span class="locked">' + 'Modify' + '</span></th><th><span class="locked">' + 'Delete' + '</span></th></tr>';
             for (var i = 0; i < data.length; i++) {
-                row += '<tr><td>' + data[i].name + '</td><td>' + data[i].address_line_1 + '</td><td>' + "<button value='" + data[i].name + "' type=submit id=edit onclick='editBusinessHelper(this.value); return false;'>" + 'Edit' + "</button>" + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input type= submit value=Delete id=del onclick=delItem()>' + '</td>' + '</tr>';
+                row += '<tr><td>' + data[i].name + '</td><td>' + data[i].address_line_1 + '</td><td>' + "<button value='" + data[i].name + "' type=submit id=edit onclick='editBusinessHelper(this.value); return false;'>" + 'Edit' + "</button>" + '</td><td>' + '<input type= hidden id= delete value=' + data[i].id + '><input class= del type= submit value= Delete id= ' + data[i].id + ' onclick=delBusiness(this.id)>' + '</td>' + '</tr>';
             }
             $('#table').append(row);
         },
@@ -112,14 +112,14 @@ function editBusinessHelper(name) {
 function delBusiness()
 purpose: delete business by id
 */
-function delItem(match) {
+function delBusiness(match) {
     console.log(match);
     $.ajax({
         type: "DELETE",
         url: webURL + "/RUapi/business/" + match,
         dataType: 'json',
         success: function(data) {
-            console.log(data);
+            alert(data);
         }
     });
     $('#table').empty();
