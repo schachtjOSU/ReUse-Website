@@ -11,6 +11,19 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 	display: inline-block;
 	vertical-align: top;
 	height: 400px !important;
-	width: 500px;
+	width: 500px !important;
 	margin: 10px;
+}
+.grid .grid-only {
+	display: auto;
+	margin: 2px !important;
+}
+
+.grid .box-detail {
+	font-size: 22px !important;
+	line-height: 32px !important;
+	margin: 2em !important;
+	text-transform: uppercase;
+	color: #A1A1A4;
+	overflow: auto;
 }
