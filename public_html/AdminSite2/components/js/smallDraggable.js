@@ -182,12 +182,18 @@ $(document).delay(50).queue(function(next) {
 });
 
 
+/*Set the onclick listeners to navigate to the categories, items, and busienss pages*/
 var businessItem = document.querySelector('.fi-bold');
 businessItem.addEventListener('click', function() {
    document.location.href = "allBusinessesPage.php";
  });
 
- var itemItem = document.querySelector('.fi-thumbnails');
- itemItem.addEventListener('click', function() {
-    document.location.href = "allItemsPage.php";
-  });
+var categoriesItem = document.querySelector('.fi-list');
+  categoriesItem.addEventListener('click', function() {
+  document.location.href = "allCategoriesPage.php";
+});
+
+var itemItem = document.querySelector('.fi-thumbnails');
+itemItem.addEventListener('click', function() {
+   document.location.href = "allItemsPage.php";
+ });

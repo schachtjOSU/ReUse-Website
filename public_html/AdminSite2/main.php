@@ -5,7 +5,7 @@
 <link href= 'css/mainAdminPage.css' rel='stylesheet' type='text/css'>
 <div class="popout_menu">
    <a href='allBusinessesPage.php'><div class="popout_menu_item uno">1<span>Businesses</span></div></a>
-   <div class="popout_menu_item dos">2<span>Categories</span></div>
+   <a href='allCategoriesPage.php'><div class="popout_menu_item dos">2<span>Categories</span></div></a>
    <a href='allItemsPage.php'><div class="popout_menu_item tres">3<span>Items</span></div></a>
    <div class="popout_menu_item cuatro">4<span>Something</span></div>
    <div class="popout_menu_item cinco">5<span>Something</span></div>

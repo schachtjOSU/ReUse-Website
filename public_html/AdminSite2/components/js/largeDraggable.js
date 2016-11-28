@@ -150,7 +150,7 @@ class Menu {
 }
 
 var menu = new Menu("#myMenu");
-var item1 = new Item("trees");
+var item1 = new Item("trees", "#A2DED0");
 var item2 = new Item("plus", "#F15F79");
 var item3 = new Item("minus", "#5CD1FF");
 var item4 = new Item("page-edit", "#FFF15C");
