@@ -16,9 +16,8 @@ in allBusinessesPage.php -->
          ?>
 
          <div class="container" style="padding: 4em">
-           <span class="toggler" data-toggle="list">
+           <span class="garbage" data-toggle="list">
              <span class="maki-trash"></span>
-             <span class="fontawesome-edit<"></span>
            </span>
 
 
