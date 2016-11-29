@@ -36,7 +36,7 @@ function fillSquare(name, category_id, id){
      <li class='white-square' id='" +"thisTable" + "'> \
        <span class='box-name'>\
         <input name=name type='text' value='" + name + "' disabled='disabled'>\
-        <span class='words'>save</span> \
+        <span class='words' id='save'>save</span> \
         <span class='whenDisabled'>" + name + "</span>\
        </span> \
        <div class='pull-right'> \
