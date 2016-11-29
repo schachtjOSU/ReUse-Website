@@ -10,8 +10,6 @@
   font-family: 'entypo', sans-serif;
 }
 
-
-
 /* entypo */
 [class="entypo-list"]:before {
 	display: none !important;
@@ -56,6 +54,7 @@ body {
 	https://www.pexels.com/photo/sunlit-on-blue-and-white-clouds-during-daytime-30235/*/
 	background-image: url(../img/sky-background.jpg);
 }
+
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }*
 .grid .white-square {
 	height: 100px !important;

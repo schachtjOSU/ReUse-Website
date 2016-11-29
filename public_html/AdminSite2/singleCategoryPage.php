@@ -7,7 +7,6 @@ in allCategoriesPage.php -->
       <?php
          if(isset($_POST['id']) && !empty($_POST['id'])) {
            $id = $_POST['id'];
-           echo "Hypothetical page for category with category_id " . $id;
            echo "<input type='hidden' id='idInput' value='" . $id . "'>";
            include("components/largeDraggable.php");
          }

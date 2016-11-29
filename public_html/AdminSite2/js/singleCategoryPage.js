@@ -1,2 +1,2 @@
 var id = document.getElementById('idInput').value;
-console.log("Page for business with id " + id);
+console.log("Page for category with id " + id);

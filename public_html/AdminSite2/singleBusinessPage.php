@@ -11,7 +11,6 @@ in allBusinessesPage.php -->
 
         if(isset($_POST['id']) && !empty($_POST['id'])) {
           $id = $_POST['id'];
-          echo "Hypothetical page for business with id " . $id;
           echo "<input type='hidden' id='idInput' value='" . $id . "'>";
           include("components/largeDraggable.php");
         }

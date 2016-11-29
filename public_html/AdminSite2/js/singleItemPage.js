@@ -1,5 +1,5 @@
 var id = document.getElementById('idInput').value;
-console.log("Page for business with id " + id);
+console.log("Page for item with id " + id);
 
 /*Set the togglers*/
 $(function() {

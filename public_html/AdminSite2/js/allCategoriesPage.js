@@ -31,15 +31,14 @@ function fillTable(name, category_id, id){
   /*Build the url to the category page with the id and link to it
   Currently links to google*/
   // var categoryPageUrl = "https://www.google.com/#q=" + category_id;
-  var categoryPageUrl = "RUapi/AdminSite2/singleCategoryPage.php/#q=" + category_id;
+  // var categoryPageUrl = "RUapi/AdminSite2/singleCategoryPage.php/#q=" + category_id;
 var x = category_id + '';
 console.log(category_id);
   /*Add list item to list in allBusinessesPage.php*/
    $("#thisList").append("\
-      <li class='white-square' id='" + id + "'> \
+      <li class='white-square' id='" + category_id + "'> \
         <span class='box-name'>" + name + " </span> \
         <div class='pull-right'> \
-          <span class='box-detail grid-only'> <a href='" + categoryPageUrl + "'>" + ' ' + " </span> \
           <span class='below-line-container'>\
             <span class='below-line'>\
               <span class='lower-left-corner'>Category id: " + category_id + " </span> \
@@ -48,8 +47,11 @@ console.log(category_id);
         </div>\
       </li>");
     /*set the event listener for this list item*/
-   setTheOnClickListeners(id);
+   setTheOnClickListeners(category_id);
 }
+
+// <!---  <span class='box-detail grid-only'> <a href='" + categoryPageUrl + "'>" + ' ' + " </span> ---> \
+
 
 /*Array to hold the functions that will become the event listeners
 for each list item*/
