@@ -176,11 +176,13 @@ plusItem.addEventListener('click', function() {
  });
 
  var minusItem = document.querySelector('.fi-minus');
- minusItem.addEventListener('click', function() {
-   var x = event.clientX, y = event.clientY;
-   alert(x + " " + y);
-   elementMouseIsOver = document.elementFromPoint(x, y);
-   alert(elementMouseIsOver.id);
+  minusItem.addEventListener('click', function() {
+   var id = document.getElementById('idInput').value;
+   alert(id);
+  //  var x = event.clientX, y = event.clientY;
+  //  alert(x + " " + y);
+  //  elementMouseIsOver = document.elementFromPoint(x, y);
+  //  alert(elementMouseIsOver.id);
  });
 
  var homeItem = document.querySelector('.fi-home');

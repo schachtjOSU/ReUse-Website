@@ -1,17 +1,6 @@
 var id = document.getElementById('idInput').value;
 console.log("Page for business with id " + id);
 
-/*Set the togglers*/
-$(function() {
-  return $('[data-toggle]').on('click', function() {
-    var toggle;
-    toggle = $(this).addClass('active').attr('data-toggle');
-    $(this).siblings('[data-toggle]').removeClass('active');
-    return $('.list-elements').removeClass('grid list').addClass(toggle);
-  });
-
-});
-
 /*Get the list of businesses*/
 $.ajax({
     type: "GET",
