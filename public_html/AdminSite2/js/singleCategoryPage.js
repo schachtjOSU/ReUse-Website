@@ -31,6 +31,7 @@ $.ajax({
             fillTable(name, category_id);
           }
     },
+    // setSaveEditListener(id, name);
 });
 
 /**/
