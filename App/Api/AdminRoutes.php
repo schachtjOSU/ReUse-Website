@@ -405,8 +405,9 @@ $app->response->headers->set('Content-Type', 'application/json');
 		}
 		$mysqli->close();
 
+    echo json_encode("La update");
 		/* Update Mobile Database */
-		reuse_generateXML();
+		// reuse_generateXML();
 	});
 
 		/* update business */
