@@ -37,6 +37,7 @@ $.ajax({
 
             /*fill the table (really ul) with each list item*/
             fillTable(name, category_id, id);
+            fillEditTable(name, category_id, id);
           }
     },
 });
@@ -44,8 +45,23 @@ $.ajax({
 /**/
 function fillTable(name, category_id, id){
   $("#thisList").append("\
-     <li class='white-square' id='" + id + "'> \
+     <li class='white-square' id='" +"thisTable" + "'> \
        <span class='box-name'>" + name + " </span> \
+       <div class='pull-right'> \
+         <span class='below-line-container'>\
+           <span class='below-line'>\
+             <span class='lower-left-corner'>Category id: " + category_id + " </span> \
+           </span> \
+         </span> \
+       </div>\
+     </li>");
+}
+
+
+function fillEditTable(name, category_id, id){
+  $("#thisList").append("\
+     <li class='white-square' id='editTable'> \
+       <span class='box-name'>  <input type='text' value='" + name + "'></span> \
        <div class='pull-right'> \
          <span class='below-line-container'>\
            <span class='below-line'>\

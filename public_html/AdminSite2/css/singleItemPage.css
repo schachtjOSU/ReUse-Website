@@ -10,6 +10,21 @@
   font-family: 'entypo', sans-serif;
 }
 
+
+input[type="text"] {
+  display: block;
+  margin: 0;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+}
+input[type="text"]:focus {
+  outline: none;
+}
+
 /* entypo */
 [class="entypo-list"]:before {
 	display: none !important;
@@ -28,6 +43,10 @@
 
 [class*="maki-"]:before {
   font-family: 'maki', sans-serif;
+}
+
+#editTable{
+  display: none;
 }
 
 .garbage {

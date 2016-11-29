@@ -257,10 +257,16 @@ plusItem.addEventListener('click', function() {
 
 
   function editItem(id){
-    var someString = "This is a placeholder for the function \
-    that will be used to edit item with id ";
-    someString = someString + id;
-    alert(someString);
+    // var someString = "This is a placeholder for the function \
+    // that will be used to edit item with id ";
+    // someString = someString + id;
+    // alert(someString);
+    // var originalTable = document.getElementById(id);
+    // originalTable.hide();
+    // var editTable = document.getElementById('editTable');
+    // editTable.show();
+    $('#thisTable').hide();
+    $('#editTable').show();
   }
 
 
