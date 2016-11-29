@@ -1,25 +1,13 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo|fontawesome);
 
 @import url(http://weloveiconfonts.com/api/?family=maki);
-/*@import url(http://weloveiconfonts.com/api/?family=zocial);
-
-@import url(http://weloveiconfonts.com/api/?family=entypo);
-
-/* entypo */
-[class*="entypo-"]:before {
-  font-family: 'entypo', sans-serif;
-}
-
-/* entypo */
-[class="entypo-list"]:before {
+[class="fi-list"]:before {
 	display: none !important;
 }
 
-[class="entypo-layout"]:before {
+[class="fi-thumbnails"]:before {
 	display: none !important;
 }
-
-
 
 /* fontawesome */
 [class*="fontawesome-"]:before {

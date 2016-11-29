@@ -11,9 +11,6 @@
 @import url(http://weloveiconfonts.com/api/?family=entypo|fontawesome);
 
 @import url(http://weloveiconfonts.com/api/?family=maki);
-/*@import url(http://weloveiconfonts.com/api/?family=zocial);
-
-@import url(http://weloveiconfonts.com/api/?family=entypo);
 
 /* remove icons which were set in grid component */
 [class*="fi-list"]:before {

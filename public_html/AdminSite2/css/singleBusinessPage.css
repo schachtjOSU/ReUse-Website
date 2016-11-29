@@ -6,23 +6,13 @@
   font-family: 'entypo', sans-serif;
 }
 
-
-/* entypo */
+/*SET TOGGLERS*/
 [class="fi-list"]:before {
 	display: none !important;
 }
 
 [class="fi-thumbnails"]:before {
 	display: none !important;
-}
-
-/* fontawesome */
-[class*="fontawesome-"]:before {
-  font-family: 'FontAwesome', sans-serif;
-}
-
-[class*="maki-"]:before {
-  font-family: 'maki', sans-serif;
 }
 
 
