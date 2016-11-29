@@ -36,14 +36,25 @@ $.ajax({
 /**/
 function fillTable(name, category_id){
   $("#thisList").append("\
-     <li class='white-square' id='" + category_id + "'> \
-       <span class='box-name'>" + name + " </span> \
-       <div class='pull-right'> \
-         <span class='below-line-container'>\
-           <span class='below-line'>\
-             <span class='lower-left-corner'>This category has an id of " + category_id + " </span> \
-           </span> \
+  <li class='white-square' id='" +"thisTable" + "'> \
+    <span class='box-name'>\
+     <input name='name' type='text' value='" + name + "' disabled='disabled'>\
+     <button class='btn btn-primary' id='save'>save</button>\
+     <span class='whenDisabled'>" + name + "</span>\
+    </span> \
+    <div class='pull-right'> \
+      <span class='below-line-container'>\
+        <span class='below-line'>\
+        <span class='lower-left-corner'>\
+           \
+         <div class='whenEnabled' style='margin-right: 20%;'>\
+             <label for='" + category_id + "'>Category id: </label>  \
+             <input name='cat' class='catId' type='text' value='" + category_id + "' disabled='disabled'>\
+         </div>\
+         <span class='whenDisabled'> Category ID: " + category_id + "</span>\
          </span> \
-       </div>\
-     </li>");
+        </span> \
+      </span> \
+    </div>\
+  </li>");
 }

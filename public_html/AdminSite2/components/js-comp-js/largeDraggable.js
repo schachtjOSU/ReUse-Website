@@ -290,10 +290,11 @@ plusItem.addEventListener('click', function() {
   /*********** CATEGORY OPERATIONS ****************/
 
   function editCategory(id){
-    var someString = "This is a placeholder for the function \
-    that will be used to edit category with id ";
-    someString = someString + id;
-    alert(someString);
+    $("input").prop('disabled', false);
+    $(".whenDisabled").hide();
+    $(".whenEnabled").show();
+    $(".words").show();
+    $("#save").show();
   }
 
 
