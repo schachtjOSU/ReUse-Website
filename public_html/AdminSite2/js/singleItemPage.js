@@ -1,16 +1,6 @@
 var id = document.getElementById('idInput').value;
 console.log("Page for item with id " + id);
 
-/*Set the togglers*/
-$(function() {
-  return $('[data-toggle]').on('click', function() {
-    var toggle;
-    toggle = $(this).addClass('active').attr('data-toggle');
-    $(this).siblings('[data-toggle]').removeClass('active');
-    return $('.list-elements').removeClass('grid list').addClass(toggle);
-  });
-});
-
 /*Get the item*/
 $.ajax({
     type: "GET",
@@ -36,8 +26,8 @@ $.ajax({
             }
 
             /*fill the table (really ul) with each list item*/
+            // fillEditTable(name, category_id, id);
             fillTable(name, category_id, id);
-            fillEditTable(name, category_id, id);
           }
     },
 });
@@ -46,7 +36,7 @@ $.ajax({
 function fillTable(name, category_id, id){
   $("#thisList").append("\
      <li class='white-square' id='" +"thisTable" + "'> \
-       <span class='box-name'>" + name + " </span> \
+       <span class='box-name'> <input type='text' value=" + name + " disabled='disabled'></span> \
        <div class='pull-right'> \
          <span class='below-line-container'>\
            <span class='below-line'>\
@@ -61,7 +51,7 @@ function fillTable(name, category_id, id){
 function fillEditTable(name, category_id, id){
   $("#thisList").append("\
      <li class='white-square' id='editTable'> \
-       <span class='box-name'>  <input type='text' value='" + name + "'></span> \
+       <span class='box-name'>  <input type='text' value='" + name + "readonly'></span> \
        <div class='pull-right'> \
          <span class='below-line-container'>\
            <span class='below-line'>\

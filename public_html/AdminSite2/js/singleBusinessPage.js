@@ -1,6 +1,7 @@
 var id = document.getElementById('idInput').value;
 console.log("Page for business with id " + id);
 
+
 /*Get the list of businesses*/
 $.ajax({
     type: "GET",

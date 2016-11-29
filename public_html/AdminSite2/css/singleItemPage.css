@@ -45,9 +45,11 @@ input[type="text"]:focus {
   font-family: 'maki', sans-serif;
 }
 
-#editTable{
+/*#editTable{
   display: none;
-}
+  margin-left: 0 !important;
+  margin-right: 0;
+}*/
 
 .garbage {
 	color: #FFF;
