@@ -179,6 +179,8 @@ plusItem.addEventListener('click', function() {
   minusItem.addEventListener('click', function() {
    var id = document.getElementById('idInput').value;
    var pageType = document.getElementById('pageTypeInput').value;
+
+   //If  on single business page
    if(pageType === 'business'){
      var confirmation = confirm("Are you sure you want to delete this business?");
       if (confirmation){
@@ -187,14 +189,42 @@ plusItem.addEventListener('click', function() {
         else{ //Do nothing
           return false;
       }
+   }//end of if business page
 
-   }
+
  });
+
+ var pageEditButton = document.querySelector('.fi-page-edit');
+ pageEditButton.addEventListener('click', function() {
+   var id = document.getElementById('idInput').value;
+   var pageType = document.getElementById('pageTypeInput').value;
+
+
+   if(pageType === 'business'){
+      editBusiness(id);
+   }
+   if(pageType === 'category'){
+      editCategory(id);
+   }
+   if(pageType === 'item'){
+      editItem(id);
+   }
+
+  });
 
  var homeItem = document.querySelector('.fi-home');
  homeItem.addEventListener('click', function() {
    document.location.href = "main.php";
   });
+
+  /*********** BUSINESS OPERATIONS ****************/
+
+  function editBusiness(id){
+    var someString = "This is a placeholder for the function \
+    that will be used to edit business with id ";
+    someString = someString + id;
+    alert(someString);
+  }
 
 
   function deleteBusiness(id){
@@ -208,4 +238,54 @@ plusItem.addEventListener('click', function() {
         },
     });
     document.location.href = "allBusinessesPage.php";
+  }
+
+
+  /*********** ITEM OPERATIONS ****************/
+
+
+  function editItem(id){
+    var someString = "This is a placeholder for the function \
+    that will be used to edit item with id ";
+    someString = someString + id;
+    alert(someString);
+  }
+
+
+  function deleteItem(id){
+    /*Delete*/
+    $.ajax({
+        type: "DELETE",
+        url: "/RUapi/item/"+ id,
+        dataType: 'json',
+        success: function(msg) {
+          console.log(msg)
+        },
+    });
+    document.location.href = "allItemsPage.php";
+  }
+
+
+
+  /*********** CATEGORY OPERATIONS ****************/
+
+  function editCategory(id){
+    var someString = "This is a placeholder for the function \
+    that will be used to edit category with id ";
+    someString = someString + id;
+    alert(someString);
+  }
+
+
+  function deleteCategory(id){
+    /*Delete*/
+    $.ajax({
+        type: "DELETE",
+        url: "/RUapi/category/"+ id,
+        dataType: 'json',
+        success: function(msg) {
+          console.log(msg)
+        },
+    });
+    document.location.href = "allCategoriesPage.php";
   }

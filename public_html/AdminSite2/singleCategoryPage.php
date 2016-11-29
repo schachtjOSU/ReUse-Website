@@ -10,17 +10,18 @@ in allCategoriesPage.php -->
         if(isset($_POST['id']) && !empty($_POST['id'])) {
           $id = $_POST['id'];
           echo "<input type='hidden' id='idInput' value='" . $id . "'>";
+          echo "<input type='hidden' id='pageTypeInput' value='category'>";
           include("components/largeDraggable.php");
         }
         ?>
 
         <div class="container" style="padding: 4em">
-          <span class="garbage" data-toggle="list">
+          <!-- <span class="garbage" data-toggle="list">
             <span class="maki-trash"></span>
           </span>
           <span class="garbage active" data-toggle="grid">
             <span class="entypo-ccw"></span>
-          </span>
+          </span> -->
           <?php include("components/gridComponent.php"); ?>
        </div>
 
