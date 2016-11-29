@@ -11,7 +11,7 @@
 }
 
 
-input[type="text"] {
+input[type="text"]:enabled {
   display: block;
   margin: 0;
   width: 100%;
@@ -21,8 +21,12 @@ input[type="text"] {
   box-shadow: none;
   border-radius: none;
 }
-input[type="text"]:focus {
+input[type="text"]:enabled:focus {
   outline: none;
+}
+
+input[type="text"]:disabled {
+  display: none;
 }
 
 /* entypo */
@@ -35,21 +39,15 @@ input[type="text"]:focus {
 }
 
 
-
-/* fontawesome */
+/*
 [class*="fontawesome-"]:before {
   font-family: 'FontAwesome', sans-serif;
 }
 
 [class*="maki-"]:before {
   font-family: 'maki', sans-serif;
-}
-
-/*#editTable{
-  display: none;
-  margin-left: 0 !important;
-  margin-right: 0;
 }*/
+
 
 .garbage {
 	color: #FFF;

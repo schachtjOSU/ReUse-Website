@@ -25,33 +25,16 @@ $.ajax({
               category_id = data[i].category_id;
             }
 
-            /*fill the table (really ul) with each list item*/
-            // fillEditTable(name, category_id, id);
-            fillTable(name, category_id, id);
+            fillSquare(name, category_id, id);
           }
     },
 });
 
 /**/
-function fillTable(name, category_id, id){
+function fillSquare(name, category_id, id){
   $("#thisList").append("\
      <li class='white-square' id='" +"thisTable" + "'> \
-       <span class='box-name'> <input type='text' value=" + name + " disabled='disabled'></span> \
-       <div class='pull-right'> \
-         <span class='below-line-container'>\
-           <span class='below-line'>\
-             <span class='lower-left-corner'>Category id: " + category_id + " </span> \
-           </span> \
-         </span> \
-       </div>\
-     </li>");
-}
-
-
-function fillEditTable(name, category_id, id){
-  $("#thisList").append("\
-     <li class='white-square' id='editTable'> \
-       <span class='box-name'>  <input type='text' value='" + name + "readonly'></span> \
+       <span class='box-name'> <input type='text' value=" + name + " disabled='disabled'><span class='whenDisabled'>" + name + "</span></span> \
        <div class='pull-right'> \
          <span class='below-line-container'>\
            <span class='below-line'>\

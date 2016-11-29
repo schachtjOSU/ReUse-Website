@@ -258,6 +258,8 @@ plusItem.addEventListener('click', function() {
 
   function editItem(id){
     $("input").prop('disabled', false);
+    $(".whenDisabled").hide();
+
   }
 
 
