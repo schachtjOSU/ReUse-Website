@@ -2,7 +2,7 @@
 <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
-<link href= 'css/mainAdminPage.css' rel='stylesheet' type='text/css'>
+<link href= 'css/main.css' rel='stylesheet' type='text/css'>
 <div class="popout_menu">
    <a href='allBusinessesPage.php'><div class="popout_menu_item uno">1<span>Businesses</span></div></a>
    <a href='allCategoriesPage.php'><div class="popout_menu_item dos">2<span>Categories</span></div></a>

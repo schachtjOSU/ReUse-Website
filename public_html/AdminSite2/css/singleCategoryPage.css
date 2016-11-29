@@ -47,12 +47,9 @@
 
 
 body {
-	background: #eacda3; /* fallback for old browsers */
-	/*This image has a CCO license, making it free to use for any legal purposes
-	https://www.pexels.com/photo-license/
-	here is the page it is on:
-	https://www.pexels.com/photo/sunlit-on-blue-and-white-clouds-during-daytime-30235/*/
-	background-image: url(../img/sky-background.jpg);
+  background: #ee9ca7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #ee9ca7 , #ffdde1); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #ee9ca7 , #ffdde1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }*

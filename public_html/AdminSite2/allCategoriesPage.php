@@ -5,7 +5,7 @@
 <html>
    <head>
       <meta charset="UTF-8">
-      <title>All Businesses</title>
+      <title>All Categories</title>
       <link rel="stylesheet" type="text/css" href="css/allCategoriesPage.css">
    </head>
    <body>
