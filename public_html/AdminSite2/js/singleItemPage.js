@@ -34,7 +34,7 @@ $.ajax({
 function fillSquare(name, category_id, id){
   $("#thisList").append("\
      <li class='white-square' id='" +"thisTable" + "'> \
-       <span class='box-name'> <input type='text' value=" + name + " disabled='disabled'><span class='whenDisabled'>" + name + "</span></span> \
+       <span class='box-name'> <input type='text' value='" + name + "' disabled='disabled'><span class='whenDisabled'>" + name + "</span></span> \
        <div class='pull-right'> \
          <span class='below-line-container'>\
            <span class='below-line'>\
