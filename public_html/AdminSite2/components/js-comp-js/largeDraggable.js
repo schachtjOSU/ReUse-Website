@@ -178,14 +178,33 @@ plusItem.addEventListener('click', function() {
  var minusItem = document.querySelector('.fi-minus');
   minusItem.addEventListener('click', function() {
    var id = document.getElementById('idInput').value;
-   alert(id);
-  //  var x = event.clientX, y = event.clientY;
-  //  alert(x + " " + y);
-  //  elementMouseIsOver = document.elementFromPoint(x, y);
-  //  alert(elementMouseIsOver.id);
+   var pageType = document.getElementById('pageTypeInput').value;
+   if(pageType === 'business'){
+     var confirmation = confirm("Are you sure you want to delete this business?");
+      if (confirmation){
+        deleteBusiness(id);
+        }
+        else{ //Do nothing
+          return false;
+      }
+
+   }
  });
 
  var homeItem = document.querySelector('.fi-home');
  homeItem.addEventListener('click', function() {
    document.location.href = "main.php";
   });
+
+
+  function deleteBusiness(id){
+    /*Delete*/
+    $.ajax({
+        type: "DELETE",
+        url: "/RUapi/business/"+ id,
+        dataType: 'json',
+        success: function(msg) {
+          console.log(msg)
+        },
+    });
+  }
