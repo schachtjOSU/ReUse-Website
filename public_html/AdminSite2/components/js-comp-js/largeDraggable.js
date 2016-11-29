@@ -260,7 +260,6 @@ plusItem.addEventListener('click', function() {
     $("input").prop('disabled', false);
     $(".whenDisabled").hide();
     $("#save").show();
-    // $(".below-line").attr('class', 'saveMode');
   }
 
 
