@@ -46,12 +46,7 @@ function fillTable(name, category_id){
       <span class='below-line-container'>\
         <span class='below-line'>\
         <span class='lower-left-corner'>\
-           \
-         <div class='whenEnabled' style='margin-right: 20%;'>\
-             <label for='" + category_id + "'>Category id: </label>  \
-             <input name='cat' class='catId' type='text' value='" + category_id + "' disabled='disabled'>\
-         </div>\
-         <span class='whenDisabled'> Category ID: " + category_id + "</span>\
+           Category ID: " + category_id + "\
          </span> \
         </span> \
       </span> \
