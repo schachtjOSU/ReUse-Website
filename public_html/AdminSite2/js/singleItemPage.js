@@ -43,4 +43,39 @@ function fillSquare(name, category_id, id){
          </span> \
        </div>\
      </li>");
+
+     setSaveEditListener(id, name);
+}
+
+//This will hold the function to save
+var thisSaveFunction;
+
+/*Function to set the event listeners*/
+setSaveEditListener = function(id, name){
+  var saveButton = document.getElementById('save');
+  makeSaveFunction(saveButton, id);
+  saveButton.addEventListener('click', thisSaveFunction, false);
+}
+
+/*Function to set a memebr of the clickListenersForSquares[] array
+to a particular function*/
+makeSaveFunction = function(saveButton, id){
+
+    thisSaveFunction = function(){
+      payload = {};
+      payload.oldName = name;
+      payload.name = 'temp name';
+      payload.cat = 4;
+
+      $.ajax({
+          type: "POST",
+          url: "/RUapi/changeItem",
+          data: payload,
+          dataType: 'json',
+          success: function(data) {
+            console.log(data);
+          }
+      });
+  }; //End of thisSaveFunction defintion
+
 }
