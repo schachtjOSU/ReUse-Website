@@ -60,4 +60,4 @@
 			addLongSponsorsThanks();
 		</script>
     </body>
-</html> -->
+</html>
