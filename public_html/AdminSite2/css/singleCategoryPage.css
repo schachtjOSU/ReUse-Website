@@ -1,6 +1,72 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo|fontawesome);
+
+@import url(http://weloveiconfonts.com/api/?family=maki);
+/*@import url(http://weloveiconfonts.com/api/?family=zocial);
+
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+/* entypo */
+[class="entypo-list"]:before {
+	display: none !important;
+}
+
+[class="entypo-layout"]:before {
+	display: none !important;
+}
+
+
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+[class*="maki-"]:before {
+  font-family: 'maki', sans-serif;
+}
+
+.garbage {
+	color: #FFF;
+	font-size: 1.25em;
+	margin-left: 8px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.garbage.active {
+	color: #EB3349;
+}
+.garbage.active .entypo-ccw{
+	display: none;
+}
+
+
 body {
-	background: #43C6AC; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #43C6AC , #191654); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #43C6AC , #191654); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	color: white;
+	background: #eacda3; /* fallback for old browsers */
+	/*This image has a CCO license, making it free to use for any legal purposes
+	https://www.pexels.com/photo-license/
+	here is the page it is on:
+	https://www.pexels.com/photo/sunlit-on-blue-and-white-clouds-during-daytime-30235/*/
+	background-image: url(../img/sky-background.jpg);
+}
+
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }*
+.grid .white-square {
+	height: 100px !important;
+	width: 500px !important;
+	margin: 10px;
+}
+.grid .grid-only {
+	margin: 2px !important;
+}
+
+.grid .box-detail {
+	font-size: 22px !important;
+	line-height: 32px !important;
+	margin: 2em !important;
 }

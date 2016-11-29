@@ -50,8 +50,6 @@ console.log(category_id);
    setTheOnClickListeners(category_id);
 }
 
-// <!---  <span class='box-detail grid-only'> <a href='" + categoryPageUrl + "'>" + ' ' + " </span> ---> \
-
 
 /*Array to hold the functions that will become the event listeners
 for each list item*/
