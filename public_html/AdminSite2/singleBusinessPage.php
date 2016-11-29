@@ -3,7 +3,7 @@ in allBusinessesPage.php -->
 
 <html>
    <head>
-      <link rel="stylesheet" type="text/css" href="css/individualBusinessPage.css">
+      <link rel="stylesheet" type="text/css" href="css/singleBusinessPage.css">
       <link href="bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
       <?php
 
@@ -28,7 +28,7 @@ in allBusinessesPage.php -->
    </head>
    <body>
       <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-      <script src="js/individualBusinessPage.js"></script>
+      <script src="js/singleBusinessPage.js"></script>
       <script src="bootstrap-editable/js/bootstrap-editable.js"></script>
 
    </body>

@@ -1,6 +1,6 @@
 /*This is the javascript for allBusinessPages.php to create the
 grid/list of businesses (w/the grid component), all of which post their ids to
-individualBusinessPage.php when clicked from either list or grid view.*/
+singleBusinessPage.php when clicked from either list or grid view.*/
 
 /*Set the togglers*/
 $(function() {
@@ -134,7 +134,7 @@ addFunctionForSquare = function(thisSquare, id){
 
   clickListenersForSquares[id] = function(){
      var hiddenFormToSubmit = document.createElement('form');
-     hiddenFormToSubmit.action = 'individualBusinessPage.php';
+     hiddenFormToSubmit.action = 'singleBusinessPage.php';
      hiddenFormToSubmit.method = 'post';
 
      var hiddenInput = document.createElement('input');

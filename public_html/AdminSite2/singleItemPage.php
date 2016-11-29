@@ -3,7 +3,7 @@ in allBusinessesPage.php -->
 
 <html>
    <head>
-      <link rel="stylesheet" type="text/css" href="css/individualItemPage.css">
+      <link rel="stylesheet" type="text/css" href="css/singleItemPage.css">
       <?php
          if(isset($_POST['id']) && !empty($_POST['id'])) {
            $id = $_POST['id'];
@@ -15,6 +15,6 @@ in allBusinessesPage.php -->
    </head>
    <body>
       <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-      <script src="js/individualItemPage.js"></script>
+      <script src="js/singleItemPage.js"></script>
    </body>
 </html>

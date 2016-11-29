@@ -3,7 +3,7 @@ in allCategoriesPage.php -->
 
 <html>
    <head>
-      <link rel="stylesheet" type="text/css" href="css/individualCategoryPage.css">
+      <link rel="stylesheet" type="text/css" href="css/singleCategoryPage.css">
       <?php
          if(isset($_POST['id']) && !empty($_POST['id'])) {
            $id = $_POST['id'];
@@ -15,6 +15,6 @@ in allCategoriesPage.php -->
    </head>
    <body>
       <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-      <script src="js/individualCategoryPage.js"></script>
+      <script src="js/singleCategoryPage.js"></script>
    </body>
 </html>
