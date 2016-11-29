@@ -182,7 +182,7 @@ plusItem.addEventListener('click', function() {
    if(pageType === 'business'){
      var confirmation = confirm("Are you sure you want to delete this business?");
       if (confirmation){
-        deleteBusiness(id);
+          deleteBusiness(id);
         }
         else{ //Do nothing
           return false;
@@ -207,4 +207,5 @@ plusItem.addEventListener('click', function() {
           console.log(msg)
         },
     });
+    document.location.href = "allBusinessesPage.php";
   }
