@@ -1,19 +1,17 @@
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
-
-/*this puts it in the center of the page*/
+/*this puts it in the top and center of the page*/
 .center {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+	position: absolute;
+	margin: auto;
+	top: 1em;
+	right: 0;
+	left: 0;
 }
 
+/*this is the main one that you click to pop the others out*/
 .menu {
-  width: 44px;
-  height: 44px;
+	width: 44px;
+	height: 44px;
 }
 
 .item {
@@ -34,10 +32,17 @@
   align-items: vertical;
   align-items: horizontal;
   vertical-align: middle;
+  z-index: 99;
 }
 
 i {
   font-size: 40px;
   color: #222222;
+  text-align: center;
+}
+
+div{
+  display: block;
+  margin: 0 auto;
   text-align: center;
 }

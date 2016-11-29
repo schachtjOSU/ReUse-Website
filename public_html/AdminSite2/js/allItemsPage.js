@@ -11,7 +11,7 @@ $(function() {
   });
 });
 
-/*Get the list of businesses*/
+/*Get the list of items*/
 $.ajax({
     type: "GET",
     url: "/RUapi/items",

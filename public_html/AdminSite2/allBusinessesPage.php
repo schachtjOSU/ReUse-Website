@@ -11,7 +11,7 @@ to where on the page a certain list item is, that would be cool. -->
       <link rel="stylesheet" type="text/css" href="css/allBusinessesPage.css">
    </head>
    <body>
-      <?php include("components/largeDraggable.php"); ?>
+      <?php include("components/naviDraggable.php"); ?>
       <div class="container" style="padding: 4em">
          <?php include("components/gridComponent.php"); ?>
       </div>

@@ -4,8 +4,9 @@ it to work.  -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link href="components/css-comp-css/gridComponent.css" rel="stylesheet">
-<span class="toggler active" data-toggle="grid"><span class="entypo-layout"></span></span>
-<span class="toggler" data-toggle="list"><span class="entypo-list"></span></span>
+<link href="components/img-comp-img/foundation-icons.css" rel="stylesheet">
+<span class="toggler active" data-toggle="grid"><span class="fi-thumbnails"></span></span>
+<span class="toggler" data-toggle="list"><span class="fi-list"></span></span>
 <ul class="list-elements grid" id="thisList">
 
 </ul>
