@@ -170,11 +170,13 @@ $(document).delay(50).queue(function(next) {
     });
 });
 
+/*SETTING PLUS BUTTON ON CLICK */
 var plusItem = document.querySelector('.fi-plus');
 plusItem.addEventListener('click', function() {
   alert("Add new?");
  });
 
+ /*SETTING MINUS BUTTON ON CLICK */
  var minusItem = document.querySelector('.fi-minus');
   minusItem.addEventListener('click', function() {
    var id = document.getElementById('idInput').value;
@@ -182,23 +184,26 @@ plusItem.addEventListener('click', function() {
 
    //If  on single business page
    if(pageType === 'business'){
-     var confirmation = confirm("Are you sure you want to delete this business?");
-      if (confirmation){
-          deleteBusiness(id);
-        }
-        else{ //Do nothing
-          return false;
-      }
+    //  var confirmation = confirm("Are you sure you want to delete this business?");
+     deleteBusiness(id);
    }//end of if business page
+
+   if(pageType === 'item'){
+     deleteItem(id);
+   }
+
+   if(pageType === 'category'){
+     deleteCategory(id);
+   }
 
 
  });
 
+/*SETTING PAGE EDIT BUTTON ON CLICK */
  var pageEditButton = document.querySelector('.fi-page-edit');
  pageEditButton.addEventListener('click', function() {
    var id = document.getElementById('idInput').value;
    var pageType = document.getElementById('pageTypeInput').value;
-
 
    if(pageType === 'business'){
       editBusiness(id);
@@ -210,7 +215,7 @@ plusItem.addEventListener('click', function() {
       editItem(id);
    }
 
-  });
+});
 
  var homeItem = document.querySelector('.fi-home');
  homeItem.addEventListener('click', function() {
@@ -228,16 +233,23 @@ plusItem.addEventListener('click', function() {
 
 
   function deleteBusiness(id){
-    /*Delete*/
-    $.ajax({
-        type: "DELETE",
-        url: "/RUapi/business/"+ id,
-        dataType: 'json',
-        success: function(msg) {
-          console.log(msg)
-        },
-    });
-    document.location.href = "allBusinessesPage.php";
+
+    var confirmation = confirm("Are you sure you want to delete this business?");
+     if (confirmation){
+       /*Delete*/
+       $.ajax({
+           type: "DELETE",
+           url: "/RUapi/business/"+ id,
+           dataType: 'json',
+           success: function(msg) {
+             console.log(msg)
+           },
+       });
+       document.location.href = "allBusinessesPage.php";
+       }
+       else{ //Do nothing
+         return false;
+     }
   }
 
 
@@ -254,15 +266,22 @@ plusItem.addEventListener('click', function() {
 
   function deleteItem(id){
     /*Delete*/
-    $.ajax({
-        type: "DELETE",
-        url: "/RUapi/item/"+ id,
-        dataType: 'json',
-        success: function(msg) {
-          console.log(msg)
-        },
-    });
-    document.location.href = "allItemsPage.php";
+    var confirmation = confirm("Are you sure you want to delete this item?");
+    if (confirmation){
+      /*Delete*/
+      $.ajax({
+          type: "DELETE",
+          url: "/RUapi/item/"+ id,
+          dataType: 'json',
+          success: function(msg) {
+            console.log(msg)
+          },
+      });
+      document.location.href = "allItemsPage.php";
+    }
+    else{
+      return false;
+    }
   }
 
 
@@ -279,13 +298,20 @@ plusItem.addEventListener('click', function() {
 
   function deleteCategory(id){
     /*Delete*/
-    $.ajax({
-        type: "DELETE",
-        url: "/RUapi/category/"+ id,
-        dataType: 'json',
-        success: function(msg) {
-          console.log(msg)
-        },
-    });
+    var confirmation = confirm("Are you sure you want to delete this category?");
+    if (confirmation){
+      /*Delete*/
+      $.ajax({
+          type: "DELETE",
+          url: "/RUapi/category/"+ id,
+          dataType: 'json',
+          success: function(msg) {
+            console.log(msg)
+          },
+      });
     document.location.href = "allCategoriesPage.php";
+  }
+  else{
+      return false;
+    }
   }

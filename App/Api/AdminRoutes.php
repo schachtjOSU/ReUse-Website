@@ -281,7 +281,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli->close();
 
 		/* Update Mobile Database */
-		reuse_generateXML();
+		// reuse_generateXML();
 	});
 
 	/**
@@ -299,7 +299,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli->close();
 
 		/* Update Mobile Database */
-		reuse_generateXML();
+		// reuse_generateXML();
 	});
 
 	/**
