@@ -12,9 +12,9 @@
 
 
 input[type="text"]:enabled {
-  display: block;
+  display: inline-block;
   margin: 0;
-  width: 100%;
+  width: 80%;
   font-family: sans-serif;
   font-size: 18px;
   appearance: none;
@@ -29,6 +29,11 @@ input[type="text"]:disabled {
   display: none;
 }
 
+.words{
+  display: inline-block;
+  width:20%;
+  display: none; 
+}
 /* entypo */
 [class="entypo-list"]:before {
 	display: none !important;
