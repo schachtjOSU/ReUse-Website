@@ -1,15 +1,10 @@
-@import url(http://weloveiconfonts.com/api/?family=entypo|fontawesome);
+@import url(http://weloveiconfonts.com/api/?family=entypo|fontawesome|maki);
 
-@import url(http://weloveiconfonts.com/api/?family=maki);
-/*@import url(http://weloveiconfonts.com/api/?family=zocial);
-
-@import url(http://weloveiconfonts.com/api/?family=entypo);
 
 /* entypo */
 [class*="entypo-"]:before {
   font-family: 'entypo', sans-serif;
 }
-
 
 
 /* entypo */
@@ -21,8 +16,6 @@
 	display: none !important;
 }
 
-
-
 /* fontawesome */
 [class*="fontawesome-"]:before {
   font-family: 'FontAwesome', sans-serif;
@@ -32,10 +25,26 @@
   font-family: 'maki', sans-serif;
 }
 
+
+/* iconicstroke */
+[class*="iconicstroke-"]:before {
+  font-family: 'IconicStroke', sans-serif;
+}
+
+.fontawesome-edit{
+	color: #FFF;
+	font-size: 1.25em;
+	text-align: center;
+	cursor: pointer;
+}
+
+.fontawesome-edit.active{
+	color: purple;
+}
+
 .garbage {
 	color: #FFF;
 	font-size: 1.25em;
-	margin-left: 8px;
 	text-align: center;
 	cursor: pointer;
 }
@@ -43,9 +52,11 @@
 .garbage.active {
 	color: #EB3349;
 }
+
 .garbage.active .entypo-ccw{
 	display: none;
 }
+
 
 
 body {

@@ -9,6 +9,7 @@ $(function() {
     $(this).siblings('[data-toggle]').removeClass('active');
     return $('.list-elements').removeClass('grid list').addClass(toggle);
   });
+
 });
 
 /*Get the list of businesses*/
