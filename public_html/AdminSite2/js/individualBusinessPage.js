@@ -7,12 +7,6 @@ $(function() {
     var toggle;
     toggle = $(this).addClass('active').attr('data-toggle');
     $(this).siblings('[data-toggle]').removeClass('active');
-    // alert("u sure u wanna do that");
-    if (confirm('Are you sure you want to delete this Listing?')) {
-    // call delete listing
-    }  else {
-    // Do nothing
-  }
     return $('.list-elements').removeClass('grid list').addClass(toggle);
   });
 });

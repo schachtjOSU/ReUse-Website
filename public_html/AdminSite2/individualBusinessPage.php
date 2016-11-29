@@ -23,8 +23,6 @@ in allBusinessesPage.php -->
              <span class="entypo-ccw"></span>
            </span>
 
-
-
             <?php include("components/gridComponent.php"); ?>
          </div>
    </head>
