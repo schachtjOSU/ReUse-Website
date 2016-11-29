@@ -259,7 +259,8 @@ plusItem.addEventListener('click', function() {
   function editItem(id){
     $("input").prop('disabled', false);
     $(".whenDisabled").hide();
-
+    $("#save").show();
+    // $(".below-line").attr('class', 'saveMode');
   }
 
 

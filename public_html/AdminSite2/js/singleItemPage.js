@@ -38,7 +38,7 @@ function fillSquare(name, category_id, id){
        <div class='pull-right'> \
          <span class='below-line-container'>\
            <span class='below-line'>\
-             <span class='lower-left-corner'>Category id: " + category_id + " </span> \
+            <span id='save'>SAVE</span>\
            </span> \
          </span> \
        </div>\
