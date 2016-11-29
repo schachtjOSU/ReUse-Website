@@ -133,6 +133,7 @@ to a particular function*/
 addFunctionForSquare = function(thisSquare, id){
 
   clickListenersForSquares[id] = function(){
+
      var hiddenFormToSubmit = document.createElement('form');
      hiddenFormToSubmit.action = 'singleBusinessPage.php';
      hiddenFormToSubmit.method = 'post';

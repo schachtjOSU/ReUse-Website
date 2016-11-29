@@ -73,6 +73,7 @@ to a particular function*/
 makeSaveFunction = function(saveButton, id){
 
     thisSaveFunction = function(){
+
       payload = {};
       payload.oldName = name;
       payload.name = 'temp name';
@@ -85,6 +86,13 @@ makeSaveFunction = function(saveButton, id){
           dataType: 'json',
           success: function(data) {
             console.log(data);
+
+            $("input").prop('disabled', true);
+            $(".whenDisabled").show();
+            $(".whenEnabled").hide();
+            $(".words").hide();
+            $("#save").hide();
+            
           }
       });
   }; //End of thisSaveFunction defintion
