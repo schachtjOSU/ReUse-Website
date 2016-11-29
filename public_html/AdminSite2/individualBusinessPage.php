@@ -19,6 +19,10 @@ in allBusinessesPage.php -->
            <span class="garbage" data-toggle="list">
              <span class="maki-trash"></span>
            </span>
+           <span class="garbage active" data-toggle="grid">
+             <span class="entypo-ccw"></span>
+           </span>
+
 
 
             <?php include("components/gridComponent.php"); ?>
