@@ -11,7 +11,7 @@
    <div class="popout_menu_item cinco">5<span>Something</span></div>
 </div>
 <div class="title">
-   Reuse Corvallis
+   ReUse Corvallis
 </div>
 
 <span class="tree-lim"></span>
