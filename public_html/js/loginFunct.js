@@ -1,9 +1,9 @@
 /********************************************
         Login Screen
 ********************************************/
-var webURL = "http://localhost/Corvallis-Sustainability-ReUse/public_html/index.php";//used for local development by Lauren Miller
-
+// PUT YOUR WEBSITE HERE
 var webURL = "";
+
 /*
 function: login()
 purpose: directs user to separate API for login
@@ -11,7 +11,6 @@ verification and encrypted session startup
 */
 
 function login(){
-
   /* get values from form */
   var user = document.getElementById("username").value;
   var password = document.getElementById("password").value;
@@ -41,7 +40,7 @@ function login(){
         /* add user to DB */
         if(req.responseText == 1){
         /* everything has passed! Session begin */
-        window.location.href = webURL + "main.php";
+        window.location.href = webURL + "/AdminSite/main.php";
         }
 
         /* false, errors. Notify  user, no addition to DB */
@@ -63,7 +62,7 @@ function login(){
     }
 
     /* send to loginCheck.php for the session and db connection-- Calls function login() */
-    req.open("POST","loginCheck.php", true);
+    req.open("POST","/AdminSite/loginCheck.php", true);
     req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     var loginData ="type="+type+"&username="+user+"&password="+password;
     req.send(loginData);
@@ -78,12 +77,12 @@ purpose: Kill session
 function killSession(){
     var tableData = "killSession";
     $.ajax({type:"POST",
-      url: webURL + "loginCheck.php",
+      url: webURL + "/AdminSite/loginCheck.php",
       data: tableData,
       success: function(data){
         console.log("Success");
       },
     });
   window.alert('Session already in progress. Logging out old user.')
-  window.location.href = webURL + "loginPage.php";
+  window.location.href = webURL + "/AdminSite/loginPage.php";
 }

@@ -5,13 +5,13 @@
 		<!-- Google-hosted Jquery -->
 		<script src="../js/jquery-1.11.1.min.js"></script>
 		<script src="../js/headerFunct.js" type="text/javascript"></script>
-		
+
 	</head>
 	<body>
 		<div class="header clearfix">
 			<nav>
 				<ul class="nav nav-pills pull-right">
-					<li role="presentation" class="dropdown header-button"><a href="category.php?name=Repair%20Items" class="dropbtn header-link">Repair <span class="caret"></span></a> 
+					<li role="presentation" class="dropdown header-button"><a href="category.php?name=Repair%20Items" class="dropbtn header-link">Repair <span class="caret"></span></a>
 						<div class="dropdown-content" id="header-repair-links">
 						</div>
 					</li>

@@ -7,12 +7,19 @@
 </head>
 <body>
    <div class="login">
+     <?php
+     date_default_timezone_set('UTC');
+     date_default_timezone_get();
+     ?>
       <h1>Login</h1>
-      <form method="post" action="main.php">
-         <input type="text" name="u" placeholder="Username" required="required" />
-         <input type="password" name="p" placeholder="Password" required="required" />
-         <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+      <!-- <form method="post" action="main.php"> -->
+      <form>
+         <input type="text" name="u" placeholder="Username" Id="username" required="required" />
+         <input type="password" name="p" id="password" placeholder="Password" required="required" />
+         <button type="submit" class="btn btn-primary btn-block btn-large" onclick="login(); return false">Let me in.</button>
       </form>
    </div>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+   <script src="js/loginPage.js"></script>
 </body>
 </html>
