@@ -377,9 +377,16 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli->close();
 
 		/* Update Mobile Database */
-    //Still breaks the route :( 
+    //Still breaks the route :(
 		// reuse_generateXML();
 	});
+
+//This must be requested ASYNCHONOUSLY or else you will freeze the whole
+// site!!!!!
+  $app->get('/updateDataForMobile', function(){
+      reuse_generateXML();
+      echo json_encode("waka waka waka");
+  });
 
 
 	/**
