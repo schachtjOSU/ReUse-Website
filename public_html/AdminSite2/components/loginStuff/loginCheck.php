@@ -5,7 +5,7 @@
     /**********************************************************************
 	*					 error check
 	**********************************************************************/
-    include '../../../App/Database/reuseConnect.php';
+    include '../../../../App/Database/reuseConnect.php';
 	/* error check */
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
@@ -81,7 +81,7 @@
 				echo 1;				// true back to javascript
 
 				// start slims sessions
-				require '../../Slim/Slim.php';
+				require '../../../Slim/Slim.php';
 				\Slim\Slim::registerAutoloader();
 				$app = new \Slim\Slim(
 					//More debugging

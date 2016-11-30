@@ -1,5 +1,5 @@
 <!-- Redirect user to log in page if not logged in  -->
-<?php include("components/checkSession.php"); ?>
+<?php include("components/loginStuff/checkSession.php"); ?>
 
 
 
@@ -8,7 +8,7 @@ draggable in javascript by mapping where one of its icons was clicked
 to where on the page a certain list item is, that would be cool. -->
 </thead>
 <!-- Hmm where did this thead nonsense come from... -->
-</thead> 
+</thead>
 
 <html>
    <head>

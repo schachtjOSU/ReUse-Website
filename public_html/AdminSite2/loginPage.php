@@ -2,7 +2,7 @@
 
 
 <!-- Destroy user session and cookies. -->
-<?php include("components/destroySession.php"); ?>
+<?php include("components/loginStuff/destroySession.php"); ?>
 
 <head>
    <meta charset="UTF-8">

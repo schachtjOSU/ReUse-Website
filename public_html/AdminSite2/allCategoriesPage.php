@@ -1,5 +1,5 @@
 <!-- Redirect user to log in page if not logged in  -->
-<?php include("components/checkSession.php"); ?>
+<?php include("components/loginStuff/checkSession.php"); ?>
 
 
 <!-- Page to view a grid/list of all categories. -->

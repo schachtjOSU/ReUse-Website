@@ -1,7 +1,7 @@
 <!-- This would be the landing page of the admin site after logging in. -->
 
 <!-- Redirect user to log in page if not logged in  -->
-<?php include("components/checkSession.php"); ?>
+<?php include("components/loginStuff/checkSession.php"); ?>
 
 
 <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>

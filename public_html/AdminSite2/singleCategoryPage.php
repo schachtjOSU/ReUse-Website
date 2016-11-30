@@ -2,7 +2,7 @@
 in allCategoriesPage.php -->
 
 <!-- Redirect user to log in page if not logged in  -->
-<?php include("components/checkSession.php"); ?>
+<?php include("components/loginStuff/checkSession.php"); ?>
 
 
 <html>
