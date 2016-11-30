@@ -385,7 +385,6 @@ $app->response->headers->set('Content-Type', 'application/json');
 // site!!!!!
   $app->get('/updateDataForMobile', function(){
       reuse_generateXML();
-      echo json_encode("waka waka waka");
   });
 
 

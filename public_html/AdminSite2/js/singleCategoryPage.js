@@ -88,16 +88,15 @@ makeSaveFunction = function(saveButton, name){
           dataType: 'json',
           success: function(data) {
             console.log(data);
-            maybeThisWillWork();
-
-
           }
       });
+      maybeThisWillWork();
   }; //End of thisSaveFunction defintion
 
 }
 
-  function maybeThisWillWork(requestUrl) {
+  function maybeThisWillWork() {
+    console.log("I got called");
       var req = new XMLHttpRequest();
       req.open("GET", "/RUapi/updateDataForMobile", true);
       req.addEventListener('load', function() {
@@ -105,8 +104,9 @@ makeSaveFunction = function(saveButton, name){
               console.log("Yep yep yep");
 
           } else {
-              console.log("Error in network request: " + req.statusText);
+              console.log("Error in network request: ");
           }
       });
       req.send(null); //specify no additional data being sent
+      return;
   }
