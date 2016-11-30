@@ -74,7 +74,6 @@ makeSaveFunction = function(saveButton, id, name){
 
     thisSaveFunction = function(){
       var newName = $('#name').val();
-      console.log(name);
       var cat = $('#cat').val();
 
       payload = {};
@@ -88,16 +87,9 @@ makeSaveFunction = function(saveButton, id, name){
           data: payload,
           dataType: 'json',
           success: function(data) {
-            console.log(data);
-
-            $("input").prop('disabled', true);
-            $(".whenDisabled").show();
-            $(".whenEnabled").hide();
-            $(".words").hide();
-            $("#save").hide();
-
           }
       });
+      location.reload();
   }; //End of thisSaveFunction defintion
 
 }

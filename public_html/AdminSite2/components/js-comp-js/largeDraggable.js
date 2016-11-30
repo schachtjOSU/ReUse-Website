@@ -164,7 +164,7 @@ menu.add(item5);
 $(document).delay(50).queue(function(next) {
     menu.open();
     next();
-    $(document).delay(1000).queue(function(next) {
+    $(document).delay(500).queue(function(next) {
         menu.close();
         next();
     });
@@ -260,7 +260,6 @@ plusItem.addEventListener('click', function() {
     $("input").prop('disabled', false);
     $(".whenDisabled").hide();
     $(".whenEnabled").show();
-    $(".words").show();
     $("#save").show();
   }
 
@@ -293,7 +292,6 @@ plusItem.addEventListener('click', function() {
     $("input").prop('disabled', false);
     $(".whenDisabled").hide();
     $(".whenEnabled").show();
-    $(".words").show();
     $("#save").show();
   }
 

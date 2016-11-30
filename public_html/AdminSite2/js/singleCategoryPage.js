@@ -87,10 +87,10 @@ makeSaveFunction = function(saveButton, name){
           data: payload,
           dataType: 'json',
           success: function(data) {
-            console.log(data);
           }
       });
-      maybeThisWillWork();
+      location.reload();
+      // maybeThisWillWork();
   }; //End of thisSaveFunction defintion
 
 }
