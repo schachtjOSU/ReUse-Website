@@ -1,4 +1,10 @@
 <!-- This would be the landing page of the admin site after logging in. -->
+
+<!-- Redirect user to log in page if not logged in  -->
+<?php include("components/checkSession.php"); ?>
+
+
+
 <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
@@ -10,10 +16,21 @@
    <div class="popout_menu_item cuatro">4<span>Something</span></div>
    <div class="popout_menu_item cinco">5<span>Something</span></div>
 </div>
+
 <div class="title">
    ReUse Corvallis
 </div>
 <?php include("components/centeredNaviDraggable.php"); ?>
+
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/checkSession.js"></script>
+<script>
+  //ONLOAD GET requests and checking of session with jQuery
+  $(document).ready(function(){
+    checkSession();
+  });
+</script> -->
 
 <!-- apparently you don't actually need a head or body or anything, nothing on this
 page links to a full html page but it works fine, idk -->
