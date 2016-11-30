@@ -1,6 +1,9 @@
 <!-- Page you are currently taken to by clicking one of the businesses
 in allBusinessesPage.php -->
 
+<!-- Redirect user to log in page if not logged in  -->
+<?php include("components/checkSession.php"); ?>
+
 <html>
    <head>
       <link rel="stylesheet" type="text/css" href="css/singleItemPage.css">

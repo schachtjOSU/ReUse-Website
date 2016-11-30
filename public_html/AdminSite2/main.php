@@ -4,7 +4,6 @@
 <?php include("components/checkSession.php"); ?>
 
 
-
 <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
@@ -13,7 +12,7 @@
    <a href='allBusinessesPage.php'><div class="popout_menu_item uno">1<span>Businesses</span></div></a>
    <a href='allCategoriesPage.php'><div class="popout_menu_item dos">2<span>Categories</span></div></a>
    <a href='allItemsPage.php'><div class="popout_menu_item tres">3<span>Items</span></div></a>
-   <div class="popout_menu_item cuatro">4<span>Something</span></div>
+   <a href='loginPage.php'><div class="popout_menu_item cuatro">4<span>Log Out</span></div></a>
    <div class="popout_menu_item cinco">5<span>Something</span></div>
 </div>
 
@@ -21,16 +20,3 @@
    ReUse Corvallis
 </div>
 <?php include("components/centeredNaviDraggable.php"); ?>
-
-
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/checkSession.js"></script>
-<script>
-  //ONLOAD GET requests and checking of session with jQuery
-  $(document).ready(function(){
-    checkSession();
-  });
-</script> -->
-
-<!-- apparently you don't actually need a head or body or anything, nothing on this
-page links to a full html page but it works fine, idk -->

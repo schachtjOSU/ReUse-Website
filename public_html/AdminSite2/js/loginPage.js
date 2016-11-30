@@ -1,3 +1,6 @@
+//User is logged out as soon as they arrive at the log in page.
+// killSession();
+
 function login(){
 
   /* get values from form */
@@ -40,44 +43,45 @@ function login(){
     req.send(loginData);
 }
 
+
 /*
 function killSession
 purpose: Kill session
 */
-function killSession(){
-    var tableData = "killSession";
-    $.ajax({type:"POST",
-      url: "/AdminSite/loginCheck.php",
-      data: tableData,
-      success: function(data){
-        console.log("Success");
-      },
-    });
-  window.alert('Session already in progress. Logging out old user....')
-  logOut();
-  window.location.href = "/AdminSite2/loginPage.php";
-}
-
-function logOut(){
-    var type = "killSession";
-    req = new XMLHttpRequest();
-    req.onreadystatechange = function(){
-   		  if(req.readyState == 4 && req.status == 200){
-
-	    	 if(req.responseText == 1){
-    	    	/* everything has passed! Yay! Go back to login page*/
-        		window.location.href = webURL + "loginPage.php";
-     		}
-
-        /* no specific instance for causing false, but if it's not true... tell me */
-     		else{
-          		document.getElementById("output2").innerHTML = req.responseText;
-     		}
-   		}
-  	}
-        /* send data to kill the sesions */
-        req.open("POST","loginCheck.php", true);
-        req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        data = "type="+type;
-        req.send(data);
-  }
+// function killSession(){
+//     var tableData = "killSession";
+//     $.ajax({type:"POST",
+//       url: "/AdminSite/loginCheck.php",
+//       data: tableData,
+//       success: function(data){
+//         console.log("Success");
+//       },
+//     });
+//   window.alert('Session already in progress. Logging out old user....')
+//   logOut();
+//   window.location.href = "/AdminSite2/loginPage.php";
+// }
+//
+// function logOut(){
+//     var type = "killSession";
+//     req = new XMLHttpRequest();
+//     req.onreadystatechange = function(){
+//    		  if(req.readyState == 4 && req.status == 200){
+//
+// 	    	 if(req.responseText == 1){
+//     	    	/* everything has passed! Yay! Go back to login page*/
+//         		window.location.href = webURL + "loginPage.php";
+//      		}
+//
+//         /* no specific instance for causing false, but if it's not true... tell me */
+//      		else{
+//           		document.getElementById("output2").innerHTML = req.responseText;
+//      		}
+//    		}
+//   	}
+//         /* send data to kill the sesions */
+//         req.open("POST","loginCheck.php", true);
+//         req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//         data = "type="+type;
+//         req.send(data);
+//   }
