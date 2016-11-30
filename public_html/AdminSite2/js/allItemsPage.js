@@ -44,7 +44,6 @@ function fillTable(name, category_id, id){
       <li class='white-square' id='" + id + "'> \
         <span class='box-name'>" + name + " </span> \
         <div class='pull-right'> \
-          <span class='box-detail grid-only'> <a href='" + categoryPageUrl + "'>" + ' ' + " </span> \
           <span class='below-line-container'>\
             <span class='below-line'>\
               <span class='lower-left-corner'>Category id: " + category_id + " </span> \

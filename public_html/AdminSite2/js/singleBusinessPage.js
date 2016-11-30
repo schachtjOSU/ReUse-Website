@@ -21,7 +21,7 @@ $.ajax({
 
             /*Address line 1*/
             if(!data[i].address_line_1){
-              address_line_1 = 'Address missing';            }
+              address_line_1 = 'Address missing';}
             else{
               address_line_1 = data[i].address_line_1;
             }
