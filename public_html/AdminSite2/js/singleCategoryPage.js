@@ -1,6 +1,7 @@
 var category_id = document.getElementById('idInput').value;
 console.log("Page for category with id " + category_id);
 
+
 /*Set the togglers*/
 $(function() {
   return $('[data-toggle]').on('click', function() {
@@ -87,14 +88,25 @@ makeSaveFunction = function(saveButton, name){
           dataType: 'json',
           success: function(data) {
             console.log(data);
+            maybeThisWillWork();
 
-            // $("input").prop('disabled', true);
-            // $(".whenDisabled").show();
-            // $(".whenEnabled").hide();
-            // $("#save").hide();
 
           }
       });
   }; //End of thisSaveFunction defintion
 
 }
+
+  function maybeThisWillWork(requestUrl) {
+      var req = new XMLHttpRequest();
+      req.open("GET", "/RUapi/updateDataForMobile", true);
+      req.addEventListener('load', function() {
+          if (req.status >= 200 && req.status < 400){
+              console.log("Yep yep yep");
+
+          } else {
+              console.log("Error in network request: " + req.statusText);
+          }
+      });
+      req.send(null); //specify no additional data being sent
+  }
