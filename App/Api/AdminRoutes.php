@@ -377,7 +377,8 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli->close();
 
 		/* Update Mobile Database */
-		reuse_generateXML();
+    //Still breaks the route :( 
+		// reuse_generateXML();
 	});
 
 
@@ -405,7 +406,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 		}
 		$mysqli->close();
 
-    echo json_encode("La update");
+    echo json_encode("Item Update Success");
 		/* Update Mobile Database */
 		// reuse_generateXML();
 	});

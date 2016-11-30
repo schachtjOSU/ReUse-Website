@@ -39,7 +39,7 @@ function fillTable(name, category_id){
   $("#thisList").append("\
   <li class='white-square' id='" +"thisTable" + "'> \
     <span class='box-name'>\
-     <input name='name' type='text' value='" + name + "' disabled='disabled'>\
+     <input name='name' type='text' id='name' value='" + name + "' disabled='disabled'>\
      <button class='btn btn-primary' id='save'>save</button>\
      <span class='whenDisabled'>" + name + "</span>\
     </span> \
@@ -53,4 +53,48 @@ function fillTable(name, category_id){
       </span> \
     </div>\
   </li>");
+  setSaveEditListener(name);
+
+}
+
+
+//This will hold the function to save
+var thisSaveFunction;
+
+/*Function to set the event listeners*/
+setSaveEditListener = function(name){
+  var saveButton = document.getElementById('save');
+  makeSaveFunction(saveButton, name);
+  saveButton.addEventListener('click', thisSaveFunction, false);
+}
+
+/*Function to set a memebr of the clickListenersForSquares[] array
+to a particular function*/
+makeSaveFunction = function(saveButton, name){
+
+    thisSaveFunction = function(){
+      var newName = $('#name').val();
+      console.log(name);
+
+      payload = {};
+      payload.oldName = name;
+      payload.name = newName;
+
+      $.ajax({
+          type: "POST",
+          url: "/RUapi/changeCategory",
+          data: payload,
+          dataType: 'json',
+          success: function(data) {
+            console.log(data);
+
+            // $("input").prop('disabled', true);
+            // $(".whenDisabled").show();
+            // $(".whenEnabled").hide();
+            // $("#save").hide();
+
+          }
+      });
+  }; //End of thisSaveFunction defintion
+
 }
