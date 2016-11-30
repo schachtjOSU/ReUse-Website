@@ -35,7 +35,7 @@ function fillSquare(name, category_id, id){
   $("#thisList").append("\
      <li class='white-square' id='" +"thisTable" + "'> \
        <span class='box-name'>\
-        <input name='name' type='text' value='" + name + "' disabled='disabled'>\
+        <input name='name' type='text' id='name' value='" + name + "' disabled='disabled'>\
         <button class='btn btn-primary' id='save'>save</button>\
         <span class='whenDisabled'>" + name + "</span>\
        </span> \
@@ -45,7 +45,7 @@ function fillSquare(name, category_id, id){
            <span class='lower-left-corner'>\
               \
             <div class='whenEnabled' style='margin-right: 20%;'>\
-                <label for='" + category_id + "'>Category id: </label>  \
+                <label id='cat' for='" + category_id + "'>Category id: </label>  \
                 <input name='cat' class='catId' type='text' value='" + category_id + "' disabled='disabled'>\
             </div>\
             <span class='whenDisabled'> Category ID: " + category_id + "</span>\
@@ -64,20 +64,23 @@ var thisSaveFunction;
 /*Function to set the event listeners*/
 setSaveEditListener = function(id, name){
   var saveButton = document.getElementById('save');
-  makeSaveFunction(saveButton, id);
+  makeSaveFunction(saveButton, id, name);
   saveButton.addEventListener('click', thisSaveFunction, false);
 }
 
 /*Function to set a memebr of the clickListenersForSquares[] array
 to a particular function*/
-makeSaveFunction = function(saveButton, id){
+makeSaveFunction = function(saveButton, id, name){
 
     thisSaveFunction = function(){
+      var newName = $('#name').val();
+      console.log(name);
+      var cat = $('#cat').val();
 
       payload = {};
       payload.oldName = name;
-      payload.name = 'temp name';
-      payload.cat = 4;
+      payload.name = newName;
+      payload.cat = cat;
 
       $.ajax({
           type: "POST",
@@ -92,7 +95,7 @@ makeSaveFunction = function(saveButton, id){
             $(".whenEnabled").hide();
             $(".words").hide();
             $("#save").hide();
-            
+
           }
       });
   }; //End of thisSaveFunction defintion
