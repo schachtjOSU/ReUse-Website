@@ -36,7 +36,7 @@ function login(){
     }
 
     /* send to loginCheck.php for the session and db connection-- Calls function login() */
-    req.open("POST","/AdminSite/loginCheck.php", true);
+    req.open("POST","/AdminSite2/components/loginCheck.php", true);
     req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     var loginData ="type="+type+"&username="+user+"&password="+password;
     req.send(loginData);
