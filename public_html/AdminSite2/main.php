@@ -13,9 +13,7 @@
 <div class="title">
    ReUse Corvallis
 </div>
-
-<span class="tree-lim"></span>
-<?php include("components/smallDraggable.php"); ?>
+<?php include("components/centeredNaviDraggable.php"); ?>
 
 <!-- apparently you don't actually need a head or body or anything, nothing on this
 page links to a full html page but it works fine, idk -->

@@ -123,3 +123,12 @@ body {
 .cinco:hover {
  border-left:20px solid #584632;
 }
+
+.a:link, .a:visited{
+  text-decoration: none !important;
+}
+
+/*To get rid of underline in chrome*/
+a:-webkit-any-link {
+  text-decoration: none !important;
+ }
