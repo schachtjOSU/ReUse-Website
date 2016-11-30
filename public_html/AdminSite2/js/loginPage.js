@@ -38,8 +38,6 @@ function login(){
     req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     var loginData ="type="+type+"&username="+user+"&password="+password;
     req.send(loginData);
-
-  
 }
 
 /*
@@ -55,6 +53,31 @@ function killSession(){
         console.log("Success");
       },
     });
-  window.alert('Session already in progress. Logging out old user.')
-  window.location.href = webURL + "/AdminSite/loginPage.php";
+  window.alert('Session already in progress. Logging out old user....')
+  logOut();
+  window.location.href = "/AdminSite2/loginPage.php";
 }
+
+function logOut(){
+    var type = "killSession";
+    req = new XMLHttpRequest();
+    req.onreadystatechange = function(){
+   		  if(req.readyState == 4 && req.status == 200){
+
+	    	 if(req.responseText == 1){
+    	    	/* everything has passed! Yay! Go back to login page*/
+        		window.location.href = webURL + "loginPage.php";
+     		}
+
+        /* no specific instance for causing false, but if it's not true... tell me */
+     		else{
+          		document.getElementById("output2").innerHTML = req.responseText;
+     		}
+   		}
+  	}
+        /* send data to kill the sesions */
+        req.open("POST","loginCheck.php", true);
+        req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        data = "type="+type;
+        req.send(data);
+  }

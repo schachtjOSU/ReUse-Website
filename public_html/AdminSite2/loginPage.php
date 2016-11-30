@@ -7,10 +7,6 @@
 </head>
 <body>
    <div class="login">
-     <?php
-     date_default_timezone_set('UTC');
-     date_default_timezone_get();
-     ?>
       <h1>Login</h1>
       <!-- <form method="post" action="main.php"> -->
       <form>
