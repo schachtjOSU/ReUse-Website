@@ -25,7 +25,7 @@
 					</li>
 					<li role="presentation" class="header-button"><a href="about.php" class="header-link">About</a></li>
 					<li role="presentation" class="header-button"><a href="contact.php" class="header-link">Contact</a></li>
-					<li role="presentation" class="header-button"><a href="../AdminSite/loginPage.php" class="header-link">Admin</a></li>
+					<li role="presentation" class="header-button"><a href="../AdminSite2/loginPage.php" class="header-link">Admin</a></li>
 				</ul>
 				<a href ="home.php">
 					<img id="header-icon" src="../img/CSCLogo.png">
