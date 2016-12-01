@@ -4,16 +4,17 @@ you use the grid component by using a php include statement.
 To edit the css used here for one page without affecting other pages,
 copy/paste that into the css file for the page you want to change and
 use the tag !important.
-*/
-@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
+
+/
+* stopped using these/
+/*@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");*/
 
 /*The icons that go above the grid for toggling from list to grid*/
-@import url("http://weloveiconfonts.com/api/?family=entypo");
+/*@import url("http://weloveiconfonts.com/api/?family=entypo");*/
 
-/*For switching between icons*/
-[class*="entypo-"]:before {
+/*[class*="entypo-"]:before {
 	font-family: 'entypo', sans-serif;
-}
+}*/
 
 body {
 	max-width: 1200px;
@@ -164,8 +165,6 @@ a
 
 .list a{
 	text-decoration: none;
-	/*pointer-events: none;
-  cursor: default;*/
 }
 
 .lower-left-corner {

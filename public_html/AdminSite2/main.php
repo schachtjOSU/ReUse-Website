@@ -17,6 +17,6 @@
 </div>
 
 <div class="title">
-   ReUse Corvallis
+   Corvallis ReUse
 </div>
 <?php include("components/centeredNaviDraggable.php"); ?>

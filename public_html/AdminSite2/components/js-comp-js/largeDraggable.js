@@ -225,10 +225,12 @@ plusItem.addEventListener('click', function() {
   /*********** BUSINESS OPERATIONS ****************/
 
   function editBusiness(id){
-    var someString = "This is a placeholder for the function \
-    that will be used to edit business with id ";
-    someString = someString + id;
-    alert(someString);
+    $("input").prop('disabled', false);
+    $(".whenDisabled").hide();
+    $(".whenEnabled").show();
+    $("#save").show();
+    $(".box-detail.grid-only").addClass("centerTime");
+    $("span.below-line").addClass("centerPhone");
   }
 
 
@@ -315,3 +317,6 @@ plusItem.addEventListener('click', function() {
       return false;
     }
   }
+
+
+  /*****/

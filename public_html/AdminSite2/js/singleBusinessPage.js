@@ -89,15 +89,36 @@ function fillTable(name, address_line_1, address_line_2, city, zip_code, website
    $("#thisList").append("\
       <li class='white-square' id='" + id + "'> \
         <span class='box-detail list-only'>" + address_line_1 + ", " + city + " </span>\
-        <span class='box-name'>" + name + " </span> \
-        <span class='box-detail grid-only'>" + address_line_1 + " </span> \
-        <div class='pull-right'> \
-          <div><span class='box-detail grid-only'>" + address_line_2 + " </span> </div>\
-          <div><span class='box-detail grid-only'>" + zip_code + " </span></div>\
-          <span class='box-detail grid-only'> <a href='" + website + "'> Website </span> \
+        <span class='box-name'>\
+          <input name='name_input' type='text' id='name_input' value='" + name + "' disabled='disabled'>\
+          <span class='whenDisabled'>"+ name + "</span>\
+         </span> \
+         <span class='box-detail grid-only'>\
+          <input placeholder='address line 1' name='address_line_1_input' type='text' id='address_line_1_input' value='" + address_line_1 + "'disabled='disabled'>\
+          <span class='whenDisabled'>" + address_line_1 + "</span>\
+         </span> \
+          <div>\
+            <span class='box-detail grid-only'>\
+              <input placeholder='address line 2' name='address_line_2_input' type='text' id='address_line_2_input' value='" + address_line_2 + "' disabled='disabled'> \
+              <span class='whenDisabled'>"+ address_line_2 + "</span>\
+            </span>\
+          </div>\
+          <div>\
+            <span class='box-detail grid-only'>\
+              <input placeholder='zip_code_input' name='zipInput' type='text' id='zip_code_input' value='" + zip_code + "'disabled='disabled'>\
+                <span class='whenDisabled'>" + zip_code + "</span> \
+            </span>\
+          </div>\
+          <span class='box-detail grid-only'> \
+          <input placeholder='website' name='website_input' type='text' id='website_input' value='" + website + "'disabled='disabled'>\
+            <span class='whenDisabled'><a href='" + website + "'> Website </a></span>\
+          </span> \
           <span class='below-line-container'>\
             <span class='below-line'>\
-              <span class='lower-left-corner'>" + phone + " </span> \
+            <input placeholder='phone number' name='phone_input' type='text' id='phone_input' value='" + phone + "'disabled='disabled'>\
+              <span class='lower-left-corner'>\
+                <button class='btn btn-primary' id='save'>save</button>\
+              <span class='whenDisabled'>" + phone + "</span></span> \
             </span> \
           </span> \
         </div>\
