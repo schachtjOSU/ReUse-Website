@@ -1,19 +1,10 @@
-#Corvallis-Sustainability-Coalition
+#The Corvallis Reuse and Repair Directory
 
-## Main Site:
-http://sustainablecorvallis.org/action-teams/waste-prevention/corvallis-area-reuse-directory
+## Project History
+In early 2010, the Corvallis Sustainability Coalition created the Corvallis-Area ReUse Directory. The purpose of the Corvallis Reuse and Repair Directory, (Corvallis ReUse), is to provide Corvallis and the outlying community a way to easily locate organizations that will take items for repair, reusable items that can be sold to the public as used items, and items to recycle. You can <a href="http://sustainablecorvallis.org/action-teams/waste-prevention/corvallis-area-reuse-directory">download the current directory</a> from the Corvallis Sustainability Coalition website.
 
-## Client Purpose
-In early 2010, we created the Corvallis-Area ReUse Directory, a guide to all of the organizations and businesses in Corvallis and Philomath that accept items for reuse. The guide is categorized into types of items and a corresponding list of locations that accept said items.
+##The Corvallis Reuse and Repair Website
+The Corvallis Reuse and Repair Website was created to serve as a user-friendly alternative to the PDF directory. Working with Oregon State University students, the Corvallis Sustainability Coalition has released <a href="http://app.sustainablecorvallis.org/">the Corvallis Reuse and Repair Directory</a> website, as well and an Android app. 
 
-## Project Goals
-
-To take the current state of the project from development to production.
-
-Finalize an administration portal where entries can be added, removed, and customized.
-
-Develop both an iOS and android applications used primarily for viewing existing data, **serving as a more user-friendly reuse-directory**
-
-Bring the managing API to a production-ready state
-
-*Documentation, documentation, documentation*
+## Corvallis ReUse App
+You can <a href="https://play.google.com/store/apps/details?id=crrd.crrd">download the Corvallis ReUse Android app through Google Play</a>.
