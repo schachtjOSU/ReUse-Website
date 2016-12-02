@@ -43,7 +43,7 @@
 
 				<div class="col-md-6 home-text">
 					<h4>About</h4>
-					<p>The purpose of the Reuse and Repair Directory is to provide the Corvallis and outlying community a way to easily locate organizations that will accept the follwing. take reusable items that can be sold to the public as used items, 2) take and repair items, and 3) take recyclable items.</p>
+					<p>The purpose of the Reuse and Repair Directory is to provide the Corvallis and outlying community a way to easily locate organizations that will accept reusable items that can be sold to the public as used items, take and repair items, and take recyclable items.</p>
 				</div>
 
 				<div class="col-md-3 home-text" id="donor-thanks">
