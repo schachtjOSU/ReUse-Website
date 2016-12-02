@@ -10,13 +10,6 @@
 		$app->redirect("/HomeSite/home.php");
 	});
 
-
-
-	//NOTE: WE SHOULD SEPARATE PAGE ROUTES FROM API ROUTES LATER
-
-
-
-
 	//replacing a single single-quote with two single-quotes in a given string
 	function singleToDoubleQuotes(&$string) {
 		$string = str_replace("'","''", $string);
@@ -217,7 +210,7 @@
      * @apiName ReUseApp
      *
 	 * @apiParam {String} bus_name Business name (mandatory).
-	 * @apiSuccess {JSON Object} business Businesses with a given name.
+	 * @apiSuccess {JSON Object} business The first business with a given name.
 	 */
 	$app->get('/business/name/:bus_name', function($bus_name){
 		$mysqli = connectReuseDB();
@@ -225,7 +218,7 @@
 		singleToDoubleQuotes($bus_name);
 		underscoreToSlash($bus_name);
 
-		$result = $mysqli->query("SELECT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id WHERE loc.name = '$bus_name'");
+		$result = $mysqli->query("SELECT loc.name, loc.id, loc.address_line_1, loc.address_line_2, state.abbreviation, loc.phone, loc.website, loc.city, loc.zip_code, loc.latitude, loc.longitude FROM Reuse_Locations AS loc LEFT JOIN States AS state ON state.id = loc.state_id WHERE loc.name = '$bus_name' LIMIT 1");
 
 		$business = $result->fetch_object();
 
@@ -240,7 +233,7 @@
      * @apiName ReUseApp
      *
 	 * @apiParam {String} bus_name Business name (mandatory).
-	 * @apiSuccess {JSON[]} returnArray Items accepted by the business with the given name, ordered by item name.
+	 * @apiSuccess {JSON[]} returnArray Distinct items accepted by the business with the given name, ordered by item name.
 	 */
 	$app->get('/item/business/name/:bus_name', function($bus_name){
 		$mysqli = connectReuseDB();
@@ -248,7 +241,7 @@
 		singleToDoubleQuotes($bus_name);
 		underscoreToSlash($bus_name);
 
-		$result = $mysqli->query("SELECT item.name FROM Reuse_Items AS item INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id INNER JOIN
+		$result = $mysqli->query("SELECT DISTINCT item.name FROM Reuse_Items AS item INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id INNER JOIN
 		Reuse_Locations AS loc ON loc.id = loc_item.location_id WHERE loc.name = '$bus_name' ORDER BY item.name");
 
 		$returnArray = array();
@@ -268,7 +261,7 @@
      * @apiName ReUseApp
      *
 	 * @apiParam {String} cat_name Category name (mandatory).
-	 * @apiSuccess {JSON[]} returnArray Items in the given category as well as the number of businesses accepting an item, ordered by item name.
+	 * @apiSuccess {JSON[]} returnArray Distinct items in the given category as well as the number of businesses accepting an item, ordered by item name.
 	 */
 	$app->get('/item/category/name/:cat_name', function($cat_name){
 
@@ -279,7 +272,7 @@
 
 		$mysqli = connectReuseDB();
 
-		$result = $mysqli->query("SELECT item.name, COUNT(loc_item.location_id) AS item_count FROM Reuse_Items AS item INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id WHERE cat.name = '$cat_name' GROUP BY (item.name) ORDER BY item.name");
+		$result = $mysqli->query("SELECT DISTINCT item.name, COUNT(loc_item.location_id) AS item_count FROM Reuse_Items AS item INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id WHERE cat.name = '$cat_name' GROUP BY (item.name) ORDER BY item.name");
 
 		$returnArray = array();
 	    while($row = $result->fetch_object()){
@@ -296,12 +289,12 @@
   	 * @api {get} /item/category/reuseExclusive
      * @apiName ReUseApp
      *
-	 * @apiSuccess {JSON[]} returnArray Items in any category excluding the special categories of Repair, Repair Items, or Recycling and a count of the number of businesses for each item, ordered by ordered by item name.
+	 * @apiSuccess {JSON[]} returnArray Distinct items in any category excluding the special categories of Repair, Repair Items, or Recycling and a count of the number of businesses for each item, ordered by ordered by item name.
 	 */
 	$app->get('/item/category/reuseExclusive', function(){
 		$mysqli = connectReuseDB();
 
-		$result = $mysqli->query("SELECT item.name, COUNT(loc_item.location_id) AS item_count FROM Reuse_Items AS item INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id WHERE cat.name NOT IN ('Repair', 'Repair Items', 'Recycle') GROUP BY (item.name) ORDER BY item.name");
+		$result = $mysqli->query("SELECT DISTINCT item.name, COUNT(loc_item.location_id) AS item_count FROM Reuse_Items AS item INNER JOIN Reuse_Categories AS cat ON item.category_id = cat.id INNER JOIN Reuse_Locations_Items AS loc_item ON item.id = loc_item.item_id WHERE cat.name NOT IN ('Repair', 'Repair Items', 'Recycle') GROUP BY (item.name) ORDER BY item.name");
 
 		$returnArray = array();
 	    while($row = $result->fetch_object()){
@@ -319,7 +312,7 @@
   	 * @api {get} /category/reuseExclusive
      * @apiName ReUseApp
      *
-	 * @apiSuccess {JSON[]} returnArray All category names not including Repair, Repair Items, and Recycle, ordered by ordered by category name.
+	 * @apiSuccess {JSON[]} returnArray All distinct category names not including Repair, Repair Items, and Recycle, ordered by ordered by category name.
 	 */
 	$app->get('/category/reuseExclusive', function(){
 		$mysqli = connectReuseDB();
@@ -342,7 +335,7 @@
      * @apiName ReUseApp
      *
 	 * @apiParam {String} bus_name Business name (mandatory).
-	 * @apiSuccess {JSON[]} returnArray Documents/links associated with a given business, ordered by document name.
+	 * @apiSuccess {JSON[]} returnArray Distinct documents/links associated with a given business, ordered by document name.
 	 */
 	$app->get('/document/business/name/:bus_name', function($bus_name){
 		singleToDoubleQuotes($bus_name);
@@ -368,7 +361,7 @@
   	 * @api {get} /donor
      * @apiName ReUseApp
      *
-	 * @apiSuccess {JSON[]} returnArray All donors, ordered by donor name.
+	 * @apiSuccess {JSON[]} returnArray All distinct donors, ordered by donor name.
 	 */
 	$app->get('/donor', function(){
 

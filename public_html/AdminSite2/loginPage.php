@@ -1,7 +1,6 @@
 <!-- Log in page. -->
-
-
 <!-- Destroy user session and cookies. -->
+
 <?php include("components/loginStuff/destroySession.php"); ?>
 
 <head>

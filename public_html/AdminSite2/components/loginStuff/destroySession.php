@@ -1,7 +1,6 @@
 <!--
 To destroy a session on any page, simply
-include this file with
-php include("components/destriySession.php"); ?> -->
+include components/destroySession.php  -->
 
 <?php
 // Initialize the session.

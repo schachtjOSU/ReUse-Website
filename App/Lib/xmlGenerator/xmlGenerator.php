@@ -77,7 +77,7 @@ function reuse_generateXML() {
 			$category = $catList->addChild("category");
 				$category->addChild("name", $cat_name);
 				$subcatlist = $category->addChild("subcategory_list");
-			$stmt3 = $mysqli->prepare("SELECT ITM.name FROM Reuse_Categories CAT INNER JOIN Reuse_Items ITM ON ITM.category_id = CAT.id INNER JOIN Reuse_Locations_Items L_ITM ON L_ITM.item_id = ITM.id INNER JOIN Reuse_Locations L ON L.id = L_ITM.location_id WHERE L.id = ? AND CAT.id = ?");
+			$stmt3 = $mysqli->prepare("SELECT DISTINCT ITM.name FROM Reuse_Categories CAT INNER JOIN Reuse_Items ITM ON ITM.category_id = CAT.id INNER JOIN Reuse_Locations_Items L_ITM ON L_ITM.item_id = ITM.id INNER JOIN Reuse_Locations L ON L.id = L_ITM.location_id WHERE L.id = ? AND CAT.id = ?");
 			$stmt3->bind_param('ii', $Loc_id, $cat_id);
 			$stmt3->bind_result($subcat_name);
 			$stmt3->execute();
@@ -205,7 +205,7 @@ function echoRecycleXML() {
 	
 	
 	/* Query for recycling centers and all items associated with it */
-	if ( !($stmt = $mysqli->prepare( "SELECT L.id, L.name, L.address_line_1, L.address_line_2, L.city, S.abbreviation, L.zip_code, L.phone, L.website, L.latitude, L.longitude  FROM Reuse_Locations L LEFT JOIN States S ON L.state_id = S.id WHERE L.recycle = 1 ORDER BY L.name;" ) ) ) {
+	if ( !($stmt = $mysqli->prepare( "SELECT DISTINCT L.id, L.name, L.address_line_1, L.address_line_2, L.city, S.abbreviation, L.zip_code, L.phone, L.website, L.latitude, L.longitude  FROM Reuse_Locations L LEFT JOIN States S ON L.state_id = S.id WHERE L.recycle = 1 ORDER BY L.name;" ) ) ) {
 		echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 	}
 	
@@ -295,7 +295,7 @@ function echoDonorXML() {
 	
 	
 	/* Query for donors */
-	if ( !($stmt = $mysqli->prepare( "SELECT donor.name, donor.websiteurl, donor.description FROM Reuse_Donors AS donor ORDER BY donor.name" ) ) ) {
+	if ( !($stmt = $mysqli->prepare( "SELECT DISTINCT donor.name, donor.websiteurl, donor.description FROM Reuse_Donors AS donor ORDER BY donor.name" ) ) ) {
 		echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 	}
 	
