@@ -159,7 +159,7 @@ function initGeneralMap() {
 	reqReuse.open("GET", APIBase + "/business/reuseExclusive", true);
 	reqReuse.send();
 	
-	reqRecycle.open("GET", APIBase + "/business/recycleExclusive", true);
+	reqRecycle.open("GET", APIBase + "/business/category/name/Recycle", true);
 	reqRecycle.send();
 	
 	reqRepair.open("GET", APIBase + "/business/category/name/Repair%20Items", true);
