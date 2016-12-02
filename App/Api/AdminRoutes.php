@@ -262,7 +262,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 
 		/* Update Mobile Database */
-	//	reuse_generateXML();
+		reuse_generateXML();
 	});
 
 	/**
@@ -281,7 +281,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli->close();
 
 		/* Update Mobile Database */
-		// reuse_generateXML();
+		 reuse_generateXML();
 	});
 
 	/**
@@ -299,7 +299,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli->close();
 
 		/* Update Mobile Database */
-		// reuse_generateXML();
+		reuse_generateXML();
 	});
 
 	/**
@@ -353,7 +353,20 @@ $app->response->headers->set('Content-Type', 'application/json');
 *				PUTS -- doing it as POSTS with UPDATES to avoid form issues
 ******************************************************************************************/
 
-    /* Update a specific category name */
+    
+	/* Update reuse_database.xml */
+
+	/**
+	 * @api {POST} /updateDataForMobile Update reuse_database.xml
+ 	 * @apiName ReUseApp
+	 * @apiGroup RUapi
+	 *
+	 */
+	$app->post('/updateDataForMobile', function(){
+		reuse_generateXML();
+	});
+	
+	/* Update a specific category name */
 
 	/**
 	 * @api {PUT} /changeCategory Update the name of a category
@@ -378,14 +391,8 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 		/* Update Mobile Database */
     //Still breaks the route :(
-		// reuse_generateXML();
+		reuse_generateXML();
 	});
-
-//This must be requested ASYNCHONOUSLY or else you will freeze the whole
-// site!!!!!
-  $app->get('/updateDataForMobile', function(){
-      reuse_generateXML();
-  });
 
 
 	/**
@@ -414,7 +421,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 
     echo json_encode("Item Update Success");
 		/* Update Mobile Database */
-		// reuse_generateXML();
+		 reuse_generateXML();
 	});
 
 		/* update business */
@@ -473,7 +480,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli->close();
 
 		/* Update Mobile Database */
-	//	reuse_generateXML();
+		reuse_generateXML();
 
     echo json_encode("success");
 	});

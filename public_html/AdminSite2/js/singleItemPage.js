@@ -1,4 +1,4 @@
-var id = document.getElementById('idInput').value;
+ var id = document.getElementById('idInput').value;
 console.log("Page for item with id " + id);
 
 /*Get the item*/
@@ -87,9 +87,12 @@ makeSaveFunction = function(saveButton, id, name){
           data: payload,
           dataType: 'json',
           success: function(data) {
+			  
           }
       });
       location.reload();
   }; //End of thisSaveFunction defintion
 
 }
+
+
