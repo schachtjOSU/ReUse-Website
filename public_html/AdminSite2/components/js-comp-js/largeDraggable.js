@@ -171,8 +171,8 @@ $(document).delay(50).queue(function(next) {
 });
 
 /*SETTING PLUS BUTTON ON CLICK */
- var pageEditButton = document.querySelector('.fi-plus');
- pageEditButton.addEventListener('click', function() {
+ var addButton = document.querySelector('.fi-plus');
+ addButton.addEventListener('click', function() {
    var id = document.getElementById('idInput').value;
    var pageType = document.getElementById('pageTypeInput').value;
 
@@ -180,12 +180,10 @@ $(document).delay(50).queue(function(next) {
       editBusiness(id);
    }
    if(pageType === 'category'){
-      editCategory(id);
+     document.location.href = "addCategoryPage.php";
    }
    if(pageType === 'item'){
      document.location.href = "addItemPage.php";
-
-      // addItem();
    }
 
 });
