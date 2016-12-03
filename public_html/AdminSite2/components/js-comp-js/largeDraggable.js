@@ -183,7 +183,7 @@ $(document).delay(50).queue(function(next) {
       editCategory(id);
    }
    if(pageType === 'item'){
-      addItem(id);
+      addItem();
    }
 
 });
@@ -279,11 +279,11 @@ $(document).delay(50).queue(function(next) {
   }
 
 
-  function addItem(id){
-    $("input").prop('disabled', false);
-    $(".whenDisabled").hide();
-    $(".whenEnabled").show();
-    $("#add").show();
+  function addItem(){
+    // $("input").prop('disabled', false);
+    // $(".whenDisabled").hide();
+    // $(".whenEnabled").show();
+    // $("#add").show();
   }
 
   function deleteItem(id){

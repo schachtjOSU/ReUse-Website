@@ -37,7 +37,6 @@ function fillSquare(name, category_id, id){
       <span class='box-name'>\
        <input name='name' type='text' id='name'>\
        <button class='btn btn-primary' id='add'>add</button>\
-       <span class='whenDisabled'>" + '' + "</span>\
       </span> \
       <div class='pull-right'> \
         <span class='below-line-container'>\
