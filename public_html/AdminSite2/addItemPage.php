@@ -6,15 +6,11 @@ in allBusinessesPage.php -->
 
 <html>
    <head>
-      <link rel="stylesheet" type="text/css" href="css/newItemPage.css">
+      <link rel="stylesheet" type="text/css" href="css/addItemPage.css">
    </head>
    <body>
      <?php
-          $id = 4;
-          echo "<input type='hidden' id='idInput' value='" . $id . "'>";
-          echo "<input type='hidden' id='pageTypeInput' value='item'>";
-          include("components/largeDraggable.php");
-
+         include("components/largeDraggable.php");
         ?>
 
         <div class="container" style="padding: 4em">
@@ -22,6 +18,6 @@ in allBusinessesPage.php -->
         </div>
 
       <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-      <script src="js/newItemPage.js"></script>
+      <script src="js/addItemPage.js"></script>
    </body>
 </html>

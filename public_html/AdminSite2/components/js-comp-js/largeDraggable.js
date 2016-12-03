@@ -183,7 +183,9 @@ $(document).delay(50).queue(function(next) {
       editCategory(id);
    }
    if(pageType === 'item'){
-      addItem();
+     document.location.href = "addItemPage.php";
+
+      // addItem();
    }
 
 });
@@ -270,6 +272,7 @@ $(document).delay(50).queue(function(next) {
 
   /*********** ITEM OPERATIONS ****************/
 
+//*Add item is up there, it just takes you to the add item page.
 
   function editItem(id){
     $("input").prop('disabled', false);
@@ -278,13 +281,6 @@ $(document).delay(50).queue(function(next) {
     $("#save").show();
   }
 
-
-  function addItem(){
-    // $("input").prop('disabled', false);
-    // $(".whenDisabled").hide();
-    // $(".whenEnabled").show();
-    // $("#add").show();
-  }
 
   function deleteItem(id){
     /*Delete*/
