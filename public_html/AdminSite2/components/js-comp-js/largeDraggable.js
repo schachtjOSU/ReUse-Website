@@ -177,7 +177,7 @@ $(document).delay(50).queue(function(next) {
    var pageType = document.getElementById('pageTypeInput').value;
 
    if(pageType === 'business'){
-      editBusiness(id);
+     document.location.href = "addBusinessPage.php";
    }
    if(pageType === 'category'){
      document.location.href = "addCategoryPage.php";
