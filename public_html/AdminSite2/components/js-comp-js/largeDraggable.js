@@ -171,10 +171,23 @@ $(document).delay(50).queue(function(next) {
 });
 
 /*SETTING PLUS BUTTON ON CLICK */
-var plusItem = document.querySelector('.fi-plus');
-plusItem.addEventListener('click', function() {
-  alert("Add new?");
- });
+ var pageEditButton = document.querySelector('.fi-plus');
+ pageEditButton.addEventListener('click', function() {
+   var id = document.getElementById('idInput').value;
+   var pageType = document.getElementById('pageTypeInput').value;
+
+   if(pageType === 'business'){
+      editBusiness(id);
+   }
+   if(pageType === 'category'){
+      editCategory(id);
+   }
+   if(pageType === 'item'){
+      addItem(id);
+   }
+
+});
+
 
  /*SETTING MINUS BUTTON ON CLICK */
  var minusItem = document.querySelector('.fi-minus');
@@ -265,6 +278,13 @@ plusItem.addEventListener('click', function() {
     $("#save").show();
   }
 
+
+  function addItem(id){
+    $("input").prop('disabled', false);
+    $(".whenDisabled").hide();
+    $(".whenEnabled").show();
+    $("#add").show();
+  }
 
   function deleteItem(id){
     /*Delete*/
