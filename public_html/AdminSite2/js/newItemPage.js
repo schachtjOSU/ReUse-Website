@@ -35,7 +35,7 @@ function fillSquare(name, category_id, id){
  $("#thisList").append("\
     <li class='white-square' id='" +"thisTable" + "'> \
       <span class='box-name'>\
-       <input name='name' type='text' id='name' value='" + '' + "' disabled='disabled'>\
+       <input name='name' type='text' id='name'>\
        <button class='btn btn-primary' id='add'>add</button>\
        <span class='whenDisabled'>" + '' + "</span>\
       </span> \
@@ -44,11 +44,10 @@ function fillSquare(name, category_id, id){
           <span class='below-line'>\
           <span class='lower-left-corner'>\
              \
-           <div class='whenEnabled' style='margin-right: 20%;'>\
+           <div class='whenDisabled' style='margin-right: 20%;'>\
                <label id='cat' for='" + ''+ "'>Category id: </label>  \
-               <input name='cat' class='catId' type='text' value='" + ''+ "' disabled='disabled'>\
+               <input name='cat' class='catId' type='text'>\
            </div>\
-           <span class='whenDisabled'> Category ID: " + ''+ "</span>\
            </span> \
           </span> \
         </span> \
