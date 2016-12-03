@@ -18,15 +18,13 @@ makeaddFunction = function(addButton){
 
    thisaddFunction = function(){
      var newName = $('#name').val();
-     var cat = $('#cat').val();
 
      payload = {};
      payload.name = newName;
-     payload.cat = cat;
 
      $.ajax({
          type: "POST",
-         url: "/RUapi/items",
+         url: "/RUapi/category",
          data: payload,
          dataType: 'json',
          success: function(data) {
