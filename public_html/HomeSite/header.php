@@ -29,7 +29,7 @@
 				</ul>
 				<a href ="home.php">
 					<img id="header-icon" src="../img/CSCLogo.png">
-					<h3 class="text-muted" id="header-title">The Corvallis Reuse and Repair Directory</h3>
+					<h3 class="text-muted" id="header-title">Corvallis-Area ReUse and Repair Directory</h3>
 				</a>
 			</nav>
 		</div>

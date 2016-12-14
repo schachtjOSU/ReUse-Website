@@ -54,9 +54,13 @@ function addItemList(catName) {
 	if(catName === undefined || catName === "") {
 		document.getElementsByClassName("side-container-title")[0].innerHTML = "Items Accepted";
 	}
+	else if(catName == "Repair%20Items") {
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Organizations Repairing " + decodeURI(oldCatName);
+		document.title = "Organizations Repairing " + decodeURI(oldCatName);
+	}
 	else {
-		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses Accepting " + decodeURI(oldCatName);
-		document.title = "Businesses Accepting " + decodeURI(oldCatName);
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Organizations Accepting " + decodeURI(oldCatName);
+		document.title = "Organizations Accepting " + decodeURI(oldCatName);
 	}
 	
 	var req = new XMLHttpRequest();
@@ -133,15 +137,19 @@ function addBusinessList(categoryName, itemName) {
 	
 	//setting the page title 
 	if((itemName === undefined || itemName === "") && (categoryName === undefined || categoryName === "")) {
-		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses";
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Organizations";
+	}
+	else if (categoryName == "Repair%20Items") {
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Organizations Repairing " + decodeURI(oldItemName);
+		document.title = "Organizations Repairing " + decodeURI(oldItemName);
 	}
 	else if(itemName === undefined || itemName === "") {
-		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses Accepting " + decodeURI(oldCategoryName);
-		document.title = "Businesses Accepting " + decodeURI(oldCategoryName);
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Organizations Accepting " + decodeURI(oldCategoryName);
+		document.title = "Organizations Accepting " + decodeURI(oldCategoryName);
 	}
 	else {
-		document.getElementsByClassName("side-container-title")[0].innerHTML = "Businesses Accepting " + decodeURI(oldItemName);
-		document.title = "Businesses Accepting " + decodeURI(oldItemName);
+		document.getElementsByClassName("side-container-title")[0].innerHTML = "Organizations Accepting " + decodeURI(oldItemName);
+		document.title = "Organizations Accepting " + decodeURI(oldItemName);
 	}
 	
 	
