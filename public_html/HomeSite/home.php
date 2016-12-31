@@ -37,18 +37,18 @@
 				<div class="col-md-3 home-text">
 					<h4>Key</h4>
 					<p class="pin-label"><img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|47A6B2" class="pin-icon">Repair Services</p>
-					<p class="pin-label"><img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|F89420" class="pin-icon">Organizations Accepting Items for Resale</p>
+					<p class="pin-label"><img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|F89420" class="pin-icon">Organizations Accepting Items for Reuse</p>
 					<p class="pin-label"><img src="http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|7C903A" class="pin-icon">Recycling Centers</p>
 				</div>
 
 				<div class="col-md-6 home-text">
 					<h4>About</h4>
-					<p>The purpose of the Reuse and Repair Directory is to provide the Corvallis and outlying community a way to easily locate organizations that will accept the follwing. take reusable items that can be sold to the public as used items, 2) take and repair items, and 3) take recyclable items.</p>
+					<p>The purpose of the Corvallis-Area ReUse and Repair Directory is to provide the Corvallis and outlying community a way to easily locate organizations that will 1) take reusable items that can be sold to the public as used items, donated to low-income citizens, or used for the organization's programs; 2) take and repair items; 3) and take recyclable items.</p>
 				</div>
 
 				<div class="col-md-3 home-text" id="donor-thanks">
 					<h4>Sponsors</h4>
-					<p>If you would like to sponsor the Corvallis Reuse and Repair Directory, please <a href="contact.php">let us know</a>. We appreciate your support.</p>
+					<p>If you would like to sponsor the Corvallis-Area ReUse and Repair Directory, please <a href="contact.php">let us know</a>. We appreciate your support.</p>
 				</div>
 			</div>
 			
