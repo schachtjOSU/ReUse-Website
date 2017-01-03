@@ -10,13 +10,11 @@ in allBusinessesPage.php -->
    </head>
    <body>
      <?php
-         include("components/largeDraggable.php");
-        ?>
-
+         include("components/naviDraggable.php");
+      ?>
         <div class="container" style="padding: 4em">
            <?php include("components/gridComponent.php"); ?>
         </div>
-
       <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
       <script src="js/addItemPage.js"></script>
    </body>

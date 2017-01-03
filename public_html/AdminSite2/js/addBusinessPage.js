@@ -1,6 +1,9 @@
 
+/*Set click listener for back button*/
 
-/**/
+$( "#backBtn" ).click(function() {
+  window.location.href = '../adminSite2/allBusinessesPage.php';
+});
 
 /*Add list item to list in allBusinessesPage.php*/
  $("#thisList").append("\
@@ -54,8 +57,7 @@
        addButton.addEventListener('click', thisaddFunction, false);
       }
 
-      /*Function to set a memebr of the clickListenersForSquares[] array
-      to a particular function*/
+      /*Add onclick listeners*/
       makeaddFunction = function(addButton){
 
          thisaddFunction = function(){

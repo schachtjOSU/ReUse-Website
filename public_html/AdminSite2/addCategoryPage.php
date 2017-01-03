@@ -10,7 +10,7 @@ in allBusinessesPage.php -->
    </head>
    <body>
      <?php
-         include("components/largeDraggable.php");
+         include("components/naviDraggable.php");
         ?>
 
         <div class="container" style="padding: 4em">

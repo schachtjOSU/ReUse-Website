@@ -152,8 +152,8 @@ class Menu {
 var menu = new Menu("#myMenu");
 var item1 = new Item("compass");
 var item2 = new Item("bold", "#d6ae7b");
-var item3 = new Item("thumbnails", "#CFDEF3");
-var item4 = new Item("list", "#fd746c");
+var item3 = new Item("info", "#CFDEF3");
+var item4 = new Item("paw", "#fd746c");
 var item5 = new Item("home", "#A2DED0");
 
 menu.add(item1);
@@ -184,12 +184,12 @@ homeItem.addEventListener('click', function() {
     document.location.href = "allBusinessesPage.php";
   });
 
- var categoriesItem = document.querySelector('.fi-list');
+ var categoriesItem = document.querySelector('.fi-paw');
    categoriesItem.addEventListener('click', function() {
    document.location.href = "allCategoriesPage.php";
  });
 
- var itemItem = document.querySelector('.fi-thumbnails');
+ var itemItem = document.querySelector('.fi-info');
  itemItem.addEventListener('click', function() {
     document.location.href = "allItemsPage.php";
   });
