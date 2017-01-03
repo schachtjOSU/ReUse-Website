@@ -7,7 +7,7 @@ in allBusinessesPage.php -->
 <html>
    <head>
       <link rel="stylesheet" type="text/css" href="css/addBusinessPage.css">
-      <link type="text/css" rel="stylesheet" href="components/img-comp-img/foundation-icons/foundation-icons.css">
+      <!-- <link type="text/css" rel="stylesheet" href="components/img-comp-img/foundation-icons/foundation-icons.css"> -->
    </head>
    <body>
      <?php
