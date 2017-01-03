@@ -33,10 +33,7 @@ makeaddFunction = function(addButton){
            console.log("Success");
          }
      });
-    //  location.reload();
      window.location.href = '../adminSite2/allItemsPage.php';
-    //  $(location).attr('href', 'http://stackoverflow.com')
-
  }; //End of thisaddFunction defintion
 
 }

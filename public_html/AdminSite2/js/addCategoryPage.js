@@ -31,7 +31,7 @@ makeaddFunction = function(addButton){
 
          }
      });
-     location.reload();
+     window.location.href = '../adminSite2/allCategoriesPage.php';
  }; //End of thisaddFunction defintion
 
 }
