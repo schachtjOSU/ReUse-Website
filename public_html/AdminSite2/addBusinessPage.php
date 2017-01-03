@@ -12,7 +12,6 @@ in allBusinessesPage.php -->
    <body>
      <?php
           include("components/largeDraggable.php");
-
         ?>
 
         <div class="container" style="padding: 4em">
