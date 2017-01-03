@@ -15,6 +15,8 @@ to where on the page a certain list item is, that would be cool. -->
       <meta charset="UTF-8">
       <title>All Businesses</title>
       <link rel="stylesheet" type="text/css" href="css/allBusinessesPage.css">
+      <!-- To be device responsive: -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
    <body>
       <?php include("components/naviDraggable.php"); ?>
