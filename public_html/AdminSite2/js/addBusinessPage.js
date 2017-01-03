@@ -18,7 +18,17 @@
         </div>\
         <div>\
           <span class='box-detail grid-only'>\
-            <input placeholder='zip_code_input' name='zipInput' type='text' id='zip_code_input'>\
+            <input placeholder='zipcode' name='zip_code_input' type='text' id='zip_code_input'>\
+          </span>\
+        </div>\
+        <div>\
+          <span class='box-detail grid-only'>\
+            <input placeholder='city' name='city_input' type='text' id='city_input'>\
+          </span>\
+        </div>\
+        <div>\
+          <span class='box-detail grid-only'>\
+            <input placeholder='state' name='state_input' type='text' id='state_input'>\
           </span>\
         </div>\
         <span class='box-detail grid-only'> \
@@ -33,8 +43,6 @@
         </span> \
       </div>\
     </li>");
-
-
 
       //This will hold the function to add
       var thisaddFunction;
@@ -51,11 +59,16 @@
       makeaddFunction = function(addButton){
 
          thisaddFunction = function(){
-           console.log("Pressed");
            var newName = $('#name_input').val();
 
            payload = {};
-           payload.name = newName;
+           payload.name = $('#name_input').val();
+           payload.address = $('#address_line_1_input').val();
+           payload.address2 = $('#address_line_2_input').val();
+           payload.zipcode = $('#zip_code_input').val();
+           payload.city = $('#city_input').val();
+           payload.website = $('#website_input').val();
+           payload.phone =  $('#phone_input').val().replace(/\D/g,'');
 
            $.ajax({
                type: "POST",
@@ -63,7 +76,7 @@
                data: payload,
                dataType: 'json',
                success: function(data) {
-
+                 console.log("SUCCESS");
                }
            });
            window.location.href = '../adminSite2/allBusinessesPage.php';

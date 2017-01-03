@@ -353,7 +353,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 *				PUTS -- doing it as POSTS with UPDATES to avoid form issues
 ******************************************************************************************/
 
-    
+
 	/* Update reuse_database.xml */
 
 	/**
@@ -365,7 +365,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 	$app->post('/updateDataForMobile', function(){
 		reuse_generateXML();
 	});
-	
+
 	/* Update a specific category name */
 
 	/**
@@ -530,7 +530,7 @@ $app->response->headers->set('Content-Type', 'application/json');
 			$stateId = $_POST['state'];
 		}
 		else{
-			$stateId = null;
+			$stateId = 37; //Oregon
 		}
 		if (isset($_POST['zipcode']) && !empty($_POST['zipcode'])){
 			$zipcode = $_POST['zipcode'];
