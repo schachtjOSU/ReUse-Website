@@ -5,7 +5,7 @@
 //This will hold the function to add
 var thisaddFunction;
 
-/*Function to set the event listeners*/
+/*Function to set the event listener for when 'add' is pressed*/
 setAddButtonListener = function(){
  var addButton = document.getElementById('add');
  makeaddFunction(addButton);
@@ -30,10 +30,10 @@ makeaddFunction = function(addButton){
          data: payload,
          dataType: 'json',
          success: function(data) {
-
+           console.log("Success");
          }
      });
-     location.reload();
+    //  location.reload();
  }; //End of thisaddFunction defintion
 
 }
@@ -51,8 +51,8 @@ $("#thisList").append("\
          <span class='lower-left-corner'>\
             \
           <div class='whenDisabled' style='margin-right: 20%;'>\
-              <label id='cat' for='" + ''+ "'>Category id: </label>  \
-              <input name='cat' class='catId' type='text'>\
+              <label id='cate' for='" + ''+ "'>Category id: </label>  \
+              <input name='cat' id='cat' class='catId' type='text'>\
           </div>\
           </span> \
          </span> \
@@ -61,4 +61,3 @@ $("#thisList").append("\
    </li>");
 
    setAddButtonListener();
- 
