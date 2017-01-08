@@ -2,7 +2,7 @@
 /*Set click listener for back button*/
 
 $( "#backBtn" ).click(function() {
-  window.location.href = '../adminSite2/allBusinessesPage.php';
+  window.location.href = '../AdminSite2/allBusinessesPage.php';
 });
 
 /*Add list item to list in allBusinessesPage.php*/
