@@ -81,7 +81,7 @@ $( "#backBtn" ).click(function() {
                  console.log("SUCCESS");
                }
            });
-           window.location.href = '../adminSite2/allBusinessesPage.php';
+           window.location.href = '../AdminSite2/allBusinessesPage.php';
        }; //End of thisaddFunction defintion
 
       }

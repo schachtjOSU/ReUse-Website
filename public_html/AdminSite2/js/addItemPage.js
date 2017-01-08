@@ -33,7 +33,7 @@ makeaddFunction = function(addButton){
            console.log("Success");
          }
      });
-     window.location.href = '../adminSite2/allItemsPage.php';
+     window.location.href = '../AdminSite2/allItemsPage.php';
  }; //End of thisaddFunction defintion
 
 }
