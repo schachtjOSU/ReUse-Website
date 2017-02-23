@@ -157,18 +157,22 @@ class Menu {
 
 /*The idea is that these would be the options for
 businesses, items, and categories, though there
-aren't really any obvious symbols for categories or items*/
+aren't really any obvious symbols for categories or items
+Foundation Icon Fonts
+*/
 var menu = new Menu("#myMenu");
 var item1 = new Item("trees"); //Press for menu options
 var item2 = new Item("bold", "#d6ae7b");
 var item3 = new Item("info", "#CFDEF3");
 var item4 = new Item("paw", "#fd746c");
+var item5 = new Item("magnifying-glass", "#b420c1")
 
 
 menu.add(item1);
 menu.add(item2);
 menu.add(item3);
 menu.add(item4);
+menu.add(item5);
 
 
 
@@ -183,6 +187,7 @@ $(document).delay(50).queue(function(next) {
 
 
 /*Set the onclick listeners to navigate to the categories, items, and busienss pages*/
+/*2/4/2017 - Adding listener for navigation to Search page.*/
 var businessItem = document.querySelector('.fi-bold');
 businessItem.addEventListener('click', function() {
    document.location.href = "allBusinessesPage.php";
@@ -197,3 +202,8 @@ var itemItem = document.querySelector('.fi-info');
 itemItem.addEventListener('click', function() {
    document.location.href = "allItemsPage.php";
  });
+
+var searchItem = document.querySelector('.fi-magnifying-glass');
+searchItem.addEventListener('click', function() {
+    document.location.href = "searchPage.php";
+});

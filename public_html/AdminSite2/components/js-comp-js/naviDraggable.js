@@ -155,12 +155,14 @@ var item2 = new Item("bold", "#d6ae7b");
 var item3 = new Item("info", "#CFDEF3");
 var item4 = new Item("paw", "#fd746c");
 var item5 = new Item("home", "#A2DED0");
+var item6 = new Item("magnifying-glass", "#b420c1")
 
 menu.add(item1);
 menu.add(item2);
 menu.add(item3);
 menu.add(item4);
 menu.add(item5);
+menu.add(item6);
 
 // menu.add(item5);
 $(document).delay(50).queue(function(next) {
@@ -174,6 +176,7 @@ $(document).delay(50).queue(function(next) {
 
 /*Set the onclick listeners to navigate to the
 categories, items, and busienss, and admin home pages*/
+/*2/4/2017 - Adding listener for navigation to Search page.*/
 var homeItem = document.querySelector('.fi-home');
 homeItem.addEventListener('click', function() {
   document.location.href = "main.php";
@@ -193,3 +196,8 @@ homeItem.addEventListener('click', function() {
  itemItem.addEventListener('click', function() {
     document.location.href = "allItemsPage.php";
   });
+
+var searchItem = document.querySelector('.fi-magnifying-glass');
+searchItem.addEventListener('click', function() {
+    document.location.href = "searchPage.php";
+});

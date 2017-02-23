@@ -12,8 +12,8 @@
    <a href='allBusinessesPage.php'><div class="popout_menu_item uno">1<span>Businesses</span></div></a>
    <a href='allCategoriesPage.php'><div class="popout_menu_item dos">2<span>Categories</span></div></a>
    <a href='allItemsPage.php'><div class="popout_menu_item tres">3<span>Items</span></div></a>
-   <a href='loginPage.php'><div class="popout_menu_item cuatro">4<span>Log Out</span></div></a>
-   <div class="popout_menu_item cinco">5<span>Something</span></div>
+   <a href='searchPage.php'><div class="popout_menu_item cuatro">4<span>Search</span></div></a>
+   <a href='loginPage.php'><div class="popout_menu_item cinco">5<span>Log Out</span></div></a>
 </div>
 
 <div class="title">

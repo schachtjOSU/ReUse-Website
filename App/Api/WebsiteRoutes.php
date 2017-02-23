@@ -380,4 +380,70 @@
 	    $mysqli->close();
 	});
 
+	/**
+	* Request for business with LIKE name
+	* Updated 2/16/2017 - Jeffrey Schachtsick
+	*
+	*/
+	$app->get('/businessSearch/:term', function($term){
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.name LIKE '%$term%'");
+
+		$returnArray = array();
+		while($row = $result->fetch_object()){
+			$returnArray[] = $row;
+		}
+
+		echo json_encode($returnArray);
+
+		$result->close();
+		$mysqli->close();
+
+	});
+
+	/**
+	* Request for categories with LIKE name
+	* Updated 2/16/2017 - Jeffrey Schachtsick
+	*
+	*/
+	$app->get('/categorySearch/:term', function($term){
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT name, id FROM Reuse_Categories WHERE Reuse_Categories.name LIKE '%$term%'");
+
+		$returnArray = array();
+		while($row = $result->fetch_object()){
+			$returnArray[] = $row;
+		}
+
+		echo json_encode($returnArray);
+
+		$result->close();
+		$mysqli->close();
+
+	});
+
+	/**
+	* Request for items with LIKE name
+	* Updated 2/16/2017 - Jeffrey Schachtsick
+	*
+	*/
+	$app->get('/itemSearch/:term', function($term){
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT name, id, category_id FROM Reuse_Items WHERE Reuse_Items.name LIKE '%$term%'");
+
+		$returnArray = array();
+		while($row = $result->fetch_object()){
+			$returnArray[] = $row;
+		}
+
+		echo json_encode($returnArray);
+
+		$result->close();
+		$mysqli->close();
+
+	});
+
 	?>

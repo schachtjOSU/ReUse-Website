@@ -43,7 +43,11 @@
 
 				<div class="col-md-6 home-text">
 					<h4>About</h4>
-					<p>The purpose of the Corvallis-Area ReUse and Repair Directory is to provide the Corvallis and outlying community a way to easily locate organizations that will 1) take reusable items that can be sold to the public as used items, donated to low-income citizens, or used for the organization's programs; 2) take and repair items; 3) and take recyclable items.</p>
+					<p>The purpose of the Corvallis-Area ReUse and Repair Directory is to provide the Corvallis and outlying community a way to easily locate organizations that will
+						1) take reusable items that can be sold to the public as used items, donated to low-income citizens, or used for the organization's programs;
+						2) take and repair items;
+						3) and take recyclable items.</p>
+					<p>Donated items should be clean and in good, working condition.</p>
 				</div>
 
 				<div class="col-md-3 home-text" id="donor-thanks">

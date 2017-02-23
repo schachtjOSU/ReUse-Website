@@ -187,6 +187,72 @@ $app->response->headers->set('Content-Type', 'application/json');
 	    $mysqli->close();
 	});
 
+	/**
+	* Request for business with LIKE name
+	* Updated 2/10/2017 - Jeffrey Schachtsick
+	*
+	*/
+	$app->get('/businessSearch/:term', function($term){
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT name, id, address_line_1, address_line_2, state_id, phone, website, city, zip_code FROM Reuse_Locations WHERE Reuse_Locations.name LIKE '%$term%'");
+
+		$returnArray = array();
+		while($row = $result->fetch_object()){
+			$returnArray[] = $row;
+		}
+
+		echo json_encode($returnArray);
+
+		$result->close();
+		$mysqli->close();
+
+	});
+
+	/**
+	* Request for categories with LIKE name
+	* Updated 2/12/2017 - Jeffrey Schachtsick
+	*
+	*/
+	$app->get('/categorySearch/:term', function($term){
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT name, id FROM Reuse_Categories WHERE Reuse_Categories.name LIKE '%$term%'");
+
+		$returnArray = array();
+		while($row = $result->fetch_object()){
+			$returnArray[] = $row;
+		}
+
+		echo json_encode($returnArray);
+
+		$result->close();
+		$mysqli->close();
+
+	});
+
+	/**
+	* Request for items with LIKE name
+	* Updated 2/12/2017 - Jeffrey Schachtsick
+	*
+	*/
+	$app->get('/itemSearch/:term', function($term){
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT name, id, category_id FROM Reuse_Items WHERE Reuse_Items.name LIKE '%$term%'");
+
+		$returnArray = array();
+		while($row = $result->fetch_object()){
+			$returnArray[] = $row;
+		}
+
+		echo json_encode($returnArray);
+
+		$result->close();
+		$mysqli->close();
+
+	});
+
 
 	/**
 	 * @api {get} /items/:id Request item name and category id from item id.
@@ -214,6 +280,31 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 
 	/**
+	* @api {get} /item/:cat Request item names by category id
+	* @apiName ReUseApp
+	* @apiGroup RUapi
+	*
+	* @apiParam {integer} cat Category ID
+	*
+	* @apiSuccess {string[]} name Name of all items in category in JSON format.
+	*/
+	$app->get('/items/:cat', function($cat){
+		$mysqli = connectReuseDB();
+
+		$result = $mysqli->query("SELECT name, id, category_id FROM Reuse_Items WHERE Reuse_Items.category_id = '".$cat."'");
+
+		$returnArray = array();
+		while($row = $result->fetch_object()){
+			$returnArray[] = $row;
+		}
+
+		echo json_encode($returnArray);
+
+		$result->close();
+		$mysqli->close();
+	});
+
+	/**
 	 * @api {get} /businessdocs/:id Request all documents for a given business.
  	 * @apiName ReUseApp
 	 * @apiGroup RUapi
@@ -237,6 +328,9 @@ $app->response->headers->set('Content-Type', 'application/json');
 	    $result->close();
 	    $mysqli->close();
 	});
+
+
+
 
 /************************************************************************************
 *					DELETES
@@ -451,6 +545,8 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$state = $_POST['state'];
 		$phone = $_POST['phone'];
 		$website = $_POST['website'];
+		$latitude = $_POST['latitude'];
+		$longitude = $_POST['longitude'];
 
 		$mysqli = connectReuseDB();
 		if($state != 'undefined' && $oldName != 'undefined'){
@@ -477,12 +573,18 @@ $app->response->headers->set('Content-Type', 'application/json');
 		if($name != 'undefined' && $oldName != 'undefined'){
 			$mysqli->query("UPDATE Reuse_Locations SET name = '$name' WHERE name = '$oldName'");
 		}
+		if($latitude != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Locations SET latitude = '$latitude' WHERE name = '$oldName'");
+		}
+		if($longitude != 'undefined' && $oldName != 'undefined'){
+			$mysqli->query("UPDATE Reuse_Locations SET longitude = '$longitude' WHERE name = '$oldName'");
+		}
 		$mysqli->close();
 
 		/* Update Mobile Database */
 		reuse_generateXML();
 
-    echo json_encode("success");
+	echo json_encode("success");
 	});
 
 
@@ -544,6 +646,18 @@ $app->response->headers->set('Content-Type', 'application/json');
 		else {
 			$phone = null;
 		}
+		if (isset($_POST['latitude']) && !empty($_POST['latitude'])){
+			$latitude = $_POST['latitude'];
+		}
+		else{
+			$latitude = null;
+		}
+		if (isset($_POST['longitude']) && !empty($_POST['longitude'])){
+			$latitude = $_POST['longitude'];
+		}
+		else{
+			$latitude = null;
+		}
 		if (isset($_POST['website']) && !empty($_POST['website'])){
 			$website = $_POST['website'];
 		}
@@ -567,15 +681,17 @@ $app->response->headers->set('Content-Type', 'application/json');
 		$mysqli->close();
 
 
-		/* Geocode address for storage */
-		$latlong = bingGeocode($address, $city, $state, $zipcode);
+		/* Geocode address for storage if not set */
+		if($latitude == null || $longitude == null){
+			$latlong = bingGeocode($address, $city, $state, $zipcode);
 
-		if ($latlong == false) {
-			$latitude = null;
-			$longitude = null;
-		} else {
-			$latitude = $latlong['lat'];
-			$longitude = $latlong['long'];
+			if ($latlong == false) {
+				$latitude = null;
+				$longitude = null;
+			} else {
+				$latitude = $latlong['lat'];
+				$longitude = $latlong['long'];
+			}
 		}
 
 

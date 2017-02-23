@@ -39,7 +39,7 @@
 							<li>Reusable items that can be re-sold to the public as used items, donated to low-income citizens, or used for the organization's programs</li>
 							<li>Recyclable items</li>
 						</ul>
-						<p >Please note that reusable items may either be donated or sold on consignment.<p>
+						<p >Please note that reusable items may either be donated or sold on consignment.  Donated items should be clean and in good, working condition.<p>
 						<p >To add an organization or service to the directory or to update information included in the directory, <a href="contact.php">contact us with the relevant details</a>.</p>
 					</div>
 					<div id = "about-donors">
